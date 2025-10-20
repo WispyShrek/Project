@@ -1,0 +1,6 @@
+#include "Card.h"
+
+void Card::pay() {
+	// TODO - implement Card::pay
+	throw "Not yet implemented";
+}
