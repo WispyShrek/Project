@@ -1,9 +1,10 @@
 #ifndef PLANTCARETAKER_H
 #define PLANTCARETAKER_H
 
-#include "Garden.h"
 #include "Staff.h"
 #include <queue>
+
+class Garden;
 
 class PlantCaretaker : Staff {
 private:

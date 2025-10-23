@@ -5,14 +5,14 @@
 
 template <typename T>
 
-class Inventory : Collection{
+class Inventory : public Collection<T> {
 
 public:
-	void addItem(T item);
-	Iterator* CreateIterator();
-	T getCurrItem();
-	bool isEmpty();
-	void removeItem(T item);
+  void addItem(T item);
+  Iterator<T> *CreateIterator();
+  T getCurrItem();
+  bool isEmpty();
+  void removeItem(T item);
 };
 
 #endif

@@ -4,13 +4,13 @@
 #include "Iterator.h"
 template <typename T>
 
-class InventoryIterator : Iterator{
+class InventoryIterator : public Iterator<T> {
 public:
-	T currItem();
-	void first();
-	bool isDone();
-	void next();
-	void prev();
+  T currItem();
+  void first();
+  bool isDone();
+  void next();
+  void prev();
 };
 
 #endif

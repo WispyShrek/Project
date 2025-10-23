@@ -2,12 +2,11 @@
 #define EASYCUST_H
 #include "Customer.h"
 
-class EasyCust : Customer{
-
+class EasyCust : public Customer {
 
 public:
-	void get();
-	void set();
+  void get();
+  void set();
 };
 
 #endif

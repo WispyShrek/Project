@@ -11,10 +11,11 @@ private:
 public:
   virtual void Print() = 0;
   void addItem(Garden *item);
-  Iterator<std::vector<int>> *CreateIterator();
+  Iterator<Garden *> *CreateIterator();
   Garden *getCurrItem();
   bool isEmpty();
-  // void removeItem(T item);
+  void removeItem(Garden *item);
+  void TemplateMethod();
   virtual void applyRays() = 0;
   void applyCare();
   /*! @fn void Garden::attach(PlantCaretaker *staff)

@@ -1,12 +1,12 @@
 #ifndef LAVENDERCREATOR_H
 #define LAVENDERCREATOR_H
-#include "PlantCreator.h"
 #include "Plant.h"
+#include "PlantCreator.h"
 
-class LavenderCreator : PlantCreator{
+class LavenderCreator : public PlantCreator {
 public:
-	Plant* createPlant();
-	LavenderCreator();
+  Plant *createPlant();
+  LavenderCreator();
 };
 
 #endif

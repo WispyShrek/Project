@@ -4,11 +4,11 @@
 #include "Command.h"
 #include "Sprinkler.h"
 
-class SprinklersOn : Command {
+class SprinklersOn : public Command {
 public:
-	Sprinkler* sprinklers;
-	SprinklersOn();
-	void execute();
+  Sprinkler *sprinklers;
+  SprinklersOn();
+  void execute();
 };
 
 #endif

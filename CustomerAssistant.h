@@ -1,13 +1,13 @@
 #ifndef CUSTOMERASSISTANT_H
 #define CUSTOMERASSISTANT_H
-#include "Staff.h"
 #include "Customer.h"
+#include "Staff.h"
 
-class CustomerAssistant : Staff {
+class CustomerAssistant : public Staff {
 public:
-	CustomerAssistant();
-	void care();
-	void notify(Customer* customer);
+  CustomerAssistant();
+  void care();
+  void notify(Customer *customer);
 };
 
 #endif

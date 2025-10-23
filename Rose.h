@@ -2,13 +2,13 @@
 #define ROSE_H
 
 #include "Plant.h"
-class Rose : Plant{
+class Rose : public Plant {
 public:
-	Rose();
-	Rose* clone();
+  Rose();
+  Rose *clone();
 
 protected:
-	Rose(Rose& toCopy);
+  Rose(Rose &toCopy);
 };
 
 #endif

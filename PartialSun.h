@@ -3,11 +3,11 @@
 
 #include "Garden.h"
 
-class PartialSun : Garden{
+class PartialSun : public Garden {
 
 public:
-	PartialSun();
-	void applyRays();
+  PartialSun();
+  void applyRays();
 };
 
 #endif

@@ -1,13 +1,13 @@
 #ifndef MATURE_H
 #define MATURE_H
 
-#include "PlantState.h"
 #include "Plant.h"
+#include "PlantState.h"
 
-class Mature : PlantState{
+class Mature : public PlantState {
 public:
-	void next(Plant* context);
-	void prev(Plant* context);
+  void next(Plant *context);
+  void prev(Plant *context);
 };
 
 #endif

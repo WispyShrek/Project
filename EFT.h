@@ -2,9 +2,9 @@
 #define EFT_H
 #include "PaymentStartegy.h"
 
-class EFT : PaymentStartegy{
+class EFT : public PaymentStartegy {
 public:
-	void pay();
+  void pay();
 };
 
 #endif

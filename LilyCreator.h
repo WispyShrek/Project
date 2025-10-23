@@ -1,13 +1,13 @@
 #ifndef LILYCREATOR_H
 #define LILYCREATOR_H
 
-#include "PlantCreator.h"
 #include "Plant.h"
+#include "PlantCreator.h"
 
-class LilyCreator : PlantCreator{
+class LilyCreator : public PlantCreator {
 public:
-	Plant* createPlant();
-	LilyCreator();
+  Plant *createPlant();
+  LilyCreator();
 };
 
 #endif

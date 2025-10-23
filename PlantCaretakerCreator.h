@@ -1,12 +1,12 @@
 #ifndef PLANTCARETAKERCREATOR_H
 #define PLANTCARETAKERCREATOR_H
-#include "StaffCreator.h"
 #include "Staff.h"
+#include "StaffCreator.h"
 
-class PlantCaretakerCreator : StaffCreator{
+class PlantCaretakerCreator : public StaffCreator {
 public:
-	PlantCaretakerCreator();
-	Staff* createStaff();
+  PlantCaretakerCreator();
+  Staff *createStaff();
 };
 
 #endif

@@ -2,12 +2,11 @@
 #define DECORATIVEPOT_H
 #include "Customisation.h"
 
-class DecorativePot : Customisation{
-
+class DecorativePot : public Customisation {
 
 public:
-	void increasePrice();
-	void addCust();
+  void increasePrice();
+  void addCust();
 };
 
 #endif

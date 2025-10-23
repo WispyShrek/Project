@@ -1,21 +1,17 @@
 #include "Garden.h"
 #include <algorithm>
 
-template <typename T> void Garden<T>::addItem(Garden *item) {}
+void Garden::addItem(Garden *item) {}
 
-template <typename T> Iterator *Garden<T>::CreateIterator() { return nullptr; }
+Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
 
-// template <typename T>
-// Garden *Garden<T>::getCurrItem()
-//{
-//     return nullptr;
-// }
+Garden *Garden::getCurrItem() {}
 
-template <typename T> bool Garden<T>::isEmpty() { return false; }
+bool Garden::isEmpty() { return false; }
 
-template <typename T> void Garden<T>::removeItem(T item) {}
+void Garden::removeItem(Garden *item) {}
 
-void applyCare() {}
+void Garden::TemplateMethod() {}
 
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 

@@ -1,4 +1,5 @@
 #include "PlantCaretaker.h"
+#include "Garden.h"
 
 PlantCaretaker::PlantCaretaker() {
   // TODO - implement PlantCaretaker::PlantCaretaker

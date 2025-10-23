@@ -3,10 +3,10 @@
 
 #include "PlantCreator.h"
 
-class TulipCreator : PlantCreator{
+class TulipCreator : public PlantCreator {
 public:
-	Plant* createPlant();
-	TulipCreator();
+  Plant *createPlant();
+  TulipCreator();
 };
 
 #endif
