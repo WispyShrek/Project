@@ -4,11 +4,7 @@ void Garden::addItem(Garden *item) {}
 
 Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
 
-// template <typename T>
-// Garden *Garden<T>::getCurrItem()
-//{
-//     return nullptr;
-// }
+Garden *Garden::getCurrItem() {}
 
 bool Garden::isEmpty() { return false; }
 
