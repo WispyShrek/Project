@@ -13,6 +13,8 @@ void Garden::removeItem(Garden *item) {}
 
 void Garden::TemplateMethod() {}
 
+void Garden::applyCare() {}
+
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
 void Garden::detach(PlantCaretaker *staff) {
