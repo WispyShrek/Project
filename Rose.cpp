@@ -2,15 +2,17 @@
 
 Rose::Rose() {
 	// TODO - implement Rose::Rose
-	throw "Not yet implemented";
 }
 
 Rose* Rose::clone() {
 	// TODO - implement Rose::clone
-	throw "Not yet implemented";
+	return nullptr;
+}
+
+void Rose::print(){
+	std::cout << "Rose" << std::endl;
 }
 
 Rose::Rose(Rose& toCopy) {
 	// TODO - implement Rose::Rose
-	throw "Not yet implemented";
 }

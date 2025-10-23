@@ -5,6 +5,7 @@
 #include "PlantMemento.h"
 #include "PlantState.h"
 #include <string>
+#include <iostream>
 
 class Plant : public Garden {
 
@@ -23,7 +24,7 @@ public:
   void nextState();
   void prevState();
   void applyCare();
-  void Print();
+  virtual void Print();
   void addCust();
   PlantMemento *createPlantMemento();
   void setPlantMemento(PlantMemento *memento);

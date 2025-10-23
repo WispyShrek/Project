@@ -2,10 +2,9 @@
 
 Plant* TulipCreator::createPlant() {
 	// TODO - implement TulipCreator::createPlant
-	throw "Not yet implemented";
+	return nullptr;
 }
 
 TulipCreator::TulipCreator() {
 	// TODO - implement TulipCreator::TulipCreator
-	throw "Not yet implemented";
 }

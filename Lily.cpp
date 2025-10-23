@@ -2,15 +2,17 @@
 
 Lily::Lily() {
 	// TODO - implement Lily::Lily
-	throw "Not yet implemented";
 }
 
 Lily* Lily::clone() {
 	// TODO - implement Lily::clone
-	throw "Not yet implemented";
+	return nullptr;
+}
+
+void Lily::print(){
+	std::cout << "Lily" << std::endl;
 }
 
 Lily::Lily(Lily& toCopy) {
 	// TODO - implement Lily::Lily
-	throw "Not yet implemented";
 }

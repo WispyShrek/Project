@@ -2,10 +2,9 @@
 
 Plant* RoseCreator::createPlant() {
 	// TODO - implement RoseCreator::createPlant
-	throw "Not yet implemented";
+	return nullptr;
 }
 
 RoseCreator::RoseCreator() {
 	// TODO - implement RoseCreator::RoseCreator
-	throw "Not yet implemented";
 }

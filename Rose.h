@@ -6,6 +6,7 @@ class Rose : public Plant {
 public:
   Rose();
   Rose *clone();
+  void print() override;
 
 protected:
   Rose(Rose &toCopy);

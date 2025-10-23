@@ -4,7 +4,9 @@ void Garden::addItem(Garden *item) {}
 
 Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
 
-Garden *Garden::getCurrItem() {}
+Garden *Garden::getCurrItem() {
+    return nullptr;
+}
 
 bool Garden::isEmpty() { return false; }
 

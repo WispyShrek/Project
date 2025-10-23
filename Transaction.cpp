@@ -2,5 +2,4 @@
 
 void Transaction::pay() {
 	// TODO - implement Transaction::pay
-	throw "Not yet implemented";
 }

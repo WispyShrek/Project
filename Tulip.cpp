@@ -2,15 +2,17 @@
 
 Tulip::Tulip() {
 	// TODO - implement Tulip::Tulip
-	throw "Not yet implemented";
 }
 
 Tulip* Tulip::clone() {
 	// TODO - implement Tulip::clone
-	throw "Not yet implemented";
+	return nullptr;
+}
+
+void Tulip::print(){
+	std::cout << "Tulip" << std::endl;
 }
 
 Tulip::Tulip(Tulip& toCopy) {
-	// TODO - implement Tulip::Tulip
-	throw "Not yet implemented";
+	// TODO - implement Tulip::Tulip;
 }

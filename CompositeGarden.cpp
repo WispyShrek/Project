@@ -1,21 +1,38 @@
 #include "CompositeGarden.h"
 
-CompositeGarden::CompositeGarden() {
-  // TODO - implement CompositeGarden::CompositeGarden
-  throw "Not yet implemented";
+CompositeGarden::CompositeGarden(){
+  //default constructor
 }
 
-void CompositeGarden::addGarden(Garden *g) {
-  // TODO - implement CompositeGarden::addGarden
-  throw "Not yet implemented";
+//adds child to list
+void CompositeGarden::addGarden(Garden *g){
+  gardens.push_back(g);
 }
 
-void CompositeGarden::removeGarden(Garden *g) {
-  // TODO - implement CompositeGarden::removeGarden
-  throw "Not yet implemented";
+//removes child from list
+void CompositeGarden::removeGarden(Garden *g){
+  gardens.remove(g);
+  delete g;
 }
 
-void CompositeGarden::print() {
-  // TODO - implement CompositeGarden::print
-  throw "Not yet implemented";
+//prints all children
+void CompositeGarden::print(){
+  for(std::list<Garden*>::iterator it = gardens.begin(); it!= gardens.end(); ++it){
+    (*it)->print();
+  }
+}
+
+//prints child at given index
+void CompositeGarden::printChild(int param){
+  std::list<Garden*>::iterator it = gardens.begin();
+  std::advance(it, param);
+  (*it)->print();
+}
+
+//destructor
+//deletes all children in the list
+CompositeGarden::~CompositeGarden(){
+  for(std::list<Garden*>::iterator it = gardens.begin(); it != gardens.end(); ++it){
+    delete *it;
+  }
 }
