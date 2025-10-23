@@ -4,12 +4,12 @@
 #include "Command.h"
 #include "Light.h"
 
-class LightsOn : Command{
+class LightsOn : public Command {
 
 public:
-	Light* lights;
-	LightsOn();
-	void execute();
+  Light *lights;
+  LightsOn();
+  void execute();
 };
 
 #endif

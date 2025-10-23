@@ -3,10 +3,10 @@
 
 #include "PlantCreator.h"
 
-class RoseCreator : PlantCreator {
+class RoseCreator : public PlantCreator {
 public:
-	Plant* createPlant();
-	RoseCreator();
+  Plant *createPlant();
+  RoseCreator();
 };
 
 #endif

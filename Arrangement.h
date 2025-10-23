@@ -2,10 +2,10 @@
 #define ARRANGEMENT_H
 #include "Customisation.h"
 
-class Arrangement : Customisation{
+class Arrangement : public Customisation {
 public:
-	void increasePrice();
-	void addCust();
+  void increasePrice();
+  void addCust();
 };
 
 #endif

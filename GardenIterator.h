@@ -1,15 +1,15 @@
 #ifndef GARDENITERATOR_H
 #define GARDENITERATOR_H
-#include "Iterator.h"
 #include "Garden.h"
+#include "Iterator.h"
 
-class GardenIterator : Iterator{
+class GardenIterator : public Iterator<Garden *> {
 public:
-	Garden* currItem();
-	void first();
-	bool isDone();
-	void next();
-	void prev();
+  Garden *currItem();
+  void first();
+  bool isDone();
+  void next();
+  void prev();
 };
 
 #endif

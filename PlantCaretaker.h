@@ -3,11 +3,11 @@
 
 #include "Staff.h"
 
-class PlantCaretaker : Staff{
+class PlantCaretaker : public Staff {
 public:
-	PlantCaretaker();
-	void care();
-	void update();
+  PlantCaretaker();
+  void care();
+  void update();
 };
 
 #endif

@@ -6,17 +6,17 @@
 class Nursery {
 
 private:
-	static Nursery* uniqueInstance;
-	Garden* garden;
-	Staff* staff;
+  static Nursery *uniqueInstance;
+  Garden *gardens;
+  Staff *staff;
 
 public:
-	static Nursery* instance();
+  static Nursery *instance();
 
 protected:
-	Nursery();
-	~Nursery();
-	Nursery(Nursery& in);
+  Nursery();
+  ~Nursery();
+  Nursery(Nursery &in);
 };
 
 #endif

@@ -1,12 +1,12 @@
 #ifndef CUSTOMERASSISTANTCREATOR_H
 #define CUSTOMERASSISTANTCREATOR_H
-#include "StaffCreator.h"
 #include "CustomerAssistant.h"
+#include "StaffCreator.h"
 
-class CustomerAssistantCreator : StaffCreator {
+class CustomerAssistantCreator : public StaffCreator {
 public:
-	CustomerAssistantCreator();
-	Staff* createStaff();
+  CustomerAssistantCreator();
+  Staff *createStaff();
 };
 
 #endif

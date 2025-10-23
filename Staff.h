@@ -1,15 +1,15 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-#include "SalesFloor.h"
 #include "Customer.h"
+#include "SalesFloor.h"
 
-class Staff : SalesFloor{
+class Staff : public SalesFloor {
 public:
-	Customer* custList;
-	virtual void care() = 0;
-	virtual void notify(Customer* customer) = 0;
-	virtual void update() = 0;
+  Customer *custList;
+  virtual void care() = 0;
+  virtual void notify(Customer *customer) = 0;
+  virtual void update() = 0;
 };
 
 #endif

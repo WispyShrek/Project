@@ -2,9 +2,9 @@
 #define CARD_H
 #include "PaymentStartegy.h"
 
-class Card : PaymentStartegy{
+class Card : public PaymentStartegy {
 public:
-	void pay();
+  void pay();
 };
 
 #endif

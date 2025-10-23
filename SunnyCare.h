@@ -3,9 +3,9 @@
 
 #include "CareStrategy.h"
 
-class SunnyCare : CareStrategy {
+class SunnyCare : public CareStrategy {
 public:
-	void applyCare();
+  void applyCare();
 };
 
 #endif

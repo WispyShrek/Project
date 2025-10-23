@@ -2,11 +2,10 @@
 #define CASH_H
 #include "PaymentStartegy.h"
 
-class Cash : PaymentStartegy{
-
+class Cash : public PaymentStartegy {
 
 public:
-	void pay();
+  void pay();
 };
 
 #endif

@@ -1,50 +1,23 @@
 #include "Garden.h"
 
+void Garden::addItem(Garden *item) {}
 
+Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
 
-template <typename T>
-void Garden<T>::addItem(Garden *item){
-}
-
-template <typename T>
-Iterator *Garden<T>::CreateIterator()
-{
-    return nullptr;
-}
-
-//template <typename T>
-//Garden *Garden<T>::getCurrItem()
+// template <typename T>
+// Garden *Garden<T>::getCurrItem()
 //{
-//    return nullptr;
-//}
+//     return nullptr;
+// }
 
-template <typename T>
-bool Garden<T>::isEmpty()
-{
-    return false;
-}
+bool Garden::isEmpty() { return false; }
 
-template <typename T>
-void Garden<T>::removeItem(T item)
-{
-}
+void Garden::removeItem(Garden *item) {}
 
-template <typename T>
-void Garden<T>::TemplateMethod()
-{
-}
+void Garden::TemplateMethod() {}
 
-template <typename T>
-void Garden<T>::attach(Staff *staff)
-{
-}
+void Garden::attach(Staff *staff) {}
 
-template <typename T>
-void Garden<T>::detach(Staff *staff)
-{
-}
+void Garden::detach(Staff *staff) {}
 
-template <typename T>
-void Garden<T>::notify()
-{
-}
+void Garden::notify() {}

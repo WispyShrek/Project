@@ -3,12 +3,13 @@
 
 #include "Plant.h"
 
-class Lily : Plant{
+class Lily : public Plant {
 public:
-	Lily();
-	Lily* clone();
+  Lily();
+  Lily *clone();
+
 protected:
-	Lily(Lily& toCopy);
+  Lily(Lily &toCopy);
 };
 
 #endif

@@ -2,16 +2,15 @@
 #define LAVENDER_H
 #include "Plant.h"
 
-class Lavender : Plant {
-
+class Lavender : public Plant {
 
 public:
-	Lavender();
+  Lavender();
 
-	Lavender* clone();
+  Lavender *clone();
 
 protected:
-	Lavender(Lavender& toCopy);
+  Lavender(Lavender &toCopy);
 };
 
 #endif
