@@ -3,6 +3,7 @@
 #include "Collection.h"
 #include "Staff.h"
 #include <iostream>
+#include "GardenIterator.h"
 
 class Garden : public Collection<Garden *> {
 public:
@@ -12,8 +13,6 @@ public:
   //the methods used for the iterator DP, the concrete methods.
   void addItem(Garden *item) override;
   Iterator<Garden*> * CreateIterator() override;
-  Garden *getCurrItem() override;
-  bool isEmpty() override;
   void removeItem(Garden *item) override;
 
   void TemplateMethod();
@@ -27,6 +26,8 @@ public:
   virtual void removeGarden(Garden *g){(void)g;}
   virtual void print(){}
   virtual void printChild(int param){}
+private:
+  std::vector<Garden*> children;
 
 };
 

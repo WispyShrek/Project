@@ -3,14 +3,21 @@
 
 #include "Iterator.h"
 #include "Inventory.h"
+#include <vector>
+#include <string>
+#include <iostream>
 
-class InventoryIterator : public Iterator<Inventory*> {
+class InventoryIterator : public Iterator<std::string> {
   public:
-    Inventory* currItem() override;
+    InventoryIterator(std::vector<std::string> & items);
+    std::string currItem() override;
     void first() override;
     bool isDone() override;
     void next() override;
     void prev() override;
+  private:
+    int currentIndex;
+    std::vector<std::string> items;
 };
 
 #endif

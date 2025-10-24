@@ -1,18 +1,11 @@
 #include "Inventory.h"
 
 void Inventory::addItem(std::string item){
+    inventoryItems.push_back(item);
 }
 
 Iterator<std::string> *Inventory::CreateIterator(){
-    return nullptr;
-}
-
-std::string Inventory::getCurrItem(){
-    return std::string();
-}
-
-bool Inventory::isEmpty(){
-    return false;
+    return new InventoryIterator(inventoryItems);
 }
 
 void Inventory::removeItem(std::string item){

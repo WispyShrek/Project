@@ -1,16 +1,16 @@
 #include "Garden.h"
 
-void Garden::addItem(Garden *item) {}
-
-Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
-
-Garden *Garden::getCurrItem() {
-    return nullptr;
+void Garden::addItem(Garden *item) {
+    addGarden(item);
 }
 
-bool Garden::isEmpty() { return false; }
+Iterator<Garden *> *Garden::CreateIterator() { 
+    return new GardenIterator(children); 
+}
 
-void Garden::removeItem(Garden *item) {}
+void Garden::removeItem(Garden *item) {
+    removeGarden(item);
+}
 
 void Garden::TemplateMethod() {}
 
