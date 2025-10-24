@@ -1,28 +1,18 @@
 #include "InventoryIterator.h"
 
-template <typename T>
-inline T InventoryIterator<T>::currItem()
-{
-    return T();
+Inventory *InventoryIterator::currItem(){
+    return nullptr;
 }
 
-template <typename T>
-void InventoryIterator<T>::first()
-{
+void InventoryIterator::first(){
 }
 
-template <typename T>
-bool InventoryIterator<T>::isDone()
-{
+bool InventoryIterator::isDone(){
     return false;
 }
 
-template <typename T>
-void InventoryIterator<T>::next()
-{
+void InventoryIterator::next(){
 }
 
-template <typename T>
-void InventoryIterator<T>::prev()
-{
+void InventoryIterator::prev(){
 }

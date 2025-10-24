@@ -2,11 +2,11 @@
 #define INVENTORYITERATOR_H
 
 #include "Iterator.h"
-template <typename T>
+#include "Inventory.h"
 
-class InventoryIterator : public Iterator<T> {
+class InventoryIterator : public Iterator<Inventory*> {
   public:
-    T currItem() override;
+    Inventory* currItem() override;
     void first() override;
     bool isDone() override;
     void next() override;

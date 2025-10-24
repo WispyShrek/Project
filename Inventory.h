@@ -2,17 +2,21 @@
 #define INVENTORY_H
 
 #include "Collection.h"
+#include <string>
+#include <vector>
 
-template <typename T>
-
-class Inventory : public Collection<T> {
+class Inventory : public Collection<std::string> {
   public:
     //the methods used for the iterator DP, the concrete methods.
-      void addItem(T item) override;
-    Iterator<T> *CreateIterator() override;
-    T getCurrItem() override;
+    void addItem(std::string item) override;
+    Iterator<std::string> *CreateIterator() override;
+    std::string getCurrItem() override;
     bool isEmpty() override;
-    void removeItem(T item) override;
+    void removeItem(std::string item) override;
+  private:
+    std::vector<std::string> inventoryItems;
+
+
 };
 
 #endif
