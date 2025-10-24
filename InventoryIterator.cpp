@@ -1,6 +1,6 @@
 #include "InventoryIterator.h"
 
-InventoryIterator::InventoryIterator(std::vector<std::string> & items) : items(items), currentIndex(0){
+InventoryIterator::InventoryIterator(std::vector<std::string> & items) : currentIndex(0), items(items){
 }
 
 std::string InventoryIterator::currItem()

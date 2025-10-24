@@ -1,34 +1,33 @@
 #include "GardenIterator.h"
 
-GardenIterator::GardenIterator(std::vector<Garden *> &gardens) : gardens(gardens), currentIndex(0){
+GardenIterator::GardenIterator(std::vector<Plant *> &plants) :currentIndex(0), plants(plants){
 }
 
-Garden *GardenIterator::currItem()
-{
-    if (!isDone()){
-        return gardens[currentIndex];
+Plant *GardenIterator::currItem(){
+    if(!isDone()){
+        return plants[currentIndex];
     }else{
-        std::cout << "No current item, iterator is done." << std::endl;
         return nullptr;
     }
 }
 
-void GardenIterator::first() {
-  currentIndex = 0;
+void GardenIterator::first()
+{
+    currentIndex = 0;
 }
 
-bool GardenIterator::isDone() {
-  return currentIndex >= gardens.size();
+bool GardenIterator::isDone(){
+    return currentIndex >= plants.size();
 }
 
 void GardenIterator::next() {
   if(!isDone()){
-      currentIndex++;
+      ++currentIndex;
   }
 }
 
 void GardenIterator::prev() {
   if(currentIndex > 0){
-      currentIndex--;
+      --currentIndex;
   }
 }

@@ -5,19 +5,19 @@
 #include <iostream>
 #include <vector>
 
-class Garden;
+class Plant;
 
-class GardenIterator : public Iterator<Garden*> {
+class GardenIterator : public Iterator<Plant*> {
   public:
-    GardenIterator(std::vector<Garden*>& gardens);
-    Garden *currItem() override;
+    GardenIterator(std::vector<Plant*>& plants);
+    Plant* currItem() override;
     void first() override;
     bool isDone() override;
     void next() override;
     void prev() override;
   private:
-    int currentIndex;
-    std::vector<Garden*>& gardens;
+    std::size_t currentIndex;
+    std::vector<Plant*>& plants;
 };
 
 #endif

@@ -7,7 +7,7 @@
 #include <string>
 #include <iostream>
 
-class Plant : public Garden {
+class Plant{
 
 private:
   PlantState *currState;
@@ -18,13 +18,13 @@ private:
 
 public:
   Plant();
-  ~Plant();
+  virtual ~Plant();
   std::string getState();
   void setState(PlantState *state);
   void nextState();
   void prevState();
   void applyCare();
-  virtual void Print();
+  virtual void print();
   void addCust();
   PlantMemento *createPlantMemento();
   void setPlantMemento(PlantMemento *memento);

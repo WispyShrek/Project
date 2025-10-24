@@ -29,7 +29,7 @@ void Plant::applyCare() {
 	// TODO - implement Plant::applyCare
 }
 
-void Plant::Print() {
+void Plant::print() {
 	std::cout << "This is the plant print function." << std::endl;
 }
 

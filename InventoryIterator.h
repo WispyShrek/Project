@@ -16,7 +16,7 @@ class InventoryIterator : public Iterator<std::string> {
     void next() override;
     void prev() override;
   private:
-    int currentIndex;
+    std::size_t currentIndex;
     std::vector<std::string> items;
 };
 
