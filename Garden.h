@@ -8,11 +8,14 @@ class Garden : public Collection<Garden *> {
 public:
   virtual ~Garden(){};
   Staff *staffList;
-  void addItem(Garden *item);
-  Iterator<Garden*> * CreateIterator();
-  Garden *getCurrItem();
-  bool isEmpty();
-  void removeItem(Garden *item);
+
+  //the methods used for the iterator DP, the concrete methods.
+  void addItem(Garden *item) override;
+  Iterator<Garden*> * CreateIterator() override;
+  Garden *getCurrItem() override;
+  bool isEmpty() override;
+  void removeItem(Garden *item) override;
+
   void TemplateMethod();
   //virtual void applyRays() = 0;
   void attach(Staff *staff);

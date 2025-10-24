@@ -5,12 +5,12 @@
 template <typename T>
 
 class InventoryIterator : public Iterator<T> {
-public:
-  T currItem();
-  void first();
-  bool isDone();
-  void next();
-  void prev();
+  public:
+    T currItem() override;
+    void first() override;
+    bool isDone() override;
+    void next() override;
+    void prev() override;
 };
 
 #endif

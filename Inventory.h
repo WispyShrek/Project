@@ -6,13 +6,13 @@
 template <typename T>
 
 class Inventory : public Collection<T> {
-
-public:
-  void addItem(T item);
-  Iterator<T> *CreateIterator();
-  T getCurrItem();
-  bool isEmpty();
-  void removeItem(T item);
+  public:
+    //the methods used for the iterator DP, the concrete methods.
+      void addItem(T item) override;
+    Iterator<T> *CreateIterator() override;
+    T getCurrItem() override;
+    bool isEmpty() override;
+    void removeItem(T item) override;
 };
 
 #endif
