@@ -9,4 +9,10 @@ Iterator<std::string> *Inventory::CreateIterator(){
 }
 
 void Inventory::removeItem(std::string item){
+      for(auto it = inventoryItems.begin(); it != inventoryItems.end(); ++it){
+        if(*it == item){
+            inventoryItems.erase(it);
+            return;
+        }
+    }
 }

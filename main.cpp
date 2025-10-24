@@ -109,6 +109,39 @@ int main() {
     cout << "CreateIterator returned nullptr" << endl;
   }
 
+  // -----------------------
+  // Inventory removeItem tests
+  // -----------------------
+  cout << "\nInventory removeItem test (remove existing 'Tulip seeds'):" << endl;
+  inv.removeItem("Tulip seeds");
+  Iterator<std::string> *it2 = inv.CreateIterator();
+  if (it2) {
+    for (it2->first(); !it2->isDone(); it2->next()) {
+      cout << " - " << it2->currItem() << endl;
+    }
+    delete it2;
+  }
+
+  cout << "\nInventory removeItem test (remove non-existent 'Fake item'):" << endl;
+  inv.removeItem("Fake item"); // should be a no-op
+  Iterator<std::string> *it3 = inv.CreateIterator();
+  if (it3) {
+    for (it3->first(); !it3->isDone(); it3->next()) {
+      cout << " - " << it3->currItem() << endl;
+    }
+    delete it3;
+  }
+
+  cout << "\nInventory removeItem test (remove first 'Rose pot'):" << endl;
+  inv.removeItem("Rose pot"); // remove first element
+  Iterator<std::string> *it4 = inv.CreateIterator();
+  if (it4) {
+    for (it4->first(); !it4->isDone(); it4->next()) {
+      cout << " - " << it4->currItem() << endl;
+    }
+    delete it4;
+  }
+
   // cleanup composite (CompositeGarden destructor should delete owned children)
   cout << "\nDeleting root (will delete owned children):" << endl;
   delete root;
