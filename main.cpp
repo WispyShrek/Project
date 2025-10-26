@@ -147,5 +147,27 @@ int main() {
     }
 
     std::cout << "\nAll factory tests done.\n";
+
+    Lily plant;  // starts in Sprout (from Plant::Plant())
+    plant.print();
+
+    std::cout << "start: " << plant.getState() << "\n";        // expect: Sprout
+    plant.Plant::print();
+
+    plant.applyCare();                                       
+    std::cout << "after care: " << plant.getState() << "\n"; 
+    plant.Plant::print();
+    
+    plant.applyCare();                                         // Flowering -> Mature
+    std::cout << "after more care: " << plant.getState() << "\n"; // expect: Mature
+    plant.Plant::print();
+
+    plant.applyCare();                                      
+    std::cout << "after care to Mature: " << plant.getState() << "\n";
+    plant.Plant::print();
+
+    std::cout << "All state tests done" << std::endl;
+
+
     return 0;
 }

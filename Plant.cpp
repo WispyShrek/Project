@@ -35,19 +35,17 @@ void Plant::nextState() {
 
 void Plant::prevState() {
 	// TODO - implement Plant::prevState
-	//working on
+    if (!currState) return;
+    if (!dynamic_cast<Dying*>(currState)) setState(new Dying());
 }
 
 void Plant::applyCare() {
-	// TODO - implement Plant::applyCare
+    if (currState) currState->next(this);
 }
 
 void Plant::print() {
-    std::cout << "Plant state=" << getState()
-              << " colour=" << colour
-              << " scent="  << scent
-              << " length=" << length
-              << std::endl;
+    if (currState) currState->print();
+    else std::cout << "Unknown plant state\n";
 }
 
 void Plant::addCust() {
