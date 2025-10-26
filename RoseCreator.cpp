@@ -1,10 +1,8 @@
 #include "RoseCreator.h"
+#include "Rose.h"
 
 Plant* RoseCreator::createPlant() {
-	// TODO - implement RoseCreator::createPlant
-	return nullptr;
+	return new Rose();
 }
 
-RoseCreator::RoseCreator() {
-	// TODO - implement RoseCreator::RoseCreator
-}
+RoseCreator::RoseCreator() = default;

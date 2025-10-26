@@ -1,9 +1,5 @@
 #include "PlantCreator.h"
 
-PlantCreator::PlantCreator() {
-	// TODO - implement PlantCreator::PlantCreator
-}
+PlantCreator::PlantCreator(): plant(nullptr) {}
 
-PlantCreator::~PlantCreator()
-{
-}
+PlantCreator::~PlantCreator() = default;
