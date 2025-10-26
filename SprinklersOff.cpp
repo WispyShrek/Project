@@ -1,9 +1,8 @@
 #include "SprinklersOff.h"
 
-SprinklersOff::SprinklersOff() {
-	// TODO - implement SprinklersOff::SprinklersOff
-}
+SprinklersOff::SprinklersOff() : sprinklers(new Sprinkler) {}
 
 void SprinklersOff::execute() {
-	// TODO - implement SprinklersOff::execute
+	sprinklers->turnOff();
 }
+ 

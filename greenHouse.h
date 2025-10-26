@@ -5,7 +5,6 @@
 class greenHouse{
 private:
 	Garden* gardens;
-
 public:
 	void powerSystem();
 };

@@ -1,9 +1,8 @@
 #include "SprinklersOn.h"
 
-SprinklersOn::SprinklersOn() {
-	// TODO - implement SprinklersOn::SprinklersOn
-}
+SprinklersOn::SprinklersOn() : sprinklers(new Sprinkler) {}
 
 void SprinklersOn::execute() {
-	// TODO - implement SprinklersOn::execute
+	sprinklers->turnOn();
 }
+ 

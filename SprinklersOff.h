@@ -8,9 +8,7 @@ class SprinklersOff : public Command {
 
 public:
   Sprinkler *sprinklers;
-
   SprinklersOff();
-
   void execute();
 };
 
