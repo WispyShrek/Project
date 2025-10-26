@@ -8,6 +8,7 @@ public:
   PlantCaretaker();
   void care();
   void update();
+  void notify(Customer* customer) override;
 };
 
 #endif

@@ -15,6 +15,8 @@
 #include "LavenderCreator.h"
 #include "greenHouse.h"
 #include "GreenhouseController.h"
+#include "PlantCaretakerCreator.h"
+#include "CustomerAssistantCreator.h"
 
 int main() {
     using std::cout;
@@ -194,6 +196,23 @@ int main() {
     }
 
     std::cout << "\nAll tests done.\n";
+
+
+    std::cout << "== Staff factory test ==\n";
+
+    PlantCaretakerCreator pcc;
+    CustomerAssistantCreator cac;
+
+    Staff* a = pcc.createStaff();    // Factory Method
+    Staff* b = cac.createStaff();
+
+    a->care();    a->update();    a->notify(nullptr);
+    b->care();    b->update();    b->notify(nullptr);
+
+    delete b; 
+    delete a;
+
+    std::cout << "Done.\n";
 
     return 0;
 }

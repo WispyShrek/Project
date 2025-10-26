@@ -1,10 +1,7 @@
 #include "CustomerAssistantCreator.h"
 
-CustomerAssistantCreator::CustomerAssistantCreator() {
-	// TODO - implement CustomerAssistantCreator::CustomerAssistantCreator
-}
+CustomerAssistantCreator::CustomerAssistantCreator() {}
 
 Staff* CustomerAssistantCreator::createStaff() {
-	// TODO - implement CustomerAssistantCreator::createStaff
-	return nullptr;
+    return new CustomerAssistant();  
 }
