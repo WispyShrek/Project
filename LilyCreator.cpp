@@ -1,10 +1,8 @@
 #include "LilyCreator.h"
+#include "Lily.h"
 
 Plant* LilyCreator::createPlant() {
-	// TODO - implement LilyCreator::createPlant
-	return nullptr;
+	return new Lily();
 }
 
-LilyCreator::LilyCreator() {
-	// TODO - implement LilyCreator::LilyCreator
-}
+LilyCreator::LilyCreator() = default;

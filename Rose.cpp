@@ -1,18 +1,13 @@
 #include "Rose.h"
 
-Rose::Rose() {
-	// TODO - implement Rose::Rose
-}
+Rose::Rose() = default;
 
 Rose* Rose::clone() {
-	// TODO - implement Rose::clone
-	return nullptr;
+	return new Rose(*this);
 }
 
 void Rose::print(){
 	std::cout << "Rose" << std::endl;
 }
 
-Rose::Rose(Rose& toCopy) {
-	// TODO - implement Rose::Rose
-}
+Rose::Rose(Rose& toCopy) : Plant(toCopy) {}

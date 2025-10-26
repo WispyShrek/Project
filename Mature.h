@@ -7,7 +7,6 @@
 class Mature : public PlantState {
 public:
   void next(Plant *context);
-  void prev(Plant *context);
 };
 
 #endif

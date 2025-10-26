@@ -1,18 +1,13 @@
 #include "Lily.h"
 
-Lily::Lily() {
-	// TODO - implement Lily::Lily
-}
+Lily::Lily() = default;
 
 Lily* Lily::clone() {
-	// TODO - implement Lily::clone
-	return nullptr;
+	return new Lily(*this);
 }
 
 void Lily::print(){
 	std::cout << "Lily" << std::endl;
 }
 
-Lily::Lily(Lily& toCopy) {
-	// TODO - implement Lily::Lily
-}
+Lily::Lily(Lily& toCopy)  : Plant(toCopy) {}

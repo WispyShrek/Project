@@ -9,6 +9,10 @@
 #include "Inventory.h"
 #include "Iterator.h"
 #include "GardenIterator.h"
+#include "LilyCreator.h"
+#include "RoseCreator.h"
+#include "TulipCreator.h"
+#include "LavenderCreator.h"
 
 int main() {
     using std::cout;
@@ -93,5 +97,55 @@ int main() {
     delete garden;
     
     cout << "\nDone." << endl;
+
+    // ===== Test Lily =====
+    {
+        std::cout << "\n=== LilyCreator ===\n";
+        LilyCreator maker;
+        Plant* a = maker.createPlant();                         // Factory Method
+        std::cout << "created: " << a->getState() << "\n";
+
+        Plant* b = a->clone();                                  // Prototype
+        std::cout << "cloned : " << b->getState() << "\n";
+
+    }
+
+    // ===== Test Rose =====
+    {
+        std::cout << "\n=== RoseCreator ===\n";
+        RoseCreator maker;
+        Plant* a = maker.createPlant();
+        std::cout << "created: " << a->getState() << "\n";
+
+        Plant* b = a->clone();
+        std::cout << "cloned : " << b->getState() << "\n";
+
+    }
+
+    // ===== Test Tulip =====
+    {
+        std::cout << "\n=== TulipCreator ===\n";
+        TulipCreator maker;
+        Plant* a = maker.createPlant();
+        std::cout << "created: " << a->getState() << "\n";
+
+        Plant* b = a->clone();
+        std::cout << "cloned : " << b->getState() << "\n";
+
+    }
+
+    // ===== Test Lavender =====
+    {
+        std::cout << "\n=== LavenderCreator ===\n";
+        LavenderCreator maker;
+        Plant* a = maker.createPlant();
+        std::cout << "created: " << a->getState() << "\n";
+
+        Plant* b = a->clone();
+        std::cout << "cloned : " << b->getState() << "\n";
+
+    }
+
+    std::cout << "\nAll factory tests done.\n";
     return 0;
 }

@@ -4,6 +4,10 @@
 #include "Garden.h"
 #include "PlantMemento.h"
 #include "PlantState.h"
+#include "Dying.h"
+#include "Sprout.h"
+#include "Flowering.h"
+#include "Mature.h"
 #include <string>
 #include <iostream>
 
