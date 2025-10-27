@@ -17,13 +17,14 @@
 #include "GreenhouseController.h"
 #include "PlantCaretakerCreator.h"
 #include "CustomerAssistantCreator.h"
+#include "Sunny.h"
 
 int main() {
     using std::cout;
     using std::endl;
 
     cout << "\n=== Testing Garden Iterator ===\n" << endl;
-    Garden* garden = new Garden();
+    Garden* garden = new Sunny();
     
     // Add plants
     garden->addItem(new Rose());

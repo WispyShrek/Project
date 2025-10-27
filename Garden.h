@@ -2,19 +2,21 @@
 #define GARDEN_H
 #include "Collection.h"
 #include "PlantCaretaker.h"
+#include "GardenIterator.h"
+#include "Plant.h"
 #include <vector>
 
-class Garden : Collection<Garden *> {
+class Garden : Collection<Plant *> {
 private:
   std::vector<PlantCaretaker *> staffList;
 
 public:
-  virtual void Print() = 0;
-  void addItem(Garden *item);
-  Iterator<Garden *> *CreateIterator();
-  Garden *getCurrItem();
-  bool isEmpty();
-  void removeItem(Garden *item);
+  virtual ~Garden();
+  //virtual void Print() = 0;
+  void addItem(Plant *item);
+  Iterator<Plant *> *CreateIterator();
+  void removeItem(Plant *item);
+
   void TemplateMethod();
   virtual void applyRays() = 0;
   void applyCare();

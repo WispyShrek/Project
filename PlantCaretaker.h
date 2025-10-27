@@ -6,7 +6,7 @@
 
 class Garden;
 
-class PlantCaretaker : Staff {
+class PlantCaretaker : public Staff {
 private:
   std::queue<Garden *> careQueue;
 

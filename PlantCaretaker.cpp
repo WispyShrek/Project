@@ -3,7 +3,6 @@
 
 PlantCaretaker::PlantCaretaker() {
   // TODO - implement PlantCaretaker::PlantCaretaker
-  throw "Not yet implemented";
 }
 
 void PlantCaretaker::care() {
