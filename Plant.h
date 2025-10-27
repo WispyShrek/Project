@@ -14,10 +14,11 @@ private:
   std::string colour;
   std::string scent;
   int length;
-
+  double price;
 public:
   Plant();
   ~Plant();
+  void increasePrice(double amount);
   std::string getState();
   void setState(PlantState *state);
   void nextState();

@@ -1,11 +1,11 @@
 #include "Arrangement.h"
 
-void Arrangement::increasePrice() {
-	// TODO - implement Arrangement::increasePrice
-	throw "Not yet implemented";
+void Arrangement::increasePrice()
+{
+	plant->increasePrice(150);
 }
 
-void Arrangement::addCust() {
-	// TODO - implement Arrangement::addCust
-	throw "Not yet implemented";
+void Arrangement::addCust()
+{
+	plant->addCust();
 }

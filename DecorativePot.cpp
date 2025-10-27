@@ -1,11 +1,11 @@
 #include "DecorativePot.h"
 
-void DecorativePot::increasePrice() {
-	// TODO - implement DecorativePot::increasePrice
-	throw "Not yet implemented";
+void DecorativePot::increasePrice()
+{
+	plant->increasePrice(200);
 }
 
-void DecorativePot::addCust() {
-	// TODO - implement DecorativePot::addCust
-	throw "Not yet implemented";
+void DecorativePot::addCust()
+{
+	plant->addCust();
 }
