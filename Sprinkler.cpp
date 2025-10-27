@@ -1,11 +1,11 @@
 #include "Sprinkler.h"
 
+#include <iostream>
+
 void Sprinkler::turnOn() {
-	// TODO - implement Sprinkler::turnOn
-	throw "Not yet implemented";
+	std::cout << "Sprinkler: ON" << std::endl;
 }
 
 void Sprinkler::turnOff() {
-	// TODO - implement Sprinkler::turnOff
-	throw "Not yet implemented";
+	std::cout << "Sprinkler: OFF" << std::endl;
 }

@@ -1,6 +1,9 @@
 #include "greenHouse.h"
+#include "GreenhouseController.h"
 
 void greenHouse::powerSystem() {
-	// TODO - implement greenHouse::powerSystem
-	throw "Not yet implemented";
+    GreenhouseController controller;
+    controller.flipUp();     // e.g. [Sprinkler] ON
+    controller.flipDown();   // e.g. [Sprinkler] OFF
 }
+ 

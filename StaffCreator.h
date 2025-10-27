@@ -11,7 +11,7 @@ protected:
 	virtual Staff* createStaff() = 0;
 
 public:
-	StaffCreator();
+	StaffCreator(); 
 	~StaffCreator();
 };
 

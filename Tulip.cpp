@@ -1,16 +1,13 @@
 #include "Tulip.h"
 
-Tulip::Tulip() {
-	// TODO - implement Tulip::Tulip
-	throw "Not yet implemented";
-}
+Tulip::Tulip() = default;
 
 Tulip* Tulip::clone() {
-	// TODO - implement Tulip::clone
-	throw "Not yet implemented";
+	return new Tulip(*this);
 }
 
-Tulip::Tulip(Tulip& toCopy) {
-	// TODO - implement Tulip::Tulip
-	throw "Not yet implemented";
+void Tulip::print(){
+	std::cout << "Tulip" << std::endl;
 }
+
+Tulip::Tulip(Tulip& toCopy) : Plant(toCopy) {}

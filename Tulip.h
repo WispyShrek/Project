@@ -7,6 +7,7 @@ class Tulip : public Plant {
 public:
   Tulip();
   Tulip *clone();
+  void print() override;
 
 protected:
   Tulip(Tulip &toCopy);

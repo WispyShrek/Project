@@ -1,15 +1,23 @@
 #ifndef GARDENITERATOR_H
 #define GARDENITERATOR_H
-#include "Garden.h"
-#include "Iterator.h"
 
-class GardenIterator : public Iterator<Garden *> {
-public:
-  Garden *currItem();
-  void first();
-  bool isDone();
-  void next();
-  void prev();
+#include "Iterator.h"
+#include <iostream>
+#include <vector>
+
+class Plant;
+
+class GardenIterator : public Iterator<Plant*> {
+  public:
+    GardenIterator(std::vector<Plant*>& plants);
+    Plant* currItem() override;
+    void first() override;
+    bool isDone() override;
+    void next() override;
+    void prev() override;
+  private:
+    std::size_t currentIndex;
+    std::vector<Plant*>& plants;
 };
 
 #endif

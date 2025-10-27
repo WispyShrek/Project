@@ -1,11 +1,8 @@
 #include "TulipCreator.h"
+#include "Tulip.h"
 
 Plant* TulipCreator::createPlant() {
-	// TODO - implement TulipCreator::createPlant
-	throw "Not yet implemented";
+	return new Tulip();
 }
 
-TulipCreator::TulipCreator() {
-	// TODO - implement TulipCreator::TulipCreator
-	throw "Not yet implemented";
-}
+TulipCreator::TulipCreator() = default;

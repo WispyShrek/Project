@@ -1,11 +1,11 @@
 #include "Mature.h"
 
 void Mature::next(Plant* context) {
-	// TODO - implement Mature::next
-	throw "Not yet implemented";
+    if (!context) return;
+    std::cout << "Cannot grow more — already Mature.\n";
 }
 
-void Mature::prev(Plant* context) {
-	// TODO - implement Mature::prev
-	throw "Not yet implemented";
+void Mature::print() {	
+	std::cout << "The is a plant that is now Mature" << std::endl;
 }
+

@@ -1,13 +1,18 @@
 #include "Inventory.h"
 
-template <typename T> inline void Inventory<T>::addItem(T item) {}
-
-template <typename T> Iterator<T> *Inventory<T>::CreateIterator() {
-  return nullptr;
+void Inventory::addItem(std::string item){
+    inventoryItems.push_back(item);
 }
 
-template <typename T> T Inventory<T>::getCurrItem() { return T(); }
+Iterator<std::string> *Inventory::CreateIterator(){
+    return new InventoryIterator(inventoryItems);
+}
 
-template <typename T> bool Inventory<T>::isEmpty() { return false; }
-
-template <typename T> void Inventory<T>::removeItem(T item) {}
+void Inventory::removeItem(std::string item){
+      for(auto it = inventoryItems.begin(); it != inventoryItems.end(); ++it){
+        if(*it == item){
+            inventoryItems.erase(it);
+            return;
+        }
+    }
+}

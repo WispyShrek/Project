@@ -1,60 +1,81 @@
 #include "Plant.h"
 
-Plant::Plant() {
-	// TODO - implement Plant::Plant
-	throw "Not yet implemented";
-}
+Plant::Plant()
+: currState(new Sprout()),
+  strategy(nullptr),
+  colour(),
+  scent(),
+  length(0)
+{}
 
 Plant::~Plant()
 {
+	delete currState;
+    currState = nullptr;
 }
 
 std::string Plant::getState() {
 	// TODO - implement Plant::getState
-	throw "Not yet implemented";
+    if (dynamic_cast<Sprout*>(currState))    return "Sprout";
+    if (dynamic_cast<Flowering*>(currState)) return "Flowering";
+    if (dynamic_cast<Mature*>(currState))    return "Mature";
+    if (dynamic_cast<Dying*>(currState))     return "Dying";
+	return "Unknown";
 }
 
 void Plant::setState(PlantState* state) {
 	// TODO - implement Plant::setState
-	throw "Not yet implemented";
+    currState = state; 
 }
 
 void Plant::nextState() {
 	// TODO - implement Plant::nextState
-	throw "Not yet implemented";
+    if (currState) currState->next(this);
 }
 
 void Plant::prevState() {
 	// TODO - implement Plant::prevState
-	throw "Not yet implemented";
+    if (!currState) return;
+    if (!dynamic_cast<Dying*>(currState)) setState(new Dying());
 }
 
 void Plant::applyCare() {
-	// TODO - implement Plant::applyCare
-	throw "Not yet implemented";
+    if (currState) currState->next(this);
 }
 
-void Plant::Print() {
-	// TODO - implement Plant::Print
-	throw "Not yet implemented";
+void Plant::print() {
+    if (currState) currState->print();
+    else std::cout << "Unknown plant state\n";
 }
 
 void Plant::addCust() {
 	// TODO - implement Plant::addCust
-	throw "Not yet implemented";
 }
 
 PlantMemento* Plant::createPlantMemento() {
 	// TODO - implement Plant::createPlantMemento
-	throw "Not yet implemented";
+	return nullptr;
 }
 
 void Plant::setPlantMemento(PlantMemento* memento) {
 	// TODO - implement Plant::setPlantMemento
-	throw "Not yet implemented";
 }
 
-Plant::Plant(Plant& toCopy) {
-	// TODO - implement Plant::Plant
-	throw "Not yet implemented";
+Plant::Plant(Plant& toCopy) : currState(nullptr), strategy(toCopy.strategy), colour(toCopy.colour), scent(toCopy.scent), length(toCopy.length)
+{
+    if (!toCopy.currState) {
+        currState = nullptr;
+    } else if (dynamic_cast<Sprout*>(toCopy.currState)) {
+        currState = new Sprout();
+    } else if (dynamic_cast<Flowering*>(toCopy.currState)) {
+        currState = new Flowering();
+    } else if (dynamic_cast<Mature*>(toCopy.currState)) {
+        currState = new Mature();
+    } else if (dynamic_cast<Dying*>(toCopy.currState)) {
+        currState = new Dying();
+
+    } else {
+        // Safe fallback
+        currState = new Sprout();
+	}
 }

@@ -2,10 +2,8 @@
 
 void Dying::next(Plant* context) {
 	// TODO - implement Dying::next
-	throw "Not yet implemented";
 }
 
-void Dying::prev(Plant* context) {
-	// TODO - implement Dying::prev
-	throw "Not yet implemented";
+void Dying::print() {
+	std::cout << "This plant is dying, apply care to it" << std::endl;
 }

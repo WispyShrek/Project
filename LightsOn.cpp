@@ -1,11 +1,7 @@
 #include "LightsOn.h"
 
-LightsOn::LightsOn() {
-	// TODO - implement LightsOn::LightsOn
-	throw "Not yet implemented";
-}
+LightsOn::LightsOn() : lights(new Light) {} 
 
 void LightsOn::execute() {
-	// TODO - implement LightsOn::execute
-	throw "Not yet implemented";
+	lights->turnOn();
 }

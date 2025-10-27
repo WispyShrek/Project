@@ -4,9 +4,14 @@
 #include "Garden.h"
 #include "PlantMemento.h"
 #include "PlantState.h"
+#include "Dying.h"
+#include "Sprout.h"
+#include "Flowering.h"
+#include "Mature.h"
 #include <string>
+#include <iostream>
 
-class Plant : public Garden {
+class Plant{
 
 private:
   PlantState *currState;
@@ -17,13 +22,13 @@ private:
 
 public:
   Plant();
-  ~Plant();
+  virtual ~Plant();
   std::string getState();
   void setState(PlantState *state);
   void nextState();
   void prevState();
   void applyCare();
-  void Print();
+  virtual void print();
   void addCust();
   PlantMemento *createPlantMemento();
   void setPlantMemento(PlantMemento *memento);

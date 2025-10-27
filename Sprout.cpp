@@ -1,11 +1,11 @@
 #include "Sprout.h"
 
 void Sprout::next(Plant* context) {
-	// TODO - implement Sprout::next
-	throw "Not yet implemented";
+    if (!context) return;
+    context->setState(new Flowering());
 }
 
-void Sprout::prev(Plant* context) {
-	// TODO - implement Sprout::prev
-	throw "Not yet implemented";
+void Sprout::print() {
+	std::cout << "This is a sprout" << std::endl;
 }
+

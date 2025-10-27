@@ -1,28 +1,34 @@
 #include "InventoryIterator.h"
 
-template <typename T>
-inline T InventoryIterator<T>::currItem()
-{
-    return T();
+InventoryIterator::InventoryIterator(std::vector<std::string> & items) : currentIndex(0), items(items){
 }
 
-template <typename T>
-void InventoryIterator<T>::first()
+std::string InventoryIterator::currItem()
 {
+    if(!isDone()){
+        return items[currentIndex];
+    }else{
+        std::cout << "No current item, iterator is done." << std::endl;
+        return std::string();
+    }
 }
 
-template <typename T>
-bool InventoryIterator<T>::isDone()
-{
-    return false;
+void InventoryIterator::first(){
+    currentIndex = 0;
 }
 
-template <typename T>
-void InventoryIterator<T>::next()
-{
+bool InventoryIterator::isDone(){
+    return currentIndex >= items.size();
 }
 
-template <typename T>
-void InventoryIterator<T>::prev()
-{
+void InventoryIterator::next(){
+    if(!isDone()){
+        currentIndex++;
+    }
+}
+
+void InventoryIterator::prev(){
+    if(currentIndex > 0){
+        currentIndex--;
+    }
 }
