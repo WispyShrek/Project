@@ -1,17 +1,18 @@
 #include "PlantCaretaker.h"
-#include <iostream>
+#include "Garden.h"
 
-PlantCaretaker::PlantCaretaker() { custList = nullptr; }
+PlantCaretaker::PlantCaretaker() {
+  // TODO - implement PlantCaretaker::PlantCaretaker
+  throw "Not yet implemented";
+}
 
 void PlantCaretaker::care() {
-    std::cout << "PlantCaretaker: tending plants (watering/pruning)\n";
+  if (!careQueue.empty()) {
+    Garden *toCareFor = careQueue.front();
+    toCareFor->applyCare();
+  }
 }
 
-void PlantCaretaker::update() {
-    std::cout << "PlantCaretaker: update() received from floor/controller\n";
-}
-
-void PlantCaretaker::notify(Customer* customer) {
-    custList = customer; 
-    std::cout << "PlantCaretaker: notify(customer)\n";
+void PlantCaretaker::update(Garden *subjectOfCare) {
+  this->careQueue.push(subjectOfCare);
 }

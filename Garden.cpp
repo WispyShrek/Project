@@ -1,4 +1,5 @@
 #include "Garden.h"
+#include <algorithm>
 
 Garden::~Garden(){
     // Clean up all plants
@@ -23,8 +24,16 @@ void Garden::removeItem(Plant *item){
 
 void Garden::TemplateMethod() {}
 
-void Garden::attach(Staff *staff) {}
+void Garden::applyCare() {}
 
-void Garden::detach(Staff *staff) {}
+void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
-void Garden::notify() {}
+void Garden::detach(PlantCaretaker *staff) {
+  this->staffList.erase(std::find(staffList.begin(), staffList.end(), staff));
+}
+
+void Garden::notify() {
+  for (auto staff : staffList) {
+    staff->update(this);
+  }
+}
