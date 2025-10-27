@@ -1,11 +1,11 @@
 #include "Light.h"
 
+#include <iostream>
+
 void Light::turnOn() {
-	// TODO - implement Light::turnOn
-	throw "Not yet implemented";
+	std::cout << "Light: ON" << std::endl;
 }
 
 void Light::turnOff() {
-	// TODO - implement Light::turnOff
-	throw "Not yet implemented";
+	std::cout << "Light: OFF" << std::endl;
 }

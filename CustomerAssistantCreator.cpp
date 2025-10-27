@@ -1,11 +1,7 @@
 #include "CustomerAssistantCreator.h"
 
-CustomerAssistantCreator::CustomerAssistantCreator() {
-	// TODO - implement CustomerAssistantCreator::CustomerAssistantCreator
-	throw "Not yet implemented";
-}
+CustomerAssistantCreator::CustomerAssistantCreator() {}
 
 Staff* CustomerAssistantCreator::createStaff() {
-	// TODO - implement CustomerAssistantCreator::createStaff
-	throw "Not yet implemented";
+    return new CustomerAssistant();  
 }

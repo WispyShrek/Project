@@ -1,16 +1,13 @@
 #include "Lavender.h"
 
-Lavender::Lavender() {
-	// TODO - implement Lavender::Lavender
-	throw "Not yet implemented";
-}
+Lavender::Lavender() = default;
 
 Lavender* Lavender::clone() {
-	// TODO - implement Lavender::clone
-	throw "Not yet implemented";
+	return new Lavender(*this);
 }
 
-Lavender::Lavender(Lavender& toCopy) {
-	// TODO - implement Lavender::Lavender
-	throw "Not yet implemented";
+void Lavender::print(){
+	std::cout << "Lavender" << std::endl;
 }
+
+Lavender::Lavender(Lavender& toCopy) : Plant(toCopy) {}

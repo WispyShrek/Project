@@ -1,11 +1,8 @@
 #include "LilyCreator.h"
+#include "Lily.h"
 
 Plant* LilyCreator::createPlant() {
-	// TODO - implement LilyCreator::createPlant
-	throw "Not yet implemented";
+	return new Lily();
 }
 
-LilyCreator::LilyCreator() {
-	// TODO - implement LilyCreator::LilyCreator
-	throw "Not yet implemented";
-}
+LilyCreator::LilyCreator() = default;

@@ -1,16 +1,17 @@
 #include "CustomerAssistant.h"
+#include <iostream>
 
-CustomerAssistant::CustomerAssistant() {
-	// TODO - implement CustomerAssistant::CustomerAssistant
-	throw "Not yet implemented";
-}
+CustomerAssistant::CustomerAssistant() { custList = nullptr; }
 
 void CustomerAssistant::care() {
-	// TODO - implement CustomerAssistant::care
-	throw "Not yet implemented";
+    std::cout << "CustomerAssistant: assisting with plant care / demos\n";
 }
 
 void CustomerAssistant::notify(Customer* customer) {
-	// TODO - implement CustomerAssistant::notify
-	throw "Not yet implemented";
+    custList = customer;
+    std::cout << "CustomerAssistant: notify(customer)\n";
+}
+
+void CustomerAssistant::update() {
+    std::cout << "CustomerAssistant: update() received from floor/controller\n";
 }

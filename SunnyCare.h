@@ -5,6 +5,7 @@
 
 class SunnyCare : public CareStrategy {
 public:
+  SunnyCare();
   void applyCare();
 };
 

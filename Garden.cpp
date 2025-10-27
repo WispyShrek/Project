@@ -1,19 +1,39 @@
 #include "Garden.h"
+#include <algorithm>
 
-void Garden::addItem(Garden *item) {}
+Garden::~Garden(){
+    // Clean up all plants
+    for(Plant* plant : plants){
+        delete plant;
+    }
+    plants.clear();
+}
 
-Iterator<Garden *> *Garden::CreateIterator() { return nullptr; }
+void Garden::addItem(Plant *item)
+{
+    plants.push_back(item);
+}
 
-Garden *Garden::getCurrItem() {}
+Iterator<Plant *> *Garden::CreateIterator(){
+    return new GardenIterator(plants);
+}
 
-bool Garden::isEmpty() { return false; }
+void Garden::removeItem(Plant *item){
 
-void Garden::removeItem(Garden *item) {}
+}
 
 void Garden::TemplateMethod() {}
 
-void Garden::attach(Staff *staff) {}
+void Garden::applyCare() {}
 
-void Garden::detach(Staff *staff) {}
+void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
-void Garden::notify() {}
+void Garden::detach(PlantCaretaker *staff) {
+  this->staffList.erase(std::find(staffList.begin(), staffList.end(), staff));
+}
+
+void Garden::notify() {
+  for (auto staff : staffList) {
+    staff->update(this);
+  }
+}

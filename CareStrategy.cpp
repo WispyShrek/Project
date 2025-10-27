@@ -1,10 +1,9 @@
 #include "CareStrategy.h"
 
 CareStrategy::CareStrategy() {
-	// TODO - implement CareStrategy::CareStrategy
-	throw "Not yet implemented";
+  // TODO - implement CareStrategy::CareStrategy
 }
 
-CareStrategy::~CareStrategy()
-{
-}
+std::string CareStrategy::getStrategyName() { return this->strategyName; }
+
+CareStrategy::~CareStrategy() {}

@@ -5,6 +5,7 @@
 
 class PartialSunCare : public CareStrategy {
 public:
+  PartialSunCare();
   void applyCare();
 };
 

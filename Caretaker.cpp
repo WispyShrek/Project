@@ -2,10 +2,9 @@
 
 PlantMemento* Caretaker::getPlantMemento() {
 	// TODO - implement Caretaker::getPlantMemento
-	throw "Not yet implemented";
+	return nullptr;
 }
 
 void Caretaker::setPlantMemento(PlantMemento* memento) {
 	// TODO - implement Caretaker::setPlantMemento
-	throw "Not yet implemented";
 }

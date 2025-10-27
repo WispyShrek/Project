@@ -6,8 +6,8 @@ class Lavender : public Plant {
 
 public:
   Lavender();
-
   Lavender *clone();
+  void print() override;
 
 protected:
   Lavender(Lavender &toCopy);

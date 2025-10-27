@@ -1,11 +1,8 @@
 #include "PlantCaretakerCreator.h"
+#include "PlantCaretaker.h"
 
-PlantCaretakerCreator::PlantCaretakerCreator() {
-	// TODO - implement PlantCaretakerCreator::PlantCaretakerCreator
-	throw "Not yet implemented";
-}
+PlantCaretakerCreator::PlantCaretakerCreator() {}
 
 Staff* PlantCaretakerCreator::createStaff() {
-	// TODO - implement PlantCaretakerCreator::createStaff
-	throw "Not yet implemented";
+    return new PlantCaretaker();   
 }

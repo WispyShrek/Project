@@ -8,6 +8,7 @@ public:
   CustomerAssistant();
   void care();
   void notify(Customer *customer);
+  void update() override; 
 };
 
 #endif

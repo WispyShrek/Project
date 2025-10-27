@@ -1,6 +1,7 @@
 #include "SunnyCare.h"
 
+SunnyCare::SunnyCare() { this->strategyName = "Sunny"; }
+
 void SunnyCare::applyCare() {
-	// TODO - implement SunnyCare::applyCare
-	throw "Not yet implemented";
+  // TODO - implement SunnyCare::applyCare
 }

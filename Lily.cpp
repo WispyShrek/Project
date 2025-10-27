@@ -1,16 +1,13 @@
 #include "Lily.h"
 
-Lily::Lily() {
-	// TODO - implement Lily::Lily
-	throw "Not yet implemented";
-}
+Lily::Lily() = default;
 
 Lily* Lily::clone() {
-	// TODO - implement Lily::clone
-	throw "Not yet implemented";
+	return new Lily(*this);
 }
 
-Lily::Lily(Lily& toCopy) {
-	// TODO - implement Lily::Lily
-	throw "Not yet implemented";
+void Lily::print(){
+	std::cout << "Lily" << std::endl;
 }
+
+Lily::Lily(Lily& toCopy)  : Plant(toCopy) {}

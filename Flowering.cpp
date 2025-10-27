@@ -1,11 +1,10 @@
 #include "Flowering.h"
 
 void Flowering::next(Plant* context) {
-	// TODO - implement Flowering::next
-	throw "Not yet implemented";
+    if (!context) return;
+    context->setState(new Mature());
 }
 
-void Flowering::prev(Plant* context) {
-	// TODO - implement Flowering::prev
-	throw "Not yet implemented";
+void Flowering::print() {
+	std::cout << "This is a plant that is flowering" << std::endl;
 }

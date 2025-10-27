@@ -1,16 +1,19 @@
 #include "GreenhouseController.h"
 
-GreenhouseController::GreenhouseController() {
-	// TODO - implement GreenhouseController::GreenhouseController
-	throw "Not yet implemented";
+GreenhouseController::GreenhouseController()
+: upCommand(new SprinklersOn()),      // default to Sprinklers
+  downCommand(new SprinklersOff()) {}
+
+GreenhouseController::~GreenhouseController() {
+    delete upCommand;
+    delete downCommand;
+    upCommand = downCommand = nullptr;
 }
 
 void GreenhouseController::flipUp() {
-	// TODO - implement GreenhouseController::flipUp
-	throw "Not yet implemented";
+    if (upCommand) upCommand->execute();
 }
 
 void GreenhouseController::flipDown() {
-	// TODO - implement GreenhouseController::flipDown
-	throw "Not yet implemented";
+    if (downCommand) downCommand->execute();
 }
