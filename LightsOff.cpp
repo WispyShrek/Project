@@ -1,9 +1,8 @@
 #include "LightsOff.h"
 
-LightsOff::LightsOff() {
-	// TODO - implement LightsOff::LightsOff
-}
+LightsOff::LightsOff() : lights(new Light) {}
 
 void LightsOff::execute() {
-	// TODO - implement LightsOff::execute
+	lights->turnOff();
 }
+ 

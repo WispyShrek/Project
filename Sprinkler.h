@@ -5,6 +5,6 @@ class Sprinkler{
 public:
 	void turnOn();
 	void turnOff();
-};
+}; 
 
 #endif

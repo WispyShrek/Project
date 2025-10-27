@@ -1,9 +1,11 @@
 #include "Light.h"
 
+#include <iostream>
+
 void Light::turnOn() {
-	// TODO - implement Light::turnOn
+	std::cout << "Light: ON" << std::endl;
 }
 
 void Light::turnOff() {
-	// TODO - implement Light::turnOff
+	std::cout << "Light: OFF" << std::endl;
 }

@@ -1,13 +1,17 @@
 #include "PlantCaretaker.h"
+#include "Garden.h"
 
 PlantCaretaker::PlantCaretaker() {
-	// TODO - implement PlantCaretaker::PlantCaretaker
+  // TODO - implement PlantCaretaker::PlantCaretaker
 }
 
 void PlantCaretaker::care() {
-	// TODO - implement PlantCaretaker::care
+  if (!careQueue.empty()) {
+    Garden *toCareFor = careQueue.front();
+    toCareFor->applyCare();
+  }
 }
 
-void PlantCaretaker::update() {
-	// TODO - implement PlantCaretaker::update
+void PlantCaretaker::update(Garden *subjectOfCare) {
+  this->careQueue.push(subjectOfCare);
 }

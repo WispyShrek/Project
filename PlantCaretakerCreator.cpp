@@ -1,10 +1,8 @@
 #include "PlantCaretakerCreator.h"
+#include "PlantCaretaker.h"
 
-PlantCaretakerCreator::PlantCaretakerCreator() {
-	// TODO - implement PlantCaretakerCreator::PlantCaretakerCreator
-}
+PlantCaretakerCreator::PlantCaretakerCreator() {}
 
 Staff* PlantCaretakerCreator::createStaff() {
-	// TODO - implement PlantCaretakerCreator::createStaff
-	return nullptr;
+    return new PlantCaretaker();   
 }

@@ -1,9 +1,7 @@
 #include "LightsOn.h"
 
-LightsOn::LightsOn() {
-	// TODO - implement LightsOn::LightsOn
-}
+LightsOn::LightsOn() : lights(new Light) {} 
 
 void LightsOn::execute() {
-	// TODO - implement LightsOn::execute
+	lights->turnOn();
 }
