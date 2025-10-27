@@ -48,9 +48,9 @@ public:
    * update function invoked
    */
   void notify();
-private:
-  std::vector<Plant*> plants;
 
+private:
+  std::vector<Plant *> plants;
 };
 
 #endif

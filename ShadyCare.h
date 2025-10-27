@@ -5,6 +5,7 @@
 
 class ShadyCare : public CareStrategy {
 public:
+  ShadyCare();
   void applyCare();
 };
 
