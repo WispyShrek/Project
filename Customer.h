@@ -10,9 +10,15 @@ class Customer{
 private:
 	vector<Plant *> cart;
 	SalesFloor* salesFloor;
-	std::string name;
+	string name;
 
 public:
+	Customer();
+	Customer(std::string name, SalesFloor* salesFloor);
+	~Customer();
+	void addToCart(Plant* plant);
+	void removeFromCart(Plant* plant);
+	string cartToString();
 	void changed();
 	virtual void get() = 0;
 	virtual void set() = 0;

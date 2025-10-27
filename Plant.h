@@ -10,8 +10,9 @@
 #include "Sprout.h"
 #include <iostream>
 #include <string>
-
-class Plant {
+using namespace std;
+class Plant
+{
 
 private:
   PlantState *currState;
@@ -20,17 +21,19 @@ private:
   std::string scent;
   int length;
   double price;
+
 public:
   Plant();
-<<<<<<< HEAD
   ~Plant();
   void increasePrice(double amount);
-=======
-  virtual ~Plant();
->>>>>>> origin/Marco
   std::string getState();
   void setState(PlantState *state);
-  std::string getStrategy();
+  string getStrategy();
+  virtual string getName() = 0;
+  void setStrategy(CareStrategy *strategy);
+  string getColour();
+  string getScent();
+  string getPrice();
   void nextState();
   void prevState();
   void applyCare();
