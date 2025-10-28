@@ -10,28 +10,39 @@
 #include "Sprout.h"
 #include <iostream>
 #include <string>
-
-class Plant {
+class Customer;
+using namespace std;
+class Plant
+{
 
 private:
+  Customer *customer;
   PlantState *currState;
   CareStrategy *strategy;
   std::string colour;
   std::string scent;
   int length;
+  double price;
 
 public:
   Plant();
-  virtual ~Plant();
+  ~Plant();
+  const bool& operator==(const Plant& other);
+  void increasePrice(double amount);
   std::string getState();
   void setState(PlantState *state);
-  std::string getStrategy();
+  string getStrategy();
+  virtual string getName() = 0;
+  void setStrategy(CareStrategy *strategy);
+  string getColour();
+  string getScent();
+  string getPrice();
   void nextState();
   void prevState();
   void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern
   void applyCare();
   virtual void print();
-  void addCust();
+  void addCust(Customer *customer);
   PlantMemento *createPlantMemento();
   void setPlantMemento(PlantMemento *memento);
   virtual Plant *clone() = 0;
