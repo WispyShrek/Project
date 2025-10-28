@@ -9,6 +9,7 @@ public:
     virtual ~PlantState() {}  
     virtual void next(Plant *context) = 0;
     virtual void print() = 0;
+    virtual PlantState* clone() const = 0; // to copy the state over in memento
 };
 
 #endif

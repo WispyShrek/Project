@@ -1,15 +1,16 @@
 #ifndef PLANTCARETAKER_H
 #define PLANTCARETAKER_H
+#include <iostream>
 
 #include "Staff.h"
 #include <queue>
-
+#include <vector>
+#include "Customer.h"
 class Garden;
-
 class PlantCaretaker : public Staff {
 private:
   std::queue<Garden *> careQueue;
-
+  std::vector<Customer *> custList;
 public:
   PlantCaretaker();
   /*! @fn void PlantCaretaker::care()
@@ -19,7 +20,7 @@ public:
    * Only one object gets dequeued per function call. When the careQueue is
    * empty the function will have no effect.
    */
-  void care();
+  void care() override;
   /*! @fn void PlantCaretaker::update(Garden *subjectOfCare)
    * @brief Adds new garden to careQueue.
    * The update function takes a the input parameter and pushes it to the
@@ -28,7 +29,9 @@ public:
    *
    * @param A pointer to a Garden object.
    */
-  void update(Garden *subjectOfCare);
+    void update(Garden *subjectOfCare);
+
+    ~PlantCaretaker();
 };
 
 #endif

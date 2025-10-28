@@ -1,9 +1,11 @@
 #include "Giftwrapping.h"
 
-void Giftwrapping::increasePrice() {
-	// TODO - implement Giftwrapping::increasePrice
+void Giftwrapping::increasePrice()
+{
+	plant->increasePrice(100);
 }
 
-void Giftwrapping::addCust() {
-	// TODO - implement Giftwrapping::addCust
+void Giftwrapping::addCust(Customer *customer)
+{
+	plant->addCust(customer);
 }

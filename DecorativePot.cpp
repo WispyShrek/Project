@@ -1,9 +1,11 @@
 #include "DecorativePot.h"
 
-void DecorativePot::increasePrice() {
-	// TODO - implement DecorativePot::increasePrice
+void DecorativePot::increasePrice()
+{
+	plant->increasePrice(200);
 }
 
-void DecorativePot::addCust() {
-	// TODO - implement DecorativePot::addCust
+void DecorativePot::addCust(Customer *customer)
+{
+	plant->addCust(customer);
 }

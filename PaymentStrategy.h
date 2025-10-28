@@ -1,7 +1,7 @@
 #ifndef PAYMENTSTARTEGY_H
 #define PAYMENTSTARTEGY_H
 
-class PaymentStartegy {
+class PaymentStrategy {
 
 
 public:

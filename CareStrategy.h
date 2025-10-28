@@ -10,7 +10,7 @@ public:
   virtual void applyCare() = 0;
   std::string getStrategyName();
   CareStrategy();
-  ~CareStrategy();
+  virtual ~CareStrategy();
 };
 
 #endif
