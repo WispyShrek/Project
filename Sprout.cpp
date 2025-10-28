@@ -7,11 +7,5 @@ void Sprout::next(Plant* context) {
 
 void Sprout::print() {
 	std::cout << "This is a sprout" << std::endl;
-	// TODO - implement Sprout::next
-	return;
-}
-
-PlantState* Sprout::clone() const {
-    return new Sprout(*this);
 }
 

@@ -6,7 +6,6 @@ class Lavender : public Plant {
 
 public:
   Lavender();
-  std::string getName();
   Lavender *clone();
   void print() override;
 

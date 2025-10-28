@@ -2,15 +2,10 @@
 #define GIFTWRAPPING_H
 #include "Customisation.h"
 
-class Giftwrapping : public Customisation
-{
-private:
-  bool addedWrapping;
+class Giftwrapping : public Customisation {
 public:
-  void setAddedWrapping(bool addedWrapping) { this->addedWrapping= addedWrapping; }
-  bool getAddedWrapping() const { return addedWrapping; }
   void increasePrice();
-  void addCust(Customer *customer);
+  void addCust();
 };
 
 #endif

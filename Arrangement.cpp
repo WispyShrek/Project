@@ -1,11 +1,9 @@
 #include "Arrangement.h"
 
-void Arrangement::increasePrice()
-{
-	plant->increasePrice(150);
+void Arrangement::increasePrice() {
+	// TODO - implement Arrangement::increasePrice
 }
 
-void Arrangement::addCust(Customer *customer)
-{
-	plant->addCust(customer);
+void Arrangement::addCust() {
+	// TODO - implement Arrangement::addCust
 }

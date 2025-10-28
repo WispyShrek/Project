@@ -2,15 +2,10 @@
 #define ARRANGEMENT_H
 #include "Customisation.h"
 
-class Arrangement : public Customisation
-{
-private:
-  bool addedArrangement;
+class Arrangement : public Customisation {
 public:
-  void setAddedArrangement(bool addedArrangement) { this->addedArrangement= addedArrangement; }
-  bool getAddedArrangement() const { return addedArrangement; }
   void increasePrice();
-  void addCust(Customer* customer);
+  void addCust();
 };
 
 #endif
