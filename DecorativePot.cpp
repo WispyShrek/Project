@@ -5,7 +5,7 @@ void DecorativePot::increasePrice()
 	plant->increasePrice(200);
 }
 
-void DecorativePot::addCust()
+void DecorativePot::addCust(Customer *customer)
 {
-	plant->addCust();
+	plant->addCust(customer);
 }

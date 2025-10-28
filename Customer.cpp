@@ -19,6 +19,14 @@ Customer::~Customer() {
 void Customer::changed() {
 	salesFloor->notify(this);
 }
+void Customer::addDecoration(Plant* plant) {
+	for (int i = 0; i < cart.size(); i++) {
+		if (*cart[i] == *plant) {
+			
+			return;
+		}
+	}
+}
 void Customer::addToCart(Plant* plant) {
 	cart.push_back(plant);
 }

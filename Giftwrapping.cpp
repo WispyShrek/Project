@@ -5,7 +5,7 @@ void Giftwrapping::increasePrice()
 	plant->increasePrice(100);
 }
 
-void Giftwrapping::addCust()
+void Giftwrapping::addCust(Customer *customer)
 {
-	plant->addCust();
+	plant->addCust(customer);
 }

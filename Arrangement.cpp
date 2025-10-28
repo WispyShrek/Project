@@ -5,7 +5,7 @@ void Arrangement::increasePrice()
 	plant->increasePrice(150);
 }
 
-void Arrangement::addCust()
+void Arrangement::addCust(Customer *customer)
 {
-	plant->addCust();
+	plant->addCust(customer);
 }

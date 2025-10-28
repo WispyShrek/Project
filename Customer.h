@@ -16,6 +16,7 @@ public:
 	Customer();
 	Customer(std::string name, SalesFloor* salesFloor);
 	~Customer();
+	void addDecoration(Plant* plant);
 	void addToCart(Plant* plant);
 	void removeFromCart(Plant* plant);
 	string cartToString();

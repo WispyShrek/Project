@@ -10,11 +10,13 @@
 #include "Sprout.h"
 #include <iostream>
 #include <string>
+class Customer;
 using namespace std;
 class Plant
 {
 
 private:
+  Customer *customer;
   PlantState *currState;
   CareStrategy *strategy;
   std::string colour;
@@ -25,6 +27,7 @@ private:
 public:
   Plant();
   ~Plant();
+  const bool& operator==(const Plant& other);
   void increasePrice(double amount);
   std::string getState();
   void setState(PlantState *state);
@@ -38,7 +41,7 @@ public:
   void prevState();
   void applyCare();
   virtual void print();
-  void addCust();
+  void addCust(Customer *customer);
   PlantMemento *createPlantMemento();
   void setPlantMemento(PlantMemento *memento);
   virtual Plant *clone() = 0;

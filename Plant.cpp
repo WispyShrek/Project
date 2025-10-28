@@ -77,11 +77,21 @@ void Plant::print()
     std::cout << "Unknown plant state\n";
 }
 
-void Plant::addCust()
+void Plant::addCust(Customer *customer)
 {
-  // TODO - implement Plant::addCust
+  this->customer = customer;
+  cout << "Plant: this plant is now in a customer's cart.\n";
 }
+const bool& Plant::operator==(const Plant& other) {
 
+    // Compare the relevant attributes of the plants
+    if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
+        return false;
+    }
+
+    // If all attributes match, return this plant
+    return true;
+}
 PlantMemento *Plant::createPlantMemento()
 {
   // TODO - implement Plant::createPlantMemento
