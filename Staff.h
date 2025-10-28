@@ -6,15 +6,9 @@
 
 class Staff : public SalesFloor
 {
-private:
-  vector<Customer *> custList;
+
 public:
-  virtual ~Staff() {
-    for(int i = 0; i < custList.size(); i++) {
-      delete custList[i];
-      custList[i] = NULL;
-    }
-  }
+  virtual ~Staff();
   virtual void care() = 0;
   virtual void notify(Customer *customer) {};
   virtual void update() {};
