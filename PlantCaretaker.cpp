@@ -1,15 +1,17 @@
-	#include "PlantCaretaker.h"
+#include "PlantCaretaker.h"
+#include "Garden.h"
 
-	PlantCaretaker::PlantCaretaker() { }
+PlantCaretaker::PlantCaretaker() {
+  // TODO - implement PlantCaretaker::PlantCaretaker
+}
 
-	void PlantCaretaker::care() {
-		std::cout << "PlantCaretaker is caring for plants\n";
-	}
+void PlantCaretaker::care() {
+  if (!careQueue.empty()) {
+    Garden *toCareFor = careQueue.front();
+    toCareFor->applyCare();
+  }
+}
 
-	void PlantCaretaker::update() {
-		std::cout << "PlantCaretaker is updated\n";
-	}
-
-	void PlantCaretaker::notify(Customer* customer) {
-		std::cout << "PlantCaretaker notified about a customer\n";
-	}
+void PlantCaretaker::update(Garden *subjectOfCare) {
+  this->careQueue.push(subjectOfCare);
+}

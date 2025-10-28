@@ -6,10 +6,11 @@
 
 class Staff : public SalesFloor {
 public:
-  Customer *custList;
+  Customer *custList = nullptr;
+  virtual ~Staff() {}  
   virtual void care() = 0;
-  virtual void notify(Customer *customer) = 0;
-  virtual void update() = 0;
+  virtual void notify(Customer *customer){};
+  virtual void update(){};
 };
 
 #endif

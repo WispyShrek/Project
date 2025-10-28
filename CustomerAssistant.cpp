@@ -1,18 +1,19 @@
 #include "CustomerAssistant.h"
+#include <iostream>
 
-CustomerAssistant::CustomerAssistant() {
-	// TODO - implement CustomerAssistant::CustomerAssistant
-
-}
+CustomerAssistant::CustomerAssistant() { custList = nullptr; }
 
 void CustomerAssistant::care() {
-	// TODO - implement CustomerAssistant::care
-	std::cout << "whatever a customer assistant should care fore\n";
+    std::cout << "CustomerAssistant: assisting with plant care / demos\n";
 }
 
 void CustomerAssistant::notify(Customer* customer) {
-	// TODO - implement CustomerAssistant::notify
-	std::cout << "whatever a customer assistant should care fore\n";
+    custList = customer;
+    std::cout << "CustomerAssistant: notify(customer)\n";
+}
+
+void CustomerAssistant::update() {
+    std::cout << "CustomerAssistant: update() received from floor/controller\n";
 }
 
 void CustomerAssistant::update() {

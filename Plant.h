@@ -1,17 +1,17 @@
 #ifndef PLANT_H
 #define PLANT_H
 #include "CareStrategy.h"
+#include "Dying.h"
+#include "Flowering.h"
 #include "Garden.h"
+#include "Mature.h"
 #include "PlantMemento.h"
 #include "PlantState.h"
-#include "Dying.h"
 #include "Sprout.h"
-#include "Flowering.h"
-#include "Mature.h"
-#include <string>
 #include <iostream>
+#include <string>
 
-class Plant{
+class Plant {
 
 private:
   PlantState *currState;
@@ -25,6 +25,7 @@ public:
   virtual ~Plant();
   std::string getState();
   void setState(PlantState *state);
+  std::string getStrategy();
   void nextState();
   void prevState();
   void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern

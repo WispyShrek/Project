@@ -9,3 +9,6 @@ PlantState* Dying::clone() const {
     return new Dying(*this);
 }
 
+void Dying::print() {
+	std::cout << "This plant is dying, apply care to it" << std::endl;
+}

@@ -13,6 +13,11 @@
 #include "RoseCreator.h"
 #include "TulipCreator.h"
 #include "LavenderCreator.h"
+#include "greenHouse.h"
+#include "GreenhouseController.h"
+#include "PlantCaretakerCreator.h"
+#include "CustomerAssistantCreator.h"
+#include "Sunny.h"
 #include "Nursery.h"
 #include "PlantCaretaker.h"
 #include "CustomerAssistant.h"
@@ -35,7 +40,7 @@ int main() {
     using std::endl;
 
     cout << "\n=== Testing Garden Iterator ===\n" << endl;
-    Garden* garden = new Garden();
+    Garden* garden = new Sunny();
     
     // Add plants
     garden->addItem(new Rose());
@@ -164,6 +169,67 @@ int main() {
 
     std::cout << "\nAll factory tests done.\n";
 
+    Lily plant;  // starts in Sprout (from Plant::Plant())
+    plant.print();
+
+    std::cout << "start: " << plant.getState() << "\n";        // expect: Sprout
+    plant.Plant::print();
+
+    plant.applyCare();                                       
+    std::cout << "after care: " << plant.getState() << "\n"; 
+    plant.Plant::print();
+    
+    plant.applyCare();                                         // Flowering -> Mature
+    std::cout << "after more care: " << plant.getState() << "\n"; // expect: Mature
+    plant.Plant::print();
+
+    plant.applyCare();                                      
+    std::cout << "after care to Mature: " << plant.getState() << "\n";
+    plant.Plant::print();
+
+    std::cout << "All state tests done" << std::endl;
+
+
+
+    std::cout << "== Direct controller test ==\n";
+    {
+        GreenhouseController ctl;   // defaults to SprinklersOn/Off
+
+        std::cout << "Flip up:\n";
+        ctl.flipUp();               // expect: [Sprinkler] ON
+
+        std::cout << "Flip down:\n";
+        ctl.flipDown();             // expect: [Sprinkler] OFF
+
+        std::cout << "Flip up x2 then down:\n";
+        ctl.flipUp();               // [Sprinkler] ON
+        ctl.flipUp();               // [Sprinkler] ON (again)
+        ctl.flipDown();             // [Sprinkler] OFF
+    } 
+    std::cout << "\n== greenHouse::powerSystem() test ==\n";
+    {
+        greenHouse gh;
+        gh.powerSystem();           // internally creates a controller and flips up/down
+    }
+
+    std::cout << "\nAll tests done.\n";
+
+
+    std::cout << "== Staff factory test ==\n";
+
+    PlantCaretakerCreator pcc;
+    CustomerAssistantCreator cac;
+
+    Staff* a = pcc.createStaff();    // Factory Method
+    Staff* b = cac.createStaff();
+
+    a->care();    a->update();    a->notify(nullptr);
+    b->care();    b->update();    b->notify(nullptr);
+
+    delete b; 
+    delete a;
+
+    std::cout << "Done.\n";
     // =========Singleton tests ==========
 
     std::cout << "=== Singleton/Nursery ===";

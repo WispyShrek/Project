@@ -1,13 +1,19 @@
 #include "GreenhouseController.h"
 
-GreenhouseController::GreenhouseController() {
-	// TODO - implement GreenhouseController::GreenhouseController
+GreenhouseController::GreenhouseController()
+: upCommand(new SprinklersOn()),      // default to Sprinklers
+  downCommand(new SprinklersOff()) {}
+
+GreenhouseController::~GreenhouseController() {
+    delete upCommand;
+    delete downCommand;
+    upCommand = downCommand = nullptr;
 }
 
 void GreenhouseController::flipUp() {
-	// TODO - implement GreenhouseController::flipUp
+    if (upCommand) upCommand->execute();
 }
 
 void GreenhouseController::flipDown() {
-	// TODO - implement GreenhouseController::flipDown
+    if (downCommand) downCommand->execute();
 }
