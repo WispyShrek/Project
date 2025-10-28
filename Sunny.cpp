@@ -11,7 +11,7 @@ void Sunny::applyRays() {
   plants->first();
   while (!plants->isDone()) {
     if (plants->currItem() != nullptr) {
-      if (plants->currItem()->getStrategy() == "Sunny") {
+      if (plants->currItem()->getStrategy() != "Sunny") {
         plants->currItem()->setState(new Dying());
       }
     }

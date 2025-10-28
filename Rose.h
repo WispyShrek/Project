@@ -2,6 +2,7 @@
 #define ROSE_H
 
 #include "Plant.h"
+#include "SunnyCare.h"
 class Rose : public Plant {
 public:
   Rose();

@@ -25,7 +25,16 @@ void Garden::removeItem(Plant *item){
 
 void Garden::TemplateMethod() {}
 
-void Garden::applyCare() {}
+void Garden::applyCare() {
+  Iterator<Plant *> *plants = CreateIterator();
+  plants->first();
+  while (!plants->isDone()) {
+    if (plants->currItem() != nullptr) {
+      plants->currItem()->applyCare();
+    }
+    plants->next();
+  }
+}
 
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 

@@ -1,6 +1,8 @@
 #include "Tulip.h"
 
-Tulip::Tulip() = default;
+Tulip::Tulip(){
+	this->strategy = new ShadyCare();
+};
 
 std::string Tulip::getName() {
 	return "Tulip";

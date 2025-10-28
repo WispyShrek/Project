@@ -1,6 +1,8 @@
 #include "Lily.h"
 
-Lily::Lily() = default;
+Lily::Lily(){
+	this->strategy = new PartialSunCare();
+};
 
 std::string Lily::getName() {
 	return "Lily";

@@ -1,6 +1,8 @@
 #include "Lavender.h"
 
-Lavender::Lavender() = default;
+Lavender::Lavender(){
+	this->strategy = new PartialSunCare();
+}
 
 std::string Lavender::getName() {
 	return "Lavender";

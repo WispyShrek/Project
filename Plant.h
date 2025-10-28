@@ -14,7 +14,7 @@ class Customer;
 class Plant
 {
 
-private:
+protected:
   Customer *customer;
   PlantState *currState;
   CareStrategy *strategy;

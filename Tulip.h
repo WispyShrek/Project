@@ -2,6 +2,7 @@
 #define TULIP_H
 
 #include "Plant.h"
+#include "ShadyCare.h"
 
 class Tulip : public Plant {
 public:

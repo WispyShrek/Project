@@ -1,6 +1,8 @@
 #include "Rose.h"
 
-Rose::Rose() = default;
+Rose::Rose(){
+	this->strategy = new SunnyCare();
+};
 
 std::string Rose::getName() {
 	return "Rose";

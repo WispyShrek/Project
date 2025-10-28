@@ -11,7 +11,7 @@ void Shady::applyRays() {
   plants->first();
   while (!plants->isDone()) {
     if (plants->currItem() != nullptr) {
-      if (plants->currItem()->getStrategy() == "Shady") {
+      if (plants->currItem()->getStrategy() != "Shady") {
         plants->currItem()->setState(new Dying());
       }
     }

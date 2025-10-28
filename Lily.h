@@ -2,6 +2,7 @@
 #define LILY_H
 
 #include "Plant.h"
+#include "PartialSunCare.h"
 
 class Lily : public Plant {
 public:
