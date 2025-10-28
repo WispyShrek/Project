@@ -8,7 +8,7 @@ class Staff : public SalesFloor
 {
 
 public:
-  virtual ~Staff();
+  virtual ~Staff(){};
   virtual void care() = 0;
   virtual void notify(Customer *customer) {};
   virtual void update() {};

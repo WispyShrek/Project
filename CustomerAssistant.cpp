@@ -6,7 +6,7 @@ CustomerAssistant::CustomerAssistant()
     custList = {};
 }
 CustomerAssistant::~CustomerAssistant() {
-    for(int i=0; i<custList.size(); i++) {
+    for(int i=0; i<int(custList.size()); i++) {
         delete custList[i];
         custList[i] = NULL;
     }
@@ -15,7 +15,6 @@ void CustomerAssistant::care()
 {
     cout << "CustomerAssistant: should not be doing anything with plants\n";
 }
-
 void CustomerAssistant::notify(Customer *customer)
 {
     

@@ -30,20 +30,19 @@ void Plant::increasePrice(double amount)
 }
 void Plant::setState(PlantState *state)
 {
-  // TODO - implement Plant::setState
   currState = state;
 }
 
 void Plant::setStrategy(CareStrategy *strategy) {
   this->strategy = strategy;
 }
-string Plant::getColour() {
+std::string Plant::getColour() {
   return this->colour;
 }
-string Plant::getScent() {
+std::string Plant::getScent() {
   return this->scent;
 }
-string Plant::getPrice() {
+std::string Plant::getPrice() {
   return std::to_string(this->price);
 }
 
@@ -89,7 +88,7 @@ void Plant::print()
 void Plant::addCust(Customer *customer)
 {
   this->customer = customer;
-  cout << "Plant: this plant is now in a customer's cart.\n";
+  std::cout << "Plant: this plant is now in a customer's cart.\n";
 }
 const bool& Plant::operator==(const Plant& other) {
 
@@ -97,6 +96,8 @@ const bool& Plant::operator==(const Plant& other) {
     if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
         return false;
     }
+        return true;
+}
 
 PlantMemento* Plant::createPlantMemento() {
 	// TODO - implement Plant::createPlantMemento

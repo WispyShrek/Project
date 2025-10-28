@@ -11,7 +11,6 @@
 #include <iostream>
 #include <string>
 class Customer;
-using namespace std;
 class Plant
 {
 
@@ -26,17 +25,17 @@ private:
 
 public:
   Plant();
-  ~Plant();
+  virtual ~Plant();
   const bool& operator==(const Plant& other);
   void increasePrice(double amount);
   std::string getState();
   void setState(PlantState *state);
-  string getStrategy();
-  virtual string getName() = 0;
+  std::string getStrategy();
+  virtual std::string getName() = 0;
   void setStrategy(CareStrategy *strategy);
-  string getColour();
-  string getScent();
-  string getPrice();
+  std::string getColour();
+  std::string getScent();
+  std::string getPrice();
   void nextState();
   void prevState();
   void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern

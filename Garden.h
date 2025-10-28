@@ -1,12 +1,13 @@
 #ifndef GARDEN_H
 #define GARDEN_H
 #include "Collection.h"
-#include "PlantCaretaker.h"
 #include "GardenIterator.h"
 #include "Plant.h"
 #include <vector>
 
-class Garden : Collection<Plant *> {
+class PlantCaretaker;
+
+class Garden : public Collection<Plant *> {
 private:
   std::vector<PlantCaretaker *> staffList;
 

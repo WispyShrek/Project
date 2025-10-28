@@ -31,7 +31,7 @@ public:
    */
     void update(Garden *subjectOfCare);
 
-  ~PlantCaretaker();
+    ~PlantCaretaker();
 };
 
 #endif

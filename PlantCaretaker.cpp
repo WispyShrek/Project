@@ -9,7 +9,7 @@ PlantCaretaker::~PlantCaretaker() {
   while (!careQueue.empty()) {
     careQueue.pop();
   }
-  for(int i=0; i<custList.size(); i++) {
+  for(int i=0; i<int(custList.size()); i++) {
       delete custList[i];
       custList[i] = NULL;
   }
@@ -17,6 +17,7 @@ PlantCaretaker::~PlantCaretaker() {
 void PlantCaretaker::care() {
   if (!careQueue.empty()) {
     Garden *toCareFor = careQueue.front();
+    careQueue.pop();
     toCareFor->applyCare();
   }
 }

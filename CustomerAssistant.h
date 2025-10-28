@@ -8,14 +8,12 @@ class CustomerAssistant : public Staff {
 private:
   vector<Customer*> custList;
 public:
-  CustomerAssistant();
+    CustomerAssistant();
     void care() override;
     void update() override;
     void notify(Customer* customer) override; 
-  ~CustomerAssistant();
-  void care();
-  void notify(Customer *customer);
-  void update() override; 
+   ~CustomerAssistant();
+
 };
 
 #endif

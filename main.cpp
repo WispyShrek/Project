@@ -34,6 +34,7 @@
 #include "PlantCaretaker.h"
 #include "Caretaker.h"
 #include "PlantMemento.h"
+#include "FussyCust.h"
 
 int main() {
     using std::cout;
@@ -222,9 +223,9 @@ int main() {
 
     Staff* a = pcc.createStaff();    // Factory Method
     Staff* b = cac.createStaff();
-
-    a->care();    a->update();    a->notify(nullptr);
-    b->care();    b->update();    b->notify(nullptr);
+    Customer* cust1 = new FussyCust();
+    a->care();    a->update();    a->notify(cust1);
+    b->care();    b->update();    b->notify(cust1);
 
     delete b; 
     delete a;
