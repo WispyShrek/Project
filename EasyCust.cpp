@@ -1,9 +1,9 @@
 #include "EasyCust.h"
 
 void EasyCust::get() {
-	// TODO - implement EasyCust::get
+std::cout<< "I am fussy\n";
 }
 
 void EasyCust::set() {
-	// TODO - implement EasyCust::set
+	std::cout<< "Setting some shitlol\n";
 }

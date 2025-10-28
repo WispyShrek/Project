@@ -26,7 +26,7 @@ private:
 
 public:
   Plant();
-  ~Plant();
+  virtual ~Plant();
   const bool& operator==(const Plant& other);
   void increasePrice(double amount);
   std::string getState();

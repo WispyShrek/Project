@@ -1,9 +1,11 @@
 #include "FussyCust.h"
 
-void FussyCust::get() {
-	// TODO - implement FussyCust::get
+void FussyCust::get()
+{
+	std::cout << "I am easy\n";
 }
 
-void FussyCust::set() {
-	// TODO - implement FussyCust::set
+void FussyCust::set()
+{
+	std::cout << "Setting some shitlol\n";
 }

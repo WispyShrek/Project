@@ -15,7 +15,7 @@ private:
 public:
 	Customer();
 	Customer(std::string name, SalesFloor* salesFloor);
-	~Customer();
+	virtual ~Customer();
 	void addDecoration(Plant* plant);
 	void addToCart(Plant* plant);
 	void removeFromCart(Plant* plant);

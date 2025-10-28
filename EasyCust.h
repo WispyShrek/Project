@@ -5,6 +5,7 @@
 class EasyCust : public Customer {
 
 public:
+  
   void get();
   void set();
 };

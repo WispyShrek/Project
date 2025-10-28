@@ -6,7 +6,7 @@ CustomerAssistant::CustomerAssistant()
     custList = {};
 }
 CustomerAssistant::~CustomerAssistant() {
-    for(int i=0; i<custList.size(); i++) {
+    for(int i=0; i<int(custList.size()); i++) {
         delete custList[i];
         custList[i] = NULL;
     }
