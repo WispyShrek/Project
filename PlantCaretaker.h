@@ -1,5 +1,6 @@
 #ifndef PLANTCARETAKER_H
 #define PLANTCARETAKER_H
+#include <iostream>
 
 #include "Staff.h"
 #include <queue>
@@ -15,6 +16,9 @@ public:
   ~PlantCaretaker();
   void care();
   void update(Garden *subjectOfCare);
+    void care() override;
+    void update() override;
+    void notify(Customer* customer) override; 
 };
 
 #endif

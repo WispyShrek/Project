@@ -39,6 +39,7 @@ public:
   string getPrice();
   void nextState();
   void prevState();
+  void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern
   void applyCare();
   virtual void print();
   void addCust(Customer *customer);

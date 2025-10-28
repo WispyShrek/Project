@@ -27,3 +27,7 @@ void CustomerAssistant::update()
 
     cout << "CustomerAssistant: update() received from floor/garden\n";
 }
+
+void CustomerAssistant::update() {
+	std::cout << "CustomerAssistant is updated\n";
+}
