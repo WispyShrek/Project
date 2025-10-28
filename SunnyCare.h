@@ -7,7 +7,6 @@
 class SunnyCare : public CareStrategy {
 public:
   SunnyCare();
-  void applyCare();
   void applyCare() override;
 };
 

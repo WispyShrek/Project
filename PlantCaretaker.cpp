@@ -15,3 +15,4 @@ void PlantCaretaker::care() {
 void PlantCaretaker::update(Garden *subjectOfCare) {
   this->careQueue.push(subjectOfCare);
 }
+

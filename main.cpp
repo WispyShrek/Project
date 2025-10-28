@@ -255,8 +255,8 @@ int main() {
 
 
     // Add gardens
-    Garden* garden1 = new Garden();
-    Garden* garden2 = new Garden();
+    Garden* garden1 = new Sunny();
+    Garden* garden2 = new Sunny();
     nursery1.addGarden(garden1);
     nursery1.addGarden(garden2);
 

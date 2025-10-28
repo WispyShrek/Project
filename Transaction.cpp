@@ -1,5 +1,5 @@
 #include "Transaction.h"
-#include "PaymentStrategy.h"; 
+#include "PaymentStrategy.h"
 
 void Transaction::pay() {
     if (paymentStrategy) {//ensure strategy is set
