@@ -6,6 +6,7 @@
 class Lily : public Plant {
 public:
   Lily();
+  std::string getName();
   Lily *clone();
   void print() override;
 

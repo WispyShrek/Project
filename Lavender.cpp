@@ -2,6 +2,10 @@
 
 Lavender::Lavender() = default;
 
+std::string Lavender::getName() {
+	return "Lavender";
+}
+
 Lavender* Lavender::clone() {
 	return new Lavender(*this);
 }

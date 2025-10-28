@@ -6,6 +6,7 @@ class Caretaker{
 private:
 	PlantMemento* memento;
 public:
+	virtual ~Caretaker();
 	PlantMemento* getPlantMemento();
 	void setPlantMemento(PlantMemento* memento);
 };

@@ -2,6 +2,10 @@
 
 Rose::Rose() = default;
 
+std::string Rose::getName() {
+	return "Rose";
+}
+
 Rose* Rose::clone() {
 	return new Rose(*this);
 }

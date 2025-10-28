@@ -1,8 +1,9 @@
 #ifndef EFT_H
 #define EFT_H
-#include "PaymentStartegy.h"
+#include <iostream>
+#include "PaymentStrategy.h"
 
-class EFT : public PaymentStartegy {
+class EFT : public PaymentStrategy {
 public:
   void pay();
 };

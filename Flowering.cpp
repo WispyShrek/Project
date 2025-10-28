@@ -3,6 +3,12 @@
 void Flowering::next(Plant* context) {
     if (!context) return;
     context->setState(new Mature());
+	// TODO - implement Flowering::next
+	return;
+}
+
+PlantState* Flowering::clone() const {
+    return new Flowering(*this);
 }
 
 void Flowering::print() {

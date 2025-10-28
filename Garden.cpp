@@ -1,4 +1,5 @@
 #include "Garden.h"
+#include "PlantCaretaker.h"
 #include <algorithm>
 
 Garden::~Garden(){
@@ -33,7 +34,7 @@ void Garden::detach(PlantCaretaker *staff) {
 }
 
 void Garden::notify() {
-  for (auto staff : staffList) {
-    staff->update(this);
+  for (auto plantCaretaker : staffList) {
+    plantCaretaker->update(this);
   }
 }
