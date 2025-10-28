@@ -1,18 +1,17 @@
 #include "Tulip.h"
 
-Tulip::Tulip() {
-	// TODO - implement Tulip::Tulip
+Tulip::Tulip() = default;
+
+std::string Tulip::getName() {
+	return "Tulip";
 }
 
 Tulip* Tulip::clone() {
-	// TODO - implement Tulip::clone
-	return nullptr;
+	return new Tulip(*this);
 }
 
 void Tulip::print(){
 	std::cout << "Tulip" << std::endl;
 }
 
-Tulip::Tulip(Tulip& toCopy) {
-	// TODO - implement Tulip::Tulip;
-}
+Tulip::Tulip(Tulip& toCopy) : Plant(toCopy) {}

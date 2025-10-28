@@ -1,10 +1,8 @@
 #include "TulipCreator.h"
+#include "Tulip.h"
 
 Plant* TulipCreator::createPlant() {
-	// TODO - implement TulipCreator::createPlant
-	return nullptr;
+	return new Tulip();
 }
 
-TulipCreator::TulipCreator() {
-	// TODO - implement TulipCreator::TulipCreator
-}
+TulipCreator::TulipCreator() = default;

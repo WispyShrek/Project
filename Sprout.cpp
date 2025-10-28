@@ -1,9 +1,17 @@
 #include "Sprout.h"
 
 void Sprout::next(Plant* context) {
-	// TODO - implement Sprout::next
+    if (!context) return;
+    context->setState(new Flowering());
 }
 
-void Sprout::prev(Plant* context) {
-	// TODO - implement Sprout::prev
+void Sprout::print() {
+	std::cout << "This is a sprout" << std::endl;
+	// TODO - implement Sprout::next
+	return;
 }
+
+PlantState* Sprout::clone() const {
+    return new Sprout(*this);
+}
+

@@ -1,18 +1,17 @@
 #include "Lavender.h"
 
-Lavender::Lavender() {
-	// TODO - implement Lavender::Lavender
+Lavender::Lavender() = default;
+
+std::string Lavender::getName() {
+	return "Lavender";
 }
 
 Lavender* Lavender::clone() {
-	// TODO - implement Lavender::clone
-	return nullptr;
+	return new Lavender(*this);
 }
 
 void Lavender::print(){
 	std::cout << "Lavender" << std::endl;
 }
 
-Lavender::Lavender(Lavender& toCopy) {
-	// TODO - implement Lavender::Lavender
-}
+Lavender::Lavender(Lavender& toCopy) : Plant(toCopy) {}

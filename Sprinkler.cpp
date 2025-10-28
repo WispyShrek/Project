@@ -1,9 +1,11 @@
 #include "Sprinkler.h"
 
+#include <iostream>
+
 void Sprinkler::turnOn() {
-	// TODO - implement Sprinkler::turnOn
+	std::cout << "Sprinkler: ON" << std::endl;
 }
 
 void Sprinkler::turnOff() {
-	// TODO - implement Sprinkler::turnOff
+	std::cout << "Sprinkler: OFF" << std::endl;
 }

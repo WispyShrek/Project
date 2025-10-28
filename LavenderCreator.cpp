@@ -1,10 +1,8 @@
 #include "LavenderCreator.h"
+#include "Lavender.h"
 
 Plant* LavenderCreator::createPlant() {
-	// TODO - implement LavenderCreator::createPlant
-	return nullptr;
+	return new Lavender();
 }
 
-LavenderCreator::LavenderCreator() {
-	// TODO - implement LavenderCreator::LavenderCreator
-}
+LavenderCreator::LavenderCreator() = default; 

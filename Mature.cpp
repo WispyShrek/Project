@@ -1,9 +1,17 @@
 #include "Mature.h"
 
 void Mature::next(Plant* context) {
-	// TODO - implement Mature::next
+    if (!context) return;
+    std::cout << "Cannot grow more — already Mature.\n";
 }
 
-void Mature::prev(Plant* context) {
-	// TODO - implement Mature::prev
+void Mature::print() {	
+	std::cout << "The is a plant that is now Mature" << std::endl;
+	// TODO - implement Mature::next
+	return; 
 }
+
+PlantState* Mature::clone() const {
+    return new Mature(*this);
+}
+

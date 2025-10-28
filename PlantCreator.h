@@ -12,7 +12,7 @@ protected:
 
 public:
 	PlantCreator();
-	~PlantCreator();
+	virtual ~PlantCreator();
 };
 
 #endif

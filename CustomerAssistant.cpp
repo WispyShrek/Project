@@ -1,13 +1,28 @@
 #include "CustomerAssistant.h"
+#include <iostream>
 
-CustomerAssistant::CustomerAssistant() {
-	// TODO - implement CustomerAssistant::CustomerAssistant
+CustomerAssistant::CustomerAssistant()
+{
+    custList = {};
+}
+CustomerAssistant::~CustomerAssistant() {
+    for(int i=0; i<int(custList.size()); i++) {
+        delete custList[i];
+        custList[i] = NULL;
+    }
+}
+void CustomerAssistant::care()
+{
+    cout << "CustomerAssistant: should not be doing anything with plants\n";
+}
+void CustomerAssistant::notify(Customer *customer)
+{
+    
+    cout << "CustomerAssistant: notifying customer. Customer cart has changed:\n" << customer->cartToString() << "\n";
 }
 
-void CustomerAssistant::care() {
-	// TODO - implement CustomerAssistant::care
-}
+void CustomerAssistant::update()
+{
 
-void CustomerAssistant::notify(Customer* customer) {
-	// TODO - implement CustomerAssistant::notify
+    cout << "CustomerAssistant: update() received from floor/garden\n";
 }

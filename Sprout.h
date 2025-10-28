@@ -7,7 +7,8 @@
 class Sprout : public PlantState {
 public:
   void next(Plant *context);
-  void prev(Plant *context);
+  void print();
+  PlantState* clone() const override;
 };
 
 #endif
