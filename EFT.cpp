@@ -2,4 +2,5 @@
 
 void EFT::pay() {
 	// TODO - implement EFT::pay
+	std::cout << "Paying with EFT";
 }

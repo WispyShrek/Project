@@ -28,6 +28,7 @@ public:
   std::string getStrategy();
   void nextState();
   void prevState();
+  void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern
   void applyCare();
   virtual void print();
   void addCust();

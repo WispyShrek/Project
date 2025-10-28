@@ -7,8 +7,12 @@ class PlantMemento{
 private:
 	PlantState* currState;
 public:
-	PlantState* getState();
-	void setState(PlantState* state);
+    PlantMemento();
+    PlantMemento(PlantState* state);
+    ~PlantMemento();
+
+    PlantState* getState() const;
+    void setState(PlantState* state);
 };
 
 #endif

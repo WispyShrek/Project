@@ -1,8 +1,9 @@
 #ifndef CARD_H
 #define CARD_H
-#include "PaymentStartegy.h"
+#include <iostream>
+#include "PaymentStrategy.h"
 
-class Card : public PaymentStartegy {
+class Card : public PaymentStrategy {
 public:
   void pay();
 };

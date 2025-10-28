@@ -1,5 +1,6 @@
 #ifndef PLANTCARETAKER_H
 #define PLANTCARETAKER_H
+#include <iostream>
 
 #include "Staff.h"
 #include <queue>
@@ -29,6 +30,9 @@ public:
    * @param A pointer to a Garden object.
    */
   void update(Garden *subjectOfCare);
+    void care() override;
+    void update() override;
+    void notify(Customer* customer) override; 
 };
 
 #endif

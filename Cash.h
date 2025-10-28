@@ -1,8 +1,9 @@
 #ifndef CASH_H
 #define CASH_H
-#include "PaymentStartegy.h"
+#include <iostream>
+#include "PaymentStrategy.h"
 
-class Cash : public PaymentStartegy {
+class Cash : public PaymentStrategy {
 
 public:
   void pay();

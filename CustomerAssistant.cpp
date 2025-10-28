@@ -15,3 +15,7 @@ void CustomerAssistant::notify(Customer* customer) {
 void CustomerAssistant::update() {
     std::cout << "CustomerAssistant: update() received from floor/controller\n";
 }
+
+void CustomerAssistant::update() {
+	std::cout << "CustomerAssistant is updated\n";
+}

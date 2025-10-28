@@ -41,9 +41,19 @@ void Plant::prevState() {
     setState(new Dying());
 }
 
+void Plant::setCareStrategy(CareStrategy* strat) {
+    if (strategy) { //replace previous strategy
+        delete strategy; 
+    }
+    strategy = strat;
+}
+
 void Plant::applyCare() {
-  if (currState)
-    currState->next(this);
+	// TODO - implement Plant::applyCare
+    if (strategy)
+        strategy->applyCare();
+    else
+        std::cout << "no care strategy selected yet\n";
 }
 
 void Plant::print() {
@@ -57,13 +67,18 @@ void Plant::addCust() {
   // TODO - implement Plant::addCust
 }
 
-PlantMemento *Plant::createPlantMemento() {
-  // TODO - implement Plant::createPlantMemento
-  return nullptr;
+PlantMemento* Plant::createPlantMemento() {
+	// TODO - implement Plant::createPlantMemento
+	return new PlantMemento(currState);
 }
 
-void Plant::setPlantMemento(PlantMemento *memento) {
-  // TODO - implement Plant::setPlantMemento
+void Plant::setPlantMemento(PlantMemento* memento) {
+	// TODO - implement Plant::setPlantMemento
+    if (memento) {
+        delete currState; 
+
+        currState = memento->getState();
+    }
 }
 
 Plant::Plant(Plant &toCopy)
