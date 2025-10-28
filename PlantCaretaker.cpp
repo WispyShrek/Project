@@ -1,13 +1,15 @@
-#include "PlantCaretaker.h"
+	#include "PlantCaretaker.h"
 
-PlantCaretaker::PlantCaretaker() {
-	// TODO - implement PlantCaretaker::PlantCaretaker
-}
+	PlantCaretaker::PlantCaretaker() { }
 
-void PlantCaretaker::care() {
-	// TODO - implement PlantCaretaker::care
-}
+	void PlantCaretaker::care() {
+		std::cout << "PlantCaretaker is caring for plants\n";
+	}
 
-void PlantCaretaker::update() {
-	// TODO - implement PlantCaretaker::update
-}
+	void PlantCaretaker::update() {
+		std::cout << "PlantCaretaker is updated\n";
+	}
+
+	void PlantCaretaker::notify(Customer* customer) {
+		std::cout << "PlantCaretaker notified about a customer\n";
+	}

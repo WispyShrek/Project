@@ -6,6 +6,7 @@
 class Flowering : public PlantState {
 public:
   void next(Plant *context);
+  PlantState* clone() const override;
 };
 
 #endif

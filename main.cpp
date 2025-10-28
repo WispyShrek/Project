@@ -13,6 +13,22 @@
 #include "RoseCreator.h"
 #include "TulipCreator.h"
 #include "LavenderCreator.h"
+#include "Nursery.h"
+#include "PlantCaretaker.h"
+#include "CustomerAssistant.h"
+#include "CareStrategy.h"
+#include "SunnyCare.h"
+#include "ShadyCare.h"
+#include "PartialSunCare.h"
+#include "Plant.h"
+#include "EFT.h"
+#include "Card.h"
+#include "Cash.h"
+#include "PaymentStrategy.h"
+#include "Transaction.h"
+#include "PlantCaretaker.h"
+#include "Caretaker.h"
+#include "PlantMemento.h"
 
 int main() {
     using std::cout;
@@ -147,5 +163,173 @@ int main() {
     }
 
     std::cout << "\nAll factory tests done.\n";
+
+    // =========Singleton tests ==========
+
+    std::cout << "=== Singleton/Nursery ===";
+
+    Nursery& nursery1 = Nursery::instance();
+    Nursery& nursery2 = Nursery::instance();
+
+    std::cout << "Checking if both references are the same instance...\n";
+    if (&nursery1 == &nursery2)
+        std::cout << "PASS: Only one instance exists.\n";
+    else
+        std::cout << "FAIL: Multiple instances detected!\n";
+
+    PlantCaretaker* caretaker = new PlantCaretaker();
+    CustomerAssistant* assistant = new CustomerAssistant();
+
+    nursery1.addStaff(caretaker);
+    nursery1.addStaff(assistant);
+
+    std::cout << "Added staff.\n";
+
+    nursery1.addStaff(caretaker);
+
+
+    // Add gardens
+    Garden* garden1 = new Garden();
+    Garden* garden2 = new Garden();
+    nursery1.addGarden(garden1);
+    nursery1.addGarden(garden2);
+
+    std::cout << "Added gardens.\n";
+
+    // Test remove
+    nursery1.removeStaff(caretaker);
+    nursery1.removeGarden(garden1);
+
+    std::cout << "Removed one staff and one garden.\n";
+
+    for (int i = 0; i < 5; ++i) {
+        PlantCaretaker* temp = new PlantCaretaker();
+        nursery1.addStaff(temp);
+        nursery1.removeStaff(temp);
+        delete temp; // avoid memory leak
+    }
+    std::cout << "Stress test completed.\n";
+
+    std::cout << "Staff count: " << nursery1.getStaffCount() << "\n";
+    std::cout << "Garden count: " << nursery1.getGardenCount() << "\n";
+
+    nursery1.removeStaff(assistant);
+    nursery1.removeGarden(garden2);
+    delete caretaker;
+    delete assistant;
+    delete garden1;
+    delete garden2;
+
+    std::cout << "Final cleanup done.\n";
+
+
+    // =========== Strategy Testing ===============
+    std::cout << "=== Strategy/Plant Care ===\n";
+
+    std::vector<Plant*> plants;
+    plants.push_back(new Lavender());
+
+    std::cout << "\nAssigning care strategies...\n";
+    plants[0]->setCareStrategy(new SunnyCare());
+    plants[0]->applyCare();
+
+    std::cout << "\nSwitching to ShadyCare...\n";
+    plants[0]->setCareStrategy(new ShadyCare());
+    plants[0]->applyCare();
+
+    std::cout << "\nSwitching to PartialSunCare...\n";
+    plants[0]->setCareStrategy(new PartialSunCare());
+    plants[0]->applyCare();
+
+    std::cout << "\n=== Stress Test: Swapping Strategies Dynamically ===\n";
+    for (int i = 0; i < 5; ++i) {
+        CareStrategy* s;
+        if (i % 3 == 0)
+            s = new SunnyCare();
+        else if (i % 3 == 1)
+            s = new ShadyCare();
+        else
+            s = new PartialSunCare();
+
+        plants[0]->setCareStrategy(s);
+        plants[0]->applyCare();
+    }
+
+    std::cout << "\nCloning the Lavender plant...\n";
+    Plant* clone = plants[0]->clone();
+    clone->print();
+
+    for (auto p : plants)
+        delete p;
+    delete clone;
+
+
+    //===testing PaymentStrategy =====
+    Transaction transaction;
+    Cash cashPayment;
+    Card cardPayment;
+    EFT eftPayment;
+
+    std::cout << "Setting payment strategy to CASH..." << std::endl;
+    transaction.setPaymentStrategy(&cashPayment);
+    transaction.pay();  // Expected: Pay with cash.
+
+    std::cout << "\n--------------------------------------------\n" << std::endl;
+
+    std::cout << "Setting payment strategy to CARD..." << std::endl;
+    transaction.setPaymentStrategy(&cardPayment);
+    transaction.pay();  // Expected: Pay with card.
+
+    std::cout << "\n--------------------------------------------\n" << std::endl;
+
+    std::cout << "Setting payment strategy to EFT..." << std::endl;
+    transaction.setPaymentStrategy(&eftPayment);
+    transaction.pay();  // Expected: Pay via EFT.
+
+    std::cout << "\n--------------------------------------------\n" << std::endl;
+
+    std::cout << "Testing transaction without a strategy..." << std::endl;
+    Transaction emptyTransaction;
+    emptyTransaction.pay();  // Expected: No payment strategy set :(
+
+
+    std::cout << "\n Strategy pattern test complete.\n";
+
+    //===memento testing ===
+    
+    Rose myRose;          
+    Caretaker plantHistory;
+
+    myRose.setState(new Sprout());
+    std::cout << "Step 1: Initial state set to: " << myRose.getState() << std::endl;
+
+    std::cout << "Step 2: Saving state (" << myRose.getState() << ") to Caretaker..." << std::endl;
+    plantHistory.setPlantMemento(myRose.createPlantMemento());
+    std::cout << "   ...State saved. ✅\n" << std::endl;
+
+    std::cout << "Step 3: Plant is growing... changing state." << std::endl;
+    myRose.setState(new Flowering());
+    std::cout << "   Current plant state is now: " << myRose.getState() << std::endl;
+
+    std::cout << "Step 4: Plant continues growing..." << std::endl;
+    myRose.setState(new Mature());
+    std::cout << "   Current plant state is now: " << myRose.getState() << "\n" << std::endl;
+
+    std::cout << "Step 5: A customer wants to see the saved state. Restoring..." << std::endl;
+    myRose.setPlantMemento(plantHistory.getPlantMemento());
+    std::cout << "   ...State restored from Caretaker.\n" << std::endl;
+
+    std::cout << "=== Verification ===" << std::endl;
+    std::cout << "Final plant state is: " << myRose.getState() << std::endl;
+    
+    if (myRose.getState() == "Sprout") {
+        std::cout << "PASS: State successfully restored to 'Sprout'. ✅\n";
+    } else {
+        std::cout << "FAIL: State was not restored. Expected 'Sprout' but got '" 
+                  << myRose.getState() << "'. ❌\n";
+    }
+
+    std::cout << "\nTest complete. \n" << std::endl;
+
     return 0;
 }

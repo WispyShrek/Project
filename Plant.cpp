@@ -38,8 +38,19 @@ void Plant::prevState() {
 	//working on
 }
 
+void Plant::setCareStrategy(CareStrategy* strat) {
+    if (strategy) { //replace previous strategy
+        delete strategy; 
+    }
+    strategy = strat;
+}
+
 void Plant::applyCare() {
 	// TODO - implement Plant::applyCare
+    if (strategy)
+        strategy->applyCare();
+    else
+        std::cout << "no care strategy selected yet\n";
 }
 
 void Plant::print() {
@@ -56,11 +67,16 @@ void Plant::addCust() {
 
 PlantMemento* Plant::createPlantMemento() {
 	// TODO - implement Plant::createPlantMemento
-	return nullptr;
+	return new PlantMemento(currState);
 }
 
 void Plant::setPlantMemento(PlantMemento* memento) {
 	// TODO - implement Plant::setPlantMemento
+    if (memento) {
+        delete currState; 
+
+        currState = memento->getState();
+    }
 }
 
 Plant::Plant(Plant& toCopy) : currState(nullptr), strategy(toCopy.strategy), colour(toCopy.colour), scent(toCopy.scent), length(toCopy.length)
@@ -77,7 +93,7 @@ Plant::Plant(Plant& toCopy) : currState(nullptr), strategy(toCopy.strategy), col
         currState = new Dying();
 
     } else {
-        // Safe fallback
+        // Safe fallbacka
         currState = new Sprout();
 	}
 }
