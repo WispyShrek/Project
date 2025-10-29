@@ -2,10 +2,15 @@
 
 Rose::Rose(){
 	this->strategy = new SunnyCare();
+	this->price = 80;
 };
 
 std::string Rose::getName() {
 	return "Rose";
+}
+
+double Rose::getPrice() {
+	return price;
 }
 
 Rose* Rose::clone() {

@@ -35,7 +35,7 @@ public:
   void setStrategy(CareStrategy *strategy);
   std::string getColour();
   std::string getScent();
-  std::string getPrice();
+  double getPrice();
   void nextState();
   void prevState();
   void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern

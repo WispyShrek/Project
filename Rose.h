@@ -9,9 +9,13 @@ public:
   std::string getName();
   Rose *clone();
   void print() override;
+  double getPrice();
 
 protected:
   Rose(Rose &toCopy);
+
+private:
+  double price;
 };
 
 #endif

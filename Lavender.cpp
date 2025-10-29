@@ -2,10 +2,15 @@
 
 Lavender::Lavender(){
 	this->strategy = new PartialSunCare();
+	this->price = 50;
 }
 
 std::string Lavender::getName() {
 	return "Lavender";
+}
+
+double Lavender::getPrice() {
+	return price;
 }
 
 Lavender* Lavender::clone() {

@@ -11,8 +11,13 @@ public:
   Tulip *clone();
   void print() override;
 
+  double getPrice();
+
 protected:
   Tulip(Tulip &toCopy);
+
+private:
+  double price;
 };
 
 #endif

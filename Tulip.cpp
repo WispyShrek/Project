@@ -2,10 +2,15 @@
 
 Tulip::Tulip(){
 	this->strategy = new ShadyCare();
+	this->price = 65;
 };
 
 std::string Tulip::getName() {
 	return "Tulip";
+}
+
+double Tulip::getPrice() {
+	return price;
 }
 
 Tulip* Tulip::clone() {

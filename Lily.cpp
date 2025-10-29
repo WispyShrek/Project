@@ -2,10 +2,15 @@
 
 Lily::Lily(){
 	this->strategy = new PartialSunCare();
+	this->price = 70;
 };
 
 std::string Lily::getName() {
 	return "Lily";
+}
+
+double Lily::getPrice() {
+	return price;
 }
 
 Lily* Lily::clone() {

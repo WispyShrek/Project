@@ -10,9 +10,13 @@ public:
   std::string getName();
   Lily *clone();
   void print() override;
+  double getPrice();
 
 protected:
   Lily(Lily &toCopy);
+
+private:
+  double price;
 };
 
 #endif
