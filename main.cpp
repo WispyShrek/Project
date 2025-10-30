@@ -306,15 +306,17 @@ int main() {
         GreenhouseController ctl;   // defaults to SprinklersOn/Off
 
         std::cout << "Flip up:\n";
-        ctl.flipUp();               // expect: [Sprinkler] ON
+        ctl.flipUpSprinklers();               // expect: [Sprinkler] ON
 
         std::cout << "Flip down:\n";
-        ctl.flipDown();             // expect: [Sprinkler] OFF
+        ctl.flipDownSprinklers();             // expect: [Sprinkler] OFF
 
         std::cout << "Flip up x2 then down:\n";
-        ctl.flipUp();               // [Sprinkler] ON
-        ctl.flipUp();               // [Sprinkler] ON (again)
-        ctl.flipDown();             // [Sprinkler] OFF
+        ctl.flipUpSprinklers();               // [Sprinkler] ON
+        ctl.flipUpSprinklers();               // [Sprinkler] ON (again)
+        ctl.flipDownSprinklers();             // [Sprinkler] OFF
+
+        
     } 
     std::cout << "\n== greenHouse::powerSystem() test ==\n";
     {

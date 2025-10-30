@@ -18,8 +18,10 @@ greenHouse::~greenHouse(){
 void greenHouse::powerSystem()
 {
     GreenhouseController controller;
-    controller.flipUp();     // e.g. [Sprinkler] ON
-    controller.flipDown();   // e.g. [Sprinkler] OFF
+    controller.flipUpSprinklers();
+    controller.flipUpLights();
+    controller.flipDownSprinklers();
+    controller.flipDownLights();
 }
 
 Iterator<Plant *> *greenHouse::CreateIterator(){
