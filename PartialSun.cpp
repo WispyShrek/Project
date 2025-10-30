@@ -11,7 +11,7 @@ void PartialSun::applyRays() {
   plants->first();
   while (!plants->isDone()) {
     if (plants->currItem() != nullptr) {
-      if (plants->currItem()->getStrategy() == "PartialSun") {
+      if (plants->currItem()->getStrategy() != "PartialSun") {
         plants->currItem()->setState(new Dying());
       }
     }

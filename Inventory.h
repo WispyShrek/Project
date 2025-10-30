@@ -8,15 +8,14 @@
 #include <vector>
 
 class Inventory : public Collection<std::string> {
-  public:
-    //the methods used for the iterator DP, the concrete methods.
-    void addItem(std::string item) override;
-    Iterator<std::string> *CreateIterator() override;
-    void removeItem(std::string item) override;
-  private:
-    std::vector<std::string> inventoryItems;
+public:
+  // the methods used for the iterator DP, the concrete methods.
+  bool addItem(std::string item) override;
+  Iterator<std::string> *CreateIterator() override;
+  void removeItem(std::string item) override;
 
-
+private:
+  std::vector<std::string> inventoryItems;
 };
 
 #endif
