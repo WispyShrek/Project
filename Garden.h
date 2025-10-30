@@ -52,7 +52,7 @@ public:
 
 private:
   std::vector<Plant *> plants;
-  int plantCount;
+  int plantCount = 0;
 };
 
 #endif
