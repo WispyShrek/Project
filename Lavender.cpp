@@ -1,6 +1,9 @@
 #include "Lavender.h"
 
-Lavender::Lavender() = default;
+Lavender::Lavender() {
+	this->strategy = new PartialSunCare();
+	this->price = 60;
+};
 
 std::string Lavender::getName() {
 	return "Lavender";
@@ -12,6 +15,10 @@ Lavender* Lavender::clone() {
 
 void Lavender::print(){
 	std::cout << "Lavender" << std::endl;
+}
+
+double Lavender::getPrice() {
+	return price;
 }
 
 Lavender::Lavender(Lavender& toCopy) : Plant(toCopy) {}

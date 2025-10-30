@@ -2,6 +2,8 @@
 #define TULIP_H
 
 #include "Plant.h"
+#include "ShadyCare.h"
+
 
 /** @class Tulip
  * @brief A class representing a Tulip plant, derived from the Plant base class.
@@ -11,6 +13,9 @@
  */
 
 class Tulip : public Plant {
+private:
+  double price;
+
 public:
   /** @fn Tulip::Tulip()
    * @brief Constructor for the Tulip class.
@@ -29,6 +34,11 @@ public:
    * @brief Prints the details of the Tulip plant.
    */
   void print() override;
+  /** @fn double Tulip::getPrice()
+   * @brief Returns the price of the Tulip plant.
+   * @return A double representing the price of the plant.
+   */
+  double getPrice();
 
 protected:
   /** @fn Tulip::Tulip(Tulip &toCopy)

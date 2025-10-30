@@ -2,6 +2,7 @@
 #define LILY_H
 
 #include "Plant.h"
+#include "PartialSunCare.h"
 
 /** @class Lily
  * @brief A class representing a Lily plant, derived from the Plant base class.
@@ -11,6 +12,8 @@
  */
 
 class Lily : public Plant {
+private:
+  double price;
 public:
   /** @fn Lily::Lily()
    * @brief Constructor for the Lily class.
@@ -33,7 +36,7 @@ public:
    * @brief Returns the price of the Lily plant.
    * @return A double representing the price of the plant.
    */
-  std::string getPrice();
+  double getPrice();
 
 protected:
   /** @fn Lily::Lily(Lily &toCopy)
@@ -42,8 +45,6 @@ protected:
    */
   Lily(Lily &toCopy);
 
-private:
-  std::string price;
 };
 
 #endif

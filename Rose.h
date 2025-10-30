@@ -2,6 +2,7 @@
 #define ROSE_H
 
 #include "Plant.h"
+#include "SunnyCare.h"
 
 /** @class Rose
  * @brief A class representing a Rose plant, derived from the Plant base class.
@@ -11,6 +12,8 @@
  */
 
 class Rose : public Plant {
+private:
+  double price;
 public:
   /** @fn Rose::Rose()
    * @brief Constructor for the Rose class.
@@ -29,11 +32,11 @@ public:
    * @brief Prints the details of the Rose plant.
    */
   void print() override;
-  /** @fn void Rose::getPrice()
+  /** @fn double Rose::getPrice()
    * @brief Returns the price of the Rose plant.
    * @return A double representing the price of the plant.
-   */ 
-  std::string getPrice();
+   */
+  double getPrice();
 
 protected:
  /** @fn Rose::Rose(Rose &toCopy)
@@ -41,9 +44,6 @@ protected:
   * @param toCopy A reference to the Rose object to be copied.
   */
   Rose(Rose &toCopy);
-
-private:
-  std::string price;
 };
 
 #endif
