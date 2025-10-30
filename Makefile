@@ -30,7 +30,7 @@ test:
 	@if [! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR);\
 	fi
-	$(CXX) $(CXXFLAGS) -o $(BINDIR)/test $(TESTFILES)
+	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES)
 	./$(BINDIR)/test
 
 clean:
