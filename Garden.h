@@ -1,7 +1,7 @@
 #ifndef GARDEN_H
 #define GARDEN_H
 #include "Collection.h"
-#include "GardenIterator.h"
+#include "PlantIterator.h"
 #include "Plant.h"
 #include <vector>
 
@@ -52,6 +52,7 @@ public:
 
 private:
   std::vector<Plant *> plants;
+  int plantCount;
 };
 
 #endif

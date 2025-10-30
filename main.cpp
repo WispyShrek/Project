@@ -8,7 +8,9 @@
 #include "Lily.h"
 #include "Inventory.h"
 #include "Iterator.h"
+#include "PlantIterator.h"
 #include "GardenIterator.h"
+#include "GreenhouseIterator.h"
 #include "LilyCreator.h"
 #include "RoseCreator.h"
 #include "TulipCreator.h"
@@ -40,6 +42,8 @@ int main() {
     using std::cout;
     using std::endl;
 
+    
+
     cout << "\n=== Testing Garden Iterator ===\n" << endl;
     Garden* garden = new Sunny();
     
@@ -48,6 +52,11 @@ int main() {
     garden->addItem(new Tulip());
     garden->addItem(new Lavender());
     garden->addItem(new Lily());
+    garden->addItem(new Rose());
+    garden->addItem(new Tulip());
+
+    std::cout << "Added 6 plants to the garden." << std::endl;
+
     
     Iterator<Plant*>* gardenIt = garden->CreateIterator();
     

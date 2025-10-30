@@ -10,17 +10,25 @@ Garden::~Garden(){
     plants.clear();
 }
 
-void Garden::addItem(Plant *item)
-{
-    plants.push_back(item);
+void Garden::addItem(Plant *item){
+    if(plantCount <= 6){
+        plants.push_back(item);
+        plantCount++;
+    }else{
+      std::cout << "Garden is full, cannot add more plants." << std::endl;
+    }
 }
 
 Iterator<Plant *> *Garden::CreateIterator(){
-    return new GardenIterator(plants);
+    return new PlantIterator(plants);
 }
 
 void Garden::removeItem(Plant *item){
-
+    auto it = std::find(plants.begin(), plants.end(), item);
+    if(it != plants.end()){
+        plants.erase(it);
+        plantCount--;
+    }
 }
 
 void Garden::TemplateMethod() {}

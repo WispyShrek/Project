@@ -5,7 +5,8 @@ LD = g++
 OUTDIR = out
 OBJDIR = $(OUTDIR)/obj
 BINDIR = $(OUTDIR)/bin
-SRCFILES = $(wildcard *.cpp)
+SRCFILES = $(filter-out testing.cpp, $(wildcard *.cpp))
+TESTFILES = $(filter-out main.cpp, $(wildcard *.cpp))
 
 all:
 	make $(BINDIR)/program
@@ -24,6 +25,13 @@ $(OBJDIR)/%.o: %.cpp
 
 run: $(BINDIR)/program $(SRCFILES)
 	./$(BINDIR)/program
+
+test:
+	@if [! -d $(BINDIR) ]; then \
+		mkdir -p $(BINDIR);\
+	fi
+	$(CXX) $(CXXFLAGS) -o $(BINDIR)/test $(TESTFILES)
+	./$(BINDIR)/test
 
 clean:
 	rm -r $(OUTDIR)
