@@ -1,6 +1,7 @@
 #ifndef LAVENDER_H
 #define LAVENDER_H
 #include "Plant.h"
+#include "PartialSunCare.h"
 
 /** @class Lavender
  * @brief A class representing a Lavender plant, derived from the Plant base class.
@@ -10,7 +11,8 @@
  */
 
 class Lavender : public Plant {
-
+private:
+  double price;
 public:
   /** @fn Lavender::Lavender()
    * @brief Constructor for the Lavender class.
@@ -29,11 +31,11 @@ public:
    * @brief Prints the details of the Lavender plant.
    */
   void print() override;
-  /** @fn void Lavender::getPrice()
+  /** @fn double Lavender::getPrice()
    * @brief Returns the price of the Lavender plant.
    * @return A double representing the price of the plant.
    */
-  std::string getPrice();
+  double getPrice();
 
 protected:
   /** @fn Lavender::Lavender(Lavender &toCopy)
@@ -41,9 +43,6 @@ protected:
    * @param toCopy A reference to the Lavender object to be copied.
    */
   Lavender(Lavender &toCopy);
-
-private:
-  std::string price;
 };
 
 #endif
