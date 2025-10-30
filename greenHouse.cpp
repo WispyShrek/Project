@@ -27,7 +27,6 @@ void greenHouse::removeItem(Garden *item){
     }
 }
 
-// -------------------- Unit tests for greenHouse --------------------
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
