@@ -1,38 +1,46 @@
 #ifndef GREENHOUSE_H
 #define GREENHOUSE_H
-#include "Garden.h"
 #include "Collection.h"
-#include "GardenIterator.h"
+#include "PlantIterator.h"
+#include "Plant.h"
 #include <vector>
 
-class greenHouse : public Collection<Garden*> {
+class greenHouse : public Collection<Plant*> {
 private:
-	std::vector<Garden*> gardens;
+	std::vector<std::vector<Plant *>> plants = std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
+	int plantCount = 0;
 public:
-	void powerSystem();
-	/*! @fn Iterator<Garden*> *greenHouse::CreateIterator()
-	 * @brief Creates an iterator for the greenhouse's garden collection.
-	 * The CreateIterator function returns a new GardenIterator object that
-	 * allows traversal of the gardens vector. The caller is responsible for
-	 * deleting the returned iterator when finished.
-	 * @return A pointer to a newly created Iterator<Garden*> object.
-	 */
-	Iterator<Garden*> *CreateIterator();
-	/*! @fn void greenHouse::addItem(Garden *item)
-	 * @brief Adds a garden to the greenhouse.
-	 * The addItem function adds the given Garden pointer to the gardens vector.
-	 * @param[in] item A pointer to a Garden object to be added to the greenhouse.
-	 */
-    void addItem(Garden* item);
-	/*! @fn void greenHouse::removeItem(Garden *item)
-	 * @brief Removes a garden from the greenhouse.
-	 * The removeItem function searches for the given Garden pointer in the
-	 * gardens vector and removes the first occurrence if found. If the garden is not
-	 * found in the greenhouse, the function has no effect. Note that this function
-	 * does not delete the Garden object; the caller is responsible for managing	
-	 * its lifetime.
-	 */
-    void removeItem(Garden* item);
+	~greenHouse();
+    void powerSystem();
+
+    /*! @fn Iterator<Plant*> *greenHouse::CreateIterator()
+     * @brief Creates an iterator over the 3x3 plant grid (row-major, skips nulls).
+     * @return A pointer to a newly created Iterator<Plant*> object.
+     */
+    Iterator<Plant*> *CreateIterator() override;
+
+    /*! @fn void greenHouse::addItem(Plant *item)
+     * @brief Adds a plant to the first available slot in the 3x3 grid.
+     * If 7 plants already exist, the plant is not added and a message is printed.
+     * @param[in] item A pointer to a Plant object to be added to the greenhouse.
+     */
+    void addItem(Plant* item) override;
+
+    /*! @fn void greenHouse::addItem(Plant *item, int row, int col)
+     * @brief Adds a plant at a specific grid position (if empty and within bounds).
+     * Enforces the same 7-plant capacity as Garden.
+     * @param[in] item Plant to add
+     * @param[in] row Row index in [0..2]
+     * @param[in] col Column index in [0..2]
+     */
+    void addItem(Plant* item, int row, int col);
+
+    /*! @fn void greenHouse::removeItem(Plant *item)
+     * @brief Removes the first matching plant pointer from the grid (sets cell to nullptr).
+     * Decrements plantCount on success. Does not delete the Plant object.
+     * @param[in] item A pointer to the Plant object to be removed.
+     */
+    void removeItem(Plant* item);
 };
 
 #endif

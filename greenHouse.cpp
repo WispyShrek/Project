@@ -1,28 +1,75 @@
 #include "greenHouse.h"
 #include "GreenhouseController.h"
+#include "Rose.h"
 #include "Sunny.h"
 #include "Shady.h"
+#include "Rose.h"
 #include "PartialSun.h"
 
-void greenHouse::powerSystem() {
+greenHouse::~greenHouse(){
+    for(auto& row : plants){
+        for(auto*& p : row){
+            delete p;
+            p = nullptr;
+        }
+    }
+}
+
+void greenHouse::powerSystem()
+{
     GreenhouseController controller;
     controller.flipUp();     // e.g. [Sprinkler] ON
     controller.flipDown();   // e.g. [Sprinkler] OFF
 }
 
-Iterator<Garden *> *greenHouse::CreateIterator(){
-    return new GardenIterator(gardens);
+Iterator<Plant *> *greenHouse::CreateIterator(){
+    return new PlantIterator(plants);
 }
 
-void greenHouse::addItem(Garden *item){
-    gardens.push_back(item);
+void greenHouse::addItem(Plant *item){
+    if (plantCount > 6) {
+        std::cout << "Greenhouse is full, cannot add more plants." << std::endl;
+        return;
+    }
+    // place in first free slot (row-major)
+    for (int r = 0; r < 3; ++r) {
+        for (int c = 0; c < 3; ++c) {
+            if (plants[r][c] == nullptr) {
+                plants[r][c] = item;
+                ++plantCount;
+                return;
+            }
+        }
+    }
+    // Fallback if grid has no free slot but count <= 6
+    std::cout << "Greenhouse has no free slot." << std::endl;
 }
 
-void greenHouse::removeItem(Garden *item){
-    for(auto it = gardens.begin(); it != gardens.end(); ++it){
-        if(*it == item){
-            gardens.erase(it);
-            return;
+void greenHouse::addItem(Plant *item, int row, int col){
+    if (plantCount > 6) {
+        std::cout << "Greenhouse is full, cannot add more plants." << std::endl;
+        return;
+    }
+    if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+        std::cout << "Invalid position for plant." << std::endl;
+        return;
+    }
+    if (plants[row][col] != nullptr) {
+        std::cout << "Cell already occupied." << std::endl;
+        return;
+    }
+    plants[row][col] = item;
+    ++plantCount;
+}
+
+void greenHouse::removeItem(Plant *item){
+    for (int r = 0; r < 3; ++r) {
+        for (int c = 0; c < 3; ++c) {
+            if (plants[r][c] == item) {
+                plants[r][c] = nullptr;
+                --plantCount;
+                return;
+            }
         }
     }
 }
@@ -30,245 +77,298 @@ void greenHouse::removeItem(Garden *item){
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
-TEST_CASE("greenHouse::addItem adds gardens to greenhouse") {
+TEST_CASE("greenHouse::addItem(row,col) places plants; iterator visits in row-major order") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Shady();
-    Garden* g3 = new PartialSun();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    gh.addItem(g3);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    Plant* p0 = new Rose();
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+    Plant* p3 = new Rose();
+
+    gh.addItem(p0, 0, 0); // (0,0)
+    gh.addItem(p1, 0, 2); // (0,2)
+    gh.addItem(p2, 1, 0); // (1,0)
+    gh.addItem(p3, 2, 1); // (2,1)
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
-    CHECK(it->isDone() == false);
-    CHECK(it->currItem() == g1);
+
+    REQUIRE(it->isDone() == false);
+    CHECK(it->currItem() == p0); // (0,0)
     it->next();
-    CHECK(it->currItem() == g2);
+    CHECK(it->currItem() == p1); // (0,2)
     it->next();
-    CHECK(it->currItem() == g3);
+    CHECK(it->currItem() == p2); // (1,0)
+    it->next();
+    CHECK(it->currItem() == p3); // (2,1)
     it->next();
     CHECK(it->isDone() == true);
-    
+
     delete it;
-    for(auto* g : std::vector<Garden*>{g1, g2, g3}) delete g;
 }
 
-TEST_CASE("greenHouse::addItem handles multiple gardens of same type") {
+TEST_CASE("greenHouse iterator skips null cells") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Sunny();
-    Garden* g3 = new Sunny();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    gh.addItem(g3);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 2, 2);
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
+
+    REQUIRE(it->isDone() == false);
+    CHECK(it->currItem() == p1);
+    it->next();
+    CHECK(it->currItem() == p2);
+    it->next();
+    CHECK(it->isDone() == true);
+
+    delete it;
+}
+
+TEST_CASE("greenHouse::addItem(row,col) rejects invalid indices and occupied cells") {
+    greenHouse gh;
+
+    Plant* a = new Rose();
+    Plant* b = new Rose();
+    Plant* c = new Rose();
+
+    gh.addItem(a, 1, 1);
+    gh.addItem(b, 1, 1); // occupied - should not add
+    gh.addItem(c, -1, 0); // invalid - should not add
+
+    Iterator<Plant*>* it = gh.CreateIterator();
+    it->first();
+
+    REQUIRE(it->isDone() == false);
+    CHECK(it->currItem() == a);
+    it->next();
+    CHECK(it->isDone() == true);
+
+    delete it;
+    delete b; // not added
+    delete c; // not added
+}
+
+TEST_CASE("greenHouse::addItem(auto) fills first free slot in row-major order") {
+    greenHouse gh;
+
+    Plant* pA = new Rose();
+    Plant* pB = new Rose();
+    Plant* pC = new Rose();
+
+    gh.addItem(pA, 0, 0);
+    gh.addItem(pB, 0, 1);
+    gh.addItem(pC); // should go to (0,2)
+
+    Iterator<Plant*>* it = gh.CreateIterator();
+    it->first();
+
+    CHECK(it->currItem() == pA);
+    it->next();
+    CHECK(it->currItem() == pB);
+    it->next();
+    CHECK(it->currItem() == pC);
+    it->next();
+    CHECK(it->isDone() == true);
+
+    delete it;
+}
+
+TEST_CASE("greenHouse::addItem respects maximum capacity of 7 plants") {
+    greenHouse gh;
+
+    std::vector<Plant*> ps;
+    for (int i = 0; i < 8; i++) ps.push_back(new Rose());
+
+    for (int i = 0; i < 7; i++) gh.addItem(ps[i]);
+    gh.addItem(ps[7]); // should be rejected
+
+    Iterator<Plant*>* it = gh.CreateIterator();
+    it->first();
+
     int count = 0;
-    while(!it->isDone()){
+    while (!it->isDone()) {
         count++;
         it->next();
     }
-    
-    CHECK(count == 3);
-    
+    CHECK(count == 7);
+
     delete it;
-    for(auto* g : std::vector<Garden*>{g1, g2, g3}) delete g;
+    delete ps[7]; // not added
 }
 
-TEST_CASE("greenHouse::removeItem removes first occurrence of garden") {
+TEST_CASE("greenHouse::removeItem removes specified plant and leaves a hole") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Shady();
-    Garden* g3 = new PartialSun();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    gh.addItem(g3);
-    
-    gh.removeItem(g2);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+    Plant* p3 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 0, 1);
+    gh.addItem(p3, 0, 2);
+
+    gh.removeItem(p2); // hole at (0,1)
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
-    CHECK(it->currItem() == g1);
+
+    CHECK(it->currItem() == p1);
     it->next();
-    CHECK(it->currItem() == g3);
+    CHECK(it->currItem() == p3);
     it->next();
     CHECK(it->isDone() == true);
-    
+
     delete it;
-    delete g2; // Manually delete removed garden
-    for(auto* g : std::vector<Garden*>{g1, g3}) delete g;
+    delete p2; // removed, caller deletes
 }
 
-TEST_CASE("greenHouse::removeItem handles non-existent garden") {
+TEST_CASE("After remove, addItem(auto) fills earliest hole in row-major") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Shady();
-    Garden* g3 = new PartialSun();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    
-    gh.removeItem(g3); // g3 was never added
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+    Plant* p3 = new Rose();
+    Plant* p4 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 0, 1);
+    gh.addItem(p3, 0, 2);
+
+    gh.removeItem(p2); // hole at (0,1)
+    gh.addItem(p4);    // should occupy (0,1)
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
-    CHECK(it->currItem() == g1);
+
+    CHECK(it->currItem() == p1);
     it->next();
-    CHECK(it->currItem() == g2);
+    CHECK(it->currItem() == p4);
+    it->next();
+    CHECK(it->currItem() == p3);
     it->next();
     CHECK(it->isDone() == true);
-    
+
     delete it;
-    delete g3;
-    for(auto* g : std::vector<Garden*>{g1, g2}) delete g;
+    delete p2;
 }
 
-TEST_CASE("greenHouse::removeItem on empty greenhouse does nothing") {
+TEST_CASE("greenHouse::removeItem handles non-existent plant") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    
-    gh.removeItem(g1);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
-    it->first();
-    
-    CHECK(it->isDone() == true);
-    
-    delete it;
-    delete g1;
-}
 
-TEST_CASE("greenHouse::removeItem removes only first duplicate") {
-    greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Sunny();
-    Garden* g3 = new Sunny();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    gh.addItem(g3);
-    
-    gh.removeItem(g1);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+    Plant* p3 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 0, 1);
+
+    gh.removeItem(p3); // not present
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
-    CHECK(it->currItem() == g2);
+
+    CHECK(it->currItem() == p1);
     it->next();
-    CHECK(it->currItem() == g3);
+    CHECK(it->currItem() == p2);
     it->next();
     CHECK(it->isDone() == true);
-    
+
     delete it;
-    delete g1;
-    for(auto* g : std::vector<Garden*>{g2, g3}) delete g;
+    delete p3;
 }
 
 TEST_CASE("greenHouse::CreateIterator returns valid iterator for empty greenhouse") {
     greenHouse gh;
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
+
     CHECK(it->isDone() == true);
     CHECK(it->currItem() == nullptr);
-    
+
     delete it;
 }
 
-TEST_CASE("greenHouse::CreateIterator allows multiple iterations") {
+TEST_CASE("greenHouse::CreateIterator allows multiple iterations independently") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Shady();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    
-    Iterator<Garden*>* it1 = gh.CreateIterator();
-    Iterator<Garden*>* it2 = gh.CreateIterator();
-    
+
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 2, 2);
+
+    Iterator<Plant*>* it1 = gh.CreateIterator();
+    Iterator<Plant*>* it2 = gh.CreateIterator();
+
     it1->first();
     it2->first();
-    
-    CHECK(it1->currItem() == g1);
-    CHECK(it2->currItem() == g1);
-    
+
+    CHECK(it1->currItem() == p1);
+    CHECK(it2->currItem() == p1);
+
     it1->next();
-    CHECK(it1->currItem() == g2);
-    CHECK(it2->currItem() == g1);
-    
+    CHECK(it1->currItem() == p2);
+    CHECK(it2->currItem() == p1);
+
     delete it1;
     delete it2;
-    for(auto* g : std::vector<Garden*>{g1, g2}) delete g;
 }
 
-TEST_CASE("greenHouse operations sequence: add, remove, add") {
+TEST_CASE("greenHouse operations sequence: add, remove, add (grid-aware)") {
     greenHouse gh;
-    
-    Garden* g1 = new Sunny();
-    Garden* g2 = new Shady();
-    Garden* g3 = new PartialSun();
-    
-    gh.addItem(g1);
-    gh.addItem(g2);
-    gh.removeItem(g1);
-    gh.addItem(g3);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    Plant* p1 = new Rose();
+    Plant* p2 = new Rose();
+    Plant* p3 = new Rose();
+
+    gh.addItem(p1, 0, 0);
+    gh.addItem(p2, 0, 2);
+    gh.removeItem(p1);
+    gh.addItem(p3); // should take (0,0)
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
-    CHECK(it->currItem() == g2);
+
+    CHECK(it->currItem() == p3);
     it->next();
-    CHECK(it->currItem() == g3);
+    CHECK(it->currItem() == p2);
     it->next();
     CHECK(it->isDone() == true);
-    
+
     delete it;
-    delete g1; // Manually delete removed garden
-    for(auto* g : std::vector<Garden*>{g2, g3}) delete g;
+    delete p1; // removed
 }
 
-TEST_CASE("greenHouse can handle mixed garden types") {
+TEST_CASE("greenHouse can add plants after removing when at capacity") {
     greenHouse gh;
-    
-    Garden* sunny = new Sunny();
-    Garden* shady = new Shady();
-    Garden* partial = new PartialSun();
-    
-    gh.addItem(sunny);
-    gh.addItem(shady);
-    gh.addItem(partial);
-    
-    Iterator<Garden*>* it = gh.CreateIterator();
+
+    std::vector<Plant*> ps;
+    for (int i = 0; i < 7; i++) {
+        ps.push_back(new Rose());
+        gh.addItem(ps[i]);
+    }
+
+    gh.removeItem(ps[3]); // free a slot
+
+    Plant* newPlant = new Rose();
+    gh.addItem(newPlant); // should succeed
+
+    Iterator<Plant*>* it = gh.CreateIterator();
     it->first();
-    
+
     int count = 0;
-    while(!it->isDone()){
-        CHECK(it->currItem() != nullptr);
+    while (!it->isDone()) {
         count++;
         it->next();
     }
-    
-    CHECK(count == 3);
-    
-    delete it;
-    for(auto* g : std::vector<Garden*>{sunny, shady, partial}) delete g;
-}
+    CHECK(count == 7);
 
+    delete it;
+    delete ps[3];
+}
 #endif // ENABLE_DOCTESTS

@@ -17,31 +17,35 @@ public:
 
   /*! @fn void Garden::addItem(Plant *item)
    * @brief Adds a plant to the garden.
-   * The addItem function adds the given Plant pointer to the plants vector
-   * if the garden has not reached its maximum capacity of 7 plants. If the
-   * garden is full, an error message is printed and the plant is not added.
-   * The plantCount is incremented when a plant is successfully added.
+   * Adds the plant into the first available slot in the 3x3 grid (row-major).
+   * If the grid is full (7+ capacity policy preserved via plantCount), the
+   * plant is not added and a message is printed.
    * @param[in] item A pointer to a Plant object to be added to the garden.
    */
   void addItem(Plant *item);
+
+  /*! @fn void Garden::addItem(Plant *item, int row, int col)
+   * @brief Adds a plant at a specific grid position.
+   * Places the plant at [row][col] if within bounds [0..2] and the cell is empty.
+   * If the position is invalid or occupied, the plant is not added.
+   * @param[in] item Plant to add
+   * @param[in] row Row index in [0..2]
+   * @param[in] col Column index in [0..2]
+   */
+  void addItem(Plant *item, int row, int col);
   
   /*! @fn Iterator<Plant *> *Garden::CreateIterator()
    * @brief Creates an iterator for the garden's plant collection.
-   * The CreateIterator function returns a new PlantIterator object that
-   * allows traversal of the plants vector. The caller is responsible for
-   * deleting the returned iterator when finished.
+   * Returns a PlantIterator that iterates all non-null plants in row-major order.
+   * Caller must delete the returned iterator when done.
    * @return A pointer to a newly created Iterator<Plant *> object.
    */
   Iterator<Plant *> *CreateIterator();
   
   /*! @fn void Garden::removeItem(Plant *item)
    * @brief Removes a plant from the garden.
-   * The removeItem function searches for the given Plant pointer in the
-   * plants vector and removes the first occurrence if found. The plantCount
-   * is decremented when a plant is successfully removed. If the plant is not
-   * found in the garden, the function has no effect. Note that this function
-   * does not delete the Plant object; the caller is responsible for managing
-   * the plant's memory after removal.
+   * Searches the 3x3 grid for the given Plant pointer and nulls that cell if found.
+   * Decrements plantCount on success. Does not delete the Plant object.
    * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
   void removeItem(Plant *item);
@@ -79,7 +83,7 @@ public:
   void notify();
 
 private:
-  std::vector<Plant *> plants;
+  std::vector<std::vector<Plant *>> plants = std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
   int plantCount = 0;
 };
 
