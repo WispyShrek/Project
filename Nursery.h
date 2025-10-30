@@ -2,6 +2,7 @@
 #define NURSERY_H
 #include "Garden.h"
 #include "Staff.h"
+#include "greenHouse.h"
 #include <vector>
 using namespace std;
 
@@ -10,6 +11,7 @@ class Nursery {
 private:
   static Nursery *uniqueInstance;
   vector<Garden*> gardens;
+  vector<greenHouse*> greenHouses;
   vector<Staff*> staff;
   
 
