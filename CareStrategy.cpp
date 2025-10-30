@@ -1,9 +1,14 @@
 #include "CareStrategy.h"
 
+/**
+ * @brief Default constructor for CareStrategy.
+ */
 CareStrategy::CareStrategy() {
-  // TODO - implement CareStrategy::CareStrategy
 }
 
-std::string CareStrategy::getStrategyName() { return this->strategyName; }
-
-CareStrategy::~CareStrategy() {}
+/**
+ * @brief Destructor for CareStrategy.
+ */
+CareStrategy::~CareStrategy()
+{
+}

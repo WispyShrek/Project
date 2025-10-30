@@ -4,17 +4,18 @@ Caretaker::~Caretaker() {
 	delete memento;
 }
 
+/**
+ * @brief Retrieves the stored PlantMemento.
+ * @return A pointer to the PlantMemento object.
+ */
 PlantMemento* Caretaker::getPlantMemento() {
-	// TODO - implement Caretaker::getPlantMemento
 	return memento; 
 }
 
+/**
+ * @brief Stores a PlantMemento.
+ * @param mem A pointer to the PlantMemento object to be stored. The Caretaker takes ownership of this memento.
+ */
 void Caretaker::setPlantMemento(PlantMemento* mem) {
-	// TODO - implement Caretaker::setPlantMemento
 	memento = mem;
 }
-// The Caretaker only stores the memento it shouldnt modifies it.
-
-// memento stores a pointer to the Plant’s state (PlantState*), and can be retrieved by the originator.
-
-// In a real system, you’d probably want to deep copy the state to avoid external modification, but for simplicity a pointer works.
