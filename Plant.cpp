@@ -90,7 +90,7 @@ void Plant::addCust(Customer *customer)
   this->customer = customer;
   std::cout << "Plant: this plant is now in a customer's cart.\n";
 }
-const bool& Plant::operator==(const Plant& other) {
+bool Plant::operator==(const Plant& other) const {
 
     // Compare the relevant attributes of the plants
     if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
@@ -113,7 +113,7 @@ void Plant::setPlantMemento(PlantMemento* memento) {
     }
 }
 
-Plant::Plant(Plant &toCopy)
+Plant::Plant(const Plant &toCopy)
     : currState(nullptr), strategy(toCopy.strategy), colour(toCopy.colour),
       scent(toCopy.scent), length(toCopy.length)
 {
