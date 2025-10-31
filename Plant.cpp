@@ -90,14 +90,6 @@ void Plant::addCust(Customer *customer)
   this->customer = customer;
   std::cout << "Plant: this plant is now in a customer's cart.\n";
 }
-const bool& Plant::operator==(const Plant& other) {
-
-    // Compare the relevant attributes of the plants
-    if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
-        return false;
-    }
-        return true;
-}
 
 PlantMemento* Plant::createPlantMemento() {
 	// TODO - implement Plant::createPlantMemento
@@ -145,7 +137,7 @@ Plant::Plant(Plant &toCopy)
 }
 
 
-/*
+
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 #include <sstream>
@@ -282,4 +274,4 @@ TEST_CASE("clone produces deep copy with same visible state") {
     CHECK(std::stod(c->getPrice()) == doctest::Approx(std::stod(a.getPrice())));
 }
 #endif
-*/
+

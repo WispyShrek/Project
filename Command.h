@@ -8,10 +8,12 @@
  * Derived classes must implement the execute() method.
  */
 
-
 class Command {
  
 public:
+	/** @fn Command::~Command()
+	 * @brief Virtual destructor for the Command class.
+	 */
 	virtual ~Command() = default;
 	virtual void execute() = 0;
 };

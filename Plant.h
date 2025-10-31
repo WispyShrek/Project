@@ -40,12 +40,6 @@ public:
    * @brief Destructor for the Plant class.
    */
   virtual ~Plant();
-  /** @fn const bool& Plant::operator==(const Plant& other)
-   * @brief Equality operator to compare two Plant objects.
-   * @param other A reference to the other Plant object to compare with.
-   * @return A boolean indicating whether the two Plant objects are equal.
-   */
-  const bool& operator==(const Plant& other);
   /** @fn  void Plant::increasePrice(double amount)
    * @brief Increases the price of the plant by a specified amount.
    * @param amount The amount to increase the price by.
