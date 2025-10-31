@@ -9,6 +9,10 @@ std::string Tulip::getName() {
 	return "Tulip";
 }
 
+std::string Tulip::getName() {
+	return "Tulip";
+}
+
 Tulip* Tulip::clone() {
 	return new Tulip(*this);
 }

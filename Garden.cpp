@@ -71,6 +71,10 @@ void Garden::TemplateMethod() {}
 
 void Garden::applyCare() {}
 
+const std::vector<PlantCaretaker *> &Garden::getStaff() {
+  return this->staffList;
+}
+
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
 void Garden::detach(PlantCaretaker *staff) {

@@ -9,6 +9,10 @@ std::string Lavender::getName() {
 	return "Lavender";
 }
 
+std::string Lavender::getName() {
+	return "Lavender";
+}
+
 Lavender* Lavender::clone() {
 	return new Lavender(*this);
 }

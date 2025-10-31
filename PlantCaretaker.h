@@ -2,6 +2,7 @@
 #define PLANTCARETAKER_H
 #include <iostream>
 
+#include "Customer.h"
 #include "Staff.h"
 #include <queue>
 #include <vector>
@@ -20,6 +21,7 @@ public:
    * Only one object gets dequeued per function call. When the careQueue is
    * empty the function will have no effect.
    */
+  void care() override;
   void care() override;
   /*! @fn void PlantCaretaker::update(Garden *subjectOfCare)
    * @brief Adds new garden to careQueue.

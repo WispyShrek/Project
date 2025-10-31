@@ -7,6 +7,8 @@ OBJDIR = $(OUTDIR)/obj
 BINDIR = $(OUTDIR)/bin
 SRCFILES = $(filter-out testing.cpp, $(wildcard *.cpp))
 TESTFILES = $(filter-out main.cpp, $(wildcard *.cpp))
+SRCFILES = $(filter-out testing.cpp, $(wildcard *.cpp))
+TESTFILES = $(filter-out main.cpp, $(wildcard *.cpp))
 
 all:
 	make $(BINDIR)/program
@@ -15,7 +17,7 @@ $(BINDIR)/program: $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCFILES))
 	@if [ ! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR); \
 	fi
-	$(CXX) $(CXXFLAGS) -o $(BINDIR)/program $^
+	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/program $^
 
 $(OBJDIR)/%.o: %.cpp
 	@if [ ! -d $(OBJDIR) ]; then \

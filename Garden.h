@@ -8,10 +8,18 @@
 class PlantCaretaker;
 
 class Garden : public Collection<Plant *> {
+class PlantCaretaker;
+
+class Garden : public Collection<Plant *> {
 private:
   std::vector<PlantCaretaker *> staffList;
 
 public:
+  /*! @fn virtual ~Garden()
+   * @brief deallocates a garden object
+   * Deletes all plants belonging to the garden and clears the staffList of the
+   * garden
+   */
   virtual ~Garden();
   //virtual void Print() = 0;
 
@@ -49,9 +57,14 @@ public:
    * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
   void removeItem(Plant *item);
-
-  void TemplateMethod();
+  /*! @fn virtual void applyRays()=0
+   *@brief pure virtual function implemented in concrete classes.
+   *Concrete function implementations will iterate through plants in a garden,
+   *affecting plants that have the matching CareStrategy positively, and other
+   *all other plants negatively.
+   */
   virtual void applyRays() = 0;
+  const std::vector<PlantCaretaker *> &getStaff();
   void applyCare();
   /*! @fn void Garden::attach(PlantCaretaker *staff)
    * @brief Attaches a plantcaretaker to a garden object.

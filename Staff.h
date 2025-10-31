@@ -1,6 +1,7 @@
 #ifndef STAFF_H
 #define STAFF_H
 #include <vector>
+#include <vector>
 #include "Customer.h"
 #include "SalesFloor.h"
 
@@ -20,6 +21,8 @@ public:
    */
   virtual ~Staff(){};
   virtual void care() = 0;
+  virtual void notify(Customer *customer) {};
+  virtual void update() {};
   virtual void notify(Customer *customer) {};
   virtual void update() {};
 };

@@ -9,6 +9,10 @@ std::string Rose::getName() {
 	return "Rose";
 }
 
+std::string Rose::getName() {
+	return "Rose";
+}
+
 Rose* Rose::clone() {
 	return new Rose(*this);
 }

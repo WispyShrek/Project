@@ -1,10 +1,8 @@
 #ifndef INVENTORYITERATOR_H
 #define INVENTORYITERATOR_H
 
-#include "Iterator.h"
 #include "Inventory.h"
-#include <vector>
-#include <string>
+#include "Iterator.h"
 #include <iostream>
 
 /**

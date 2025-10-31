@@ -14,6 +14,8 @@
 class CustomerAssistant : public Staff {
 private:
   vector<Customer*> custList;
+private:
+  vector<Customer*> custList;
 public:
     /** @fn CustomerAssistant::CustomerAssistant()
      * @brief Constructor for CustomerAssistant class.

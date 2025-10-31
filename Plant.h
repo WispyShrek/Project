@@ -30,6 +30,7 @@ protected:
   std::string scent;
   int length;
   double price;
+  double price;
 
 public:
   /** @fn Plant::Plant()
