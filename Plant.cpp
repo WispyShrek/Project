@@ -136,6 +136,13 @@ Plant::Plant(Plant &toCopy)
   }
 }
 
+bool Plant::operator==(const Plant& other) const {
+    return colour == other.colour
+        && scent  == other.scent
+        && length == other.length
+        && price  == other.price;
+}
+
 
 
 #ifdef ENABLE_DOCTESTS

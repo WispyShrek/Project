@@ -120,6 +120,18 @@ public:
   void setPlantMemento(PlantMemento *memento);
   
   virtual Plant *clone() = 0;
+  /** @fn bool Plant::operator==(const Plant& other) const   
+   * @brief Compares two Plant objects for equality based on their attributes.
+   * @param other A reference to the other Plant object to compare with.
+   * @return true if the plants are equal, false otherwise.
+*/
+  bool operator==(const Plant& other) const;   
+  /** @fn bool Plant::operator!=(const Plant& other) const
+   * @brief Compares two Plant objects for inequality based on their attributes.
+   * @param other A reference to the other Plant object to compare with.
+   * @return true if the plants are not equal, false otherwise.
+   */
+  bool operator!=(const Plant& other) const { return !(*this == other); }
 
 protected:
   /** @fn Plant::Plant(Plant &toCopy)
