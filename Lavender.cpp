@@ -21,7 +21,9 @@ double Lavender::getPrice() {
 	return price;
 }
 
-Lavender::Lavender(Lavender& toCopy) : Plant(toCopy) {}
+Lavender::Lavender(Lavender& toCopy) : Plant(toCopy) {
+	this->price = toCopy.price;
+}
 
 
 #ifdef ENABLE_DOCTESTS

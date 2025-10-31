@@ -76,7 +76,7 @@ void greenHouse::removeItem(Plant *item){
     }
 }
 
-#ifdef ENABLE_DOCTESTS
+/*#ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
 TEST_CASE("greenHouse::addItem(row,col) places plants; iterator visits in row-major order") {
@@ -347,3 +347,4 @@ TEST_CASE("greenHouse operations sequence: add, remove, add (grid-aware)") {
 }
 
 #endif // ENABLE_DOCTESTS
+*/

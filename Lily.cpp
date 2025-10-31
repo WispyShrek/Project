@@ -21,7 +21,9 @@ double Lily::getPrice() {
 	return price;
 }
 
-Lily::Lily(Lily& toCopy)  : Plant(toCopy) {}
+Lily::Lily(Lily& toCopy)  : Plant(toCopy) {
+	this->price = toCopy.price;
+}
 
 
 

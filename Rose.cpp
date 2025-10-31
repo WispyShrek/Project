@@ -21,7 +21,9 @@ double Rose::getPrice() {
 	return price;
 }
 
-Rose::Rose(Rose& toCopy) : Plant(toCopy) {}
+Rose::Rose(Rose& toCopy) : Plant(toCopy) {
+	this->price = toCopy.price;
+}
 
 
 

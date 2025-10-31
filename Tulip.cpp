@@ -21,7 +21,9 @@ double Tulip::getPrice() {
 	return price;
 }
 
-Tulip::Tulip(Tulip& toCopy) : Plant(toCopy) {}
+Tulip::Tulip(Tulip& toCopy) : Plant(toCopy) {
+	this->price = toCopy.price;
+}
 
 
 
