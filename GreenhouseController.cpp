@@ -42,68 +42,51 @@ void GreenhouseController::flipDownLights() {
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
-class MockCommand : public Command {
-public:
-    bool executed;
-    MockCommand() : executed(false) {}
-    void execute() override {
-        executed = true;
-    }
+#include <sstream>
+#include <vector>
+#include <string>
+#include <iostream>
+#include "GreenhouseController.h"
+#include "Command.h"
+
+struct LogCommand : public Command {
+    std::string name;
+    std::vector<std::string>* log;
+    LogCommand(std::string n, std::vector<std::string>& L) : name(std::move(n)), log(&L) {}
+    void execute() override { log->push_back(name); }
 };
-TEST_CASE("GreenhouseController: Test Command Execution") {
-    GreenhouseController controller;
 
-    MockCommand* sprinklerOn = new MockCommand();
-    MockCommand* sprinklerOff = new MockCommand();
-    MockCommand* lightOn = new MockCommand();
-    MockCommand* lightOff = new MockCommand();
-
-    controller.setSprinklerCommands(sprinklerOn, sprinklerOff);
-    controller.setLightCommands(lightOn, lightOff);
-
-    controller.flipUpSprinklers();
-    REQUIRE(sprinklerOn->executed == true);
-    REQUIRE(sprinklerOff->executed == false);
-
-    controller.flipDownSprinklers();
-    REQUIRE(sprinklerOff->executed == true);
-
-    controller.flipUpLights();
-    REQUIRE(lightOn->executed == true);
-    REQUIRE(lightOff->executed == false);
-
-    controller.flipDownLights();
-    REQUIRE(lightOff->executed == true);
-
-    delete sprinklerOn;
-    delete sprinklerOff;
-    delete lightOn;
-    delete lightOff;
+TEST_CASE("GreenhouseController null-guards when commands are not set") {
+    GreenhouseController ctl;
+    std::ostringstream cap;
+    auto* old = std::cerr.rdbuf(cap.rdbuf());
+    ctl.flipUpSprinklers();
+    ctl.flipUpLights();
+    ctl.flipDownSprinklers();
+    ctl.flipDownLights();
+    std::cerr.rdbuf(old);
+    std::string out = cap.str();
+    CHECK(out.find("SprinklersUpCommand not set") != std::string::npos);
+    CHECK(out.find("lightUpCommand not set") != std::string::npos);
+    CHECK(out.find("SprinklersdownCommand not set") != std::string::npos);
+    CHECK(out.find("lightDownCommand not set") != std::string::npos);
 }
-TEST_CASE("GreenhouseController: Test Unset Commands") {
-    GreenhouseController controller;
 
-    // Capture standard error output
-    std::streambuf* originalCerr = std::cerr.rdbuf();
-    std::ostringstream capturedCerr;
-    std::cerr.rdbuf(capturedCerr.rdbuf());
-
-    controller.flipUpSprinklers();
-    REQUIRE(capturedCerr.str().find("SprinklersUpCommand not set") != std::string::npos);
-
-    capturedCerr.str(""); // Clear captured output
-    controller.flipDownSprinklers();
-    REQUIRE(capturedCerr.str().find("SprinklersdownCommand not set") != std::string::npos);
-
-    capturedCerr.str(""); // Clear captured output
-    controller.flipUpLights();
-    REQUIRE(capturedCerr.str().find("lightUpCommand not set") != std::string::npos);
-
-    capturedCerr.str(""); // Clear captured output
-    controller.flipDownLights();
-    REQUIRE(capturedCerr.str().find("lightDownCommand not set") != std::string::npos);
-
-    // Restore original cerr buffer
-    std::cerr.rdbuf(originalCerr);
+TEST_CASE("GreenhouseController executes wired commands in order") {
+    GreenhouseController ctl;
+    std::vector<std::string> log;
+    auto* sprOn  = new LogCommand("spr_on", log);
+    auto* sprOff = new LogCommand("spr_off", log);
+    auto* lOn    = new LogCommand("light_on", log);
+    auto* lOff   = new LogCommand("light_off", log);
+    ctl.setSprinklerCommands(sprOn, sprOff);
+    ctl.setLightCommands(lOn, lOff);
+    ctl.flipUpSprinklers();
+    ctl.flipUpLights();
+    ctl.flipDownSprinklers();
+    ctl.flipDownLights();
+    std::vector<std::string> expected{"spr_on","light_on","spr_off","light_off"};
+    CHECK(log == expected);
+    delete sprOn; delete sprOff; delete lOn; delete lOff;
 }
 #endif

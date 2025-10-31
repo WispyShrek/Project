@@ -149,6 +149,13 @@ Plant::Plant(Plant &toCopy)
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
+#include <sstream>
+#include "Plant.h"
+#include "Sprout.h"
+#include "Flowering.h"
+#include "Mature.h"
+#include "Dying.h"
+#include "PlantMemento.h"
 
 TEST_CASE("Plant default state is Sprout") {
     Plant p;
@@ -201,38 +208,73 @@ TEST_CASE("Plant copy constructor clones state class") {
 TEST_CASE("Plant equality operator compares attributes") {
     Plant p1;
     Plant p2;
-    CHECK((p1 == p2) == true);
+    CHECK((p1 == p2) == true); // Initially equal
 
     // Modify an attribute in p2
     p2.increasePrice(10.0);
-    CHECK((p1 == p2) == false);
+    CHECK((p1 == p2) == false); // Now should be unequal
 }
 TEST_CASE("Plant increasePrice updates price correctly") {
     Plant p;
-    std::string initialPriceStr = p.getPrice();
-    double initialPrice = std::stod(initialPriceStr);
-
+    double initialPrice = std::stod(p.getPrice());
     p.increasePrice(15.5);
-    std::string newPriceStr = p.getPrice();
-    double newPrice = std::stod(newPriceStr);
-
-    CHECK(newPrice == initialPrice + 15.5);
-} 
-TEST_CASE("Plant setStrategy updates care strategy") {
+    double updatedPrice = std::stod(p.getPrice());
+    CHECK(updatedPrice == initialPrice + 15.5);
+}
+TEST_CASE("Plant getColour and getScent return correct values") {
     Plant p;
-    CareStrategy* strat1 = new PartialSunCare();
-    p.setCareStrategy(strat1);
-    CHECK(p.getStrategy() == "PartialSunCare");
-
-    CareStrategy* strat2 = new FullSunCare();
-    p.setCareStrategy(strat2);
-    CHECK(p.getStrategy() == "FullSunCare");
-
-    delete strat1; // Clean up the first strategy
+    // Assuming default colour and scent are empty strings
+    CHECK(p.getColour() == "");
+    CHECK(p.getScent() == "");
+}
+TEST_CASE("Plant nextState transitions state correctly") {
+    Plant p;
+    p.nextState(); // From Sprout to Flowering
+    CHECK(p.getState() == "Flowering");
+    p.nextState(); // From Flowering to Mature
+    CHECK(p.getState() == "Mature");
+    p.nextState(); // From Mature to Dying
+    CHECK(p.getState() == "Dying");
+}
+TEST_CASE("Plant print outputs current state") {
+    Plant p;
+    std::ostringstream cap;
+    auto* old = std::cout.rdbuf(cap.rdbuf());
+    p.print();
+    std::cout.rdbuf(old);
+    CHECK(cap.str().find("This is a sprout") != std::string::npos);
+}
+TEST_CASE("Plant setCareStrategy updates strategy") {
+    Plant p;
+    class MockStrategy : public CareStrategy {
+    public:
+        void applyCare() override {}
+        std::string getStrategyName() override { return "MockStrategy"; }
+    };
+    MockStrategy* strat = new MockStrategy();
+    p.setCareStrategy(strat);
+    CHECK(p.getStrategy() == "MockStrategy");
+    delete strat; // Clean up
+}
+TEST_CASE("Plant createPlantMemento and setPlantMemento work correctly") {
+    Plant p;
+    p.setState(new Flowering());
+    PlantMemento* memento = p.createPlantMemento();
+    p.setState(new Mature());
+    CHECK(p.getState() == "Mature");
+    p.setPlantMemento(memento);
+    CHECK(p.getState() == "Flowering");
+    delete memento;
 }
 TEST_CASE("Plant destructor cleans up state") {
     Plant* p = new Plant();
     p->setState(new Flowering());
     delete p; // Should not leak memory
+}
+TEST_CASE("Plant copy constructor with null state") {
+    Plant p;
+    p.setState(nullptr);
+    Plant q(p);
+    CHECK(q.getState() == "Sprout"); // Default to Sprout if null
 }
 #endif
