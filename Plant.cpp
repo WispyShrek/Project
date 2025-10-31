@@ -151,19 +151,28 @@ Plant::Plant(Plant &toCopy)
 #include "doctest.h"
 #include <sstream>
 #include "Plant.h"
+#include "CareStrategy.h"
 #include "Sprout.h"
 #include "Flowering.h"
 #include "Mature.h"
 #include "Dying.h"
 #include "PlantMemento.h"
 
+class MockPlant : public Plant {
+public:
+    MockPlant() : Plant() {}
+    std::string getName() override { return "MockPlant"; }
+    Plant* clone() override { return new MockPlant(*this); }
+    MockPlant(MockPlant& other) : Plant(other) {}
+};
+
 TEST_CASE("Plant default state is Sprout") {
-    Plant p;
+    MockPlant p;
     CHECK(p.getState() == "Sprout");
 }
 
 TEST_CASE("Plant setState changes reported state") {
-    Plant p;
+    MockPlant p;
     p.setState(new Flowering());
     CHECK(p.getState() == "Flowering");
     p.setState(new Mature());
@@ -173,7 +182,7 @@ TEST_CASE("Plant setState changes reported state") {
 }
 
 TEST_CASE("Plant memento restore brings back previous state") {
-    Plant p;
+    MockPlant p;
     p.setState(new Flowering());
     PlantMemento* m = p.createPlantMemento();
     p.setState(new Mature());
@@ -184,14 +193,14 @@ TEST_CASE("Plant memento restore brings back previous state") {
 }
 
 TEST_CASE("Plant prevState moves to Dying when not already Dying") {
-    Plant p;
+    MockPlant p;
     p.setState(new Flowering());
     p.prevState();
     CHECK(p.getState() == "Dying");
 }
 
 TEST_CASE("Plant applyCare without strategy prints warning") {
-    Plant p;
+    MockPlant p;
     std::ostringstream cap;
     auto* old = std::cout.rdbuf(cap.rdbuf());
     p.applyCare();
@@ -200,64 +209,68 @@ TEST_CASE("Plant applyCare without strategy prints warning") {
 }
 
 TEST_CASE("Plant copy constructor clones state class") {
-    Plant p;
+    MockPlant p;
     p.setState(new Flowering());
-    Plant q(p);
+    MockPlant q(p);
     CHECK(q.getState() == "Flowering");
 }
-TEST_CASE("Plant equality operator compares attributes") {
-    Plant p1;
-    Plant p2;
-    CHECK((p1 == p2) == true); // Initially equal
 
-    // Modify an attribute in p2
+TEST_CASE("Plant equality operator compares attributes") {
+    MockPlant p1;
+    MockPlant p2;
+    CHECK((p1 == p2) == true);
     p2.increasePrice(10.0);
-    CHECK((p1 == p2) == false); // Now should be unequal
+    CHECK((p1 == p2) == false);
 }
+
 TEST_CASE("Plant increasePrice updates price correctly") {
-    Plant p;
+    MockPlant p;
     double initialPrice = std::stod(p.getPrice());
     p.increasePrice(15.5);
     double updatedPrice = std::stod(p.getPrice());
     CHECK(updatedPrice == initialPrice + 15.5);
 }
+
 TEST_CASE("Plant getColour and getScent return correct values") {
-    Plant p;
-    // Assuming default colour and scent are empty strings
+    MockPlant p;
     CHECK(p.getColour() == "");
     CHECK(p.getScent() == "");
 }
+
 TEST_CASE("Plant nextState transitions state correctly") {
-    Plant p;
-    p.nextState(); // From Sprout to Flowering
+    MockPlant p;
+    p.nextState();
     CHECK(p.getState() == "Flowering");
-    p.nextState(); // From Flowering to Mature
+    p.nextState();
     CHECK(p.getState() == "Mature");
-    p.nextState(); // From Mature to Dying
+    p.nextState();
     CHECK(p.getState() == "Dying");
 }
+
 TEST_CASE("Plant print outputs current state") {
-    Plant p;
+    MockPlant p;
     std::ostringstream cap;
     auto* old = std::cout.rdbuf(cap.rdbuf());
     p.print();
     std::cout.rdbuf(old);
     CHECK(cap.str().find("This is a sprout") != std::string::npos);
 }
+
 TEST_CASE("Plant setCareStrategy updates strategy") {
-    Plant p;
+    MockPlant p;
     class MockStrategy : public CareStrategy {
     public:
         void applyCare() override {}
         std::string getStrategyName() override { return "MockStrategy"; }
     };
-    MockStrategy* strat = new MockStrategy();
+    auto* strat = new MockStrategy();
     p.setCareStrategy(strat);
     CHECK(p.getStrategy() == "MockStrategy");
-    delete strat; // Clean up
+    delete strat;
 }
+
 TEST_CASE("Plant createPlantMemento and setPlantMemento work correctly") {
-    Plant p;
+    MockPlant p;
     p.setState(new Flowering());
     PlantMemento* memento = p.createPlantMemento();
     p.setState(new Mature());
@@ -266,15 +279,17 @@ TEST_CASE("Plant createPlantMemento and setPlantMemento work correctly") {
     CHECK(p.getState() == "Flowering");
     delete memento;
 }
+
 TEST_CASE("Plant destructor cleans up state") {
-    Plant* p = new Plant();
+    Plant* p = new MockPlant();
     p->setState(new Flowering());
-    delete p; // Should not leak memory
+    delete p;
 }
+
 TEST_CASE("Plant copy constructor with null state") {
-    Plant p;
+    MockPlant p;
     p.setState(nullptr);
-    Plant q(p);
-    CHECK(q.getState() == "Sprout"); // Default to Sprout if null
+    MockPlant q(p);
+    CHECK(q.getState() == "Sprout");
 }
 #endif
