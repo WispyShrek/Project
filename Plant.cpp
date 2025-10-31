@@ -145,5 +145,141 @@ Plant::Plant(Plant &toCopy)
 }
 
 
+/*
+#ifdef ENABLE_DOCTESTS
+#include "doctest.h"
+#include <sstream>
+#include <memory>
+#include "Plant.h"
+#include "CareStrategy.h"
+#include "PlantMemento.h"
+#include "Sprout.h"
+#include "Flowering.h"
+#include "Mature.h"
+#include "Dying.h"
 
+class MockPlant : public Plant {
+public:
+    MockPlant() : Plant() {}
+    MockPlant(const MockPlant& other) : Plant(other) {}
+    std::string getName() override { return "MockPlant"; }
+    Plant* clone() override { return new MockPlant(*this); }
+};
 
+class MockStrategy : public CareStrategy {
+public:
+    void applyCare() override {}
+    std::string getStrategyName() override { return "MockStrategy"; }
+};
+
+TEST_CASE("Plant default state is Sprout") {
+    MockPlant p;
+    CHECK(p.getState() == "Sprout");
+}
+
+TEST_CASE("setState updates reported state") {
+    MockPlant p;
+    p.setState(new Flowering());
+    CHECK(p.getState() == "Flowering");
+    p.setState(new Mature());
+    CHECK(p.getState() == "Mature");
+    p.setState(new Dying());
+    CHECK(p.getState() == "Dying");
+}
+
+TEST_CASE("createPlantMemento / setPlantMemento restore previous state") {
+    MockPlant p;
+    p.setState(new Flowering());
+    PlantMemento* m = p.createPlantMemento();
+    p.setState(new Mature());
+    CHECK(p.getState() == "Mature");
+    p.setPlantMemento(m);
+    CHECK(p.getState() == "Flowering");
+    delete m;
+}
+
+TEST_CASE("prevState moves to Dying when not already Dying") {
+    MockPlant p;
+    p.setState(new Flowering());
+    p.prevState();
+    CHECK(p.getState() == "Dying");
+    p.prevState();
+    CHECK(p.getState() == "Dying");
+}
+
+TEST_CASE("applyCare without strategy prints warning") {
+    MockPlant p;
+    std::ostringstream cap;
+    auto* old = std::cout.rdbuf(cap.rdbuf());
+    p.applyCare();
+    std::cout.rdbuf(old);
+    CHECK(cap.str().find("no care strategy selected yet") != std::string::npos);
+}
+
+TEST_CASE("setCareStrategy and getStrategy work") {
+    MockPlant p;
+    auto* s = new MockStrategy();
+    p.setCareStrategy(s);
+    CHECK(p.getStrategy() == "MockStrategy");
+    // no delete here if Plant owns it; if not, uncomment:
+    // delete s;
+}
+
+TEST_CASE("setStrategy (raw) also updates strategy name") {
+    MockPlant p;
+    auto* s = new MockStrategy();
+    p.setStrategy(s);
+    CHECK(p.getStrategy() == "MockStrategy");
+}
+
+TEST_CASE("increasePrice and getPrice reflect numeric value") {
+    MockPlant p;
+    double start = std::stod(p.getPrice());
+    p.increasePrice(12.5);
+    double after = std::stod(p.getPrice());
+    CHECK(after == doctest::Approx(start + 12.5));
+}
+
+TEST_CASE("print writes current state's message") {
+    MockPlant p;
+    std::ostringstream cap;
+    auto* old = std::cout.rdbuf(cap.rdbuf());
+    p.print();
+    std::cout.rdbuf(old);
+    CHECK(cap.str().find("sprout") != std::string::npos);
+}
+
+TEST_CASE("operator== compares attributes (price change makes unequal)") {
+    MockPlant a, b;
+    CHECK( (a == b) == true );
+    b.increasePrice(1.0);
+    CHECK( (a == b) == false );
+}
+
+TEST_CASE("copy-constructing MockPlant clones state (and should copy price)") {
+    MockPlant a;
+    a.setState(new Flowering());
+    a.increasePrice(23.7);
+    MockPlant b(a);
+    CHECK(b.getState() == "Flowering");
+    CHECK(std::stod(b.getPrice()) == doctest::Approx(std::stod(a.getPrice())));
+}
+
+TEST_CASE("setPlantMemento(nullptr) is a no-op") {
+    MockPlant p;
+    p.setState(new Mature());
+    p.setPlantMemento(nullptr);
+    CHECK(p.getState() == "Mature");
+}
+
+TEST_CASE("clone produces deep copy with same visible state") {
+    MockPlant a;
+    a.setState(new Mature());
+    a.increasePrice(5.0);
+    std::unique_ptr<Plant> c(a.clone());
+    CHECK(c->getName() == "MockPlant");
+    CHECK(c->getState() == "Mature");
+    CHECK(std::stod(c->getPrice()) == doctest::Approx(std::stod(a.getPrice())));
+}
+#endif
+*/
