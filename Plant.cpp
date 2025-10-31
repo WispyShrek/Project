@@ -143,3 +143,96 @@ Plant::Plant(Plant &toCopy)
     currState = new Sprout();
   }
 }
+
+
+
+
+#ifdef ENABLE_DOCTESTS
+#include "doctest.h"
+
+TEST_CASE("Plant default state is Sprout") {
+    Plant p;
+    CHECK(p.getState() == "Sprout");
+}
+
+TEST_CASE("Plant setState changes reported state") {
+    Plant p;
+    p.setState(new Flowering());
+    CHECK(p.getState() == "Flowering");
+    p.setState(new Mature());
+    CHECK(p.getState() == "Mature");
+    p.setState(new Dying());
+    CHECK(p.getState() == "Dying");
+}
+
+TEST_CASE("Plant memento restore brings back previous state") {
+    Plant p;
+    p.setState(new Flowering());
+    PlantMemento* m = p.createPlantMemento();
+    p.setState(new Mature());
+    CHECK(p.getState() == "Mature");
+    p.setPlantMemento(m);
+    CHECK(p.getState() == "Flowering");
+    delete m;
+}
+
+TEST_CASE("Plant prevState moves to Dying when not already Dying") {
+    Plant p;
+    p.setState(new Flowering());
+    p.prevState();
+    CHECK(p.getState() == "Dying");
+}
+
+TEST_CASE("Plant applyCare without strategy prints warning") {
+    Plant p;
+    std::ostringstream cap;
+    auto* old = std::cout.rdbuf(cap.rdbuf());
+    p.applyCare();
+    std::cout.rdbuf(old);
+    CHECK(cap.str().find("no care strategy selected yet") != std::string::npos);
+}
+
+TEST_CASE("Plant copy constructor clones state class") {
+    Plant p;
+    p.setState(new Flowering());
+    Plant q(p);
+    CHECK(q.getState() == "Flowering");
+}
+TEST_CASE("Plant equality operator compares attributes") {
+    Plant p1;
+    Plant p2;
+    CHECK((p1 == p2) == true);
+
+    // Modify an attribute in p2
+    p2.increasePrice(10.0);
+    CHECK((p1 == p2) == false);
+}
+TEST_CASE("Plant increasePrice updates price correctly") {
+    Plant p;
+    std::string initialPriceStr = p.getPrice();
+    double initialPrice = std::stod(initialPriceStr);
+
+    p.increasePrice(15.5);
+    std::string newPriceStr = p.getPrice();
+    double newPrice = std::stod(newPriceStr);
+
+    CHECK(newPrice == initialPrice + 15.5);
+} 
+TEST_CASE("Plant setStrategy updates care strategy") {
+    Plant p;
+    CareStrategy* strat1 = new PartialSunCare();
+    p.setCareStrategy(strat1);
+    CHECK(p.getStrategy() == "PartialSunCare");
+
+    CareStrategy* strat2 = new FullSunCare();
+    p.setCareStrategy(strat2);
+    CHECK(p.getStrategy() == "FullSunCare");
+
+    delete strat1; // Clean up the first strategy
+}
+TEST_CASE("Plant destructor cleans up state") {
+    Plant* p = new Plant();
+    p->setState(new Flowering());
+    delete p; // Should not leak memory
+}
+#endif

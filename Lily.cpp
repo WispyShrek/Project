@@ -22,3 +22,30 @@ double Lily::getPrice() {
 }
 
 Lily::Lily(Lily& toCopy)  : Plant(toCopy) {}
+
+
+
+
+#ifdef ENABLE_DOCTESTS
+#include "doctest.h"
+
+TEST_CASE("Lily: Test Lily class methods") {
+	Lily lily;
+
+	// Test getName method
+	REQUIRE(lily.getName() == "Lily");
+
+	// Test getPrice method
+	REQUIRE(lily.getPrice() == 70);
+
+	// Test clone method
+	Lily* clonedLily = lily.clone();
+	REQUIRE(clonedLily != nullptr);
+	REQUIRE(clonedLily->getName() == "Lily");
+	REQUIRE(clonedLily->getPrice() == 70);
+	delete clonedLily;
+
+	// Test print method (just ensure it runs without error)
+	lily.print();
+}
+#endif

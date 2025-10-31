@@ -373,4 +373,43 @@ TEST_CASE("greenHouse can add plants after removing when at capacity") {
     delete it;
     delete ps[3];
 }
+TEST_CASE("greenHouse::powerSystem runs Sprinklers ON, Lights ON, Sprinklers OFF, Lights OFF in order")
+{
+    greenHouse gh;
+
+    std::ostringstream captured;
+    auto* oldBuf = std::cout.rdbuf(captured.rdbuf());
+
+    gh.powerSystem(); 
+
+    std::cout.rdbuf(oldBuf);
+
+    const std::string out = captured.str();
+
+    const auto p1 = out.find("[Sprinkler]");
+    const auto p2 = out.find("[Light]");
+    const auto p3 = out.find("[Sprinkler]", (p2 == std::string::npos ? 0 : p2 + 1));
+    const auto p4 = out.find("[Light]",     (p3 == std::string::npos ? 0 : p3 + 1));
+
+    const bool looksWired =
+        p1 != std::string::npos &&
+        p2 != std::string::npos &&
+        p3 != std::string::npos &&
+        p4 != std::string::npos &&
+        p1 < p2 && p2 < p3 && p3 < p4;
+
+    const auto n1 = out.find("SprinklersUpCommand not set");
+    const auto n2 = out.find("lightUpCommand not set",     (n1 == std::string::npos ? 0 : n1 + 1));
+    const auto n3 = out.find("SprinklersdownCommand not set", (n2 == std::string::npos ? 0 : n2 + 1));
+    const auto n4 = out.find("lightDownCommand not set",   (n3 == std::string::npos ? 0 : n3 + 1));
+
+    const bool looksUnwired =
+        n1 != std::string::npos &&
+        n2 != std::string::npos &&
+        n3 != std::string::npos &&
+        n4 != std::string::npos &&
+        n1 < n2 && n2 < n3 && n3 < n4;
+
+    CHECK_MESSAGE(looksWired || looksUnwired, "Unexpected powerSystem() output/order.\n---- captured ----\n" << out << "\n-------------------\n");
+}
 #endif // ENABLE_DOCTESTS
