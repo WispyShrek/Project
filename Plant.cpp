@@ -1,15 +1,18 @@
 #include "Plant.h"
 
 Plant::Plant()
-    : currState(new Sprout()), strategy(nullptr), colour(), scent(), length(0) {
+    : currState(new Sprout()), strategy(nullptr), colour(), scent(), length(0)
+{
 }
 
-Plant::~Plant() {
+Plant::~Plant()
+{
   delete currState;
   currState = nullptr;
 }
 std::string Plant::getStrategy() { return this->strategy->getStrategyName(); }
-std::string Plant::getState() {
+std::string Plant::getState()
+{
   // TODO - implement Plant::getState
   if (dynamic_cast<Sprout *>(currState))
     return "Sprout";
@@ -21,19 +24,37 @@ std::string Plant::getState() {
     return "Dying";
   return "Unknown";
 }
-
-void Plant::setState(PlantState *state) {
-  // TODO - implement Plant::setState
+void Plant::increasePrice(double amount)
+{
+  price += amount;
+}
+void Plant::setState(PlantState *state)
+{
   currState = state;
 }
 
-void Plant::nextState() {
+void Plant::setStrategy(CareStrategy *strategy) {
+  this->strategy = strategy;
+}
+std::string Plant::getColour() {
+  return this->colour;
+}
+std::string Plant::getScent() {
+  return this->scent;
+}
+std::string Plant::getPrice() {
+  return std::to_string(this->price);
+}
+
+void Plant::nextState()
+{
   // TODO - implement Plant::nextState
   if (currState)
     currState->next(this);
 }
 
-void Plant::prevState() {
+void Plant::prevState()
+{
   // TODO - implement Plant::prevState
   if (!currState)
     return;
@@ -64,15 +85,26 @@ void Plant::applyCare() {
         std::cout << "no care strategy selected yet\n";
 }
 
-void Plant::print() {
+void Plant::print()
+{
   if (currState)
     currState->print();
   else
     std::cout << "Unknown plant state\n";
 }
 
-void Plant::addCust() {
-  // TODO - implement Plant::addCust
+void Plant::addCust(Customer *customer)
+{
+  this->customer = customer;
+  std::cout << "Plant: this plant is now in a customer's cart.\n";
+}
+const bool& Plant::operator==(const Plant& other) {
+
+    // Compare the relevant attributes of the plants
+    if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
+        return false;
+    }
+        return true;
 }
 
 /**
@@ -99,19 +131,30 @@ void Plant::setPlantMemento(PlantMemento* memento) {
 
 Plant::Plant(Plant &toCopy)
     : currState(nullptr), strategy(toCopy.strategy), colour(toCopy.colour),
-      scent(toCopy.scent), length(toCopy.length) {
-  if (!toCopy.currState) {
+      scent(toCopy.scent), length(toCopy.length)
+{
+  if (!toCopy.currState)
+  {
     currState = nullptr;
-  } else if (dynamic_cast<Sprout *>(toCopy.currState)) {
+  }
+  else if (dynamic_cast<Sprout *>(toCopy.currState))
+  {
     currState = new Sprout();
-  } else if (dynamic_cast<Flowering *>(toCopy.currState)) {
+  }
+  else if (dynamic_cast<Flowering *>(toCopy.currState))
+  {
     currState = new Flowering();
-  } else if (dynamic_cast<Mature *>(toCopy.currState)) {
+  }
+  else if (dynamic_cast<Mature *>(toCopy.currState))
+  {
     currState = new Mature();
-  } else if (dynamic_cast<Dying *>(toCopy.currState)) {
+  }
+  else if (dynamic_cast<Dying *>(toCopy.currState))
+  {
     currState = new Dying();
-
-  } else {
+  }
+  else
+  {
     // Safe fallback
     currState = new Sprout();
   }

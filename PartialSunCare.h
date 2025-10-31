@@ -7,7 +7,6 @@
 class PartialSunCare : public CareStrategy {
 public:
   PartialSunCare();
-  void applyCare();
   void applyCare() override;
 };
 

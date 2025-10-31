@@ -5,8 +5,8 @@ LD = g++
 OUTDIR = out
 OBJDIR = $(OUTDIR)/obj
 BINDIR = $(OUTDIR)/bin
-SRCFILES = $(wildcard *.cpp)
-TESTS_SRC = tests.cpp
+SRCFILES = $(filter-out testing.cpp, $(wildcard *.cpp))
+TESTFILES = $(filter-out main.cpp, $(wildcard *.cpp))
 
 all:
 	make $(BINDIR)/program
@@ -27,8 +27,11 @@ run: $(BINDIR)/program $(SRCFILES)
 	./$(BINDIR)/program
 
 test:
-	$(CXX) $(CXXFLAGS) -o $(BINDIR)/run_tests $(TESTS_SRC) $(filter-out $(OBJDIR)/main.o $(OBJDIR)/tests.o, $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCFILES)))
-	./$(BINDIR)/run_tests
+	@if [! -d $(BINDIR) ]; then \
+		mkdir -p $(BINDIR);\
+	fi
+	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES)
+	./$(BINDIR)/test
 
 clean:
 	rm -r $(OUTDIR)

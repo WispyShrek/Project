@@ -7,7 +7,6 @@
 class ShadyCare : public CareStrategy {
 public:
   ShadyCare();
-  void applyCare();
   void applyCare() override;
 };
 

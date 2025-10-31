@@ -1,21 +1,28 @@
 #include "CustomerAssistant.h"
 #include <iostream>
 
-CustomerAssistant::CustomerAssistant() { custList = nullptr; }
-
-void CustomerAssistant::care() {
-    std::cout << "CustomerAssistant: assisting with plant care / demos\n";
+CustomerAssistant::CustomerAssistant()
+{
+    custList = {};
+}
+CustomerAssistant::~CustomerAssistant() {
+    for(int i=0; i<int(custList.size()); i++) {
+        delete custList[i];
+        custList[i] = NULL;
+    }
+}
+void CustomerAssistant::care()
+{
+    cout << "CustomerAssistant: should not be doing anything with plants\n";
+}
+void CustomerAssistant::notify(Customer *customer)
+{
+    
+    cout << "CustomerAssistant: notifying customer. Customer cart has changed:\n" << customer->cartToString() << "\n";
 }
 
-void CustomerAssistant::notify(Customer* customer) {
-    custList = customer;
-    std::cout << "CustomerAssistant: notify(customer)\n";
-}
+void CustomerAssistant::update()
+{
 
-void CustomerAssistant::update() {
-    std::cout << "CustomerAssistant: update() received from floor/controller\n";
-}
-
-void CustomerAssistant::update() {
-	std::cout << "CustomerAssistant is updated\n";
+    cout << "CustomerAssistant: update() received from floor/garden\n";
 }

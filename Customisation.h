@@ -7,7 +7,7 @@ class Customisation : public Plant {
 public:
   Plant *plant;
   virtual void increasePrice() = 0;
-  virtual void addCust() = 0;
+  virtual void addCust(Customer *customer) = 0;
 };
 
 #endif

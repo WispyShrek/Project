@@ -1,20 +1,53 @@
 #ifndef GARDEN_H
 #define GARDEN_H
 #include "Collection.h"
-#include "PlantCaretaker.h"
-#include "GardenIterator.h"
+#include "PlantIterator.h"
 #include "Plant.h"
 #include <vector>
 
-class Garden : Collection<Plant *> {
+class PlantCaretaker;
+
+class Garden : public Collection<Plant *> {
 private:
   std::vector<PlantCaretaker *> staffList;
 
 public:
   virtual ~Garden();
   //virtual void Print() = 0;
+
+  /*! @fn void Garden::addItem(Plant *item)
+   * @brief Adds a plant to the garden.
+   * Adds the plant into the first available slot in the 3x3 grid (row-major).
+   * If the grid is full (7+ capacity policy preserved via plantCount), the
+   * plant is not added and a message is printed.
+   * @param[in] item A pointer to a Plant object to be added to the garden.
+   */
   void addItem(Plant *item);
+
+  /*! @fn void Garden::addItem(Plant *item, int row, int col)
+   * @brief Adds a plant at a specific grid position.
+   * Places the plant at [row][col] if within bounds [0..2] and the cell is empty.
+   * If the position is invalid or occupied, the plant is not added.
+   * @param[in] item Plant to add
+   * @param[in] row Row index in [0..2]
+   * @param[in] col Column index in [0..2]
+   */
+  void addItem(Plant *item, int row, int col);
+  
+  /*! @fn Iterator<Plant *> *Garden::CreateIterator()
+   * @brief Creates an iterator for the garden's plant collection.
+   * Returns a PlantIterator that iterates all non-null plants in row-major order.
+   * Caller must delete the returned iterator when done.
+   * @return A pointer to a newly created Iterator<Plant *> object.
+   */
   Iterator<Plant *> *CreateIterator();
+  
+  /*! @fn void Garden::removeItem(Plant *item)
+   * @brief Removes a plant from the garden.
+   * Searches the 3x3 grid for the given Plant pointer and nulls that cell if found.
+   * Decrements plantCount on success. Does not delete the Plant object.
+   * @param[in] item A pointer to the Plant object to be removed from the garden.
+   */
   void removeItem(Plant *item);
 
   void TemplateMethod();
@@ -50,7 +83,8 @@ public:
   void notify();
 
 private:
-  std::vector<Plant *> plants;
+  std::vector<std::vector<Plant *>> plants = std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
+  int plantCount = 0;
 };
 
 #endif
