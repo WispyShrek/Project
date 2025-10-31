@@ -186,7 +186,7 @@ TEST_CASE("greenHouse::addItem(auto) fills first free slot in row-major order") 
     delete it;
 }
 
-TESTCASE("greenHouse respects maximum capacity of 7") {
+TEST_CASE("greenHouse respects maximum capacity of 7") {
     greenHouse gh;
     std::vector<Plant*> ps;
     for (int i = 0; i < 8; ++i) ps.push_back(new Rose());
