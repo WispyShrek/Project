@@ -3,9 +3,17 @@
 #include "Customer.h"
 
 class FussyCust : public Customer {
-public:
-  void get();
-  void set();
-};
+private:
+  vector<Plant *> preferredPlants; // vector to hold preferred plants
+  PaymentStrategy *paymentStrategy;
 
+public:
+  FussyCust();
+  FussyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
+  ~FussyCust();
+  void pay();
+  string voiceLine() override;
+  PaymentStrategy *getPaymentStrategy() const { return paymentStrategy; }
+  void setPaymentStrategy(PaymentStrategy *strategy) { paymentStrategy = strategy; }
+};
 #endif

@@ -1,0 +1,156 @@
+\hypertarget{classInventoryIterator}{}\doxysection{Inventory\+Iterator Class Reference}
+\label{classInventoryIterator}\index{InventoryIterator@{InventoryIterator}}
+
+
+\mbox{\hyperlink{classIterator}{Iterator}} for traversing a collection of inventory item strings.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Iterator.\+h$>$}
+
+
+
+Inheritance diagram for Inventory\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classInventoryIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classInventoryIterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventoryIterator_a36871943dd3c3c65e7d891d1d07069c6}{Inventory\+Iterator}} (std\+::vector$<$ std\+::string $>$ \&items)
+\begin{DoxyCompactList}\small\item\em Constructs an iterator over the provided items collection. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classInventoryIterator_a6af0679063d02361c0abfcc8213e6b53}{curr\+Item}} () override
+\begin{DoxyCompactList}\small\item\em Returns the current item string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventoryIterator_a690dd1d283f7aca876616af93cb5d046}{first}} () override
+\begin{DoxyCompactList}\small\item\em Positions the iterator at the first element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryIterator_a6a1daa4ac9fbb098228fb0288b27cefb}{is\+Done}} () override
+\begin{DoxyCompactList}\small\item\em Checks whether the iterator has reached the end. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventoryIterator_acc01b20b3d3aac5e62371046437104b5}{next}} () override
+\begin{DoxyCompactList}\small\item\em Advances the iterator to the next element if not done. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventoryIterator_a1cd1f6e6cdb0df5ebe9c034f976e5c01}{prev}} () override
+\begin{DoxyCompactList}\small\item\em Moves the iterator to the previous element if possible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classIterator}{Iterator}} for traversing a collection of inventory item strings. 
+
+This iterator provides bidirectional traversal over a std\+::vector$<$std\+::string$>$ with standard operations to get the current item, move to the first/next/previous elements, and query completion. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInventoryIterator_a36871943dd3c3c65e7d891d1d07069c6}\label{classInventoryIterator_a36871943dd3c3c65e7d891d1d07069c6}} 
+\index{InventoryIterator@{InventoryIterator}!InventoryIterator@{InventoryIterator}}
+\index{InventoryIterator@{InventoryIterator}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{InventoryIterator()}{InventoryIterator()}}
+{\footnotesize\ttfamily Inventory\+Iterator\+::\+Inventory\+Iterator (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{items }\end{DoxyParamCaption})}
+
+
+
+Constructs an iterator over the provided items collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & Reference to the underlying vector of item name strings. The caller must ensure the lifetime of this vector outlives the iterator. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInventoryIterator_a6af0679063d02361c0abfcc8213e6b53}\label{classInventoryIterator_a6af0679063d02361c0abfcc8213e6b53}} 
+\index{InventoryIterator@{InventoryIterator}!currItem@{currItem}}
+\index{currItem@{currItem}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{currItem()}{currItem()}}
+{\footnotesize\ttfamily std\+::string Inventory\+Iterator\+::curr\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the current item string. 
+
+If the iterator is done (past the end or empty collection), prints an error message and returns an empty string.
+
+\begin{DoxyReturn}{Returns}
+The current item name, or an empty string if the iterator is done. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventoryIterator_a690dd1d283f7aca876616af93cb5d046}\label{classInventoryIterator_a690dd1d283f7aca876616af93cb5d046}} 
+\index{InventoryIterator@{InventoryIterator}!first@{first}}
+\index{first@{first}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily void Inventory\+Iterator\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Positions the iterator at the first element. 
+
+After calling this, \mbox{\hyperlink{classInventoryIterator_a6a1daa4ac9fbb098228fb0288b27cefb}{is\+Done()}} will be false if the collection is non-\/empty, otherwise it will remain true for an empty collection. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventoryIterator_a6a1daa4ac9fbb098228fb0288b27cefb}\label{classInventoryIterator_a6a1daa4ac9fbb098228fb0288b27cefb}} 
+\index{InventoryIterator@{InventoryIterator}!isDone@{isDone}}
+\index{isDone@{isDone}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily bool Inventory\+Iterator\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks whether the iterator has reached the end. 
+
+\begin{DoxyReturn}{Returns}
+true if there is no current item (past the last element or empty), false otherwise. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventoryIterator_acc01b20b3d3aac5e62371046437104b5}\label{classInventoryIterator_acc01b20b3d3aac5e62371046437104b5}} 
+\index{InventoryIterator@{InventoryIterator}!next@{next}}
+\index{next@{next}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily void Inventory\+Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advances the iterator to the next element if not done. 
+
+If the iterator is already done, calling this has no effect. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventoryIterator_a1cd1f6e6cdb0df5ebe9c034f976e5c01}\label{classInventoryIterator_a1cd1f6e6cdb0df5ebe9c034f976e5c01}} 
+\index{InventoryIterator@{InventoryIterator}!prev@{prev}}
+\index{prev@{prev}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{prev()}{prev()}}
+{\footnotesize\ttfamily void Inventory\+Iterator\+::prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves the iterator to the previous element if possible. 
+
+If the iterator is at the first element, calling this has no effect. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ std\+::string $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inventory\+Iterator.\+h\item 
+Inventory\+Iterator.\+cpp\end{DoxyCompactItemize}

@@ -1,9 +1,19 @@
 #include "FussyCust.h"
 
-void FussyCust::get() {
-	// TODO - implement FussyCust::get
+FussyCust::FussyCust() {}
+FussyCust::FussyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants)
+	: Customer(name, salesFloor)
+{
+	// Additional initialization if needed
+	this->paymentStrategy = paymentStrategy;
+	this->preferredPlants = preferredPlants;
 }
-
-void FussyCust::set() {
-	// TODO - implement FussyCust::set
+FussyCust::~FussyCust() {}
+void FussyCust::pay()
+{
+	this->paymentStrategy->pay();
+}
+string FussyCust::voiceLine()
+{
+	return "I'm a fussy customer";
 }

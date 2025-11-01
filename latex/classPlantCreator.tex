@@ -1,0 +1,47 @@
+\hypertarget{classPlantCreator}{}\doxysection{Plant\+Creator Class Reference}
+\label{classPlantCreator}\index{PlantCreator@{PlantCreator}}
+
+
+An abstract factory class for creating \mbox{\hyperlink{classPlant}{Plant}} objects.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Creator.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+Creator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlantCreator__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantCreator_a0a42cd263b6c0c073e95c84c680732cd}\label{classPlantCreator_a0a42cd263b6c0c073e95c84c680732cd}} 
+\mbox{\hyperlink{classPlantCreator_a0a42cd263b6c0c073e95c84c680732cd}{Plant\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantCreator_a41afe6cba6f9a7619702798ac2cddeb3}\label{classPlantCreator_a41afe6cba6f9a7619702798ac2cddeb3}} 
+virtual \mbox{\hyperlink{classPlantCreator_a41afe6cba6f9a7619702798ac2cddeb3}{$\sim$\+Plant\+Creator}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantCreator_ad27687ea325ac0d49a63bdf5d15a6fcc}\label{classPlantCreator_ad27687ea325ac0d49a63bdf5d15a6fcc}} 
+virtual \mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries create\+Plant} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract factory class for creating \mbox{\hyperlink{classPlant}{Plant}} objects. 
+
+The \mbox{\hyperlink{classPlantCreator}{Plant\+Creator}} class defines the interface for creating \mbox{\hyperlink{classPlant}{Plant}} instances. Subclasses must implement the create\+Plant method to instantiate specific \mbox{\hyperlink{classPlant}{Plant}} types. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Plant\+Creator.\+h\item 
+Plant\+Creator.\+cpp\end{DoxyCompactItemize}

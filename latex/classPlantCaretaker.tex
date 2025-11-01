@@ -1,0 +1,54 @@
+\hypertarget{classPlantCaretaker}{}\doxysection{Plant\+Caretaker Class Reference}
+\label{classPlantCaretaker}\index{PlantCaretaker@{PlantCaretaker}}
+
+
+Inheritance diagram for Plant\+Caretaker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classPlantCaretaker__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plant\+Caretaker\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{classPlantCaretaker__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}\label{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}} 
+void \mbox{\hyperlink{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}{care}} () override
+\begin{DoxyCompactList}\small\item\em Applies care to gardens. The care function dequeues a garden pointer the from the front of the care\+Queue member variable and calls apply\+Care() on the dequeued object. Only one object gets dequeued per function call. When the care\+Queue is empty the function will have no effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}{update}} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$subject\+Of\+Care)
+\begin{DoxyCompactList}\small\item\em Adds new garden to care\+Queue. The update function takes a the input parameter and pushes it to the back of the care\+Queue member variable without calling any functions on the parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}\label{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}} 
+\index{PlantCaretaker@{PlantCaretaker}!update@{update}}
+\index{update@{update}!PlantCaretaker@{PlantCaretaker}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Plant\+Caretaker\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGarden}{Garden}} $\ast$}]{subject\+Of\+Care }\end{DoxyParamCaption})}
+
+
+
+Adds new garden to care\+Queue. The update function takes a the input parameter and pushes it to the back of the care\+Queue member variable without calling any functions on the parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to a \mbox{\hyperlink{classGarden}{Garden}} object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Plant\+Caretaker.\+h\item 
+Plant\+Caretaker.\+cpp\end{DoxyCompactItemize}

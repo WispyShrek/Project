@@ -8,7 +8,8 @@ class Customer;
 class SalesFloor{
 public:
   virtual void notify(Customer *customer) = 0;
-
+  SalesFloor(){}
+  virtual ~SalesFloor()=default;
 private:
   std::vector<Inventory*> inventories;
 };

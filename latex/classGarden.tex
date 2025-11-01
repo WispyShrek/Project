@@ -1,0 +1,174 @@
+\hypertarget{classGarden}{}\doxysection{Garden Class Reference}
+\label{classGarden}\index{Garden@{Garden}}
+
+
+Inheritance diagram for Garden\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{classGarden__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Garden\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{classGarden__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major). If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and a message is printed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarden_a62014886ff873a7f033d78edae8c7a3b}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item, int row, int col)
+\begin{DoxyCompactList}\small\item\em Adds a plant at a specific grid position. Places the plant at \mbox{[}row\mbox{]}\mbox{[}col\mbox{]} if within bounds \mbox{[}0..2\mbox{]} and the cell is empty. If the position is invalid or occupied, the plant is not added. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIterator}{Iterator}}$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classGarden_a8412ccc6d72ff49bc705517dc48851ca}{Create\+Iterator}} ()
+\begin{DoxyCompactList}\small\item\em Creates an iterator for the garden\textquotesingle{}s plant collection. Returns a \mbox{\hyperlink{classPlantIterator}{Plant\+Iterator}} that iterates all non-\/null plants in row-\/major order. Caller must delete the returned iterator when done. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}{remove\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Removes a plant from the garden. Searches the 3x3 grid for the given \mbox{\hyperlink{classPlant}{Plant}} pointer and nulls that cell if found. Decrements plant\+Count on success. Does not delete the \mbox{\hyperlink{classPlant}{Plant}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGarden_a7620b0dd92ecdf4654ece9a2c78df468}\label{classGarden_a7620b0dd92ecdf4654ece9a2c78df468}} 
+void {\bfseries Template\+Method} ()
+\item 
+\mbox{\Hypertarget{classGarden_a53e2165edad91df2f711fecdb7ebf1de}\label{classGarden_a53e2165edad91df2f711fecdb7ebf1de}} 
+virtual void {\bfseries apply\+Rays} ()=0
+\item 
+\mbox{\Hypertarget{classGarden_a83e93d854d5c877609d63f398c0f9a5a}\label{classGarden_a83e93d854d5c877609d63f398c0f9a5a}} 
+void {\bfseries apply\+Care} ()
+\item 
+void \mbox{\hyperlink{classGarden_a110af7875243ac3a24eea6842a4ea91a}{attach}} (\mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} $\ast$staff)
+\begin{DoxyCompactList}\small\item\em Attaches a plantcaretaker to a garden object. The attach function appends the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} to the staff\+List member variable for the purpose of being notified of changes to the \mbox{\hyperlink{classGarden}{Garden}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarden_acfdb54c623f57f436a6bc671a2e04b3a}{detach}} (\mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} $\ast$staff)
+\begin{DoxyCompactList}\small\item\em detaches a plantcaretaker from a garden object. The detach function finds and removes the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} from the list of Plant\+Caretakers stored in the staff\+List member variable to be notified of changes to a \mbox{\hyperlink{classGarden}{Garden}} object. The given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} will no longer be notified of changes to the \mbox{\hyperlink{classGarden}{Garden}} object. When the function is called on an empty staff\+List or the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} object does not exist within the list, the function will have no effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGarden_a1fe39ee342be692de6f5390266a71a00}{notify}} ()
+\begin{DoxyCompactList}\small\item\em Notifies plant\+Caretakers of an event. The detach function iterates through the staff\+List member variable and calls update on each of the \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} objects within, using the \mbox{\hyperlink{classGarden}{Garden}} object calling the function as input parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}\label{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}} 
+\index{Garden@{Garden}!addItem@{addItem}}
+\index{addItem@{addItem}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Garden\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major). If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and a message is printed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & A pointer to a \mbox{\hyperlink{classPlant}{Plant}} object to be added to the garden. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGarden_a62014886ff873a7f033d78edae8c7a3b}\label{classGarden_a62014886ff873a7f033d78edae8c7a3b}} 
+\index{Garden@{Garden}!addItem@{addItem}}
+\index{addItem@{addItem}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Garden\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Adds a plant at a specific grid position. Places the plant at \mbox{[}row\mbox{]}\mbox{[}col\mbox{]} if within bounds \mbox{[}0..2\mbox{]} and the cell is empty. If the position is invalid or occupied, the plant is not added. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & \mbox{\hyperlink{classPlant}{Plant}} to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em row} & Row index in \mbox{[}0..2\mbox{]} \\
+\hline
+\mbox{\texttt{ in}}  & {\em col} & Column index in \mbox{[}0..2\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarden_a110af7875243ac3a24eea6842a4ea91a}\label{classGarden_a110af7875243ac3a24eea6842a4ea91a}} 
+\index{Garden@{Garden}!attach@{attach}}
+\index{attach@{attach}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void Garden\+::attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} $\ast$}]{staff }\end{DoxyParamCaption})}
+
+
+
+Attaches a plantcaretaker to a garden object. The attach function appends the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} to the staff\+List member variable for the purpose of being notified of changes to the \mbox{\hyperlink{classGarden}{Garden}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to a \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarden_a8412ccc6d72ff49bc705517dc48851ca}\label{classGarden_a8412ccc6d72ff49bc705517dc48851ca}} 
+\index{Garden@{Garden}!CreateIterator@{CreateIterator}}
+\index{CreateIterator@{CreateIterator}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{CreateIterator()}{CreateIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIterator}{Iterator}}$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ $\ast$ Garden\+::\+Create\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates an iterator for the garden\textquotesingle{}s plant collection. Returns a \mbox{\hyperlink{classPlantIterator}{Plant\+Iterator}} that iterates all non-\/null plants in row-\/major order. Caller must delete the returned iterator when done. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly created \mbox{\hyperlink{classIterator}{Iterator$<$\+Plant $\ast$$>$}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGarden_acfdb54c623f57f436a6bc671a2e04b3a}\label{classGarden_acfdb54c623f57f436a6bc671a2e04b3a}} 
+\index{Garden@{Garden}!detach@{detach}}
+\index{detach@{detach}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void Garden\+::detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} $\ast$}]{staff }\end{DoxyParamCaption})}
+
+
+
+detaches a plantcaretaker from a garden object. The detach function finds and removes the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} from the list of Plant\+Caretakers stored in the staff\+List member variable to be notified of changes to a \mbox{\hyperlink{classGarden}{Garden}} object. The given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} will no longer be notified of changes to the \mbox{\hyperlink{classGarden}{Garden}} object. When the function is called on an empty staff\+List or the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} object does not exist within the list, the function will have no effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & pointer to a \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGarden_a1fe39ee342be692de6f5390266a71a00}\label{classGarden_a1fe39ee342be692de6f5390266a71a00}} 
+\index{Garden@{Garden}!notify@{notify}}
+\index{notify@{notify}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily void Garden\+::notify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Notifies plant\+Caretakers of an event. The detach function iterates through the staff\+List member variable and calls update on each of the \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} objects within, using the \mbox{\hyperlink{classGarden}{Garden}} object calling the function as input parameter. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}{Plant\+Caretaker\+::update(\+Garden $\ast$ subject\+Of\+Care)}} for details of the update function invoked 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}\label{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}} 
+\index{Garden@{Garden}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily void Garden\+::remove\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Removes a plant from the garden. Searches the 3x3 grid for the given \mbox{\hyperlink{classPlant}{Plant}} pointer and nulls that cell if found. Decrements plant\+Count on success. Does not delete the \mbox{\hyperlink{classPlant}{Plant}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & A pointer to the \mbox{\hyperlink{classPlant}{Plant}} object to be removed from the garden. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Garden.\+h\item 
+Garden.\+cpp\end{DoxyCompactItemize}

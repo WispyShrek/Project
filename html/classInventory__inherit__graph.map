@@ -1,0 +1,4 @@
+<map id="Inventory" name="Inventory">
+<area shape="rect" id="node1" title="Manages a collection of inventory items as strings." alt="" coords="55,80,139,107"/>
+<area shape="rect" id="node2" href="$classCollection.html" title=" " alt="" coords="5,5,188,32"/>
+</map>

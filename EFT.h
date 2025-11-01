@@ -5,6 +5,8 @@
 
 class EFT : public PaymentStrategy {
 public:
+  EFT(){}
+  ~EFT(){}
   void pay();
 };
 

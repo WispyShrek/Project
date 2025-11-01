@@ -6,6 +6,8 @@
 class Cash : public PaymentStrategy {
 
 public:
+  Cash(){}
+  ~Cash(){}
   void pay();
 };
 

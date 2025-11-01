@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classSalesFloor.html" title=" " alt="" coords="5,31,96,57"/>
+<area shape="rect" id="node2" href="$classStaff.html" title="An abstract base class representing staff members in the nursery." alt="" coords="144,31,196,57"/>
+<area shape="rect" id="node3" href="$classCustomerAssistant.html" title="A class representing a customer assistant staff member in the nursery." alt="" coords="244,5,389,32"/>
+<area shape="rect" id="node4" href="$classPlantCaretaker.html" title=" " alt="" coords="257,56,376,83"/>
+</map>

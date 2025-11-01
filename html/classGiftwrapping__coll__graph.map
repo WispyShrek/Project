@@ -1,0 +1,8 @@
+<map id="Giftwrapping" name="Giftwrapping">
+<area shape="rect" id="node1" title=" " alt="" coords="126,260,231,287"/>
+<area shape="rect" id="node2" href="$classCustomisation.html" title=" " alt="" coords="121,184,237,211"/>
+<area shape="rect" id="node3" href="$classPlant.html" title="An abstract base class representing a plant in the nursery." alt="" coords="151,95,206,121"/>
+<area shape="rect" id="node4" href="$classCareStrategy.html" title=" " alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node5" href="$classCustomer.html" title=" " alt="" coords="136,5,221,32"/>
+<area shape="rect" id="node6" href="$classPlantState.html" title="An abstract base class representing the state of a plant." alt="" coords="246,5,335,32"/>
+</map>

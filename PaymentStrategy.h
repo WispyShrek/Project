@@ -1,10 +1,11 @@
 #ifndef PAYMENTSTARTEGY_H
 #define PAYMENTSTARTEGY_H
 
-class PaymentStrategy {
-
+class PaymentStrategy
+{
 
 public:
+	virtual ~PaymentStrategy() = default;
 	virtual void pay() = 0;
 };
 

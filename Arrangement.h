@@ -5,10 +5,10 @@
 class Arrangement : public Customisation
 {
 private:
-  bool addedArrangement;
+  bool addedArrangement;//to track if arrangement has been added
 public:
-  void setAddedArrangement(bool addedArrangement) { this->addedArrangement= addedArrangement; }
-  bool getAddedArrangement() const { return addedArrangement; }
+  void setAddedArrangement(bool addedArrangement) { this->addedArrangement= addedArrangement; }//setter
+  bool getAddedArrangement() const { return addedArrangement; }//getter
   void increasePrice();
   void addCust(Customer* customer);
 };

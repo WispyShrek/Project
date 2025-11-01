@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCollection.html" title=" " alt="" coords="5,81,167,108"/>
+<area shape="rect" id="node2" href="$classGarden.html" title=" " alt="" coords="230,56,299,83"/>
+<area shape="rect" id="node6" href="$classgreenHouse.html" title="A class representing a greenhouse that holds a 3x3 grid of plants." alt="" coords="215,107,315,133"/>
+<area shape="rect" id="node3" href="$classPartialSun.html" title=" " alt="" coords="363,5,449,32"/>
+<area shape="rect" id="node4" href="$classShady.html" title=" " alt="" coords="375,56,437,83"/>
+<area shape="rect" id="node5" href="$classSunny.html" title=" " alt="" coords="375,107,437,133"/>
+</map>

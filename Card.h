@@ -5,6 +5,8 @@
 
 class Card : public PaymentStrategy {
 public:
+  Card(){}
+  ~Card(){}
   void pay();
 };
 

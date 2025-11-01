@@ -1,0 +1,4 @@
+<map id="Lavender" name="Lavender">
+<area shape="rect" id="node1" title="A class representing a Lavender plant, derived from the Plant base class." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node2" href="$classPlant.html" title="An abstract base class representing a plant in the nursery." alt="" coords="19,5,74,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="SalesFloor" name="SalesFloor">
+<area shape="rect" id="node1" title=" " alt="" coords="110,5,201,32"/>
+<area shape="rect" id="node2" href="$classStaff.html" title="An abstract base class representing staff members in the nursery." alt="" coords="129,80,181,107"/>
+<area shape="rect" id="node3" href="$classCustomerAssistant.html" title="A class representing a customer assistant staff member in the nursery." alt="" coords="5,155,151,181"/>
+<area shape="rect" id="node4" href="$classPlantCaretaker.html" title=" " alt="" coords="175,155,293,181"/>
+</map>
