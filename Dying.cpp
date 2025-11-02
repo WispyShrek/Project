@@ -1,13 +1,30 @@
+/**
+ * @file Dying.cpp
+ * @brief Implementation of the Dying class, a concrete state in the State pattern.
+ */
 #include "Dying.h"
 
+/**
+ * @brief Transitions the plant from the Dying state to the Dead state.
+ *
+ * This method changes the state of the `context` (the Plant) to a new `Dead` state.
+ * @param context A pointer to the Plant object whose state is to be changed.
+ */
 void Dying::next(Plant* context) {
 	context->setState(new Dead());
 }
 
+/**
+ * @brief Creates a copy of the Dying state object.
+ * @return A new `PlantState` pointer to a `Dying` object.
+ */
 PlantState* Dying::clone() const {
     return new Dying(*this);
 }
 
+/**
+ * @brief Prints a message indicating the plant's current state is Dying.
+ */
 void Dying::print() {
 	std::cout << "This plant is dying, apply care to it" << std::endl;
 }

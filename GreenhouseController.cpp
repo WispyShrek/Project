@@ -1,39 +1,79 @@
+/**
+ * @file GreenhouseController.cpp
+ * @brief Implementation of the GreenhouseController class.
+ */
 #include "GreenhouseController.h"
 
 #include <iostream>
 
+/**
+ * @brief Constructor for the GreenhouseController.
+ * Initializes all command pointers to nullptr, ensuring the controller
+ * starts in a safe, unconfigured state.
+ */
 GreenhouseController::GreenhouseController(): 
     SprinklersUpCommand(nullptr),
     SprinklersdownCommand(nullptr),
     lightUpCommand(nullptr),
     lightDownCommand(nullptr)
 {}
-
+/**
+ * @brief Destructor for the GreenhouseController.
+ * The destructor is empty because the controller does not take ownership
+ * of the command objects. The client that sets the commands is responsible
+ * for their memory management.
+ */
 GreenhouseController::~GreenhouseController() {
 }
 
+/**
+ * @brief Wires up the commands for controlling the sprinklers.
+ * @param on A pointer to the command that turns the sprinklers on.
+ * @param off A pointer to the command that turns the sprinklers off.
+ */
 void GreenhouseController::setSprinklerCommands(Command* on, Command* off) {
     SprinklersUpCommand   = on;
     SprinklersdownCommand = off;
 }
 
+/**
+ * @brief Wires up the commands for controlling the lights.
+ * @param on A pointer to the command that turns the lights on.
+ * @param off A pointer to the command that turns the lights off.
+ */
 void GreenhouseController::setLightCommands(Command* on, Command* off) {
     lightUpCommand   = on;
     lightDownCommand = off;
 }
 
+/**
+ * @brief Executes the command to turn the sprinklers on.
+ * If no 'on' command is set, it prints an error and does nothing.
+ */
 void GreenhouseController::flipUpSprinklers() {
     if (!SprinklersUpCommand) { std::cerr << "[Controller] SprinklersUpCommand not set\n"; return; }
     SprinklersUpCommand->execute();
 }
+/**
+ * @brief Executes the command to turn the sprinklers off.
+ * If no 'off' command is set, it prints an error and does nothing.
+ */
 void GreenhouseController::flipDownSprinklers() {
     if (!SprinklersdownCommand) { std::cerr << "[Controller] SprinklersdownCommand not set\n"; return; }
     SprinklersdownCommand->execute();
 }
+/**
+ * @brief Executes the command to turn the lights on.
+ * If no 'on' command is set, it prints an error and does nothing.
+ */
 void GreenhouseController::flipUpLights() {
     if (!lightUpCommand) { std::cerr << "[Controller] lightUpCommand not set\n"; return; }
     lightUpCommand->execute();
 }
+/**
+ * @brief Executes the command to turn the lights off.
+ * If no 'off' command is set, it prints an error and does nothing.
+ */
 void GreenhouseController::flipDownLights() {
     if (!lightDownCommand) { std::cerr << "[Controller] lightDownCommand not set\n"; return; }
     lightDownCommand->execute();

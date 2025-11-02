@@ -1,11 +1,20 @@
+/**
+ * @file greenHouse.cpp
+ * @brief Implementation of the greenHouse class.
+ */
 #include "greenHouse.h"
 #include "GreenhouseController.h"
 #include "Rose.h"
 #include "Sunny.h"
 #include "Shady.h"
-#include "Rose.h"
 #include "PartialSun.h"
 
+/**
+ * @brief Destructor for the greenHouse class.
+ *
+ * Cleans up memory by deleting all Plant objects currently held within the
+ * greenhouse's 3x3 grid. This prevents memory leaks when a greenHouse object is destroyed.
+ */
 greenHouse::~greenHouse(){
     for(auto& row : plants){
         for(auto*& p : row){
@@ -15,6 +24,12 @@ greenHouse::~greenHouse(){
     }
 }
 
+/**
+ * @brief Activates the greenhouse's automated systems.
+ *
+ * This method demonstrates the Command pattern by creating a `GreenhouseController`
+ * and invoking commands to cycle the sprinklers and lights.
+ */
 void greenHouse::powerSystem()
 {
     GreenhouseController controller;
@@ -24,10 +39,24 @@ void greenHouse::powerSystem()
     controller.flipDownLights();
 }
 
+/**
+ * @brief Creates an iterator for the plants in the greenhouse.
+ *
+ * This method is part of the Iterator design pattern. It returns a `PlantIterator`
+ * that can be used to traverse the plants in the greenhouse's grid.
+ * @return A pointer to a new `Iterator<Plant *>` object. The caller is responsible for deleting it.
+ */
 Iterator<Plant *> *greenHouse::CreateIterator(){
     return new PlantIterator(plants);
 }
 
+/**
+ * @brief Adds a plant to the first available slot in the greenhouse.
+ *
+ * This method iterates through the 3x3 grid in row-major order and places the
+ * plant in the first empty (nullptr) cell it finds. It respects a capacity limit of 7 plants.
+ * @param item A pointer to the Plant object to add. The greenHouse takes ownership of this pointer.
+ */
 void greenHouse::addItem(Plant *item){
     if (plantCount > 6) {
         std::cout << "Greenhouse is full, cannot add more plants." << std::endl;
@@ -47,6 +76,15 @@ void greenHouse::addItem(Plant *item){
     std::cout << "Greenhouse has no free slot." << std::endl;
 }
 
+/**
+ * @brief Adds a plant to a specific position in the greenhouse's grid.
+ *
+ * This method places a plant at the specified `row` and `col` if the position is
+ * within the 3x3 bounds and the cell is currently empty. It respects a capacity limit of 7 plants.
+ * @param item A pointer to the Plant object to add. The greenHouse takes ownership of this pointer.
+ * @param row The row index (0-2) where the plant should be placed.
+ * @param col The column index (0-2) where the plant should be placed.
+ */
 void greenHouse::addItem(Plant *item, int row, int col){
     if (plantCount > 6) {
         std::cout << "Greenhouse is full, cannot add more plants." << std::endl;
@@ -64,6 +102,12 @@ void greenHouse::addItem(Plant *item, int row, int col){
     ++plantCount;
 }
 
+/**
+ * @brief Removes a plant from the greenhouse.
+ *
+ * Searches the grid for the specified plant pointer and sets the cell to nullptr if found. It does not delete the Plant object itself.
+ * @param item A pointer to the Plant object to remove.
+ */
 void greenHouse::removeItem(Plant *item){
     for (int r = 0; r < 3; ++r) {
         for (int c = 0; c < 3; ++c) {

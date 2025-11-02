@@ -1,10 +1,19 @@
+/**
+ * @file Garden.cpp
+ * @brief Implementation of the Garden class.
+ */
 #include "Garden.h"
 #include "PlantCaretaker.h"
 #include "Rose.h"
 #include "Sunny.h"
 #include <algorithm>
 #include <iostream>
-
+/**
+ * @brief Destructor for the Garden class.
+ *
+ * Cleans up memory by deleting all Plant objects currently held within the
+ * garden's 3x3 grid. This prevents memory leaks when a Garden object is destroyed.
+ */
 Garden::~Garden(){
     // Clean up all plants (owned while in the grid)
     for (auto& row : plants) {
@@ -15,6 +24,13 @@ Garden::~Garden(){
     }
 }
 
+/**
+ * @brief Adds a plant to the first available slot in the garden.
+ *
+ * This method iterates through the 3x3 grid in row-major order and places the
+ * plant in the first empty (nullptr) cell it finds. It respects a capacity limit of 7 plants.
+ * @param item A pointer to the Plant object to add. The Garden takes ownership of this pointer.
+ */
 void Garden::addItem(Plant *item){
     if (plantCount > 6) {
         std::cout << "Garden is full, cannot add more plants." << std::endl;
@@ -34,6 +50,15 @@ void Garden::addItem(Plant *item){
     std::cout << "Garden has no free slot." << std::endl;
 }
 
+/**
+ * @brief Adds a plant to a specific position in the garden's grid.
+ *
+ * This method places a plant at the specified `row` and `col` if the position is
+ * within the 3x3 bounds and the cell is currently empty. It respects a capacity limit of 7 plants.
+ * @param item A pointer to the Plant object to add. The Garden takes ownership of this pointer.
+ * @param row The row index (0-2) where the plant should be placed.
+ * @param col The column index (0-2) where the plant should be placed.
+ */
 void Garden::addItem(Plant *item, int row, int col){
     if (plantCount > 6) {
         std::cout << "Garden is full, cannot add more plants." << std::endl;
@@ -51,10 +76,23 @@ void Garden::addItem(Plant *item, int row, int col){
     ++plantCount;
 }
 
+/**
+ * @brief Creates an iterator for the plants in the garden.
+ *
+ * This method is part of the Iterator design pattern. It returns a `PlantIterator`
+ * that can be used to traverse the plants in the garden's grid.
+ * @return A pointer to a new `Iterator<Plant *>` object. The caller is responsible for deleting it.
+ */
 Iterator<Plant *> *Garden::CreateIterator(){
     return new PlantIterator(plants);
 }
 
+/**
+ * @brief Removes a plant from the garden.
+ *
+ * Searches the grid for the specified plant pointer and sets the cell to nullptr if found. It does not delete the Plant object itself.
+ * @param item A pointer to the Plant object to remove.
+ */
 void Garden::removeItem(Plant *item){
     for (int r = 0; r < 3; ++r) {
         for (int c = 0; c < 3; ++c) {
@@ -67,16 +105,40 @@ void Garden::removeItem(Plant *item){
     }
 }
 
+/**
+ * @brief Placeholder for the Template Method design pattern.
+ */
 void Garden::TemplateMethod() {}
 
+/**
+ * @brief Placeholder for applying care to the garden.
+ */
 void Garden::applyCare() {}
 
+/**
+ * @brief Attaches an observer (a PlantCaretaker) to the garden.
+ *
+ * This method is part of the Observer design pattern. It adds a staff member
+ * to the list of observers that will be notified of changes.
+ * @param staff A pointer to the PlantCaretaker to attach.
+ */
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
+/**
+ * @brief Detaches an observer (a PlantCaretaker) from the garden.
+ *
+ * This method is part of the Observer design pattern. It removes a staff member
+ * from the list of observers.
+ * @param staff A pointer to the PlantCaretaker to detach.
+ */
 void Garden::detach(PlantCaretaker *staff) {
   this->staffList.erase(std::find(staffList.begin(), staffList.end(), staff));
 }
 
+/**
+ * @brief Notifies all attached observers of a change.
+ * This method iterates through the list of attached `PlantCaretaker`s and calls their `update` method.
+ */
 void Garden::notify() {
   for (auto plantCaretaker : staffList) {
     plantCaretaker->update(this);
