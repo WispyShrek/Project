@@ -1,16 +1,32 @@
+/**
+ * @file Mature.cpp
+ * @brief Implementation of the Mature class, a concrete state in the State pattern.
+ */
 #include "Mature.h"
 
+/**
+ * @brief Handles state transitions from the Mature state.
+ *
+ * A plant in the Mature state is considered to have reached its final growth stage.
+ * This method prints a message to indicate this and does not change the plant's context.
+ * @param context A pointer to the Plant object (unused in this implementation).
+ */
 void Mature::next(Plant* context) {
     if (!context) return;
     std::cout << "Cannot grow more — already Mature.\n";
 }
 
+/**
+ * @brief Prints a message indicating the plant's current state is Mature.
+ */
 void Mature::print() {	
-	std::cout << "The is a plant that is now Mature" << std::endl;
-	// TODO - implement Mature::next
-	return; 
+	std::cout << "This is a plant that is now Mature" << std::endl;
 }
 
+/**
+ * @brief Creates a copy of the Mature state object.
+ * @return A new `PlantState` pointer to a `Mature` object.
+ */
 PlantState* Mature::clone() const {
     return new Mature(*this);
 }

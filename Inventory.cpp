@@ -1,13 +1,35 @@
+/**
+ * @file Inventory.cpp
+ * @brief Implementation of the Inventory class.
+ */
 #include "Inventory.h"
 
+/**
+ * @brief Adds an item to the back of the inventory list.
+ * @param item The string item to add.
+ */
 void Inventory::addItem(std::string item){
     inventoryItems.push_back(item);
 }
 
+/**
+ * @brief Creates an iterator for traversing the inventory items.
+ *
+ * This method is part of the Iterator design pattern. It returns a new
+ * `InventoryIterator` that can be used to iterate over the items in the inventory.
+ * @return A pointer to a new `Iterator<std::string>` object. The caller is responsible for deleting this iterator.
+ */
 Iterator<std::string> *Inventory::CreateIterator(){
     return new InventoryIterator(inventoryItems);
 }
 
+/**
+ * @brief Removes the first occurrence of a specified item from the inventory.
+ *
+ * This method iterates through the inventory and removes the first element
+ * that matches the given item string. If the item is not found, the inventory remains unchanged.
+ * @param item The string item to remove.
+ */
 void Inventory::removeItem(std::string item){
       for(auto it = inventoryItems.begin(); it != inventoryItems.end(); ++it){
         if(*it == item){
