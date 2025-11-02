@@ -17,7 +17,7 @@ void CustomerAssistant::care()
 }
 bool CustomerAssistant::notify(Customer *customer, Plant* plant)
 {
-    
+    return false;
 }
 
 void CustomerAssistant::update()

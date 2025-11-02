@@ -17,3 +17,10 @@ string FussyCust::voiceLine()
 {
 	return "I'm a fussy customer";
 }
+void FussyCust::enquirePlants(SalesFloor *salesFloor)
+{
+	for (int i = 0; i < int(preferredPlants.size()); i++)
+	{
+		salesFloor->notify(this, preferredPlants[i]);
+	}
+}
