@@ -1,0 +1,11 @@
+<map id="Plant" name="Plant">
+<area shape="rect" id="node1" title="An abstract base class representing a plant in the nursery." alt="" coords="378,5,433,32"/>
+<area shape="rect" id="node2" href="$classCustomisation.html" title=" " alt="" coords="135,80,251,107"/>
+<area shape="rect" id="node6" href="$classLavender.html" title="A class representing a Lavender plant, derived from the Plant base class." alt="" coords="276,80,359,107"/>
+<area shape="rect" id="node7" href="$classLily.html" title="A class representing a Lily plant, derived from the Plant base class." alt="" coords="383,80,428,107"/>
+<area shape="rect" id="node8" href="$classRose.html" title="A class representing a Rose plant, derived from the Plant base class." alt="" coords="453,80,507,107"/>
+<area shape="rect" id="node9" href="$classTulip.html" title="A class representing a Tulip plant, derived from the Plant base class." alt="" coords="531,80,583,107"/>
+<area shape="rect" id="node3" href="$classArrangement.html" title=" " alt="" coords="5,155,112,181"/>
+<area shape="rect" id="node4" href="$classDecorativePot.html" title=" " alt="" coords="136,155,251,181"/>
+<area shape="rect" id="node5" href="$classGiftwrapping.html" title=" " alt="" coords="275,155,381,181"/>
+</map>

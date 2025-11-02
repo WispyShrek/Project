@@ -1,0 +1,7 @@
+<map id="PlantCreator" name="PlantCreator">
+<area shape="rect" id="node1" title="An abstract factory class for creating Plant objects." alt="" coords="217,5,319,32"/>
+<area shape="rect" id="node2" href="$classLavenderCreator.html" title="A factory class for creating Lavender plant objects." alt="" coords="5,80,136,107"/>
+<area shape="rect" id="node3" href="$classLilyCreator.html" title="A factory class for creating Lily plant objects." alt="" coords="160,80,253,107"/>
+<area shape="rect" id="node4" href="$classRoseCreator.html" title="A factory class for creating Rose plant objects." alt="" coords="278,80,381,107"/>
+<area shape="rect" id="node5" href="$classTulipCreator.html" title="A factory class for creating Tulip plant objects." alt="" coords="405,80,505,107"/>
+</map>

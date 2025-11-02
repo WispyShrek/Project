@@ -73,12 +73,37 @@ void greenHouse::removeItem(Plant *item) {
 }
 
 #ifdef ENABLE_DOCTESTS
+#include "GreenhouseController.h"
+#include "Rose.h"
 #include "doctest.h"
+#include "greenHouse.h"
+#include <sstream>
+#include <string>
+#include <vector>
+
+TEST_CASE("greenHouse::powerSystem emits controller calls in order (unwired)") {
+  greenHouse gh;
+  std::ostringstream cap;
+  auto *old = std::cerr.rdbuf(cap.rdbuf());
+  gh.powerSystem();
+  std::cerr.rdbuf(old);
+  const std::string out = cap.str();
+  auto p1 = out.find("SprinklersUpCommand not set");
+  auto p2 = out.find("lightUpCommand not set");
+  auto p3 = out.find("SprinklersdownCommand not set");
+  auto p4 = out.find("lightDownCommand not set");
+  CHECK(p1 != std::string::npos);
+  CHECK(p2 != std::string::npos);
+  CHECK(p3 != std::string::npos);
+  CHECK(p4 != std::string::npos);
+  CHECK(p1 < p2);
+  CHECK(p2 < p3);
+  CHECK(p3 < p4);
+}
 
 TEST_CASE("greenHouse::addItem(row,col) places plants; iterator visits in "
           "row-major order") {
   greenHouse gh;
-
   Plant *p0 = new Rose();
   Plant *p1 = new Rose();
   Plant *p2 = new Rose();
@@ -254,7 +279,6 @@ TEST_CASE("After remove, addItem(auto) fills earliest hole in row-major") {
   CHECK(it->currItem() == p3);
   it->next();
   CHECK(it->isDone() == true);
-
   delete it;
   delete p2;
 }
@@ -279,7 +303,6 @@ TEST_CASE("greenHouse::removeItem handles non-existent plant") {
   CHECK(it->currItem() == p2);
   it->next();
   CHECK(it->isDone() == true);
-
   delete it;
   delete p3;
 }

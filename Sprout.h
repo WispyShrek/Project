@@ -6,6 +6,7 @@
 
 class Sprout : public PlantState {
 public:
+  Sprout() { this->name = "Sprout"; }
   void next(Plant *context) override;
   void print(std::string &sprite) override;
   PlantState *clone() const override;

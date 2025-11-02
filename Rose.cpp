@@ -19,4 +19,28 @@ std::string Rose::print() {
 
 double Rose::getPrice() { return price; }
 
-Rose::Rose(Rose &toCopy) : Plant(toCopy) {}
+Rose::Rose(Rose &toCopy) : Plant(toCopy) { this->price = toCopy.price; }
+
+#ifdef ENABLE_DOCTESTS
+#include "doctest.h"
+
+TEST_CASE("Rose: Test Rose class methods") {
+  Rose rose;
+
+  // Test getName method
+  REQUIRE(rose.getName() == "Rose");
+
+  // Test getPrice method
+  REQUIRE(rose.getPrice() == 80);
+
+  // Test clone method
+  Rose *clonedRose = rose.clone();
+  REQUIRE(clonedRose != nullptr);
+  REQUIRE(clonedRose->getName() == "Rose");
+  REQUIRE(clonedRose->getPrice() == 80);
+  delete clonedRose;
+
+  // Test print method (just ensure it runs without error)
+  rose.print();
+}
+#endif

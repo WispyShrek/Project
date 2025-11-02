@@ -14,6 +14,7 @@ class Plant;
 
 class PlantState {
 public:
+  std::string name;
   /** @fn PlantState::~PlantState()
    * @brief Virtual destructor for the PlantState class.
    */

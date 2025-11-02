@@ -1,0 +1,4 @@
+<map id="Dead" name="Dead">
+<area shape="rect" id="node1" title="A class representing the dead state of a plant, derived from the PlantState base class." alt="" coords="22,80,78,107"/>
+<area shape="rect" id="node2" href="$classPlantState.html" title="An abstract base class representing the state of a plant." alt="" coords="5,5,95,32"/>
+</map>

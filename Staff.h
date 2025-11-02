@@ -22,7 +22,7 @@ public:
    */
   virtual ~Staff() {};
   virtual void care() = 0;
-  virtual void notify(Customer *customer) {};
+  virtual bool notify(Customer *customer, Plant* plant) =0;
   virtual void update() {};
   void setName(std::string name) { this->name = name; };
   void setDescription(std::string description) {

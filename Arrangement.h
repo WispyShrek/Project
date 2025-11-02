@@ -2,15 +2,23 @@
 #define ARRANGEMENT_H
 #include "Customisation.h"
 
-class Arrangement : public Customisation
-{
+class Arrangement : public Customisation {
 private:
-  bool addedArrangement;
+  bool addedArrangement; // to track if arrangement has been added
 public:
-  void setAddedArrangement(bool addedArrangement) { this->addedArrangement= addedArrangement; }
-  bool getAddedArrangement() const { return addedArrangement; }
-  void increasePrice();
-  void addCust(Customer* customer);
+  Arrangement()
+      : Customisation(), addedArrangement(false) {} // default constructor
+
+  ~Arrangement();
+  void setAddedArrangement(bool addedArrangement) {
+    this->addedArrangement = addedArrangement;
+  } // setter
+  bool getAddedArrangement() const { return addedArrangement; } // getter
+  void increasePrice() override;
+  void addCust(Customer *customer) override;
+  std::string print() override;
+  std::string getName() override { return "Arrangement"; }
+  Plant *clone() override { return new Arrangement(*this); }
 };
 
 #endif

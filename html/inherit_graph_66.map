@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classStaffCreator.html" title="An abstract factory class for creating Staff objects." alt="" coords="5,31,105,57"/>
+<area shape="rect" id="node2" href="$classCustomerAssistantCreator.html" title="A factory class for creating CustomerAssistant staff members." alt="" coords="153,5,347,32"/>
+<area shape="rect" id="node3" href="$classPlantCaretakerCreator.html" title="A factory class for creating PlantCaretaker staff members." alt="" coords="167,56,333,83"/>
+</map>

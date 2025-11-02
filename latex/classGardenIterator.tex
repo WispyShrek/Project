@@ -1,0 +1,158 @@
+\hypertarget{classGardenIterator}{}\doxysection{Garden\+Iterator Class Reference}
+\label{classGardenIterator}\index{GardenIterator@{GardenIterator}}
+
+
+\mbox{\hyperlink{classIterator}{Iterator}} for traversing a collection of \mbox{\hyperlink{classGarden}{Garden}} pointers.  
+
+
+
+
+{\ttfamily \#include $<$Garden\+Iterator.\+h$>$}
+
+
+
+Inheritance diagram for Garden\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classGardenIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Garden\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classGardenIterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGardenIterator_abf46c1867572334a8d560ff98c50687f}{Garden\+Iterator}} (std\+::vector$<$ \mbox{\hyperlink{classGarden}{Garden}} $\ast$ $>$ \&gardens)
+\begin{DoxyCompactList}\small\item\em Constructs an iterator over the provided gardens collection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGarden}{Garden}} $\ast$ \mbox{\hyperlink{classGardenIterator_adc0f28e3ef87a74f7a54187692612184}{curr\+Item}} () override
+\begin{DoxyCompactList}\small\item\em Returns the current \mbox{\hyperlink{classGarden}{Garden}} pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGardenIterator_a28b169027d12000ade5f1d340f7d1cbe}{first}} () override
+\begin{DoxyCompactList}\small\item\em Positions the iterator at the first element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGardenIterator_aa74fba02397bf9e8db09fc30d2dd7ee3}{is\+Done}} () override
+\begin{DoxyCompactList}\small\item\em Checks whether the iterator has reached the end. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGardenIterator_a86c76d1054577f8fb9ff76a2e2649ac2}{next}} () override
+\begin{DoxyCompactList}\small\item\em Advances the iterator to the next element if not done. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGardenIterator_a00aefc4eb482b94416499a09306b5a8e}{prev}} () override
+\begin{DoxyCompactList}\small\item\em Moves the iterator to the previous element if possible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classIterator}{Iterator}} for traversing a collection of \mbox{\hyperlink{classGarden}{Garden}} pointers. 
+
+This iterator provides bidirectional traversal over a std\+::vector$<$\+Garden$\ast$$>$ with standard operations to get the current item, move to the first/next/previous elements, and query completion. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGardenIterator_abf46c1867572334a8d560ff98c50687f}\label{classGardenIterator_abf46c1867572334a8d560ff98c50687f}} 
+\index{GardenIterator@{GardenIterator}!GardenIterator@{GardenIterator}}
+\index{GardenIterator@{GardenIterator}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{GardenIterator()}{GardenIterator()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::\+Garden\+Iterator (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classGarden}{Garden}} $\ast$ $>$ \&}]{gardens }\end{DoxyParamCaption})}
+
+
+
+Constructs an iterator over the provided gardens collection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gardens} & Reference to the underlying vector of \mbox{\hyperlink{classGarden}{Garden}} pointers. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGardenIterator_adc0f28e3ef87a74f7a54187692612184}\label{classGardenIterator_adc0f28e3ef87a74f7a54187692612184}} 
+\index{GardenIterator@{GardenIterator}!currItem@{currItem}}
+\index{currItem@{currItem}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{currItem()}{currItem()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::curr\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the current \mbox{\hyperlink{classGarden}{Garden}} pointer. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current \mbox{\hyperlink{classGarden}{Garden}}, or nullptr if the iterator is done. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ Garden $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGardenIterator_a28b169027d12000ade5f1d340f7d1cbe}\label{classGardenIterator_a28b169027d12000ade5f1d340f7d1cbe}} 
+\index{GardenIterator@{GardenIterator}!first@{first}}
+\index{first@{first}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Positions the iterator at the first element. 
+
+After calling this, \mbox{\hyperlink{classGardenIterator_aa74fba02397bf9e8db09fc30d2dd7ee3}{is\+Done()}} will be false if the collection is non-\/empty, otherwise it will remain true for an empty collection. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ Garden $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGardenIterator_aa74fba02397bf9e8db09fc30d2dd7ee3}\label{classGardenIterator_aa74fba02397bf9e8db09fc30d2dd7ee3}} 
+\index{GardenIterator@{GardenIterator}!isDone@{isDone}}
+\index{isDone@{isDone}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{isDone()}{isDone()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::is\+Done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks whether the iterator has reached the end. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em \mbox{[}true\mbox{]}} & if there is no current item (past the last element or empty) \\
+\hline
+{\em \mbox{[}false\mbox{]}} & if there is a current item. \\
+\hline
+\end{DoxyRetVals}
+
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ Garden $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGardenIterator_a86c76d1054577f8fb9ff76a2e2649ac2}\label{classGardenIterator_a86c76d1054577f8fb9ff76a2e2649ac2}} 
+\index{GardenIterator@{GardenIterator}!next@{next}}
+\index{next@{next}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Advances the iterator to the next element if not done. 
+
+If the iterator is already done, calling this has no effect. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ Garden $\ast$ $>$}}.
+
+\mbox{\Hypertarget{classGardenIterator_a00aefc4eb482b94416499a09306b5a8e}\label{classGardenIterator_a00aefc4eb482b94416499a09306b5a8e}} 
+\index{GardenIterator@{GardenIterator}!prev@{prev}}
+\index{prev@{prev}!GardenIterator@{GardenIterator}}
+\doxysubsubsection{\texorpdfstring{prev()}{prev()}}
+{\footnotesize\ttfamily Garden\+Iterator\+::prev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves the iterator to the previous element if possible. 
+
+If the iterator is at the first element, calling this has no effect. 
+
+Implements \mbox{\hyperlink{classIterator}{Iterator$<$ Garden $\ast$ $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Garden\+Iterator.\+h\item 
+Garden\+Iterator.\+cpp\end{DoxyCompactItemize}

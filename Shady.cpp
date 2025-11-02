@@ -17,7 +17,7 @@ void Shady::applyRays() {
         if (plants->currItem()->getStrategy() != "Shady") {
           if (plants->currItem()->getState() == "Dying") {
             plants->currItem()->setState(new Dead());
-          } else {
+          } else if (plants->currItem()->getState() != "Dead") {
             plants->currItem()->createPlantMemento();
             plants->currItem()->setState(new Dying());
           }

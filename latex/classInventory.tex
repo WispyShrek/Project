@@ -1,0 +1,115 @@
+\hypertarget{classInventory}{}\doxysection{Inventory Class Reference}
+\label{classInventory}\index{Inventory@{Inventory}}
+
+
+Manages a collection of inventory items as strings.  
+
+
+
+
+{\ttfamily \#include $<$Inventory.\+h$>$}
+
+
+
+Inheritance diagram for Inventory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classInventory__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classInventory__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInventory_ab7467a8181695e078bfb7a418b502c1f}{add\+Item}} (std\+::string item) override
+\begin{DoxyCompactList}\small\item\em Adds an item to the inventory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIterator}{Iterator}}$<$ std\+::string $>$ $\ast$ \mbox{\hyperlink{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}{Create\+Iterator}} () override
+\begin{DoxyCompactList}\small\item\em Creates an iterator for the inventory collection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInventory_acf4e42c4c6df2eefe270fef9262889b2}{remove\+Item}} (std\+::string item) override
+\begin{DoxyCompactList}\small\item\em Removes the first occurrence of an item from the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a collection of inventory items as strings. 
+
+The \mbox{\hyperlink{classInventory}{Inventory}} class implements the \mbox{\hyperlink{classCollection}{Collection}} interface for string items, providing functionality to add, remove, and iterate over inventory items. Items are stored in order of addition with no capacity limit. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInventory_ab7467a8181695e078bfb7a418b502c1f}\label{classInventory_ab7467a8181695e078bfb7a418b502c1f}} 
+\index{Inventory@{Inventory}!addItem@{addItem}}
+\index{addItem@{addItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
+{\footnotesize\ttfamily void Inventory\+::add\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds an item to the inventory. 
+
+Appends the given string to the end of the inventory collection. Duplicate items are allowed and will be stored separately.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The name of the item to add to the inventory. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}\label{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}} 
+\index{Inventory@{Inventory}!CreateIterator@{CreateIterator}}
+\index{CreateIterator@{CreateIterator}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{CreateIterator()}{CreateIterator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIterator}{Iterator}}$<$ std\+::string $>$ $\ast$ Inventory\+::\+Create\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates an iterator for the inventory collection. 
+
+Returns a new \mbox{\hyperlink{classInventoryIterator}{Inventory\+Iterator}} that allows traversal of the inventory items. The caller is responsible for deleting the returned iterator when finished.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a newly created \mbox{\hyperlink{classIterator}{Iterator$<$std\+::string$>$}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventory_acf4e42c4c6df2eefe270fef9262889b2}\label{classInventory_acf4e42c4c6df2eefe270fef9262889b2}} 
+\index{Inventory@{Inventory}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily void Inventory\+::remove\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes the first occurrence of an item from the inventory. 
+
+Searches for the given item name in the inventory and removes the first matching occurrence. If the item is not found, the function has no effect. If there are duplicate items, only the first one is removed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The name of the item to remove from the inventory. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Inventory.\+h\item 
+Inventory.\+cpp\end{DoxyCompactItemize}
