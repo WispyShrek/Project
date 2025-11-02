@@ -1,0 +1,5 @@
+<map id="StaffCreator" name="StaffCreator">
+<area shape="rect" id="node1" title="An abstract factory class for creating Staff objects." alt="" coords="153,5,253,32"/>
+<area shape="rect" id="node2" href="$classCustomerAssistantCreator.html" title="A factory class for creating CustomerAssistant staff members." alt="" coords="5,80,199,107"/>
+<area shape="rect" id="node3" href="$classPlantCaretakerCreator.html" title="A factory class for creating PlantCaretaker staff members." alt="" coords="223,80,389,107"/>
+</map>

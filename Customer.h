@@ -3,26 +3,33 @@
 #include <string>
 #include <vector>
 #include "Plant.h"
+#include "Arrangement.h"
+#include "Giftwrapping.h"
+#include "DecorativePot.h"
+#include "Customisation.h"
+#include "PaymentStrategy.h"
 #include "SalesFloor.h"
 using namespace std;
 
-class Customer{
-private:
+class Customer
+{
+private: // attributes
 	vector<Plant *> cart;
-	SalesFloor* salesFloor;
+	SalesFloor *salesFloor;
 	string name;
+	double timeAvailable; // time available in minutes
 
 public:
 	Customer();
-	Customer(std::string name, SalesFloor* salesFloor);
+	Customer(std::string name, SalesFloor *salesFloor, double timeAvailable);
 	virtual ~Customer();
-	void addDecoration(Plant* plant);
-	void addToCart(Plant* plant);
-	void removeFromCart(Plant* plant);
+	virtual string voiceLine() = 0;
+	string getTimeLine();
+	void addDecoration(string type, Plant *plant);
+	void addToCart(Plant *plant);
+	void removeFromCart(Plant *plant);
 	string cartToString();
-	void changed();
-	virtual void get() = 0;
-	virtual void set() = 0;
+	virtual void enquirePlants(SalesFloor *salesFloor)=0;
 };
 
 #endif

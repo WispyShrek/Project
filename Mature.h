@@ -15,6 +15,7 @@
 
 class Mature : public PlantState {
 public:
+  Mature() { this->name = "Mature"; }
   /** @fn void Mature::next(Plant *context)
    * @brief Transitions the plant to the next state.
    * @param context A pointer to the Plant object whose state is to be changed.

@@ -15,6 +15,7 @@
 
 class Dead : public PlantState {
 public:
+  Dead() { this->name = "Dead"; }
   /** @fn void Dead::next(Plant *context)
    * @brief Transitions the plant to the next state.
    * @param context A pointer to the Plant object whose state is to be changed.

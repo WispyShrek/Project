@@ -1,0 +1,4 @@
+<map id="RoseCreator" name="RoseCreator">
+<area shape="rect" id="node1" title="A factory class for creating Rose plant objects." alt="" coords="5,80,108,107"/>
+<area shape="rect" id="node2" href="$classPlantCreator.html" title="An abstract factory class for creating Plant objects." alt="" coords="5,5,108,32"/>
+</map>

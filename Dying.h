@@ -1,5 +1,6 @@
 #ifndef DYING_H
 #define DYING_H
+#include "Dead.h"
 #include "Plant.h"
 #include "PlantState.h"
 
@@ -14,6 +15,7 @@
 
 class Dying : public PlantState {
 public:
+  Dying() { this->name = "Dying"; }
   /** @fn void Dying::next(Plant *context)
    * @brief Transitions the plant to the next state.
    * @param context A pointer to the Plant object whose state is to be changed.

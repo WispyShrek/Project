@@ -1,0 +1,4 @@
+<map id="TulipCreator" name="TulipCreator">
+<area shape="rect" id="node1" title="A factory class for creating Tulip plant objects." alt="" coords="7,80,107,107"/>
+<area shape="rect" id="node2" href="$classPlantCreator.html" title="An abstract factory class for creating Plant objects." alt="" coords="5,5,108,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="SprinklersOn" name="SprinklersOn">
+<area shape="rect" id="node1" title="A command class to turn on the sprinkler system." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node2" href="$classCommand.html" title="Abstract base class for commands in the Command Pattern." alt="" coords="13,5,103,32"/>
+</map>

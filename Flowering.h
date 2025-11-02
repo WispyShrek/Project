@@ -14,6 +14,7 @@
 
 class Flowering : public PlantState {
 public:
+  Flowering() { this->name = "Flowering"; }
   /** @fn void Flowering::next(Plant *context)
    * @brief Transitions the plant to the next state.
    * @param context A pointer to the Plant object whose state is to be changed.

@@ -197,10 +197,10 @@ int main() {
 
   // all plants bought should be sprouts
   PlantState *sprout = new Sprout();
-  dollyTulip->setState(sprout);
-  dollyLavender->setState(sprout);
-  dollyLily->setState(sprout);
-  dollyRose->setState(sprout);
+  dollyTulip->setState(sprout->clone());
+  dollyLavender->setState(sprout->clone());
+  dollyLily->setState(sprout->clone());
+  dollyRose->setState(sprout->clone());
   // add plants to shop
   vector<Plant *> shopPlants = vector<Plant *>();
   shopPlants.push_back(dollyLavender);

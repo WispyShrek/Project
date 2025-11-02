@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantState.html" title="An abstract base class representing the state of a plant." alt="" coords="5,107,95,133"/>
+<area shape="rect" id="node2" href="$classDead.html" title="A class representing the dead state of a plant, derived from the PlantState base class." alt="" coords="158,5,214,32"/>
+<area shape="rect" id="node3" href="$classDying.html" title="A class representing the dying state of a plant, derived from the PlantState base class." alt="" coords="156,56,216,83"/>
+<area shape="rect" id="node4" href="$classFlowering.html" title="A class representing the flowering state of a plant, derived from the PlantState base class." alt="" coords="143,107,229,133"/>
+<area shape="rect" id="node5" href="$classMature.html" title="A class representing the mature state of a plant, derived from the PlantState base class." alt="" coords="152,157,220,184"/>
+<area shape="rect" id="node6" href="$classSprout.html" title=" " alt="" coords="154,208,218,235"/>
+</map>
