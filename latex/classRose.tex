@@ -1,0 +1,115 @@
+\hypertarget{classRose}{}\doxysection{Rose Class Reference}
+\label{classRose}\index{Rose@{Rose}}
+
+
+A class representing a \mbox{\hyperlink{classRose}{Rose}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class.  
+
+
+
+
+{\ttfamily \#include $<$Rose.\+h$>$}
+
+
+
+Inheritance diagram for Rose\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classRose__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Rose\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classRose__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRose_a1f6cc909ea44fbcd7a18b0d917412659}\label{classRose_a1f6cc909ea44fbcd7a18b0d917412659}} 
+\mbox{\hyperlink{classRose_a1f6cc909ea44fbcd7a18b0d917412659}{Rose}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classRose}{Rose}} class. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classRose_a6cdf04916f233d3edc9f626a0055ca75}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Returns the name of the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRose_afd0c5eb03c5480a2456f817eb08f6cbc}\label{classRose_afd0c5eb03c5480a2456f817eb08f6cbc}} 
+\mbox{\hyperlink{classRose}{Rose}} $\ast$ \mbox{\hyperlink{classRose_afd0c5eb03c5480a2456f817eb08f6cbc}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classRose}{Rose}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRose_a555177982491891bfee938870149d6d9}\label{classRose_a555177982491891bfee938870149d6d9}} 
+void \mbox{\hyperlink{classRose_a555177982491891bfee938870149d6d9}{print}} () override
+\begin{DoxyCompactList}\small\item\em Prints the details of the \mbox{\hyperlink{classRose}{Rose}} plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classRose_a2c1db9a9743086f4805802828b160612}{get\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Returns the price of the \mbox{\hyperlink{classRose}{Rose}} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRose_a645645ef6162531ee06f8026f86bb6bb}{Rose}} (\mbox{\hyperlink{classRose}{Rose}} \&to\+Copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \mbox{\hyperlink{classRose}{Rose}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class representing a \mbox{\hyperlink{classRose}{Rose}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class. 
+
+The \mbox{\hyperlink{classRose}{Rose}} class implements specific attributes and behaviors for \mbox{\hyperlink{classRose}{Rose}} plants, including cloning functionality and printing details. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRose_a645645ef6162531ee06f8026f86bb6bb}\label{classRose_a645645ef6162531ee06f8026f86bb6bb}} 
+\index{Rose@{Rose}!Rose@{Rose}}
+\index{Rose@{Rose}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{Rose()}{Rose()}}
+{\footnotesize\ttfamily Rose\+::\+Rose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRose}{Rose}} \&}]{to\+Copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Copy constructor for the \mbox{\hyperlink{classRose}{Rose}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Copy} & A reference to the \mbox{\hyperlink{classRose}{Rose}} object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRose_a6cdf04916f233d3edc9f626a0055ca75}\label{classRose_a6cdf04916f233d3edc9f626a0055ca75}} 
+\index{Rose@{Rose}!getName@{getName}}
+\index{getName@{getName}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Rose\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the name of the plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the name of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classRose_a2c1db9a9743086f4805802828b160612}\label{classRose_a2c1db9a9743086f4805802828b160612}} 
+\index{Rose@{Rose}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Rose@{Rose}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Rose\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the price of the \mbox{\hyperlink{classRose}{Rose}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A double representing the price of the plant. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Rose.\+h\item 
+Rose.\+cpp\end{DoxyCompactItemize}

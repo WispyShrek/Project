@@ -3,7 +3,25 @@
 #include "Garden.h"
 #include "Staff.h"
 #include "greenHouse.h"
+#include "Customer.h"
+#include "EasyCust.h"
+#include "FussyCust.h"
+#include "EFT.h"
+#include "Card.h"
+#include "Cash.h"
+#include "SalesFloor.h"
+#include "Lily.h"
+#include "Tulip.h"
+#include "Lavender.h"
+#include "Rose.h"
+#include "DecorativePot.h"
+#include "Giftwrapping.h"
+#include "Arrangement.h"
+
 #include <vector>
+#include <chrono>
+#include <thread>
+#include <random>
 using namespace std;
 
 /**
@@ -17,10 +35,8 @@ using namespace std;
 class Nursery {
 
 private:
-  /**
-   * @var vector<Garden*> gardens
-   * @brief A collection of all gardens in the nursery.
-   */
+  SalesFloor* salesFloor;
+  static Nursery *uniqueInstance;
   vector<Garden*> gardens;
   /**
    * @var vector<greenHouse*> greenHouses
@@ -32,7 +48,7 @@ private:
    * @brief A collection of all staff members in the nursery.
    */
   vector<Staff*> staff;
-  
+  vector<Customer*> customers;
 
 public:
   /**
@@ -69,6 +85,7 @@ public:
    * @param gardenToRemove A pointer to the Garden object to be removed.
    */
   void removeGarden(Garden* gardenToRemove); 
+  void customerSpawner();
 
   /**
    * @fn size_t Nursery::getGardenCount() const

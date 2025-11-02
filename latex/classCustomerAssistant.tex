@@ -1,0 +1,81 @@
+\hypertarget{classCustomerAssistant}{}\doxysection{Customer\+Assistant Class Reference}
+\label{classCustomerAssistant}\index{CustomerAssistant@{CustomerAssistant}}
+
+
+A class representing a customer assistant staff member in the nursery.  
+
+
+
+
+{\ttfamily \#include $<$Customer\+Assistant.\+h$>$}
+
+
+
+Inheritance diagram for Customer\+Assistant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classCustomerAssistant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Customer\+Assistant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classCustomerAssistant__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCustomerAssistant_a3040e5145f1eeae5c980999dbef86681}\label{classCustomerAssistant_a3040e5145f1eeae5c980999dbef86681}} 
+\mbox{\hyperlink{classCustomerAssistant_a3040e5145f1eeae5c980999dbef86681}{Customer\+Assistant}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classCustomerAssistant}{Customer\+Assistant}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerAssistant_a8b2903ae03ccbaf9f1127bd34e433edf}\label{classCustomerAssistant_a8b2903ae03ccbaf9f1127bd34e433edf}} 
+void \mbox{\hyperlink{classCustomerAssistant_a8b2903ae03ccbaf9f1127bd34e433edf}{care}} () override
+\begin{DoxyCompactList}\small\item\em Implements care behavior for the customer assistant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerAssistant_a289735ed804efd0eae0405d4c67dedc4}\label{classCustomerAssistant_a289735ed804efd0eae0405d4c67dedc4}} 
+void \mbox{\hyperlink{classCustomerAssistant_a289735ed804efd0eae0405d4c67dedc4}{update}} () override
+\begin{DoxyCompactList}\small\item\em Updates the customer assistant\textquotesingle{}s state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomerAssistant_ab64e1a0c31e03b9ad8aceef653910d72}{notify}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer) override
+\begin{DoxyCompactList}\small\item\em Notifies the customer assistant about a customer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomerAssistant_a511c05536374b4cf9de557b1651ff0e3}\label{classCustomerAssistant_a511c05536374b4cf9de557b1651ff0e3}} 
+\mbox{\hyperlink{classCustomerAssistant_a511c05536374b4cf9de557b1651ff0e3}{$\sim$\+Customer\+Assistant}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classCustomerAssistant}{Customer\+Assistant}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing a customer assistant staff member in the nursery. 
+
+The \mbox{\hyperlink{classCustomerAssistant}{Customer\+Assistant}} class is responsible for assisting customers, notifying them of updates, and providing care services. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomerAssistant_ab64e1a0c31e03b9ad8aceef653910d72}\label{classCustomerAssistant_ab64e1a0c31e03b9ad8aceef653910d72}} 
+\index{CustomerAssistant@{CustomerAssistant}!notify@{notify}}
+\index{notify@{notify}!CustomerAssistant@{CustomerAssistant}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily void Customer\+Assistant\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Notifies the customer assistant about a customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object to notify about. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classStaff}{Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Customer\+Assistant.\+h\item 
+Customer\+Assistant.\+cpp\end{DoxyCompactItemize}

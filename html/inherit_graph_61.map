@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classPlantCreator.html" title="An abstract factory class for creating Plant objects." alt="" coords="5,81,108,108"/>
+<area shape="rect" id="node2" href="$classLavenderCreator.html" title="A factory class for creating Lavender plant objects." alt="" coords="156,5,287,32"/>
+<area shape="rect" id="node3" href="$classLilyCreator.html" title="A factory class for creating Lily plant objects." alt="" coords="175,56,268,83"/>
+<area shape="rect" id="node4" href="$classRoseCreator.html" title="A factory class for creating Rose plant objects." alt="" coords="170,107,273,133"/>
+<area shape="rect" id="node5" href="$classTulipCreator.html" title="A factory class for creating Tulip plant objects." alt="" coords="171,157,271,184"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="CareStrategy" name="CareStrategy">
+<area shape="rect" id="node1" title=" " alt="" coords="140,5,247,32"/>
+<area shape="rect" id="node2" href="$classPartialSunCare.html" title=" " alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$classShadyCare.html" title=" " alt="" coords="147,80,239,107"/>
+<area shape="rect" id="node4" href="$classSunnyCare.html" title=" " alt="" coords="263,80,355,107"/>
+</map>

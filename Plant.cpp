@@ -33,16 +33,20 @@ void Plant::setState(PlantState *state)
   currState = state;
 }
 
-void Plant::setStrategy(CareStrategy *strategy) {
+void Plant::setStrategy(CareStrategy *strategy)
+{
   this->strategy = strategy;
 }
-std::string Plant::getColour() {
+std::string Plant::getColour()
+{
   return this->colour;
 }
-std::string Plant::getScent() {
+std::string Plant::getScent()
+{
   return this->scent;
 }
-std::string Plant::getPrice() {
+std::string Plant::getPrice()
+{
   return std::to_string(this->price);
 }
 
@@ -62,19 +66,22 @@ void Plant::prevState()
     setState(new Dying());
 }
 
-void Plant::setCareStrategy(CareStrategy* strat) {
-    if (strategy) { //replace previous strategy
-        delete strategy; 
-    }
-    strategy = strat;
+void Plant::setCareStrategy(CareStrategy *strat)
+{
+  if (strategy)
+  { // replace previous strategy
+    delete strategy;
+  }
+  strategy = strat;
 }
 
-void Plant::applyCare() {
-	// TODO - implement Plant::applyCare
-    if (strategy)
-        strategy->applyCare();
-    else
-        std::cout << "no care strategy selected yet\n";
+void Plant::applyCare()
+{
+  // TODO - implement Plant::applyCare
+  if (strategy)
+    strategy->applyCare();
+  else
+    std::cout << "no care strategy selected yet\n";
 }
 
 void Plant::print()
@@ -90,27 +97,22 @@ void Plant::addCust(Customer *customer)
   this->customer = customer;
   std::cout << "Plant: this plant is now in a customer's cart.\n";
 }
-const bool& Plant::operator==(const Plant& other) {
 
-    // Compare the relevant attributes of the plants
-    if (colour != other.colour || scent != other.scent || length != other.length || price != other.price) {
-        return false;
-    }
-        return true;
+PlantMemento *Plant::createPlantMemento()
+{
+  // TODO - implement Plant::createPlantMemento
+  return new PlantMemento(currState);
 }
 
-PlantMemento* Plant::createPlantMemento() {
-	// TODO - implement Plant::createPlantMemento
-	return new PlantMemento(currState);
-}
+void Plant::setPlantMemento(PlantMemento *memento)
+{
+  // TODO - implement Plant::setPlantMemento
+  if (memento)
+  {
+    delete currState;
 
-void Plant::setPlantMemento(PlantMemento* memento) {
-	// TODO - implement Plant::setPlantMemento
-    if (memento) {
-        delete currState; 
-
-        currState = memento->getState();
-    }
+    currState = memento->getState();
+  }
 }
 
 Plant::Plant(Plant &toCopy)
@@ -143,7 +145,6 @@ Plant::Plant(Plant &toCopy)
     currState = new Sprout();
   }
 }
-
 
 /*
 #ifdef ENABLE_DOCTESTS

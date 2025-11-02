@@ -43,6 +43,153 @@ Nursery& Nursery::instance() {
     return uniqueInstance;
 }
 
+// uniqueInstance is a local sstatic variable inside the function, first time instance futnion called, compiler intializes uniqueInstance.
+// On future calls it just returns the already-created object.
+
+// Nursery::Nursery(Nursery &in) {
+//   // TODO - implement Nursery::Nursery
+// }
+
+// add garden to list/*state*
+void Nursery::addGarden(Garden *newGarden)
+{
+    if (newGarden)
+        gardens.push_back(newGarden);
+}
+
+// add staff to list/*state*
+void Nursery::addStaff(Staff *newStaff)
+{
+    if (newStaff)
+        staff.push_back(newStaff);
+}
+
+// remove garden from *state*
+void Nursery::removeGarden(Garden *gardenToRemove)
+{
+    for (size_t i = 0; i < gardens.size(); ++i)
+    {
+        if (gardens[i] == gardenToRemove)
+        {
+            gardens.erase(gardens.begin() + i);
+            break;
+        }
+    }
+}
+
+// remove staff from *state*
+void Nursery::removeStaff(Staff *staffToRemove)
+{
+    for (size_t i = 0; i < staff.size(); ++i)
+    {
+        if (staff[i] == staffToRemove)
+        {
+            staff.erase(staff.begin() + i);
+            break;
+        }
+    }
+}
+// spawns customers randomly at random intervals
+void Nursery::customerSpawner()
+{
+    using namespace std::chrono_literals;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> stratDist(0, 2);      // 0=EFT, 1=Card, 2=Cash
+    std::uniform_int_distribution<int> custDist(0, 1);       // 0=Fussy, 1=Easy
+    std::uniform_int_distribution<int> delayDist(500, 1500); // delay in ms
+
+    bool running = true; // optional: could be controlled externally
+
+    while (running)
+    {
+        // Sleep for a random interval
+        std::this_thread::sleep_for(std::chrono::milliseconds(delayDist(gen)));
+
+        // Choose a payment strategy
+        PaymentStrategy *strategy = nullptr;
+        switch (stratDist(gen))
+        {
+        case 0:
+            strategy = new EFT();
+            break;
+        case 1:
+            strategy = new Card();
+            break;
+        case 2:
+            strategy = new Cash();
+            break;
+        }
+
+        std::vector<Plant *> preferredPlants;
+        int listSize = rand() % 10 + 1;
+        int decorationSize = rand() % 3;
+
+        for (int i = 0; i < listSize; i++)
+        {
+            std::cout << "Generating preferred plant " << i + 1 << std::endl;
+            // Create a random plant and add it to the preferredPlants vector
+            Plant *newPlant = nullptr;
+            int plantType = rand() % 4;
+            switch (plantType)
+            {
+            case 0:
+                newPlant = new Lily();
+                break;
+            case 1:
+                newPlant = new Tulip();
+                break;
+            case 2:
+                newPlant = new Lavender();
+                break;
+            case 3:
+                newPlant = new Rose();
+
+            default:
+                newPlant = new Lily(); // Fallback
+                break;
+            }
+            int decorationType = rand() % 3;
+            for (int j = 0; j < decorationSize; j++)
+            {
+                switch (decorationType)
+                {
+                case 0:
+                    newPlant = new Arrangement(); // wrap with Arrangement
+                    break;
+                case 1:
+                    newPlant = new Giftwrapping(); // wrap with Giftwrapping
+                    break;
+                case 2:
+                    newPlant = new DecorativePot(); // wrap with DecorativePot
+                    break;
+                default:
+                    break;
+                }
+            }
+            preferredPlants.push_back(newPlant);
+        }
+        double time = static_cast<double>(rand() % 11 + 5); // time available between 5 and 15 minutes
+        // Create a random customer
+        Customer *newCustomer = nullptr;
+        customers.push_back(newCustomer);
+        if (custDist(gen) == 0)
+        {
+            newCustomer = new FussyCust("Fussy Customer", salesFloor, time, strategy, preferredPlants);
+            cout << "Fussy Customer created" << endl;
+        }
+        else
+        {
+            newCustomer = new EasyCust("Easy Customer", salesFloor, time, strategy, preferredPlants);
+            cout << "Easy Customer created" << endl;
+        }
+        running = false;
+    }
+    for (int i = 0; i < int(customers.size()); i++)
+    {
+        delete customers[i];
+        customers[i] = NULL;
 /**
  * @brief Adds a new garden to the nursery's collection.
  * @param newGarden A pointer to the Garden object to be added. Does nothing if the pointer is null.

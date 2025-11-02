@@ -12,13 +12,8 @@
  */
 class EFT : public PaymentStrategy {
 public:
-  /**
-   * @brief Executes the payment process for EFT.
-   *
-   * Overrides the pure virtual function in PaymentStrategy to provide
-   * the specific logic for an EFT payment, which in this case is printing
-   * a message to the console.
-   */
+  EFT(){}
+  ~EFT(){}
   void pay();
 };
 

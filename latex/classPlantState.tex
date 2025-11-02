@@ -1,0 +1,46 @@
+\hypertarget{classPlantState}{}\doxysection{Plant\+State Class Reference}
+\label{classPlantState}\index{PlantState@{PlantState}}
+
+
+An abstract base class representing the state of a plant.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+State.\+h$>$}
+
+
+
+Inheritance diagram for Plant\+State\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPlantState__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantState_a30b77856181f7ac6ea6036bc5b8c6c9a}\label{classPlantState_a30b77856181f7ac6ea6036bc5b8c6c9a}} 
+virtual \mbox{\hyperlink{classPlantState_a30b77856181f7ac6ea6036bc5b8c6c9a}{$\sim$\+Plant\+State}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \mbox{\hyperlink{classPlantState}{Plant\+State}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantState_aa3418bbb94330692185ecb15c8e42c6b}\label{classPlantState_aa3418bbb94330692185ecb15c8e42c6b}} 
+virtual void {\bfseries next} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)=0
+\item 
+\mbox{\Hypertarget{classPlantState_a5507e96684917be6a25798fc273644d3}\label{classPlantState_a5507e96684917be6a25798fc273644d3}} 
+virtual void {\bfseries print} ()=0
+\item 
+\mbox{\Hypertarget{classPlantState_af517f7e4a0524a4f4e98461e22451c81}\label{classPlantState_af517f7e4a0524a4f4e98461e22451c81}} 
+virtual \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries clone} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract base class representing the state of a plant. 
+
+The \mbox{\hyperlink{classPlantState}{Plant\+State}} class defines the interface for different states of a plant, including methods for transitioning to the next state, printing state details, and cloning the state. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Plant\+State.\+h\end{DoxyCompactItemize}

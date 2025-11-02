@@ -334,10 +334,11 @@ int main() {
 
     Staff* a = pcc.createStaff();    // Factory Method
     Staff* b = cac.createStaff();
-    Customer* cust1 = new FussyCust();
+    Customer* cust1 = new FussyCust();/*
     a->care();    a->update();    a->notify(cust1);
     b->care();    b->update();    b->notify(cust1);
-
+*/  
+    delete cust1;
     delete b; 
     delete a;
 
