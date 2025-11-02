@@ -21,7 +21,7 @@ public:
     /** @fn @greenHouse::greenHouse() 
      * @brief Constructor for greenHouse class.
      */
-	~greenHouse();
+	virtual ~greenHouse();
     /** @fn void greenHouse::powerSystem()
      * @brief Powers the greenhouse system, toggling sprinklers and lights on or off.
      */

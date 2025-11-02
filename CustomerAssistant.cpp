@@ -63,7 +63,6 @@ void CustomerAssistant::update()
 #include "doctest.h"
 
 TEST_CASE("CustomerAssistant: Test CustomerAssistant class") {
-    SalesFloor* floor = nullptr;
     CustomerAssistant* assistant = new CustomerAssistant();
 
     assistant->care();

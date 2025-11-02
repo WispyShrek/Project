@@ -32,13 +32,22 @@ void Dying::print() {
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
+// Forward declare MockPlant if it's in another file's test section
+class MockPlant : public Plant {
+public:
+    MockPlant() : Plant() {}
+    std::string getName() override { return "MockPlant"; }
+    Plant* clone() override { return new MockPlant(*this); }
+};
 
 TEST_CASE("Dying State: Test Dying class methods") {
 	Dying dyingState;
-	Plant* mockPlant = nullptr; // Using nullptr as we won't modify the plant in this test
+	MockPlant mockPlant;
+	REQUIRE(mockPlant.getState() == "Sprout");
 
 	// Test next method
-	dyingState.next(mockPlant); // Currently does nothing
+	dyingState.next(&mockPlant); // Pass a valid object
+	CHECK(mockPlant.getState() == "Dead");
 
 	// Test print method
 	dyingState.print(); // Should print "This plant is dying, apply care to it"

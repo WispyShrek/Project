@@ -37,7 +37,7 @@ public:
    * @brief Gets the name of the strategy.
    * @return A string representing the name of the concrete strategy.
    */
-  std::string getStrategyName();
+  virtual std::string getStrategyName();
   /**
    * @brief Default constructor for CareStrategy.
    */
