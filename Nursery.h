@@ -10,20 +10,25 @@ class Nursery {
 
 private:
   static Nursery *uniqueInstance;
-  vector<Garden*> gardens;
-  vector<greenHouse*> greenHouses;
-  vector<Staff*> staff;
-  
+  vector<Garden *> gardens;
+  vector<greenHouse *> greenHouses;
+  vector<Staff *> staff;
+  double balance = 0;
 
 public:
-  static Nursery& instance();
-  void addGarden(Garden* newgarden); 
-  void addStaff(Staff* newStaff);
-  void removeStaff(Staff* staffToRemove);
-  void removeGarden(Garden* gardenToRemove); 
+  static Nursery &instance();
+  void addGarden(Garden *newgarden);
+  void addStaff(Staff *newStaff);
+  void removeStaff(Staff *staffToRemove);
+  void removeGarden(Garden *gardenToRemove);
+  const vector<Staff *> &getStaff();
+  const vector<Garden *> &getGardens();
+  double getBalance();
+  void addToBalance(double toAdd);
+  bool removeFromBalance(double toRemove);
 
-  //helps for debugging
-  size_t getGardenCount() const { return gardens.size(); } 
+  // helps for debugging
+  size_t getGardenCount() const { return gardens.size(); }
   size_t getStaffCount() const { return staff.size(); }
 
 protected:

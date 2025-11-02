@@ -1,17 +1,13 @@
 #include "Sprout.h"
 
-void Sprout::next(Plant* context) {
-    if (!context) return;
-    context->setState(new Flowering());
+void Sprout::next(Plant *context) {
+  if (!context)
+    return;
+  context->setState(new Flowering());
 }
 
-void Sprout::print() {
-	std::cout << "This is a sprout" << std::endl;
-	// TODO - implement Sprout::next
-	return;
+void Sprout::print(std::string &sprite) {
+  sprite.clear();
+  sprite.append("\x1B[38;5;40m->");
 }
-
-PlantState* Sprout::clone() const {
-    return new Sprout(*this);
-}
-
+PlantState *Sprout::clone() const { return new Sprout(*this); }
