@@ -21,7 +21,7 @@ public:
     CustomerAssistant();
     /** @fn void CustomerAssistant::care()
      * @brief Implements care behavior for the customer assistant.
-     */ 
+     */
     void care() override;
     /** @fn void CustomerAssistant::update()
      * @brief Updates the customer assistant's state.
