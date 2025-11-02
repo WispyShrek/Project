@@ -106,28 +106,73 @@ void Nursery::customerSpawner()
             break;
         }
 
-        // Generate preferred plants (example placeholder)
         std::vector<Plant *> preferredPlants;
-        // TODO: populate preferredPlants here
+        int listSize = rand() % 10 + 1;
+        int decorationSize = rand() % 3;
 
+        for (int i = 0; i < listSize; i++)
+        {
+            std::cout << "Generating preferred plant " << i + 1 << std::endl;
+            // Create a random plant and add it to the preferredPlants vector
+            Plant *newPlant = nullptr;
+            int plantType = rand() % 4;
+            switch (plantType)
+            {
+            case 0:
+                newPlant = new Lily();
+                break;
+            case 1:
+                newPlant = new Tulip();
+                break;
+            case 2:
+                newPlant = new Lavender();
+                break;
+            case 3:
+                newPlant = new Rose();
+
+            default:
+                newPlant = new Lily(); // Fallback
+                break;
+            }
+            int decorationType = rand() % 3;
+            for (int j = 0; j < decorationSize; j++)
+            {
+                switch (decorationType)
+                {
+                case 0:
+                    newPlant = new Arrangement(); // wrap with Arrangement
+                    break;
+                case 1:
+                    newPlant = new Giftwrapping(); // wrap with Giftwrapping
+                    break;
+                case 2:
+                    newPlant = new DecorativePot(); // wrap with DecorativePot
+                    break;
+                default:
+                    break;
+                }
+            }
+            preferredPlants.push_back(newPlant);
+        }
+        double time = static_cast<double>(rand() % 11 + 5); // time available between 5 and 15 minutes
         // Create a random customer
         Customer *newCustomer = nullptr;
         customers.push_back(newCustomer);
         if (custDist(gen) == 0)
         {
-            newCustomer = new FussyCust("Fussy Customer", salesFloor, strategy, preferredPlants);
+            newCustomer = new FussyCust("Fussy Customer", salesFloor, time, strategy, preferredPlants);
             cout << "Fussy Customer created" << endl;
         }
         else
         {
-            newCustomer = new EasyCust("Easy Customer", salesFloor, strategy, preferredPlants);
+            newCustomer = new EasyCust("Easy Customer", salesFloor, time, strategy, preferredPlants);
             cout << "Easy Customer created" << endl;
-            
         }
-        running=false;
+        running = false;
     }
-    for(int i =0;i<int(customers.size());i++){
+    for (int i = 0; i < int(customers.size()); i++)
+    {
         delete customers[i];
-        customers[i]=NULL;
+        customers[i] = NULL;
     }
 }

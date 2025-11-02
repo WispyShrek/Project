@@ -14,7 +14,7 @@ class Customer;
 
 /** @class Plant
  * @brief An abstract base class representing a plant in the nursery.
- * 
+ *
  * The Plant class defines common attributes and behaviors for all plant types,
  * including state management, care strategies, and cloning functionality.
  */
@@ -45,11 +45,6 @@ public:
    * @param other A reference to the other Plant object to compare with.
    * @return A boolean indicating whether the two Plant objects are equal.
    */
-  const bool& operator==(const Plant& other);
-  /** @fn  void Plant::increasePrice(double amount)
-   * @brief Increases the price of the plant by a specified amount.
-   * @param amount The amount to increase the price by.
-  */
   void increasePrice(double amount);
   /** @fn std::string Plant::getState()
    * @brief Retrieves the current state of the plant as a string.
@@ -99,8 +94,8 @@ public:
   /** @fn void Plant::setCareStrategy(CareStrategy* s)
    * @brief Sets the care strategy for the plant.
    * @param s A pointer to the CareStrategy to set.
-  */
-  void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern
+   */
+  void setCareStrategy(CareStrategy *s); // added this for the Strategy design pattern
   /** @fn void Plant::applyCare()
    * @brief Applies the care strategy to the plant.
    */
@@ -124,7 +119,7 @@ public:
    * @param memento A pointer to the PlantMemento to restore from.
    */
   void setPlantMemento(PlantMemento *memento);
-  
+
   virtual Plant *clone() = 0;
 
 protected:

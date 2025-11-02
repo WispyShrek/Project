@@ -31,7 +31,7 @@ public:
      * @brief Notifies the customer assistant about a customer.
      * @param customer Pointer to the Customer object to notify about.
      */
-    void notify(Customer* customer) override; 
+    bool notify(Customer* customer, Plant* plant) override;
     /** @fn CustomerAssistant::~CustomerAssistant()
      * @brief Destructor for CustomerAssistant class.
      */

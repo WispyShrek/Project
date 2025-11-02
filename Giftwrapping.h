@@ -11,6 +11,9 @@ public:
   bool getAddedWrapping() const { return addedWrapping; }//getter
   void increasePrice();
   void addCust(Customer *customer);
+  void print();
+  std::string getName() override { return "Giftwrapping"; }
+  Plant* clone() override { return new Giftwrapping(*this); }
 };
 
 #endif

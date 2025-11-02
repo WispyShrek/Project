@@ -7,9 +7,18 @@ class Customer;
 
 class SalesFloor{
 public:
-  virtual void notify(Customer *customer) = 0;
+  virtual bool notify(Customer *customer, Plant* plant) = 0;
   SalesFloor(){}
   virtual ~SalesFloor()=default;
+  Inventory* getInventory(size_t index) {
+    if (index < inventories.size()) {
+      return inventories[index];
+    }
+    return nullptr;
+  }
+  void addInventory(Inventory* inventory) {
+    inventories.push_back(inventory);
+  }
 private:
   std::vector<Inventory*> inventories;
 };

@@ -10,12 +10,13 @@ private:
 
 public:
   EasyCust();
-  EasyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
+  EasyCust(std::string name, SalesFloor *salesFloor,double timeAvailable, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
   ~EasyCust();
   void pay();
   string voiceLine() override;
   PaymentStrategy *getPaymentStrategy() const { return paymentStrategy; }
   void setPaymentStrategy(PaymentStrategy *strategy) { paymentStrategy = strategy; }
+  void enquirePlants(SalesFloor *salesFloor) override;
 };
 
 #endif

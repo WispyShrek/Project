@@ -1,8 +1,8 @@
 #include "FussyCust.h"
 
 FussyCust::FussyCust() {}
-FussyCust::FussyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants)
-	: Customer(name, salesFloor)
+FussyCust::FussyCust(std::string name, SalesFloor *salesFloor,double timeAvailable, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants)
+	: Customer(name, salesFloor,timeAvailable)
 {
 	// Additional initialization if needed
 	this->paymentStrategy = paymentStrategy;

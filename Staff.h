@@ -20,7 +20,7 @@ public:
    */
   virtual ~Staff(){};
   virtual void care() = 0;
-  virtual void notify(Customer *customer) {};
+  virtual bool notify(Customer *customer, Plant* plant) =0;
   virtual void update() {};
 };
 

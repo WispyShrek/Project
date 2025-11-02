@@ -9,11 +9,12 @@ private:
 
 public:
   FussyCust();
-  FussyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
+  FussyCust(std::string name, SalesFloor *salesFloor,double timeAvailable, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
   ~FussyCust();
   void pay();
   string voiceLine() override;
   PaymentStrategy *getPaymentStrategy() const { return paymentStrategy; }
   void setPaymentStrategy(PaymentStrategy *strategy) { paymentStrategy = strategy; }
+  void enquirePlants(SalesFloor *salesFloor) override;
 };
 #endif

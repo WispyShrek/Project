@@ -1,7 +1,7 @@
 #include "EasyCust.h"
 
-EasyCust::EasyCust(std::string name, SalesFloor *salesFloor, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants)
-	: Customer(name, salesFloor)
+EasyCust::EasyCust(std::string name, SalesFloor *salesFloor,double t, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants)
+	: Customer(name, salesFloor,t)
 {
 	// Additional initialization if needed
 	this->paymentStrategy = paymentStrategy;
@@ -22,4 +22,10 @@ EasyCust::~EasyCust()
   }
   string EasyCust::voiceLine() {
 	return "I'm a easy customer";
+  }
+  void EasyCust::enquirePlants(SalesFloor *salesFloor) {
+	for(int i = 0; i < int(preferredPlants.size()); i++) {
+		salesFloor->notify(this);
+		
+	}
   }

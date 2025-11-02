@@ -10,6 +10,14 @@
 #include "Card.h"
 #include "Cash.h"
 #include "SalesFloor.h"
+#include "Lily.h"
+#include "Tulip.h"
+#include "Lavender.h"
+#include "Rose.h"
+#include "DecorativePot.h"
+#include "Giftwrapping.h"
+#include "Arrangement.h"
+
 #include <vector>
 #include <chrono>
 #include <thread>

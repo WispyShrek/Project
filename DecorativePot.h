@@ -11,6 +11,9 @@ public:
   bool getAddedPot() const { return addedPot; }//getter
   void increasePrice();
   void addCust(Customer *customer);
+  void print();
+  std::string getName() override { return "DecorativePot"; }
+  Plant* clone() override { return new DecorativePot(*this); }
 };
 
 #endif

@@ -15,10 +15,9 @@ void CustomerAssistant::care()
 {
     cout << "CustomerAssistant: should not be doing anything with plants\n";
 }
-void CustomerAssistant::notify(Customer *customer)
+bool CustomerAssistant::notify(Customer *customer, Plant* plant)
 {
     
-    cout << "CustomerAssistant: notifying customer. Customer cart has changed:\n" << customer->cartToString() << "\n";
 }
 
 void CustomerAssistant::update()

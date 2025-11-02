@@ -10,3 +10,9 @@ void Giftwrapping::addCust(Customer *customer)//adds the customer to the plant's
 {
 	plant->addCust(customer);//delegation
 }
+void Giftwrapping::print()//prints giftwrapping details
+{
+	std::cout << "Giftwrapping Details: " << std::endl;
+	plant->print();
+	std::cout << "with Giftwrapping decoration." << std::endl;
+}

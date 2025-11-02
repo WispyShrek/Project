@@ -9,3 +9,9 @@ void DecorativePot::addCust(Customer *customer)//adds the customer to the plant'
 {
 	plant->addCust(customer);//delegation
 }
+void DecorativePot::print()//prints decorative pot details
+{
+	std::cout << "Decorative Pot Details: " << std::endl;
+	plant->print();
+	std::cout << "with Decorative Pot decoration." << std::endl;
+}
