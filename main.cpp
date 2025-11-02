@@ -273,26 +273,26 @@ int main() {
   // Hover descriptions for each item
   std::unordered_map<std::string, std::string> descriptions;
 
-  descriptions.try_emplace("Plant Seed",
+  descriptions.emplace("Plant Seed",
                            "Open submenu to plant different crops.");
-  descriptions.try_emplace("Harvest Plants", "Open submenu to harvest crops.");
-  descriptions.try_emplace(
+  descriptions.emplace("Harvest Plants", "Open submenu to harvest crops.");
+  descriptions.emplace(
       "Hire Staff",
       "Open submenu to hire \n customer assistants and plant caretakers.");
-  descriptions.try_emplace("Assign Staff",
+  descriptions.emplace("Assign Staff",
                            "Assign plant caretakers to gardens.");
-  descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
-  descriptions.try_emplace("Back", "Return to main menu.");
+  descriptions.emplace("Exit", "Leave the nursery Simulation.");
+  descriptions.emplace("Back", "Return to main menu.");
 
   for (auto plants : shopPlants) {
     std::stringstream plantDesc;
     plantDesc << plants->getDescription();
     plantDesc << "\n Cost: R";
     plantDesc << std::setprecision(2) << plants->getPrice();
-    descriptions.try_emplace(plants->getName(), plantDesc.str());
+    descriptions.emplace(plants->getName(), plantDesc.str());
   }
   for (auto staff : toHire) {
-    descriptions.try_emplace(staff->getName(), staff->getDescription());
+    descriptions.emplace(staff->getName(), staff->getDescription());
   }
 
   int choice = 0;
@@ -307,6 +307,7 @@ int main() {
   const double game_day_seconds = 24.0 * 60.0 * 60.0;
   const double time_scale = game_day_seconds / real_day_seconds;
   Plant *toAdd = nullptr;
+  Staff *staffToAssign = nullptr;
   int prevHour = 0;
   // random events happening using mersenne twister
   std::random_device rd;
@@ -442,6 +443,7 @@ int main() {
         state = MenuState::MAIN;
         careMenu = false;
         toAdd = nullptr;
+        staffToAssign = nullptr;
         choice = 0;
         break;
       } else {
@@ -497,20 +499,83 @@ int main() {
               wrefresh(info_win);
               std::this_thread::sleep_for(std::chrono::milliseconds(300));
             }
-          } else if (careMenu == true) {
-            nursery.getGardens()[choice]->applyCare();
+          } else if (staffToAssign != nullptr) {
+            PlantCaretaker *caretaker =
+                dynamic_cast<PlantCaretaker *>(staffToAssign);
+            if (caretaker) {
+              caretaker->update(nursery.getGardens()[choice]);
+              mvwprintw(info_win, 15, 2, "%s assigned to %s",
+                        staffToAssign->getName().c_str(),
+                        garden_menu[choice].c_str());
+              staffToAssign = nullptr;
+              state = MenuState::MAIN;
+              choice = 0;
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            }
+          } else {
+            // This is a fallback for unhandled menu actions
+            mvwprintw(garden_win, 6, 2, "Action for '%s' not implemented.",
+                      item.c_str());
+            wrefresh(garden_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
           }
+        } else if (state == MenuState::STAFFHIRE) {
+          Staff *staffToHire = toHire[choice];
+          if (nursery.getBalance() >= staffToHire->getCost()) {
+            nursery.removeFromBalance(staffToHire->getCost());
+            nursery.addStaff(staffToHire);
 
-        } else {
-          std::string item = (*current_menu)[choice];
-          if (item == "Back") {
+            // Remove from hire pool and update menu
+            toHire.erase(toHire.begin() + choice);
+            hire_menu.clear();
+            for (auto staff : toHire) {
+              hire_menu.push_back(staff->getName());
+            }
+            hire_menu.push_back("Back");
+
+            // Update the assign staff menu as well
+            staff_menu.clear();
+            for (auto staff : nursery.getStaff()) {
+              staff_menu.push_back(staff->getName());
+            }
+            staff_menu.push_back("Back");
+
+            mvwprintw(info_win, 18, 2, "Successfully hired %s!",
+                      staffToHire->getName().c_str());
             state = MenuState::MAIN;
             choice = 0;
+
+            // If it's a customer assistant, they are now on the sales floor
+            if (dynamic_cast<CustomerAssistant *>(staffToHire)) {
+              // In a full implementation, you would add them to a SalesFloor
+              // manager or similar. For now, we can just show a message.
+              mvwprintw(info_win, 19, 2, "%s is now on the sales floor!",
+                        staffToHire->getName().c_str());
+            }
+
           } else {
-            mvwprintw(garden_win, 6, 2, "Action: %s...", item.c_str());
-            wrefresh(garden_win);
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            mvwprintw(info_win, 18, 2, "Not enough money to hire %s.",
+                      staffToHire->getName().c_str());
           }
+          wrefresh(info_win);
+          std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        } else if (state == MenuState::STAFF) {
+          staffToAssign = nursery.getStaff()[choice];
+          PlantCaretaker *isCaretaker =
+              dynamic_cast<PlantCaretaker *>(staffToAssign);
+
+          if (isCaretaker) {
+            state = MenuState::GARDENS;
+            choice = 0;
+            mvwprintw(info_win, 18, 2, "Select a garden to assign %s to.",
+                      staffToAssign->getName().c_str());
+          } else {
+            mvwprintw(info_win, 18, 2,
+                      "I don't know how to take care of gardens!");
+            staffToAssign = nullptr; // Reset since they can't be assigned
+          }
+          wrefresh(info_win);
         }
         break;
       }
