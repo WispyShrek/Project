@@ -481,7 +481,7 @@ int main() {
             choice = 0;
           }
           wrefresh(info_win);
-          std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
         } else if (state == MenuState::GARDENS) {
           if (toAdd != nullptr) {
@@ -495,9 +495,10 @@ int main() {
             } else {
               mvwprintw(info_win, 15, 2, "The selected garden is full");
               wrefresh(info_win);
-              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
             }
-          } else {
+          } else if (careMenu == true) {
+            nursery.getGardens()[choice]->applyCare();
           }
 
         } else {
