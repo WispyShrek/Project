@@ -55,16 +55,17 @@ Iterator<Plant *> *Garden::CreateIterator(){
     return new PlantIterator(plants);
 }
 
-void Garden::removeItem(Plant *item){
+bool Garden::removeItem(Plant *item){
     for (int r = 0; r < 3; ++r) {
         for (int c = 0; c < 3; ++c) {
             if (plants[r][c] == item) {
                 plants[r][c] = nullptr;
                 --plantCount;
-                return;
+                return true;
             }
         }
     }
+    return false;
 }
 
 void Garden::TemplateMethod() {}

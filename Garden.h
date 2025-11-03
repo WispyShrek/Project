@@ -48,7 +48,7 @@ public:
    * Decrements plantCount on success. Does not delete the Plant object.
    * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
-  void removeItem(Plant *item);
+  bool removeItem(Plant *item);
 
   void TemplateMethod();
   virtual void applyRays() = 0;

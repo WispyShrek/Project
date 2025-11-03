@@ -32,23 +32,24 @@ using namespace std;
  * of the nursery exists throughout the application. It provides a central
  * point of access for managing all major components of the nursery.
  */
-class Nursery {
+class Nursery
+{
 
 private:
-  SalesFloor* salesFloor;
+  SalesFloor *salesFloor;
   static Nursery *uniqueInstance;
-  vector<Garden*> gardens;
+  vector<Garden *> gardens;
   /**
    * @var vector<greenHouse*> greenHouses
    * @brief A collection of all greenhouses in the nursery.
    */
-  vector<greenHouse*> greenHouses;
+  vector<greenHouse *> greenHouses;
   /**
    * @var vector<Staff*> staff
    * @brief A collection of all staff members in the nursery.
    */
-  vector<Staff*> staff;
-  vector<Customer*> customers;
+  vector<Staff *> staff;
+  vector<Customer *> customers;
 
 public:
   /**
@@ -60,31 +61,40 @@ public:
    * the existing instance.
    * @return A reference to the unique Nursery instance.
    */
-  static Nursery& instance();
+  static Nursery &instance();
   /**
    * @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
    * @param newgarden A pointer to the Garden object to be added.
    */
-  void addGarden(Garden* newgarden); 
+  void addGarden(Garden *newgarden);
   /**
    * @fn void Nursery::addStaff(Staff* newStaff)
    * @brief Adds a new staff member to the nursery.
    * @param newStaff A pointer to the Staff object to be added.
    */
-  void addStaff(Staff* newStaff);
+  void addStaff(Staff *newStaff);
   /**
    * @fn void Nursery::removeStaff(Staff* staffToRemove)
    * @brief Removes a staff member from the nursery.
    * @param staffToRemove A pointer to the Staff object to be removed.
    */
-  void removeStaff(Staff* staffToRemove);
+  void removeStaff(Staff *staffToRemove);
   /**
    * @fn void Nursery::removeGarden(Garden* gardenToRemove)
    * @brief Removes a garden from the nursery.
    * @param gardenToRemove A pointer to the Garden object to be removed.
    */
-  void removeGarden(Garden* gardenToRemove); 
+  void removeGarden(Garden *gardenToRemove);
+  /**
+   * @brief Spawns a customer with randomized preferences and payment strategy.
+   *
+   * This function simulates customer creation at random intervals. It randomly selects
+   * a payment strategy (EFT, Card, or Cash), plant preferences (including optional decorations),
+   * and customer type (Easy or Fussy). The created customer is added to the nursery's internal list
+   * and deleted after use. Intended for dynamic simulation of customer behavior.
+   */
+
   void customerSpawner();
 
   /**
@@ -93,7 +103,7 @@ public:
    * This function is primarily for debugging purposes.
    * @return The number of gardens.
    */
-  size_t getGardenCount() const { return gardens.size(); } 
+  size_t getGardenCount() const { return gardens.size(); }
   /**
    * @fn size_t Nursery::getStaffCount() const
    * @brief Gets the current number of staff members in the nursery.
@@ -114,4 +124,4 @@ protected:
   // Nursery(Nursery &in);
 };
 
-#endif 
+#endif

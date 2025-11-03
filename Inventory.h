@@ -46,7 +46,7 @@ class Inventory : public Collection<std::string> {
      *
      * @param item The name of the item to remove from the inventory.
      */
-    void removeItem(std::string item) override;
+    bool removeItem(std::string item) override;
     
   private:
     std::vector<std::string> inventoryItems;
