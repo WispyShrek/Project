@@ -35,8 +35,4 @@ void PartialSun::applyRays() {
     }
     plants->next();
   }
-  if (changed) {
-    this->notify();
-    changed = false;
-  }
 }

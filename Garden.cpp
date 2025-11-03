@@ -132,6 +132,14 @@ Plant *Garden::removeDying() {
   return nullptr;
 }
 
+void Garden::tick() {
+  applyRays();
+  if (changed) {
+    notify();
+    changed = false;
+  }
+}
+
 void Garden::addItem(Plant *item, int row, int col) {
   if (plantCount >= 9) {
     return;
