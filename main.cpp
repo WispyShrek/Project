@@ -290,26 +290,26 @@ int main() {
   // Hover descriptions for each item
   std::unordered_map<std::string, std::string> descriptions;
 
-  descriptions.try_emplace("Plant Seed",
+  descriptions.emplace("Plant Seed",
                            "Open submenu to plant different crops.");
-  descriptions.try_emplace("Harvest Plants", "Open submenu to harvest crops.");
-  descriptions.try_emplace(
+  descriptions.emplace("Harvest Plants", "Open submenu to harvest crops.");
+  descriptions.emplace(
       "Hire Staff",
       "Open submenu to hire \n customer assistants and plant caretakers.");
-  descriptions.try_emplace("Assign Staff",
+  descriptions.emplace("Assign Staff",
                            "Assign plant caretakers to gardens.");
-  descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
-  descriptions.try_emplace("Back", "Return to main menu.");
+  descriptions.emplace("Exit", "Leave the nursery Simulation.");
+  descriptions.emplace("Back", "Return to main menu.");
 
   for (auto plants : shopPlants) {
     std::stringstream plantDesc;
     plantDesc << plants->getDescription();
     plantDesc << "\n Cost: R";
     plantDesc << std::setprecision(2) << plants->getPrice();
-    descriptions.try_emplace(plants->getName(), plantDesc.str());
+    descriptions.emplace(plants->getName(), plantDesc.str());
   }
   for (auto staff : toHire) {
-    descriptions.try_emplace(staff->getName(), staff->getDescription());
+    descriptions.emplace(staff->getName(), staff->getDescription());
   }
 
   int choice = 0;

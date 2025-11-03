@@ -8,13 +8,13 @@ void Sprout::next(Plant *context) {
 
 void Sprout::print(std::string &sprite) {
   sprite.clear();
-  sprite.append("This is a sprout");
+  sprite.append("\x1B[38;5;40m->"); // A green arrow symbol
 }
 
 PlantState *Sprout::clone() const { return new Sprout(*this); }
 
-#ifdef ENABLE_DOCTESTS
-#include "doctest.h"
+// #ifdef ENABLE_DOCTESTS
+// #include "doctest.h"
 
 // TEST_CASE("Sprout State: Test Sprout class methods") {
 //   Sprout sproutState;
@@ -35,4 +35,4 @@ PlantState *Sprout::clone() const { return new Sprout(*this); }
 //   delete clonedState;
 //   delete mockPlant;
 // }
-#endif
+// #endif
