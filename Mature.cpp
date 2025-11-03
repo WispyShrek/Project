@@ -3,7 +3,6 @@
 void Mature::next(Plant *context) {
   if (!context)
     return;
-  std::cout << "Cannot grow more — already Mature.\n";
 }
 
 

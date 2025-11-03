@@ -3,6 +3,7 @@
  * @brief Implementation of the Nursery class.
  */
 #include "Nursery.h"
+#include "CustomerAssistantCreator.h"
 #include <algorithm> // For std::remove
 
 /**
@@ -37,19 +38,76 @@ Nursery::~Nursery() {
  *
  * @return A reference to the unique Nursery instance.
  */
-Nursery& Nursery::instance() {
-    static Nursery uniqueInstance; //don't have to create new nursery object to call class 
-    //(ex. Nursery& nursery = Nursery::instance() Call the static function instance() that belongs to the class Nursery. and not a specific object)
-    return uniqueInstance;
+Nursery &Nursery::instance() {
+  static Nursery uniqueInstance;
+  CustomerAssistantCreator *staffCreator =
+      new CustomerAssistantCreator(); // don't have to create new nursery object
+  uniqueInstance.staff.push_back(staffCreator->createStaff()); // to call class
+  //(ex. Nursery& nursery = Nursery::instance() Call the static function
+  // instance() that belongs to the class Nursery. and not a specific object)
+  return uniqueInstance;
 }
+
+// uniqueInstance is a local sstatic variable inside the function, first time
+// instance futnion called, compiler intializes uniqueInstance. On future calls
+// it just returns the already-created object.
+
+// Nursery::Nursery(Nursery &in) {
+//   // TODO - implement Nursery::Nursery
+// }
+
+const vector<Staff *> &Nursery::getStaff() { return this->staff; }
+
+void Nursery::addToBalance(double toAdd) { this->balance += toAdd; }
+bool Nursery::removeFromBalance(double toRemove) {
+  if (balance >= toRemove) {
+    balance -= toRemove;
+    return true;
+  }
+  return false;
+}
+double Nursery::getBalance() { return this->balance; }
+
+const vector<Garden *> &Nursery::getGardens() { return this->gardens; };
 
 /**
  * @brief Adds a new garden to the nursery's collection.
- * @param newGarden A pointer to the Garden object to be added. Does nothing if the pointer is null.
+ * @param newGarden A pointer to the Garden object to be added. Does nothing
+ * if the pointer is null.
  */
-void Nursery::addGarden(Garden* newGarden) {
-    if(newGarden)
-        gardens.push_back(newGarden);
+void Nursery::addGarden(Garden *newGarden) {
+  if (newGarden)
+    gardens.push_back(newGarden);
+}
+
+// add staff to list/*state*
+void Nursery::addStaff(Staff *newStaff) {
+  if (newStaff)
+    staff.push_back(newStaff);
+}
+
+// remove garden from *state*
+void Nursery::removeGarden(Garden *gardenToRemove) {
+  for (size_t i = 0; i < gardens.size(); ++i) {
+    if (gardens[i] == gardenToRemove) {
+      gardens.erase(gardens.begin() + i);
+      break;
+    }
+  }
+}
+void Nursery::addToPlantInventory(Plant *inventory) {
+  if (inventory == nullptr) {
+    return;
+  }
+  if (inventory->getState() == "Mature") {
+    for (auto staffmember : staff) {
+      if (dynamic_cast<CustomerAssistant *>(staffmember)) {
+        staffmember->addToPlantInventory(inventory);
+      }
+    }
+  } else {
+    plantInventory.push_back(inventory);
+  }
 }
 
 /**
@@ -68,21 +126,103 @@ void Nursery::addStaff(Staff* newStaff) {
  * It does not delete the Garden object itself.
  * @param gardenToRemove A pointer to the Garden object to be removed.
  */
-void Nursery::removeGarden(Garden* gardenToRemove) {
-    // The erase-remove idiom is a more efficient way to remove elements from a vector.
-    gardens.erase(std::remove(gardens.begin(), gardens.end(), gardenToRemove), gardens.end());
-}
+void Nursery::customerSpawner() {
+  using namespace std::chrono_literals;
 
-/**
- * @brief Removes a staff member from the nursery's collection.
- *
- * It finds the specified staff pointer in the `staff` vector and removes it.
- * It does not delete the Staff object itself.
- * @param staffToRemove A pointer to the Staff object to be removed.
- */
-void Nursery::removeStaff(Staff* staffToRemove) {
-    // The erase-remove idiom is a more efficient way to remove elements from a vector.
-    staff.erase(std::remove(staff.begin(), staff.end(), staffToRemove), staff.end());
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> stratDist(0, 2); // 0=EFT, 1=Card, 2=Cash
+  std::uniform_int_distribution<int> custDist(0, 1);  // 0=Fussy, 1=Easy
+
+  // Choose a payment strategy
+  PaymentStrategy *strategy = nullptr;
+  switch (stratDist(gen)) {
+  case 0:
+    strategy = new EFT();
+    break;
+  case 1:
+    strategy = new Card();
+    break;
+  case 2:
+    strategy = new Cash();
+    break;
+  }
+
+  std::vector<Plant *> preferredPlants;
+  int listSize = rand() % 10 + 1;
+  int decorationSize = rand() % 3;
+
+  for (int i = 0; i < listSize; i++) {
+    std::cout << "Generating preferred plant " << i + 1 << std::endl;
+    // Create a random plant and add it to the preferredPlants vector
+    Plant *newPlant = nullptr;
+    int plantType = rand() % 4;
+    switch (plantType) {
+    case 0:
+      newPlant = new Lily();
+      break;
+    case 1:
+      newPlant = new Tulip();
+      break;
+    case 2:
+      newPlant = new Lavender();
+      break;
+    case 3:
+      newPlant = new Rose();
+
+    default:
+      newPlant = new Lily(); // Fallback
+      break;
+    }
+    int decorationType = rand() % 3;
+    for (int j = 0; j < decorationSize; j++) {
+      switch (decorationType) {
+      case 0:
+        newPlant = new Arrangement(); // wrap with Arrangement
+        break;
+      case 1:
+        newPlant = new Giftwrapping(); // wrap with Giftwrapping
+        break;
+      case 2:
+        newPlant = new DecorativePot(); // wrap with DecorativePot
+        break;
+      default:
+        break;
+      }
+    }
+    preferredPlants.push_back(newPlant);
+  }
+  double time = static_cast<double>(
+      rand() % 11 + 5); // time available between 5 and 15 minutes
+  // Create a random customer
+  Customer *newCustomer = nullptr;
+  std::vector<Staff *> availableAssistants;
+  for (auto staffmember : staff) {
+    if (dynamic_cast<CustomerAssistant *>(staffmember)) {
+      availableAssistants.push_back(staffmember);
+    }
+  }
+  int size = availableAssistants.size();
+  std::uniform_int_distribution<int> assistantDist(0, size - 1);
+
+  if (custDist(gen) == 0) {
+    newCustomer =
+        new FussyCust("Fussy Customer", availableAssistants[assistantDist(gen)],
+                      time, strategy, preferredPlants);
+  } else {
+    newCustomer =
+        new EasyCust("Easy Customer", availableAssistants[assistantDist(gen)],
+                     time, strategy, preferredPlants);
+  }
+
+  customers.push_back(newCustomer);
+}
+const std::vector<greenHouse *> &Nursery::getGreenhouses() {
+  return this->greenHouses;
+}
+void Nursery::addGreenhouse(greenHouse *greenhouse) {
+  if (greenhouse != nullptr)
+    this->greenHouses.push_back(greenhouse);
 }
 
 #ifdef ENABLE_DOCTESTS

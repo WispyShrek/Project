@@ -4,20 +4,69 @@
 #include "Sunny.h"
 #include <algorithm>
 #include <iostream>
-/**
- * @brief Destructor for the Garden class.
- *
- * Cleans up memory by deleting all Plant objects currently held within the
- * garden's 3x3 grid. This prevents memory leaks when a Garden object is destroyed.
- */
-Garden::~Garden(){
-    // Clean up all plants (owned while in the grid)
-    for (auto& row : plants) {
-        for (auto*& p : row) {
-            delete p;
-            p = nullptr;
-        }
+#include <regex>
+#include <string>
+
+int visible_length(const std::string &s) {
+  static const std::regex ansi_escape("\033\\[[0-9;]*m");
+  std::string clean = std::regex_replace(s, ansi_escape, "");
+  return static_cast<int>(clean.size());
+}
+
+Garden::Garden()
+    : plantCount(0), plants(std::vector<std::vector<Plant *>>(
+                         3, std::vector<Plant *>(3, nullptr))) {}
+Garden::~Garden() {
+  // Clean up all plants (owned while in the grid)
+  for (auto &row : plants) {
+    for (auto *&p : row) {
+      delete p;
+      p = nullptr;
     }
+  }
+}
+
+std::string Garden::print() {
+  std::string gardenSprite;
+  std::string row;
+  std::string plant;
+  int fillLength;
+  gardenSprite.append("\x1B[38;5;130m");
+  for (int r = 0; r < 3; r++) {
+    gardenSprite.append(36, '|');
+    gardenSprite.append("\n\x1B[38;5;130m");
+    row.clear();
+    row.append("|||");
+    for (int c = 0; c < 3; c++) {
+      plant.clear();
+      plant.shrink_to_fit();
+      if (plants[r][c] == nullptr) {
+        row.append("||||||||");
+      } else {
+        plant = plants[r][c]->print();
+        if (visible_length(plant) < 8) {
+          int pad = (8 - visible_length(plant)) / 2;
+          plant.append("\x1B[38;5;130m");
+          plant.insert(0, pad, '|');
+        }
+        row.append(plant);
+        row.append(1, '|');
+        row.append("\x1B[38;5;130m");
+      }
+      row.append("|||\x1B[38;5;130m");
+    }
+    gardenSprite.append(row);
+    fillLength = 36 - visible_length(row);
+    if (fillLength < 0) {
+      fillLength = 0;
+    }
+    gardenSprite.append(fillLength, '|');
+    gardenSprite.append("\n\x1B[38;5;130m");
+  }
+  gardenSprite.append(36, '|');
+  gardenSprite.append("\n\x1B[38;5;130m");
+
+  return gardenSprite;
 }
 
 /**
@@ -72,15 +121,26 @@ void Garden::addItem(Plant *item, int row, int col){
     ++plantCount;
 }
 
-/**
- * @brief Creates an iterator for the plants in the garden.
- *
- * This method is part of the Iterator design pattern. It returns a `PlantIterator`
- * that can be used to traverse the plants in the garden's grid.
- * @return A pointer to a new `Iterator<Plant *>` object. The caller is responsible for deleting it.
- */
-Iterator<Plant *> *Garden::CreateIterator(){
-    return new PlantIterator(plants);
+void Garden::tick() {
+  applyRays();
+  if (changed) {
+    notify();
+    changed = false;
+  }
+}
+
+void Garden::addItem(Plant *item, int row, int col) {
+  if (plantCount >= 9) {
+    return;
+  }
+  if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+    return;
+  }
+  if (plants[row][col] != nullptr) {
+    return;
+  }
+  plants[row][col] = item;
+  ++plantCount;
 }
 
 /**

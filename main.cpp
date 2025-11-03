@@ -248,8 +248,17 @@ int main() {
         Plant* a = maker.createPlant();
         std::cout << "created: " << a->getState() << "\n";
 
-        Plant* b = a->clone();
-        std::cout << "cloned : " << b->getState() << "\n";
+enum class MenuState {
+  MAIN,
+  PLANT,
+  WATER,
+  HARVEST,
+  GARDENS,
+  STAFFHIRE,
+  STAFF,
+  CHOICE,
+  GREENHOUSES
+};
 
     }
 
@@ -263,18 +272,263 @@ int main() {
         Plant* b = a->clone();
         std::cout << "cloned : " << b->getState() << "\n";
 
+int main() {
+  // game initialization
+  // we have a fixed number of gardens in the nursery
+  Nursery &nursery = Nursery::instance();
+  Garden *sunny1 = new Sunny();
+  Garden *sunny2 = new Sunny();
+  Garden *partial1 = new PartialSun();
+  Garden *partial2 = new PartialSun();
+  Garden *shady1 = new Shady();
+  Garden *shady2 = new Shady();
+  greenHouse *g1 = new greenHouse();
+  greenHouse *g2 = new greenHouse();
+  greenHouse *g3 = new greenHouse();
+  nursery.addGarden(sunny1);
+  nursery.addGarden(sunny2);
+  nursery.addGarden(partial1);
+  nursery.addGarden(partial2);
+  nursery.addGarden(shady1);
+  nursery.addGarden(shady2);
+  // vector contains all of the staff members that can be hired
+  CustomerAssistantCreator assitantCreator = CustomerAssistantCreator();
+  PlantCaretakerCreator caretakerCreator = PlantCaretakerCreator();
+  Staff *staffCustomerPete = assitantCreator.createStaff();
+  Staff *staffCustomerLizzy = assitantCreator.createStaff();
+  Staff *staffCaretakerHolly = caretakerCreator.createStaff();
+  Staff *staffCaretakerAlly = caretakerCreator.createStaff();
+  Staff *staffCaretakerRyan = caretakerCreator.createStaff();
+  Staff *staffCaretakerJohn = caretakerCreator.createStaff();
+  staffCustomerPete->setName("Pete");
+  staffCustomerPete->setDescription("My name is Pete!\nI will help you sell "
+                                    "plants \nto customers with a smile.");
+  staffCustomerLizzy->setName("Lizzy");
+  staffCustomerLizzy->setDescription("My name is Lizzy!\nI can handle customer "
+                                     "interactions \nto help you make sales.");
+  staffCaretakerRyan->setName("Ryan");
+  staffCaretakerRyan->setDescription(
+      "Ryan's the name!\nI will help you keep your plants \nin good shape.");
+  staffCaretakerHolly->setName("Holly");
+  staffCaretakerHolly->setDescription(
+      "Holly here!\nI have the greenest thumbs in town.");
+  staffCaretakerAlly->setName("Ally");
+  staffCaretakerAlly->setDescription("I'm Ally!\nPlants need to receive the "
+                                     "best \ncare possible.\nI won't let "
+                                     "you down!");
+  staffCaretakerJohn->setName("John");
+  staffCaretakerJohn->setDescription(
+      "John reporting for duty!\nAin't no plants gonna die \non my watch.");
+
+  vector<Staff *> toHire = vector<Staff *>();
+  toHire.push_back(staffCaretakerAlly);
+  toHire.push_back(staffCaretakerHolly);
+  toHire.push_back(staffCaretakerJohn);
+  toHire.push_back(staffCaretakerRyan);
+  toHire.push_back(staffCustomerLizzy);
+  toHire.push_back(staffCustomerPete);
+  // plants that can be bought initialized by the creators
+  TulipCreator tulip = TulipCreator();
+  LavenderCreator lavender = LavenderCreator();
+  RoseCreator rose = RoseCreator();
+  LilyCreator lily = LilyCreator();
+  Plant *dollyTulip = tulip.createPlant();
+  Plant *dollyLavender = lavender.createPlant();
+  Plant *dollyRose = rose.createPlant();
+  Plant *dollyLily = lily.createPlant();
+
+  // all plants bought should be sprouts
+  PlantState *sprout = new Sprout();
+  dollyTulip->setState(sprout->clone());
+  dollyLavender->setState(sprout->clone());
+  dollyLily->setState(sprout->clone());
+  dollyRose->setState(sprout->clone());
+  // add plants to shop
+  vector<Plant *> shopPlants = vector<Plant *>();
+  shopPlants.push_back(dollyLavender);
+  shopPlants.push_back(dollyRose);
+  shopPlants.push_back(dollyLily);
+  shopPlants.push_back(dollyTulip);
+
+  // gui initialization
+  initscr();
+  cbreak();
+  noecho();
+  keypad(stdscr, TRUE);
+  curs_set(0);
+  nodelay(stdscr, TRUE);
+  start_color();
+  use_default_colors();
+
+  init_pair(1, COLOR_GREEN, -1);
+  init_pair(2, COLOR_CYAN, -1);
+  init_pair(3, COLOR_YELLOW, -1);
+  init_pair(4, COLOR_MAGENTA, -1);
+
+  int height, width;
+  getmaxyx(stdscr, height, width);
+
+  int info_width = width / 4;
+  int main_width = width - info_width;
+  int menu_height = 5;
+  int garden_height = height - menu_height;
+
+  WINDOW *garden_win = create_newwin(garden_height, main_width, 0, 0, "Garden");
+  WINDOW *menu_win =
+      create_newwin(menu_height, main_width, garden_height, 0, "Menu");
+  WINDOW *info_win =
+      create_newwin(height, info_width, 0, main_width, "Nursery Info");
+
+  PANEL *garden_panel = new_panel(garden_win);
+  PANEL *menu_panel = new_panel(menu_win);
+  PANEL *info_panel = new_panel(info_win);
+
+  std::vector<std::string> main_menu = {"Plant Seed",     "Care for Plants",
+                                        "Harvest Plants", "Hire Staff",
+                                        "Assign Staff",   "Exit"};
+  std::vector<std::string> choice_menu = {"Plant in Garden",
+                                          "Plant in Greenhouse", "Back"};
+  std::vector<std::string> plant_menu = std::vector<std::string>();
+  for (auto plants : shopPlants) {
+    plant_menu.push_back(plants->getName());
+  }
+  plant_menu.push_back("Back");
+  vector<std::string> hire_menu;
+  for (auto staff : toHire) {
+    hire_menu.push_back(staff->getName());
+  }
+  hire_menu.push_back("Back");
+  std::vector<std::string> staff_menu;
+  for (auto staff : nursery.getStaff()) {
+    staff_menu.push_back(staff->getName());
+  }
+  staff_menu.push_back("Back");
+  std::vector<std::string> garden_menu = {"G 1 (Sunny)",
+                                          "G 2 (Sunny)",
+                                          "G 3 (Partial sun)",
+                                          "G 4 (Partial sun)",
+                                          "G 5 (Shady)",
+                                          "G 6 (Shady)",
+                                          "Back"};
+  std::vector<std::string> greenhouse_menu = {"Greenhouse 1", "Greenhouse 2",
+                                              "Greenhouse 3", "Back"};
+  std::vector<std::string> water_menu = {"Water All", "Water Selected", "Back"};
+  std::vector<std::string> harvest_menu = {"Harvest All", "Harvest Mature Only",
+                                           "Back"};
+
+  // Hover descriptions for each item
+  std::unordered_map<std::string, std::string> descriptions;
+
+  descriptions.try_emplace("Plant Seed",
+                           "Open submenu to plant different crops.");
+  descriptions.try_emplace("Harvest Plants", "Open submenu to harvest crops.");
+  descriptions.try_emplace(
+      "Hire Staff",
+      "Open submenu to hire \n customer assistants and plant caretakers.");
+  descriptions.try_emplace("Assign Staff",
+                           "Assign plant caretakers to gardens.");
+  descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
+  descriptions.try_emplace("Back", "Return to main menu.");
+
+  for (auto plants : shopPlants) {
+    std::stringstream plantDesc;
+    plantDesc << plants->getDescription();
+    plantDesc << "\n Cost: R";
+    plantDesc << std::setprecision(2) << plants->getPrice();
+    descriptions.try_emplace(plants->getName(), plantDesc.str());
+  }
+  for (auto staff : toHire) {
+    descriptions.try_emplace(staff->getName(), staff->getDescription());
+  }
+
+  int choice = 0;
+  bool running = true;
+  MenuState state = MenuState::MAIN;
+
+  using clock = std::chrono::steady_clock;
+  auto start_time = clock::now();
+  int day = 1;
+
+  const double real_day_seconds = 10.0 * 60.0;
+  const double game_day_seconds = 24.0 * 60.0 * 60.0;
+  const double time_scale = game_day_seconds / real_day_seconds;
+  Plant *toAdd = nullptr;
+  Staff *staffToAssign = nullptr;
+  int prevHour = 0;
+  // random events happening using mersenne twister
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<> chance(0.0, 1.0);
+  nursery.addToBalance(5000);
+  bool careMenu = false;
+  bool harvest = false;
+  bool savePlant = false;
+
+  while (running) {
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    auto now = clock::now();
+    std::chrono::duration<double> elapsed = now - start_time;
+    double game_seconds = elapsed.count() * time_scale;
+
+    int total_game_seconds = static_cast<int>(game_seconds);
+    day = 1 + (total_game_seconds / 86400);
+    int day_seconds = total_game_seconds % 86400;
+    int hour = (day_seconds / 3600) % 24;
+    int minute = (day_seconds % 3600) / 60;
+
+    std::string time_str = format_time(hour, minute);
+    std::string phase = get_time_phase(hour);
+
+    // --- Garden Panel ---
+    werase(garden_win);
+    box(garden_win, 0, 0);
+    wattron(garden_win, COLOR_PAIR(1));
+    mvwprintw(garden_win, 0, 2, " Garden ");
+    wattroff(garden_win, COLOR_PAIR(1));
+    print_with_ansi(garden_win, 4, 4, nursery.getGardens()[0]->print());
+    print_with_ansi(garden_win, 4, 44, nursery.getGardens()[1]->print());
+    print_with_ansi(garden_win, 4, 84, nursery.getGardens()[2]->print());
+    print_with_ansi(garden_win, 18, 4, nursery.getGardens()[3]->print());
+    print_with_ansi(garden_win, 18, 44, nursery.getGardens()[4]->print());
+    print_with_ansi(garden_win, 18, 84, nursery.getGardens()[5]->print());
+    // random events that have a chance to happen every hour in the daytime
+    if (((phase == "Morning") || (phase == "Afternoon")) && (prevHour < hour)) {
+      for (auto garden : nursery.getGardens()) {
+        double roll = chance(gen);
+        if (roll < 0.9) {
+          garden->tick();
+        }
+      }
+      prevHour = hour;
     }
 
-    // ===== Test Lavender =====
-    {
-        std::cout << "\n=== LavenderCreator ===\n";
-        LavenderCreator maker;
-        Plant* a = maker.createPlant();
-        std::cout << "created: " << a->getState() << "\n";
-
-        Plant* b = a->clone();
-        std::cout << "cloned : " << b->getState() << "\n";
-
+    // --- Determine which menu is active ---
+    const std::vector<std::string> *current_menu = nullptr;
+    switch (state) {
+    case MenuState::MAIN:
+      current_menu = &main_menu;
+      break;
+    case MenuState::PLANT:
+      current_menu = &plant_menu;
+      break;
+    case MenuState::WATER:
+      current_menu = &garden_menu;
+      break;
+    case MenuState::HARVEST:
+      current_menu = &garden_menu;
+      break;
+    case MenuState::STAFFHIRE:
+      current_menu = &hire_menu;
+      break;
+    case MenuState::STAFF:
+      current_menu = &staff_menu;
+      break;
+    case MenuState::GARDENS:
+      current_menu = &garden_menu;
+      break;
+    case MenuState::CHOICE:
+      current_menu = &choice_menu;
     }
 
     std::cout << "\nAll factory tests done.\n";
@@ -433,78 +687,225 @@ int main() {
         plants[0]->applyCare();
     }
 
-    std::cout << "\nCloning the Lavender plant...\n";
-    Plant* clone = plants[0]->clone();
-    clone->print();
+    update_panels();
+    doupdate();
 
-    for (auto p : plants)
-        delete p;
-    delete clone;
+    // --- Input Handling ---
+    std::string item;
+    int ch = getch();
+    switch (ch) {
+    case KEY_LEFT:
+      choice = (choice - 1 + current_menu->size()) % current_menu->size();
+      break;
+    case KEY_RIGHT:
+      choice = (choice + 1) % current_menu->size();
+      break;
+    case 10: // Enter
+      item = current_menu->at(choice);
 
+      if (item == "Back") {
+        state = MenuState::MAIN;
+        careMenu = false;
+        toAdd = nullptr;
+        staffToAssign = nullptr;
+        choice = 0;
+        break;
+      } else {
+        if (state == MenuState::MAIN) {
+          std::string item = main_menu[choice];
+          if (item == "Exit")
+            running = false;
+          else if (item == "Plant Seed") {
+            state = MenuState::PLANT;
+            choice = 0;
+          } else if (item == "Care for Plants") {
+            careMenu = true;
+            state = MenuState::GARDENS;
+            choice = 0;
+          } else if (item == "Harvest Plants") {
+            harvest = true;
+            state = MenuState::GARDENS;
+            choice = 0;
+          } else if (item == "Save Plants") {
+            savePlant = true;
+            state = MenuState::GARDENS;
+            choice = 0;
+          } else if (item == "Hire Staff") {
+            state = MenuState::STAFFHIRE;
+            choice = 0;
+          } else if (item == "Assign Staff") {
+            state = MenuState::STAFF;
+            choice = 0;
+          } else if (item == "View inventory") {
+          }
+        } else if (state == MenuState::CHOICE) {
+          if (item == "Plant in Garden") {
+            state = MenuState::GARDENS;
+          } else if (item == "Plant in Greenhouse") {
+            state = MenuState::GREENHOUSES;
+          }
+        } else if (state == MenuState::PLANT) {
 
-    //===testing PaymentStrategy =====
-    Transaction transaction;
-    Cash cashPayment;
-    Card cardPayment;
-    EFT eftPayment;
+          toAdd = shopPlants[choice]->clone();
+          if (nursery.getBalance() >= toAdd->getPrice()) {
+            mvwprintw(info_win, 18, 2, "%s ready to be placed in a %s area",
+                      toAdd->getName().c_str(), toAdd->getStrategy().c_str());
+            state = MenuState::CHOICE;
+            choice = 0;
+          } else {
+            mvwprintw(info_win, 18, 2,
+                      "Insufficient balance to purchase this plant");
+            toAdd = nullptr;
+            choice = 0;
+          }
+          wrefresh(info_win);
+          std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
-    std::cout << "Setting payment strategy to CASH..." << std::endl;
-    transaction.setPaymentStrategy(&cashPayment);
-    transaction.pay();  // Expected: Pay with cash.
+        } else if (state == MenuState::GARDENS) {
+          if (toAdd != nullptr) {
+            if (nursery.getGardens()[choice]->tryAddItem(toAdd) == true) {
+              mvwprintw(info_win, 15, 2, "%s has been planted in %s",
+                        toAdd->getName().c_str(), garden_menu[choice].c_str());
+              if (toAdd != nursery.removeFromPlantInventory()) {
+                nursery.removeFromBalance(toAdd->getPrice());
+              }
+              toAdd = nullptr;
+              state = MenuState::MAIN;
+              choice = 0;
+            } else {
+              mvwprintw(info_win, 15, 2, "The selected garden is full");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            }
+          } else if (staffToAssign != nullptr) {
+            PlantCaretaker *caretaker =
+                dynamic_cast<PlantCaretaker *>(staffToAssign);
+            if (caretaker) {
+              nursery.getGardens()[choice]->attach(
+                  dynamic_cast<PlantCaretaker *>(staffToAssign));
+              mvwprintw(info_win, 15, 2, "%s assigned to %s",
+                        staffToAssign->getName().c_str(),
+                        garden_menu[choice].c_str());
+              staffToAssign = nullptr;
+              state = MenuState::MAIN;
+              choice = 0;
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            }
+          } else if (harvest) {
+            Plant *harvested = nursery.getGardens()[choice]->removeMature();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2,
+                        "You have harvested a mature %s to sell",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s has been added to the salesfloor",
+                        harvested->getName().c_str());
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
-    std::cout << "\n--------------------------------------------\n" << std::endl;
+          } else if (savePlant) {
+            Plant *harvested = nursery.getGardens()[choice]->removeDying();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2, "You have saved a dying %s",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s needs to be planted in %s climate",
+                        harvested->getName().c_str(),
+                        harvested->getStrategy().c_str());
+              toAdd = harvested;
+              state = MenuState::GARDENS;
+              choice = 0;
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
-    std::cout << "Setting payment strategy to CARD..." << std::endl;
-    transaction.setPaymentStrategy(&cardPayment);
-    transaction.pay();  // Expected: Pay with card.
+          } else if (careMenu) {
 
-    std::cout << "\n--------------------------------------------\n" << std::endl;
+            nursery.getGardens()[choice]->applyCare();
+            print_multiline(info_win, 18, 2,
+                            "You have successfully tended\n to the plants in "
+                            "this garden");
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            state = MenuState::MAIN;
+          } else {
+            // This is a fallback for unhandled menu actions
+            mvwprintw(garden_win, 6, 2, "Action for '%s' not implemented.",
+                      item.c_str());
+            wrefresh(garden_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          }
+        } else if (state == MenuState::STAFFHIRE) {
+          Staff *staffToHire = toHire[choice];
+          if (nursery.getBalance() >= staffToHire->getCost()) {
+            nursery.removeFromBalance(staffToHire->getCost());
+            nursery.addStaff(staffToHire);
 
-    std::cout << "Setting payment strategy to EFT..." << std::endl;
-    transaction.setPaymentStrategy(&eftPayment);
-    transaction.pay();  // Expected: Pay via EFT.
+            // Remove from hire pool and update menu
+            toHire.erase(toHire.begin() + choice);
+            hire_menu.clear();
+            for (auto staff : toHire) {
+              hire_menu.push_back(staff->getName());
+            }
+            hire_menu.push_back("Back");
 
-    std::cout << "\n--------------------------------------------\n" << std::endl;
+            // Update the assign staff menu as well
+            staff_menu.clear();
+            for (auto staff : nursery.getStaff()) {
+              staff_menu.push_back(staff->getName());
+            }
+            staff_menu.push_back("Back");
 
-    std::cout << "Testing transaction without a strategy..." << std::endl;
-    Transaction emptyTransaction;
-    emptyTransaction.pay();  // Expected: No payment strategy set :(
+            mvwprintw(info_win, 18, 2, "Successfully hired %s!",
+                      staffToHire->getName().c_str());
+            state = MenuState::MAIN;
+            choice = 0;
 
+            // If it's a customer assistant, they are now on the sales floor
+            if (dynamic_cast<CustomerAssistant *>(staffToHire)) {
+              // In a full implementation, you would add them to a SalesFloor
+              // manager or similar. For now, we can just show a message.
+              mvwprintw(info_win, 19, 2, "%s is now on the sales floor!",
+                        staffToHire->getName().c_str());
+            }
 
-    std::cout << "\n Strategy pattern test complete.\n";
+          } else {
+            mvwprintw(info_win, 18, 2, "Not enough money to hire %s.",
+                      staffToHire->getName().c_str());
+          }
+          wrefresh(info_win);
+          std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        } else if (state == MenuState::STAFF) {
+          staffToAssign = nursery.getStaff()[choice];
+          PlantCaretaker *isCaretaker =
+              dynamic_cast<PlantCaretaker *>(staffToAssign);
 
-    //===memento testing ===
-    
-    Rose myRose;          
-    Caretaker plantHistory;
-
-    myRose.setState(new Sprout());
-    std::cout << "Step 1: Initial state set to: " << myRose.getState() << std::endl;
-
-    std::cout << "Step 2: Saving state (" << myRose.getState() << ") to Caretaker..." << std::endl;
-    plantHistory.setPlantMemento(myRose.createPlantMemento());
-    std::cout << "   ...State saved. ✅\n" << std::endl;
-
-    std::cout << "Step 3: Plant is growing... changing state." << std::endl;
-    myRose.setState(new Flowering());
-    std::cout << "   Current plant state is now: " << myRose.getState() << std::endl;
-
-    std::cout << "Step 4: Plant continues growing..." << std::endl;
-    myRose.setState(new Mature());
-    std::cout << "   Current plant state is now: " << myRose.getState() << "\n" << std::endl;
-
-    std::cout << "Step 5: A customer wants to see the saved state. Restoring..." << std::endl;
-    myRose.setPlantMemento(plantHistory.getPlantMemento());
-    std::cout << "   ...State restored from Caretaker.\n" << std::endl;
-
-    std::cout << "=== Verification ===" << std::endl;
-    std::cout << "Final plant state is: " << myRose.getState() << std::endl;
-    
-    if (myRose.getState() == "Sprout") {
-        std::cout << "PASS: State successfully restored to 'Sprout'. ✅\n";
-    } else {
-        std::cout << "FAIL: State was not restored. Expected 'Sprout' but got '" 
-                  << myRose.getState() << "'. ❌\n";
+          if (isCaretaker) {
+            state = MenuState::GARDENS;
+            choice = 0;
+            mvwprintw(info_win, 18, 2, "Select a garden to assign %s to.",
+                      staffToAssign->getName().c_str());
+          } else {
+            mvwprintw(info_win, 18, 2,
+                      "I don't know how to take care of gardens!");
+            staffToAssign = nullptr; // Reset since they can't be assigned
+          }
+          wrefresh(info_win);
+        }
+        break;
+      }
+    case 27: // ESC key
+      if (state != MenuState::MAIN) {
+        state = MenuState::MAIN;
+        choice = 0;
+      }
+      break;
     }
 
     std::cout << "\nTest complete. \n" << std::endl;

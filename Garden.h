@@ -48,7 +48,15 @@ public:
    * Decrements plantCount on success. Does not delete the Plant object.
    * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
-  void removeItem(Plant *item);
+  bool removeItem(Plant *item);
+  /*@brief applies time to a garden
+   * Template method allowing overrides for certain steps;
+   */
+  void tick();
+  /*@brief returns a description of the garden
+   * @return A string description of the garden and its contents
+   */
+  std::string getDescription();
 
   void TemplateMethod();
   virtual void applyRays() = 0;

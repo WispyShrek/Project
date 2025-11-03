@@ -4,7 +4,6 @@
 #include "Staff.h"
 #include "greenHouse.h"
 #include <vector>
-using namespace std;
 
 /**
  * @class Nursery
@@ -17,22 +16,21 @@ using namespace std;
 class Nursery {
 
 private:
-  /**
-   * @var vector<Garden*> gardens
-   * @brief A collection of all gardens in the nursery.
-   */
-  vector<Garden*> gardens;
+  static Nursery *uniqueInstance;
+  std::vector<Garden *> gardens;
+  std::vector<Plant *> plantInventory;
+  double balance = 0;
   /**
    * @var vector<greenHouse*> greenHouses
    * @brief A collection of all greenhouses in the nursery.
    */
-  vector<greenHouse*> greenHouses;
+  std::vector<greenHouse *> greenHouses;
   /**
    * @var vector<Staff*> staff
    * @brief A collection of all staff members in the nursery.
    */
-  vector<Staff*> staff;
-  
+  std::vector<Staff *> staff;
+  std::vector<Customer *> customers;
 
 public:
   /**
@@ -44,13 +42,45 @@ public:
    * the existing instance.
    * @return A reference to the unique Nursery instance.
    */
-  static Nursery& instance();
-  /**
-   * @fn void Nursery::addGarden(Garden* newgarden)
+  static Nursery &instance();
+  /* @brief Returns a reference to the nursery's stafflist
+   * @return A reference to a vector of staff pointers
+   */
+  const std::vector<Staff *> &getStaff();
+  /* @brief Returns a reference to the nursery's garden list
+   * @return A reference to a vector of garden pointers
+   */
+  const std::vector<Garden *> &getGardens();
+  /* @brief Returns a reference to the nursery's greenhouse list
+   * @return A reference to a vector of greenhouse pointers
+   */
+  const std::vector<greenHouse *> &getGreenhouses();
+  /** @fn void Nursery::addGreenhouse(greenHouse* greenhouse)
+   * @brief Adds a new greenhouse to the nursery.
+   * @param newgarden A pointer to the greenHouse object to be added.
+   */
+  void addGreenhouse(greenHouse *greenhouse);
+
+  /** @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
    * @param newgarden A pointer to the Garden object to be added.
    */
-  void addGarden(Garden* newgarden); 
+  void addGarden(Garden *newgarden);
+  /* @brief adds an amount from the nursery's balance
+   * @param (double) amount to add
+   */
+  void addToBalance(double toAdd);
+  /* @brief removes an amount from the nursery's balance
+   * If the amount exceeds the balance nothing happens
+   * @param (double) amount to remove
+   * @return boolean representing that the value could be removed;
+   */
+  bool removeFromBalance(double toRemove);
+  /* @brief returns the balance of the nursery
+   * @return A double representing the balance of the nursery
+   */
+  double getBalance();
+
   /**
    * @fn void Nursery::addStaff(Staff* newStaff)
    * @brief Adds a new staff member to the nursery.

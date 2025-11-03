@@ -4,8 +4,8 @@
  */
 #ifndef CASH_H
 #define CASH_H
-#include <iostream>
 #include "PaymentStrategy.h"
+#include <iostream>
 
 /**
  * @class Cash
@@ -17,14 +17,9 @@
 class Cash : public PaymentStrategy {
 
 public:
-  /**
-   * @brief Executes the payment process for cash.
-   *
-   * Overrides the pure virtual function in PaymentStrategy to provide
-   * the specific logic for a cash payment, which in this case is printing
-   * a message to the console.
-   */
-  void pay();
+  Cash() {}
+  ~Cash() {}
+  std::string pay();
 };
 
 #endif // CASH_H
