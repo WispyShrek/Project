@@ -1,7 +1,7 @@
 #ifndef GARDEN_H
 #define GARDEN_H
 #include "Collection.h"
-#include "GardenIterator.h"
+#include "PlantIterator.h"
 #include "Plant.h"
 #include <vector>
 
@@ -12,40 +12,46 @@ private:
   std::vector<PlantCaretaker *> staffList;
 
 public:
-  /*! @fn virtual ~Garden()
-   * @brief deallocates a garden object
-   * Deletes all plants belonging to the garden and clears the staffList of the
-   * garden
-   */
   virtual ~Garden();
-  // virtual void Print() = 0;
-  /*! @fn bool addItem(Plant* item)
-   *@brief adds a plant to the garden object
-   *The addItem function attempts to find an open position in which to add the
-   * given plant object. If no space is found for the plant, the function will
-   * return false. The function will return true if the plant could be added.
-   *@param A pointer to a plant object
-   */
+  //virtual void Print() = 0;
 
-  bool addItem(Plant *item);
+  /*! @fn void Garden::addItem(Plant *item)
+   * @brief Adds a plant to the garden.
+   * Adds the plant into the first available slot in the 3x3 grid (row-major).
+   * If the grid is full (7+ capacity policy preserved via plantCount), the
+   * plant is not added and a message is printed.
+   * @param[in] item A pointer to a Plant object to be added to the garden.
+   */
+  void addItem(Plant *item);
+
+  /*! @fn void Garden::addItem(Plant *item, int row, int col)
+   * @brief Adds a plant at a specific grid position.
+   * Places the plant at [row][col] if within bounds [0..2] and the cell is empty.
+   * If the position is invalid or occupied, the plant is not added.
+   * @param[in] item Plant to add
+   * @param[in] row Row index in [0..2]
+   * @param[in] col Column index in [0..2]
+   */
+  void addItem(Plant *item, int row, int col);
+  
+  /*! @fn Iterator<Plant *> *Garden::CreateIterator()
+   * @brief Creates an iterator for the garden's plant collection.
+   * Returns a PlantIterator that iterates all non-null plants in row-major order.
+   * Caller must delete the returned iterator when done.
+   * @return A pointer to a newly created Iterator<Plant *> object.
+   */
   Iterator<Plant *> *CreateIterator();
-  /*! @fn void removeItem(Plant* item)
-   *@brief removes a plant from the garden object
-   *The removeItem function finds and removes the given plant object
-   *from the garden by deleting the plant from the plants member variable
-   *of the garden object.
-   *@param A pointer to a plant object
-   *If the given plant is not within the garden the function will have no effect
+  
+  /*! @fn void Garden::removeItem(Plant *item)
+   * @brief Removes a plant from the garden.
+   * Searches the 3x3 grid for the given Plant pointer and nulls that cell if found.
+   * Decrements plantCount on success. Does not delete the Plant object.
+   * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
-  void removeItem(Plant *item);
-  /*! @fn virtual void applyRays()=0
-   *@brief pure virtual function implemented in concrete classes.
-   *Concrete function implementations will iterate through plants in a garden,
-   *affecting plants that have the matching CareStrategy positively, and other
-   *all other plants negatively.
-   */
+  bool removeItem(Plant *item);
+
+  void TemplateMethod();
   virtual void applyRays() = 0;
-  const std::vector<PlantCaretaker *> &getStaff();
   void applyCare();
   /*! @fn void Garden::attach(PlantCaretaker *staff)
    * @brief Attaches a plantcaretaker to a garden object.
@@ -77,7 +83,8 @@ public:
   void notify();
 
 private:
-  std::vector<Plant *> plants;
+  std::vector<std::vector<Plant *>> plants = std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
+  int plantCount = 0;
 };
 
 #endif

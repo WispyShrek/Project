@@ -1,0 +1,66 @@
+\hypertarget{classPlantIterator}{}\doxysection{Plant\+Iterator Class Reference}
+\label{classPlantIterator}\index{PlantIterator@{PlantIterator}}
+
+
+Inheritance diagram for Plant\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classPlantIterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plant\+Iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classPlantIterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlantIterator_ae977c7f338a60600cf90f221e35560ac}{Plant\+Iterator}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$$>$ \&grid)
+\begin{DoxyCompactList}\small\item\em Constructs an iterator over a 3x3 Plant$\ast$ grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantIterator_a3caacf6e365e78ab29274b76ed06594d}\label{classPlantIterator_a3caacf6e365e78ab29274b76ed06594d}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classPlantIterator_a3caacf6e365e78ab29274b76ed06594d}{curr\+Item}} () override
+\begin{DoxyCompactList}\small\item\em Returns the current plant pointer or nullptr if done. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantIterator_a0903ccafcd07a3f778adc777a1947934}\label{classPlantIterator_a0903ccafcd07a3f778adc777a1947934}} 
+void \mbox{\hyperlink{classPlantIterator_a0903ccafcd07a3f778adc777a1947934}{first}} () override
+\begin{DoxyCompactList}\small\item\em Positions to the first non-\/null plant in the grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantIterator_a59ae8f0fc60f36c5c96d7a225dab01c3}\label{classPlantIterator_a59ae8f0fc60f36c5c96d7a225dab01c3}} 
+bool \mbox{\hyperlink{classPlantIterator_a59ae8f0fc60f36c5c96d7a225dab01c3}{is\+Done}} () override
+\begin{DoxyCompactList}\small\item\em True if there is no current non-\/null plant to point to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantIterator_a602bd14029546b186132c17e86b94fcd}\label{classPlantIterator_a602bd14029546b186132c17e86b94fcd}} 
+void \mbox{\hyperlink{classPlantIterator_a602bd14029546b186132c17e86b94fcd}{next}} () override
+\begin{DoxyCompactList}\small\item\em Advances to the next non-\/null plant; stays done if none. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantIterator_a72fd82ccb381bfe1e090f4d4f331135d}\label{classPlantIterator_a72fd82ccb381bfe1e090f4d4f331135d}} 
+void \mbox{\hyperlink{classPlantIterator_a72fd82ccb381bfe1e090f4d4f331135d}{prev}} () override
+\begin{DoxyCompactList}\small\item\em Moves to the previous non-\/null plant; stays if at first. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlantIterator_ae977c7f338a60600cf90f221e35560ac}\label{classPlantIterator_ae977c7f338a60600cf90f221e35560ac}} 
+\index{PlantIterator@{PlantIterator}!PlantIterator@{PlantIterator}}
+\index{PlantIterator@{PlantIterator}!PlantIterator@{PlantIterator}}
+\doxysubsubsection{\texorpdfstring{PlantIterator()}{PlantIterator()}}
+{\footnotesize\ttfamily Plant\+Iterator\+::\+Plant\+Iterator (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$$>$ \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Constructs an iterator over a 3x3 Plant$\ast$ grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Reference to the 3x3 grid. The grid must outlive the iterator. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Plant\+Iterator.\+h\item 
+Plant\+Iterator.\+cpp\end{DoxyCompactItemize}

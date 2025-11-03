@@ -2,12 +2,13 @@
 #define PLANTCARETAKER_H
 #include <iostream>
 
-#include "Customer.h"
 #include "Staff.h"
 #include <queue>
 #include <vector>
+#include "Customer.h"
 class Garden;
-class PlantCaretaker : public Staff {
+class PlantCaretaker : public Staff
+{
 private:
   std::queue<Garden *> careQueue;
   std::vector<Customer *> custList;
@@ -31,9 +32,12 @@ public:
    * @param A pointer to a Garden object.
    */
   void update(Garden *subjectOfCare);
-  const std::queue<Garden *> &getCareQueue();
 
   ~PlantCaretaker();
+  bool notify(Customer *customer, Plant *plant) override
+  {
+    return false;
+  };
 };
 
 #endif

@@ -1,0 +1,5 @@
+<map id="CustomerAssistant" name="CustomerAssistant">
+<area shape="rect" id="node1" title="A class representing a customer assistant staff member in the nursery." alt="" coords="5,155,151,181"/>
+<area shape="rect" id="node2" href="$classStaff.html" title="An abstract base class representing staff members in the nursery." alt="" coords="52,80,104,107"/>
+<area shape="rect" id="node3" href="$classSalesFloor.html" title=" " alt="" coords="33,5,123,32"/>
+</map>

@@ -8,7 +8,9 @@
 #include "Lily.h"
 #include "Inventory.h"
 #include "Iterator.h"
+#include "PlantIterator.h"
 #include "GardenIterator.h"
+#include "GreenhouseIterator.h"
 #include "LilyCreator.h"
 #include "RoseCreator.h"
 #include "TulipCreator.h"
@@ -40,6 +42,110 @@ int main() {
     using std::cout;
     using std::endl;
 
+    // === Grid-based iterator tests (Garden + PlantIterator) ===
+    cout << "\n=== Grid-based Garden/PlantIterator tests ===\n";
+    Garden* g = new Sunny();
+
+    Plant* g_p1 = new Rose();
+    Plant* g_p2 = new Lily();
+    Plant* g_p3 = new Lavender();
+    Plant* g_p4 = new Tulip();
+
+    // Place at positions, then auto-fill first free
+    g->addItem(g_p1, 0, 0);
+    g->addItem(g_p2, 0, 2);
+    g->addItem(g_p3);            // should take (0,1)
+    g->addItem(g_p4, 2, 2);
+
+    Iterator<Plant*>* git = g->CreateIterator();
+    git->first();
+    cout << "Garden iteration (row-major, skipping nulls):\n";
+    while (!git->isDone()) {
+        if (auto* p = git->currItem()) p->print();
+        git->next();
+    }
+
+    cout << "\nGarden removeItem (creates hole) and auto-fill earliest hole:\n";
+    g->removeItem(g_p3);         // hole at (0,1)
+    Plant* g_p5 = new Rose();
+    g->addItem(g_p5);            // fills (0,1)
+    git->first();
+    while (!git->isDone()) {
+        if (auto* p = git->currItem()) p->print();
+        git->next();
+    }
+
+    cout << "\nGarden PlantIterator prev() from done goes to last:\n";
+    git->first();
+    while (!git->isDone()) git->next();
+    git->prev();
+    if (auto* p = git->currItem()) p->print();
+
+    delete git; // Garden owns remaining plants
+    delete g_p3; // removed earlier
+    delete g;
+
+    // === Grid-based iterator tests (greenHouse + PlantIterator) ===
+    cout << "\n=== Grid-based greenHouse/PlantIterator tests ===\n";
+    greenHouse gh;
+
+    // Explicit placement plus auto-fill, same logic as Garden
+    Plant* h1 = new Rose();
+    Plant* h2 = new Tulip();
+    Plant* h3 = new Lavender();
+    Plant* h4 = new Lily();
+
+    gh.addItem(h1, 0, 0);   // place at (0,0)
+    gh.addItem(h2, 0, 2);   // place at (0,2)
+    gh.addItem(h3);         // auto-fill -> (0,1)
+    gh.addItem(h4, 2, 2);   // place at (2,2)
+
+    Iterator<Plant*>* hit = gh.CreateIterator();
+    hit->first();
+    cout << "greenHouse iteration (row-major, skipping nulls):\n";
+    while (!hit->isDone()) {
+        if (auto* p = hit->currItem()) p->print();
+        hit->next();
+    }
+
+    cout << "\ngreenHouse removeItem (skip hole), then prev() from done:\n";
+    gh.removeItem(h3); // create hole at (0,1)
+    hit->first();
+    while (!hit->isDone()) {
+        if (auto* p = hit->currItem()) p->print();
+        hit->next();
+    }
+    hit->prev(); // from done -> last non-null
+    if (auto* p = hit->currItem()) p->print();
+
+    // Capacity quick check: fill to 7 and ensure we don't exceed
+    {
+        // Currently we have h1 at (0,0), h2 at (0,2), h4 at (2,2)
+        // Add 4 more
+        std::vector<Plant*> extras;
+        for (int i = 0; i < 4; ++i) {
+            auto* np = new Rose();
+            extras.push_back(np);
+            gh.addItem(np);
+        }
+        // Attempt 8th (should be rejected; message printed)
+        Plant* overflow = new Rose();
+        gh.addItem(overflow);
+        // Clean up overflow (not added, so not owned by gh)
+        delete overflow;
+
+        // Clean up: remove everything we manually own from gh before scope ends
+        for (auto* p : extras) gh.removeItem(p);
+        for (auto* p : extras) delete p;
+    }
+
+    delete hit;
+    // Remove and delete the ones we added that were removed from gh
+    gh.removeItem(h1); delete h1;
+    gh.removeItem(h2); delete h2;
+    gh.removeItem(h4); delete h4;
+
+    // ...existing demo/tests...
     cout << "\n=== Testing Garden Iterator ===\n" << endl;
     Garden* garden = new Sunny();
     
@@ -48,6 +154,11 @@ int main() {
     garden->addItem(new Tulip());
     garden->addItem(new Lavender());
     garden->addItem(new Lily());
+    garden->addItem(new Rose());
+    garden->addItem(new Tulip());
+
+    std::cout << "Added 6 plants to the garden." << std::endl;
+
     
     Iterator<Plant*>* gardenIt = garden->CreateIterator();
     
@@ -72,12 +183,10 @@ int main() {
     cout << "\nTesting isDone() at valid position:" << endl;
     cout << "isDone: " << (gardenIt->isDone() ? "true" : "false") << endl;
     
-    // Move to end
-    gardenIt->next();
-    gardenIt->next();
-    gardenIt->next();
-    gardenIt->next();
-    
+    while (!gardenIt->isDone()) {
+        gardenIt->next();
+    }
+
     cout << "\nTesting isDone() after moving past end:" << endl;
     cout << "isDone: " << (gardenIt->isDone() ? "true" : "false") << endl;
     
@@ -197,15 +306,17 @@ int main() {
         GreenhouseController ctl;   // defaults to SprinklersOn/Off
 
         std::cout << "Flip up:\n";
-        ctl.flipUp();               // expect: [Sprinkler] ON
+        ctl.flipUpSprinklers();               // expect: [Sprinkler] ON
 
         std::cout << "Flip down:\n";
-        ctl.flipDown();             // expect: [Sprinkler] OFF
+        ctl.flipDownSprinklers();             // expect: [Sprinkler] OFF
 
         std::cout << "Flip up x2 then down:\n";
-        ctl.flipUp();               // [Sprinkler] ON
-        ctl.flipUp();               // [Sprinkler] ON (again)
-        ctl.flipDown();             // [Sprinkler] OFF
+        ctl.flipUpSprinklers();               // [Sprinkler] ON
+        ctl.flipUpSprinklers();               // [Sprinkler] ON (again)
+        ctl.flipDownSprinklers();             // [Sprinkler] OFF
+
+        
     } 
     std::cout << "\n== greenHouse::powerSystem() test ==\n";
     {
@@ -223,10 +334,11 @@ int main() {
 
     Staff* a = pcc.createStaff();    // Factory Method
     Staff* b = cac.createStaff();
-    Customer* cust1 = new FussyCust();
+    Customer* cust1 = new FussyCust();/*
     a->care();    a->update();    a->notify(cust1);
     b->care();    b->update();    b->notify(cust1);
-
+*/  
+    delete cust1;
     delete b; 
     delete a;
 

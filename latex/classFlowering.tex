@@ -1,0 +1,91 @@
+\hypertarget{classFlowering}{}\doxysection{Flowering Class Reference}
+\label{classFlowering}\index{Flowering@{Flowering}}
+
+
+A class representing the flowering state of a plant, derived from the \mbox{\hyperlink{classPlantState}{Plant\+State}} base class.  
+
+
+
+
+{\ttfamily \#include $<$Flowering.\+h$>$}
+
+
+
+Inheritance diagram for Flowering\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFlowering__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Flowering\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFlowering__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFlowering_afafd84a080bde733e978d442c2866fc5}\label{classFlowering_afafd84a080bde733e978d442c2866fc5}} 
+void \mbox{\hyperlink{classFlowering_afafd84a080bde733e978d442c2866fc5}{print}} ()
+\begin{DoxyCompactList}\small\item\em Prints the details of the flowering state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classFlowering_a41297f14a055aa2b19505cbe1f156de8}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classFlowering}{Flowering}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing the flowering state of a plant, derived from the \mbox{\hyperlink{classPlantState}{Plant\+State}} base class. 
+
+The \mbox{\hyperlink{classFlowering}{Flowering}} class implements the behavior of a plant that is in the flowering stage. In this state, the plant can transition to the \mbox{\hyperlink{classMature}{Mature}} state upon receiving care. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFlowering_a41297f14a055aa2b19505cbe1f156de8}\label{classFlowering_a41297f14a055aa2b19505cbe1f156de8}} 
+\index{Flowering@{Flowering}!clone@{clone}}
+\index{clone@{clone}!Flowering@{Flowering}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Flowering\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a clone of the \mbox{\hyperlink{classFlowering}{Flowering}} state. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \mbox{\hyperlink{classFlowering}{Flowering}} state. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+\mbox{\Hypertarget{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}\label{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}} 
+\index{Flowering@{Flowering}!next@{next}}
+\index{next@{next}!Flowering@{Flowering}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily void Flowering\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Transitions the plant to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A pointer to the \mbox{\hyperlink{classPlant}{Plant}} object whose state is to be changed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Flowering.\+h\item 
+Flowering.\+cpp\end{DoxyCompactItemize}

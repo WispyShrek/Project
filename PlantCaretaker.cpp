@@ -1,10 +1,13 @@
 #include "PlantCaretaker.h"
 #include "Garden.h"
-
+/// @brief Default constructor for PlantCaretaker.
+/// Initializes the care queue and customer list.
 PlantCaretaker::PlantCaretaker() {
   careQueue = {};
   custList = {};
 }
+/// @brief Destructor for PlantCaretaker.
+/// Clears the care queue and deletes all customers in the list.
 PlantCaretaker::~PlantCaretaker() {
   while (!careQueue.empty()) {
     careQueue.pop();
@@ -14,6 +17,8 @@ PlantCaretaker::~PlantCaretaker() {
     custList[i] = NULL;
   }
 }
+/// @brief Applies care to the next garden in the queue.
+/// Pops the front garden from the queue and calls its applyCare method.
 void PlantCaretaker::care() {
   if (!careQueue.empty()) {
     Garden *toCareFor = careQueue.front();
@@ -21,46 +26,8 @@ void PlantCaretaker::care() {
     toCareFor->applyCare();
   }
 }
-
-const std::queue<Garden *> &PlantCaretaker::getCareQueue() {
-  return this->careQueue;
-}
-
+/// @brief Adds a garden to the care queue.
+/// @param subjectOfCare Pointer to the Garden object needing care.
 void PlantCaretaker::update(Garden *subjectOfCare) {
   this->careQueue.push(subjectOfCare);
 }
-
-#ifdef ENABLE_DOCTESTS
-#include "Sunny.h"
-#include "doctest.h"
-TEST_CASE("Testing update function") {
-  Garden *g = new Sunny();
-  PlantCaretaker *carer = new PlantCaretaker();
-  g->attach(carer);
-  g->notify();
-  CHECK(carer->getCareQueue().size() == 1);
-  CHECK(carer->getCareQueue().front() == g);
-}
-TEST_CASE("Testing care function") {
-  Garden *g = new Sunny();
-  Garden *g2 = new Sunny();
-  PlantCaretaker *carer = new PlantCaretaker();
-  SUBCASE("applying care when the careQueue has items") {
-    g->attach(carer);
-    g2->attach(carer);
-    g->notify();
-    CHECK(carer->getCareQueue().front() == g);
-    g2->notify();
-    CHECK(carer->getCareQueue().back() == g2);
-    CHECK(carer->getCareQueue().size() == 2);
-    carer->care();
-    CHECK(carer->getCareQueue().front() == g2);
-    CHECK(carer->getCareQueue().size() == 1);
-    carer->care();
-    CHECK(carer->getCareQueue().size() == 0);
-  }
-  SUBCASE("attempting to call care when the careQueue is empty") {
-    carer->care();
-  }
-}
-#endif

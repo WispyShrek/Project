@@ -15,7 +15,7 @@ $(BINDIR)/program: $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCFILES))
 	@if [ ! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR); \
 	fi
-	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/program $^
+	$(CXX) $(CXXFLAGS) -o $(BINDIR)/program $^
 
 $(OBJDIR)/%.o: %.cpp
 	@if [ ! -d $(OBJDIR) ]; then \
@@ -27,7 +27,7 @@ run: $(BINDIR)/program $(SRCFILES)
 	./$(BINDIR)/program
 
 test:
-	@if [ ! -d $(BINDIR) ]; then \
+	@if [! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR);\
 	fi
 	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES)
