@@ -28,8 +28,5 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get install -y g++ libncurses5-dev libncursesw5-dev
 
-    - name: Build main program
-      run: make all
-
     - name: Run doctest unit tests
       run: make test
