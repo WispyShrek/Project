@@ -1,0 +1,91 @@
+\hypertarget{classMature}{}\doxysection{Mature Class Reference}
+\label{classMature}\index{Mature@{Mature}}
+
+
+A class representing the mature state of a plant, derived from the \mbox{\hyperlink{classPlantState}{Plant\+State}} base class.  
+
+
+
+
+{\ttfamily \#include $<$Mature.\+h$>$}
+
+
+
+Inheritance diagram for Mature\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classMature__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mature\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classMature__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+\begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMature_ae767a1942c1ac64c3091cd10115c99af}\label{classMature_ae767a1942c1ac64c3091cd10115c99af}} 
+void \mbox{\hyperlink{classMature_ae767a1942c1ac64c3091cd10115c99af}{print}} ()
+\begin{DoxyCompactList}\small\item\em Prints the details of the mature state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classMature_a4bdddd89c17a5002962e1ece04892c31}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classMature}{Mature}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class representing the mature state of a plant, derived from the \mbox{\hyperlink{classPlantState}{Plant\+State}} base class. 
+
+The \mbox{\hyperlink{classMature}{Mature}} class implements the behavior of a plant that has reached maturity. In this state, the plant can transition to other states based on care and conditions. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMature_a4bdddd89c17a5002962e1ece04892c31}\label{classMature_a4bdddd89c17a5002962e1ece04892c31}} 
+\index{Mature@{Mature}!clone@{clone}}
+\index{clone@{clone}!Mature@{Mature}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Mature\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a clone of the \mbox{\hyperlink{classMature}{Mature}} state. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \mbox{\hyperlink{classMature}{Mature}} state. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+\mbox{\Hypertarget{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}\label{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}} 
+\index{Mature@{Mature}!next@{next}}
+\index{next@{next}!Mature@{Mature}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily void Mature\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Transitions the plant to the next state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & A pointer to the \mbox{\hyperlink{classPlant}{Plant}} object whose state is to be changed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Mature.\+h\item 
+Mature.\+cpp\end{DoxyCompactItemize}

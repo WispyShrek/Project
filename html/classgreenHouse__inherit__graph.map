@@ -1,0 +1,4 @@
+<map id="greenHouse" name="greenHouse">
+<area shape="rect" id="node1" title="A class representing a greenhouse that holds a 3x3 grid of plants." alt="" coords="36,80,136,107"/>
+<area shape="rect" id="node2" href="$classCollection.html" title=" " alt="" coords="5,5,167,32"/>
+</map>

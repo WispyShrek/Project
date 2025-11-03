@@ -1,0 +1,84 @@
+\hypertarget{classGreenhouseController}{}\doxysection{Greenhouse\+Controller Class Reference}
+\label{classGreenhouseController}\index{GreenhouseController@{GreenhouseController}}
+
+
+A controller class for managing greenhouse systems like sprinklers and lights.  
+
+
+
+
+{\ttfamily \#include $<$Greenhouse\+Controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGreenhouseController_a4c9545a75accccda110a0b1f5c5939a3}\label{classGreenhouseController_a4c9545a75accccda110a0b1f5c5939a3}} 
+\mbox{\hyperlink{classGreenhouseController_a4c9545a75accccda110a0b1f5c5939a3}{Greenhouse\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classGreenhouseController}{Greenhouse\+Controller}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenhouseController_a5f20b1d1110be6d082c4d4d6b4f3f59d}\label{classGreenhouseController_a5f20b1d1110be6d082c4d4d6b4f3f59d}} 
+\mbox{\hyperlink{classGreenhouseController_a5f20b1d1110be6d082c4d4d6b4f3f59d}{$\sim$\+Greenhouse\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classGreenhouseController}{Greenhouse\+Controller}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGreenhouseController_ad9f1e463cdcca9cb6d571e4fabc53966}{set\+Sprinkler\+Commands}} (\mbox{\hyperlink{classCommand}{Command}} $\ast$on, \mbox{\hyperlink{classCommand}{Command}} $\ast$off)
+\begin{DoxyCompactList}\small\item\em Sets the commands for turning sprinklers on and off. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGreenhouseController_aae93b21d2406bf422eb44e96e80f3ce6}{set\+Light\+Commands}} (\mbox{\hyperlink{classCommand}{Command}} $\ast$on, \mbox{\hyperlink{classCommand}{Command}} $\ast$off)
+\begin{DoxyCompactList}\small\item\em Sets the commands for turning lights on and off. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenhouseController_a0daa4c729a664238ed877953940a1861}\label{classGreenhouseController_a0daa4c729a664238ed877953940a1861}} 
+void \mbox{\hyperlink{classGreenhouseController_a0daa4c729a664238ed877953940a1861}{flip\+Up\+Sprinklers}} ()
+\begin{DoxyCompactList}\small\item\em Activates the command to turn on the sprinklers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenhouseController_acadbdbbee39f8803548b4fa77b8d781e}\label{classGreenhouseController_acadbdbbee39f8803548b4fa77b8d781e}} 
+void \mbox{\hyperlink{classGreenhouseController_acadbdbbee39f8803548b4fa77b8d781e}{flip\+Down\+Sprinklers}} ()
+\begin{DoxyCompactList}\small\item\em Activates the command to turn off the sprinklers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenhouseController_a7655d80616e94f8156492dc2ab350071}\label{classGreenhouseController_a7655d80616e94f8156492dc2ab350071}} 
+void \mbox{\hyperlink{classGreenhouseController_a7655d80616e94f8156492dc2ab350071}{flip\+Up\+Lights}} ()
+\begin{DoxyCompactList}\small\item\em Activates the command to turn on the lights. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGreenhouseController_a4889021e08c9dced83c1abad1e204d68}\label{classGreenhouseController_a4889021e08c9dced83c1abad1e204d68}} 
+void \mbox{\hyperlink{classGreenhouseController_a4889021e08c9dced83c1abad1e204d68}{flip\+Down\+Lights}} ()
+\begin{DoxyCompactList}\small\item\em Activates the command to turn off the lights. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A controller class for managing greenhouse systems like sprinklers and lights. 
+
+The \mbox{\hyperlink{classGreenhouseController}{Greenhouse\+Controller}} class uses the \mbox{\hyperlink{classCommand}{Command}} design pattern to encapsulate requests to turn on/off sprinklers and lights in the greenhouse. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGreenhouseController_aae93b21d2406bf422eb44e96e80f3ce6}\label{classGreenhouseController_aae93b21d2406bf422eb44e96e80f3ce6}} 
+\index{GreenhouseController@{GreenhouseController}!setLightCommands@{setLightCommands}}
+\index{setLightCommands@{setLightCommands}!GreenhouseController@{GreenhouseController}}
+\doxysubsubsection{\texorpdfstring{setLightCommands()}{setLightCommands()}}
+{\footnotesize\ttfamily void Greenhouse\+Controller\+::set\+Light\+Commands (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{on,  }\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{off }\end{DoxyParamCaption})}
+
+
+
+Sets the commands for turning lights on and off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & Pointer to the command to turn lights on. \\
+\hline
+{\em off} & Pointer to the command to turn lights off. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGreenhouseController_ad9f1e463cdcca9cb6d571e4fabc53966}\label{classGreenhouseController_ad9f1e463cdcca9cb6d571e4fabc53966}} 
+\index{GreenhouseController@{GreenhouseController}!setSprinklerCommands@{setSprinklerCommands}}
+\index{setSprinklerCommands@{setSprinklerCommands}!GreenhouseController@{GreenhouseController}}
+\doxysubsubsection{\texorpdfstring{setSprinklerCommands()}{setSprinklerCommands()}}
+{\footnotesize\ttfamily void Greenhouse\+Controller\+::set\+Sprinkler\+Commands (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{on,  }\item[{\mbox{\hyperlink{classCommand}{Command}} $\ast$}]{off }\end{DoxyParamCaption})}
+
+
+
+Sets the commands for turning sprinklers on and off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & Pointer to the command to turn sprinklers on. \\
+\hline
+{\em off} & Pointer to the command to turn sprinklers off. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Greenhouse\+Controller.\+h\item 
+Greenhouse\+Controller.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,115 @@
+\hypertarget{classTulip}{}\doxysection{Tulip Class Reference}
+\label{classTulip}\index{Tulip@{Tulip}}
+
+
+A class representing a \mbox{\hyperlink{classTulip}{Tulip}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class.  
+
+
+
+
+{\ttfamily \#include $<$Tulip.\+h$>$}
+
+
+
+Inheritance diagram for Tulip\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classTulip__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tulip\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classTulip__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTulip_a64a3735043914f7adf6e9d257b0d23ab}\label{classTulip_a64a3735043914f7adf6e9d257b0d23ab}} 
+\mbox{\hyperlink{classTulip_a64a3735043914f7adf6e9d257b0d23ab}{Tulip}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classTulip}{Tulip}} class. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTulip_ab793f96379c425a3aeb38adb252affc3}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Returns the name of the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTulip_ad284c51873aebd196beb99a493081625}\label{classTulip_ad284c51873aebd196beb99a493081625}} 
+\mbox{\hyperlink{classTulip}{Tulip}} $\ast$ \mbox{\hyperlink{classTulip_ad284c51873aebd196beb99a493081625}{clone}} ()
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classTulip}{Tulip}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTulip_a3bcb57117975a47b5c7263589c0776a1}\label{classTulip_a3bcb57117975a47b5c7263589c0776a1}} 
+void \mbox{\hyperlink{classTulip_a3bcb57117975a47b5c7263589c0776a1}{print}} () override
+\begin{DoxyCompactList}\small\item\em Prints the details of the \mbox{\hyperlink{classTulip}{Tulip}} plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTulip_aca5f6ddb4f79d64b913457bbe90ef638}{get\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Returns the price of the \mbox{\hyperlink{classTulip}{Tulip}} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTulip_abeeb610c823ff931cafbb37c66b9ca71}{Tulip}} (\mbox{\hyperlink{classTulip}{Tulip}} \&to\+Copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \mbox{\hyperlink{classTulip}{Tulip}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class representing a \mbox{\hyperlink{classTulip}{Tulip}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class. 
+
+The \mbox{\hyperlink{classTulip}{Tulip}} class implements specific attributes and behaviors for \mbox{\hyperlink{classTulip}{Tulip}} plants, including cloning functionality and printing details. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTulip_abeeb610c823ff931cafbb37c66b9ca71}\label{classTulip_abeeb610c823ff931cafbb37c66b9ca71}} 
+\index{Tulip@{Tulip}!Tulip@{Tulip}}
+\index{Tulip@{Tulip}!Tulip@{Tulip}}
+\doxysubsubsection{\texorpdfstring{Tulip()}{Tulip()}}
+{\footnotesize\ttfamily Tulip\+::\+Tulip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTulip}{Tulip}} \&}]{to\+Copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Copy constructor for the \mbox{\hyperlink{classTulip}{Tulip}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Copy} & A reference to the \mbox{\hyperlink{classTulip}{Tulip}} object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTulip_ab793f96379c425a3aeb38adb252affc3}\label{classTulip_ab793f96379c425a3aeb38adb252affc3}} 
+\index{Tulip@{Tulip}!getName@{getName}}
+\index{getName@{getName}!Tulip@{Tulip}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Tulip\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the name of the plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the name of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classTulip_aca5f6ddb4f79d64b913457bbe90ef638}\label{classTulip_aca5f6ddb4f79d64b913457bbe90ef638}} 
+\index{Tulip@{Tulip}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Tulip@{Tulip}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Tulip\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the price of the \mbox{\hyperlink{classTulip}{Tulip}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A double representing the price of the plant. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Tulip.\+h\item 
+Tulip.\+cpp\end{DoxyCompactItemize}

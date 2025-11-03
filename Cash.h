@@ -17,13 +17,8 @@
 class Cash : public PaymentStrategy {
 
 public:
-  /**
-   * @brief Executes the payment process for cash.
-   *
-   * Overrides the pure virtual function in PaymentStrategy to provide
-   * the specific logic for a cash payment, which in this case is printing
-   * a message to the console.
-   */
+  Cash(){}
+  ~Cash(){}
   void pay();
 };
 

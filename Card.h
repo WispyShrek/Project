@@ -16,13 +16,8 @@
  */
 class Card : public PaymentStrategy {
 public:
-  /**
-   * @brief Executes the payment process for a card.
-   *
-   * Overrides the pure virtual function in PaymentStrategy to provide
-   * the specific logic for a card payment, which in this case is printing
-   * a message to the console.
-   */
+  Card(){}
+  ~Card(){}
   void pay();
 };
 
