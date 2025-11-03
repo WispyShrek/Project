@@ -1,17 +1,19 @@
 #ifndef LILY_H
 #define LILY_H
 
-#include "PartialSunCare.h"
 #include "Plant.h"
+#include "PartialSunCare.h"
 
 /** @class Lily
  * @brief A class representing a Lily plant, derived from the Plant base class.
- *
+ * 
  * The Lily class implements specific attributes and behaviors for Lily plants,
  * including cloning functionality and printing details.
  */
 
 class Lily : public Plant {
+private:
+  double price;
 public:
   /** @fn Lily::Lily()
    * @brief Constructor for the Lily class.
@@ -21,16 +23,15 @@ public:
    * @brief Returns the name of the plant.
    * @return A string representing the name of the plant.
    */
-  std::string getName() override;
+  std::string getName();
   /** @fn Lily Lily::*clone()
    * @brief Creates a clone of the Lily object.
    */
-  Lily *clone() override;
-  /** @fn std::string Lily::print()
-   * @brief Returns the details of the Lily plant.
-   * @return A string representing the Lily plant.
+  Lily *clone();
+  /** @fn void Lily::print()
+   * @brief Prints the details of the Lily plant.
    */
-  std::string print() override;
+  void print() override;
   /** @fn void Lily::getPrice()
    * @brief Returns the price of the Lily plant.
    * @return A double representing the price of the plant.
@@ -43,6 +44,7 @@ protected:
    * @param toCopy A reference to the Lily object to be copied.
    */
   Lily(Lily &toCopy);
+
 };
 
 #endif

@@ -18,21 +18,15 @@ CustomerAssistant::~CustomerAssistant() {
 void CustomerAssistant::care() {
   cout << "CustomerAssistant: should not be doing anything with plants\n";
 }
-/// @brief Receives an update notification from the floor or garden.
 
 /// @brief Notifies the assistant to remove a plant from inventory.
 /// @param customer Pointer to the Customer initiating the notification.
 /// @param plant Pointer to the Plant to be removed.
 /// @return True if the plant was successfully removed from inventory.
 
-bool CustomerAssistant::notify(Customer *customer, Plant *plant) {
-  return this->inventory.removeItem(plant->getName());
+    cout << "CustomerAssistant: update() received from floor/garden\n";
 }
-/// @brief Receives an update notification from the floor or garden.
-void CustomerAssistant::update() {
-  cout << "CustomerAssistant: update() received from floor/garden\n";
-}
-/// @brief Unit test for basic functionality of CustomerAssistant.
+
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
@@ -41,16 +35,17 @@ TEST_CASE("CustomerAssistant: Test CustomerAssistant class") {
   SalesFloor *floor = nullptr;
   CustomerAssistant *assistant = new CustomerAssistant();
 
-  assistant->care();
+    MockCustomer* mockCustomer = new MockCustomer();
+    assistant->notify(mockCustomer);
 
-  // Test update method
-  assistant->update();
+    // Test update method
+    assistant->update();
 
-  delete mockCustomer;
-  delete assistant;
+    delete mockCustomer;
+    delete assistant;
 }
 TEST_CASE("CustomerAssistant: Test Destructor") {
-  CustomerAssistant *assistant = new CustomerAssistant();
-  delete assistant; // Ensure no memory leaks occur
+    CustomerAssistant* assistant = new CustomerAssistant();
+    delete assistant; // Ensure no memory leaks occur
 }
 #endif

@@ -30,7 +30,7 @@ public:
    * @brief Returns the details of the Cactus plant.
    * @return A string representation of the plant.
    */
-  std::string print() override;
+  void print() override;
   /** @fn double Cactus::getPrice()
    * @brief Returns the price of the Cactus plant.
    * @return A double representing the price of the plant.

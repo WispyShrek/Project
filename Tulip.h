@@ -4,14 +4,18 @@
 #include "Plant.h"
 #include "ShadyCare.h"
 
+
 /** @class Tulip
  * @brief A class representing a Tulip plant, derived from the Plant base class.
- *
- * The Tulip class implements specific attributes and behaviors for Tulip
- * plants, including cloning functionality and printing details.
+ * 
+ * The Tulip class implements specific attributes and behaviors for Tulip plants,
+ * including cloning functionality and printing details.
  */
 
 class Tulip : public Plant {
+private:
+  double price;
+
 public:
   /** @fn Tulip::Tulip()
    * @brief Constructor for the Tulip class.
@@ -21,16 +25,15 @@ public:
    * @brief Returns the name of the plant.
    * @return A string representing the name of the plant.
    */
-  std::string getName() override;
+  std::string getName();
   /** @fn Tulip Tulip::*clone()
    * @brief Creates a clone of the Tulip object.
    */
-  Tulip *clone() override;
-  /** @fn std::string Tulip::print()
-   * @brief Returns the details of the Tulip plant.
-   * @return A string representing the Tulip plant.
+  Tulip *clone();
+  /** @fn void Tulip::print()
+   * @brief Prints the details of the Tulip plant.
    */
-  std::string print() override;
+  void print() override;
   /** @fn double Tulip::getPrice()
    * @brief Returns the price of the Tulip plant.
    * @return A double representing the price of the plant.

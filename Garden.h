@@ -1,8 +1,8 @@
 #ifndef GARDEN_H
 #define GARDEN_H
 #include "Collection.h"
-#include "Plant.h"
 #include "PlantIterator.h"
+#include "Plant.h"
 #include <vector>
 
 class PlantCaretaker;
@@ -12,48 +12,41 @@ private:
   std::vector<PlantCaretaker *> staffList;
 
 public:
-  Garden();
   virtual ~Garden();
-  /** @fn std::string Garden::print()
-   * @brief Returns a visual representation of a garden
-   * @return A string representing the garden.
-   */
-  std::string print();
+  //virtual void Print() = 0;
 
-  /** @fn void Garden::tryAddItem(Plant *item)
+  /*! @fn void Garden::addItem(Plant *item)
    * @brief Adds a plant to the garden.
-   * Adds the plant into the first available slot in the 3x3 grid (row-major)
-   * and returns true. If the grid is full (7+ capacity policy preserved via
-   * plantCount), the plant is not added and false is returned.
+   * Adds the plant into the first available slot in the 3x3 grid (row-major).
+   * If the grid is full (7+ capacity policy preserved via plantCount), the
+   * plant is not added and a message is printed.
    * @param[in] item A pointer to a Plant object to be added to the garden.
-   * @return A boolean indicator for success
    */
-  bool tryAddItem(Plant *item);
+  void addItem(Plant *item);
 
-  /** @fn void Garden::addItem(Plant *item, int row, int col)
+  /*! @fn void Garden::addItem(Plant *item, int row, int col)
    * @brief Adds a plant at a specific grid position.
-   * Places the plant at [row][col] if within bounds [0..2] and the cell is
-   * empty. If the position is invalid or occupied, the plant is not added.
+   * Places the plant at [row][col] if within bounds [0..2] and the cell is empty.
+   * If the position is invalid or occupied, the plant is not added.
    * @param[in] item Plant to add
    * @param[in] row Row index in [0..2]
    * @param[in] col Column index in [0..2]
    */
   void addItem(Plant *item, int row, int col);
-
-  /** @fn Iterator<Plant *> *Garden::CreateIterator()
+  
+  /*! @fn Iterator<Plant *> *Garden::CreateIterator()
    * @brief Creates an iterator for the garden's plant collection.
-   * Returns a PlantIterator that iterates all non-null plants in row-major
-   * order. Caller must delete the returned iterator when done.
+   * Returns a PlantIterator that iterates all non-null plants in row-major order.
+   * Caller must delete the returned iterator when done.
    * @return A pointer to a newly created Iterator<Plant *> object.
    */
   Iterator<Plant *> *CreateIterator();
-
-  /** @fn void Garden::removeItem(Plant *item)
+  
+  /*! @fn void Garden::removeItem(Plant *item)
    * @brief Removes a plant from the garden.
-   * Searches the 3x3 grid for the given Plant pointer and nulls that cell if
-   * found. Decrements plantCount on success. Does not delete the Plant object.
-   * @param[in] item A pointer to the Plant object to be removed from the
-   * garden.
+   * Searches the 3x3 grid for the given Plant pointer and nulls that cell if found.
+   * Decrements plantCount on success. Does not delete the Plant object.
+   * @param[in] item A pointer to the Plant object to be removed from the garden.
    */
   bool removeItem(Plant *item);
   /*@brief applies time to a garden
@@ -65,9 +58,10 @@ public:
    */
   std::string getDescription();
 
+  void TemplateMethod();
   virtual void applyRays() = 0;
   void applyCare();
-  /** @fn void Garden::attach(PlantCaretaker *staff)
+  /*! @fn void Garden::attach(PlantCaretaker *staff)
    * @brief Attaches a plantcaretaker to a garden object.
    * The attach function appends the given PlantCaretaker to the staffList
    * member variable for the purpose of being notified of changes to the Garden
@@ -75,7 +69,7 @@ public:
    * @param A pointer to a PlantCaretaker object.
    */
   void attach(PlantCaretaker *staff);
-  /** @fn void Garden::detach(PlantCaretaker *staff)
+  /*! @fn void Garden::detach(PlantCaretaker *staff)
    * @brief detaches a plantcaretaker from a garden object.
    * The detach function finds and removes the given PlantCaretaker from the
    * list of PlantCaretakers stored in the staffList member variable to be
@@ -86,7 +80,7 @@ public:
    * @param A pointer to a PlantCaretaker object.
    */
   void detach(PlantCaretaker *staff);
-  /** @fn void Garden::notify()
+  /*! @fn void Garden::notify()
    * @brief Notifies plantCaretakers of an event.
    * The detach function iterates through the staffList member variable and
    * calls update on each of the PlantCaretaker objects within, using the Garden
@@ -95,22 +89,10 @@ public:
    * update function invoked
    */
   void notify();
-  /** @fn Plant * Garden::removeMature()
-   * @brief removes one mature plant from garden if there are any
-   * @returns A plant pointer of a mature plant in the garden
-   */
-  Plant *removeMature();
-  /** @fn Plant * Garden::removeDying()
-   * @brief removes one dying plant from garden if there are any
-   * @returns A plant pointer of a dying plant in the garden
-   */
 
-  Plant *removeDying();
-
-protected:
-  std::vector<std::vector<Plant *>> plants;
+private:
+  std::vector<std::vector<Plant *>> plants = std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
   int plantCount = 0;
-  bool changed;
 };
 
 #endif

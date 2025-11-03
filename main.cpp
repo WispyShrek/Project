@@ -1,109 +1,252 @@
-﻿#include "Card.h"
-#include "CareStrategy.h"
-#include "Caretaker.h"
-#include "Cash.h"
-#include "CustomerAssistant.h"
-#include "CustomerAssistantCreator.h"
-#include "EFT.h"
-#include "FussyCust.h"
+#include <iostream>
+#include <vector>
 #include "Garden.h"
-#include "GardenIterator.h"
-#include "GreenhouseController.h"
-#include "GreenhouseIterator.h"
+#include "Plant.h"
+#include "Rose.h"
+#include "Tulip.h"
+#include "Lavender.h"
+#include "Lily.h"
 #include "Inventory.h"
 #include "Iterator.h"
-#include "Lavender.h"
-#include "LavenderCreator.h"
-#include "Lily.h"
-#include "LilyCreator.h"
-#include "Nursery.h"
-#include "PartialSun.h"
-#include "PartialSunCare.h"
-#include "PaymentStrategy.h"
-#include "Plant.h"
-#include "PlantCaretaker.h"
-#include "PlantCaretakerCreator.h"
 #include "PlantIterator.h"
-#include "PlantMemento.h"
-#include "Rose.h"
+#include "GardenIterator.h"
+#include "GreenhouseIterator.h"
+#include "LilyCreator.h"
 #include "RoseCreator.h"
-#include "Shady.h"
-#include "ShadyCare.h"
-#include "Sunny.h"
-#include "SunnyCare.h"
-#include "Transaction.h"
-#include "Tulip.h"
 #include "TulipCreator.h"
+#include "LavenderCreator.h"
 #include "greenHouse.h"
-#include <iostream>
-#include <random>
-#include <vector>
+#include "GreenhouseController.h"
+#include "PlantCaretakerCreator.h"
+#include "CustomerAssistantCreator.h"
+#include "Sunny.h"
+#include "Nursery.h"
+#include "PlantCaretaker.h"
+#include "CustomerAssistant.h"
+#include "CareStrategy.h"
+#include "SunnyCare.h"
+#include "ShadyCare.h"
+#include "PartialSunCare.h"
+#include "Plant.h"
+#include "EFT.h"
+#include "Card.h"
+#include "Cash.h"
+#include "PaymentStrategy.h"
+#include "Transaction.h"
+#include "PlantCaretaker.h"
+#include "Caretaker.h"
+#include "PlantMemento.h"
+#include "FussyCust.h"
 
-#include <chrono>
-#include <iomanip>
-#include <ncurses.h>
-#include <panel.h>
-#include <regex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+int main() {
+    using std::cout;
+    using std::endl;
 
-void print_with_ansi(WINDOW *win, int y, int x, const std::string text) {
-  int cx = x;
-  std::regex color_regex("\033\\[38;5;([0-9]+)m");
-  std::smatch match;
-  std::string remaining = text;
+    // === Grid-based iterator tests (Garden + PlantIterator) ===
+    cout << "\n=== Grid-based Garden/PlantIterator tests ===\n";
+    Garden* g = new Sunny();
 
-  while (std::regex_search(remaining, match, color_regex)) {
-    // Print text before the escape, handling newlines
-    std::string before = match.prefix();
-    for (char c : before) {
-      if (c == '\n') {
-        y++;
-        cx = x;
-        wmove(win, y, cx);
-      } else {
-        mvwaddch(win, y, cx++, c);
-      }
+    Plant* g_p1 = new Rose();
+    Plant* g_p2 = new Lily();
+    Plant* g_p3 = new Lavender();
+    Plant* g_p4 = new Tulip();
+
+    // Place at positions, then auto-fill first free
+    g->addItem(g_p1, 0, 0);
+    g->addItem(g_p2, 0, 2);
+    g->addItem(g_p3);            // should take (0,1)
+    g->addItem(g_p4, 2, 2);
+
+    Iterator<Plant*>* git = g->CreateIterator();
+    git->first();
+    cout << "Garden iteration (row-major, skipping nulls):\n";
+    while (!git->isDone()) {
+        if (auto* p = git->currItem()) p->print();
+        git->next();
     }
 
-    // Parse and apply color
-    int color_id = std::stoi(match[1]);
-    if (color_id >= 0 && color_id < 256) {
-      init_pair(color_id, color_id, -1);
-      wattron(win, COLOR_PAIR(color_id));
+    cout << "\nGarden removeItem (creates hole) and auto-fill earliest hole:\n";
+    g->removeItem(g_p3);         // hole at (0,1)
+    Plant* g_p5 = new Rose();
+    g->addItem(g_p5);            // fills (0,1)
+    git->first();
+    while (!git->isDone()) {
+        if (auto* p = git->currItem()) p->print();
+        git->next();
     }
 
-    remaining = match.suffix();
-  }
+    cout << "\nGarden PlantIterator prev() from done goes to last:\n";
+    git->first();
+    while (!git->isDone()) git->next();
+    git->prev();
+    if (auto* p = git->currItem()) p->print();
 
-  // Print remaining text (after last color code)
-  for (char c : remaining) {
-    if (c == '\n') {
-      y++;
-      cx = x;
-      wmove(win, y, cx);
-    } else {
-      mvwaddch(win, y, cx++, c);
+    delete git; // Garden owns remaining plants
+    delete g_p3; // removed earlier
+    delete g;
+
+    // === Grid-based iterator tests (greenHouse + PlantIterator) ===
+    cout << "\n=== Grid-based greenHouse/PlantIterator tests ===\n";
+    greenHouse gh;
+
+    // Explicit placement plus auto-fill, same logic as Garden
+    Plant* h1 = new Rose();
+    Plant* h2 = new Tulip();
+    Plant* h3 = new Lavender();
+    Plant* h4 = new Lily();
+
+    gh.addItem(h1, 0, 0);   // place at (0,0)
+    gh.addItem(h2, 0, 2);   // place at (0,2)
+    gh.addItem(h3);         // auto-fill -> (0,1)
+    gh.addItem(h4, 2, 2);   // place at (2,2)
+
+    Iterator<Plant*>* hit = gh.CreateIterator();
+    hit->first();
+    cout << "greenHouse iteration (row-major, skipping nulls):\n";
+    while (!hit->isDone()) {
+        if (auto* p = hit->currItem()) p->print();
+        hit->next();
     }
-  }
 
-  wattroff(win, A_COLOR);
-}
+    cout << "\ngreenHouse removeItem (skip hole), then prev() from done:\n";
+    gh.removeItem(h3); // create hole at (0,1)
+    hit->first();
+    while (!hit->isDone()) {
+        if (auto* p = hit->currItem()) p->print();
+        hit->next();
+    }
+    hit->prev(); // from done -> last non-null
+    if (auto* p = hit->currItem()) p->print();
 
-void print_multiline(WINDOW *win, int start_y, int start_x,
-                     const std::string &text) {
-  std::stringstream ss(text);
-  std::string line;
-  int y = start_y;
+    // Capacity quick check: fill to 7 and ensure we don't exceed
+    {
+        // Currently we have h1 at (0,0), h2 at (0,2), h4 at (2,2)
+        // Add 4 more
+        std::vector<Plant*> extras;
+        for (int i = 0; i < 4; ++i) {
+            auto* np = new Rose();
+            extras.push_back(np);
+            gh.addItem(np);
+        }
+        // Attempt 8th (should be rejected; message printed)
+        Plant* overflow = new Rose();
+        gh.addItem(overflow);
+        // Clean up overflow (not added, so not owned by gh)
+        delete overflow;
 
-  while (std::getline(ss, line, '\n')) {
-    print_with_ansi(win, y, start_x, line);
-    y++;
-  }
-}
+        // Clean up: remove everything we manually own from gh before scope ends
+        for (auto* p : extras) gh.removeItem(p);
+        for (auto* p : extras) delete p;
+    }
+
+    delete hit;
+    // Remove and delete the ones we added that were removed from gh
+    gh.removeItem(h1); delete h1;
+    gh.removeItem(h2); delete h2;
+    gh.removeItem(h4); delete h4;
+
+    // ...existing demo/tests...
+    cout << "\n=== Testing Garden Iterator ===\n" << endl;
+    Garden* garden = new Sunny();
+    
+    // Add plants
+    garden->addItem(new Rose());
+    garden->addItem(new Tulip());
+    garden->addItem(new Lavender());
+    garden->addItem(new Lily());
+    garden->addItem(new Rose());
+    garden->addItem(new Tulip());
+
+    std::cout << "Added 6 plants to the garden." << std::endl;
+
+    
+    Iterator<Plant*>* gardenIt = garden->CreateIterator();
+    
+    cout << "Testing first() and currItem():" << endl;
+    gardenIt->first();
+    if (Plant* p = gardenIt->currItem()) {
+        p->print();
+    }
+    
+    cout << "\nTesting next() and currItem():" << endl;
+    gardenIt->next();
+    if (Plant* p = gardenIt->currItem()) {
+        p->print();
+    }
+    
+    cout << "\nTesting prev() and currItem():" << endl;
+    gardenIt->prev();
+    if (Plant* p = gardenIt->currItem()) {
+        p->print();
+    }
+    
+    cout << "\nTesting isDone() at valid position:" << endl;
+    cout << "isDone: " << (gardenIt->isDone() ? "true" : "false") << endl;
+    
+    while (!gardenIt->isDone()) {
+        gardenIt->next();
+    }
+
+    cout << "\nTesting isDone() after moving past end:" << endl;
+    cout << "isDone: " << (gardenIt->isDone() ? "true" : "false") << endl;
+    
+    delete gardenIt;
+    
+    cout << "\n=== Testing Inventory Iterator ===\n" << endl;
+    Inventory inventory;
+    
+    inventory.addItem("Plant Food");
+    inventory.addItem("Watering Can");
+    inventory.addItem("Garden Shears");
+    
+    Iterator<std::string>* invIt = inventory.CreateIterator();
+    
+    cout << "Testing first() and currItem():" << endl;
+    invIt->first();
+    cout << invIt->currItem() << endl;
+    
+    cout << "\nTesting next() and currItem():" << endl;
+    invIt->next();
+    cout << invIt->currItem() << endl;
+    
+    cout << "\nTesting prev() and currItem():" << endl;
+    invIt->prev();
+    cout << invIt->currItem() << endl;
+    
+    cout << "\nTesting isDone() at valid position:" << endl;
+    cout << "isDone: " << (invIt->isDone() ? "true" : "false") << endl;
+    
+    // Move to end
+    invIt->next();
+    invIt->next();
+    invIt->next();
+    
+    cout << "\nTesting isDone() after moving past end:" << endl;
+    cout << "isDone: " << (invIt->isDone() ? "true" : "false") << endl;
+    
+    delete invIt;
+    delete garden;
+    
+    cout << "\nDone." << endl;
+
+    // ===== Test Lily =====
+    {
+        std::cout << "\n=== LilyCreator ===\n";
+        LilyCreator maker;
+        Plant* a = maker.createPlant();                         // Factory Method
+        std::cout << "created: " << a->getState() << "\n";
+
+        Plant* b = a->clone();                                  // Prototype
+        std::cout << "cloned : " << b->getState() << "\n";
+
+    }
+
+    // ===== Test Rose =====
+    {
+        std::cout << "\n=== RoseCreator ===\n";
+        RoseCreator maker;
+        Plant* a = maker.createPlant();
+        std::cout << "created: " << a->getState() << "\n";
 
 enum class MenuState {
   MAIN,
@@ -117,31 +260,17 @@ enum class MenuState {
   GREENHOUSES
 };
 
-WINDOW *create_newwin(int height, int width, int starty, int startx,
-                      const char *title) {
-  WINDOW *local_win = newwin(height, width, starty, startx);
-  box(local_win, 0, 0);
-  mvwprintw(local_win, 0, 2, " %s ", title);
-  wrefresh(local_win);
-  return local_win;
-}
+    }
 
-std::string format_time(int hour, int minute) {
-  std::ostringstream oss;
-  oss << std::setw(2) << std::setfill('0') << hour << ":" << std::setw(2)
-      << std::setfill('0') << minute;
-  return oss.str();
-}
+    // ===== Test Tulip =====
+    {
+        std::cout << "\n=== TulipCreator ===\n";
+        TulipCreator maker;
+        Plant* a = maker.createPlant();
+        std::cout << "created: " << a->getState() << "\n";
 
-std::string get_time_phase(int hour) {
-  if (hour >= 6 && hour < 12)
-    return "Morning";
-  if (hour >= 12 && hour < 18)
-    return "Afternoon";
-  if (hour >= 18 && hour < 22)
-    return "Evening";
-  return "Night";
-}
+        Plant* b = a->clone();
+        std::cout << "cloned : " << b->getState() << "\n";
 
 int main() {
   // game initialization
@@ -402,46 +531,160 @@ int main() {
       current_menu = &choice_menu;
     }
 
-    // --- Info Panel ---
-    werase(info_win);
-    box(info_win, 0, 0);
-    wattron(info_win, COLOR_PAIR(3));
-    mvwprintw(info_win, 0, 2, " Nursery Info ");
-    wattroff(info_win, COLOR_PAIR(3));
-    mvwprintw(info_win, 2, 2, "Day: %d", day);
-    mvwprintw(info_win, 3, 2, "Time: %s", time_str.c_str());
-    mvwprintw(info_win, 4, 2, "Phase: %s", phase.c_str());
-    mvwprintw(info_win, 6, 2, "Balance: R%.2f", nursery.getBalance());
-    mvwprintw(info_win, 7, 2, "Temp: 22°C");
+    std::cout << "\nAll factory tests done.\n";
 
-    // --- Show hover description ---
-    std::string hovered = (*current_menu)[choice];
-    if (descriptions.count(hovered)) {
-      wattron(info_win, COLOR_PAIR(4));
-      mvwprintw(info_win, 9, 2, "%s:", hovered.c_str());
-      wattroff(info_win, COLOR_PAIR(4));
+    Lily plant;  // starts in Sprout (from Plant::Plant())
+    plant.print();
 
-      int line = 10;
-      std::istringstream desc_stream(descriptions[hovered]);
-      std::string line_text;
-      while (std::getline(desc_stream, line_text)) {
-        mvwprintw(info_win, line++, 2, "%s", line_text.c_str());
-      }
+    std::cout << "start: " << plant.getState() << "\n";        // expect: Sprout
+    plant.Plant::print();
+
+    plant.applyCare();                                       
+    std::cout << "after care: " << plant.getState() << "\n"; 
+    plant.Plant::print();
+    
+    plant.applyCare();                                         // Flowering -> Mature
+    std::cout << "after more care: " << plant.getState() << "\n"; // expect: Mature
+    plant.Plant::print();
+
+    plant.applyCare();                                      
+    std::cout << "after care to Mature: " << plant.getState() << "\n";
+    plant.Plant::print();
+
+    std::cout << "All state tests done" << std::endl;
+
+
+
+    std::cout << "== Direct controller test ==\n";
+    {
+        GreenhouseController ctl;   // defaults to SprinklersOn/Off
+
+        std::cout << "Flip up:\n";
+        ctl.flipUpSprinklers();               // expect: [Sprinkler] ON
+
+        std::cout << "Flip down:\n";
+        ctl.flipDownSprinklers();             // expect: [Sprinkler] OFF
+
+        std::cout << "Flip up x2 then down:\n";
+        ctl.flipUpSprinklers();               // [Sprinkler] ON
+        ctl.flipUpSprinklers();               // [Sprinkler] ON (again)
+        ctl.flipDownSprinklers();             // [Sprinkler] OFF
+
+        
+    } 
+    std::cout << "\n== greenHouse::powerSystem() test ==\n";
+    {
+        greenHouse gh;
+        gh.powerSystem();           // internally creates a controller and flips up/down
     }
 
-    // --- Menu Panel ---
-    werase(menu_win);
-    box(menu_win, 0, 0);
-    wattron(menu_win, COLOR_PAIR(2));
-    mvwprintw(menu_win, 0, 2, " Menu ");
-    wattroff(menu_win, COLOR_PAIR(2));
+    std::cout << "\nAll tests done.\n";
 
-    for (size_t i = 0; i < current_menu->size(); i++) {
-      if ((int)i == choice)
-        wattron(menu_win, A_REVERSE);
-      mvwprintw(menu_win, 2, 2 + i * 18, "%s", (*current_menu)[i].c_str());
-      if ((int)i == choice)
-        wattroff(menu_win, A_REVERSE);
+
+    std::cout << "== Staff factory test ==\n";
+
+    PlantCaretakerCreator pcc;
+    CustomerAssistantCreator cac;
+
+    Staff* a = pcc.createStaff();    // Factory Method
+    Staff* b = cac.createStaff();
+    Customer* cust1 = new FussyCust();
+    a->care();    a->update();    a->notify(cust1);
+    b->care();    b->update();    b->notify(cust1);
+
+    delete b; 
+    delete a;
+
+    std::cout << "Done.\n";
+    // =========Singleton tests ==========
+
+    std::cout << "=== Singleton/Nursery ===";
+
+    Nursery& nursery1 = Nursery::instance();
+    Nursery& nursery2 = Nursery::instance();
+
+    std::cout << "Checking if both references are the same instance...\n";
+    if (&nursery1 == &nursery2)
+        std::cout << "PASS: Only one instance exists.\n";
+    else
+        std::cout << "FAIL: Multiple instances detected!\n";
+
+    PlantCaretaker* caretaker = new PlantCaretaker();
+    CustomerAssistant* assistant = new CustomerAssistant();
+
+    nursery1.addStaff(caretaker);
+    nursery1.addStaff(assistant);
+
+    std::cout << "Added staff.\n";
+
+    nursery1.addStaff(caretaker);
+
+
+    // Add gardens
+    Garden* garden1 = new Sunny();
+    Garden* garden2 = new Sunny();
+    nursery1.addGarden(garden1);
+    nursery1.addGarden(garden2);
+
+    std::cout << "Added gardens.\n";
+
+    // Test remove
+    nursery1.removeStaff(caretaker);
+    nursery1.removeGarden(garden1);
+
+    std::cout << "Removed one staff and one garden.\n";
+
+    for (int i = 0; i < 5; ++i) {
+        PlantCaretaker* temp = new PlantCaretaker();
+        nursery1.addStaff(temp);
+        nursery1.removeStaff(temp);
+        delete temp; // avoid memory leak
+    }
+    std::cout << "Stress test completed.\n";
+
+    std::cout << "Staff count: " << nursery1.getStaffCount() << "\n";
+    std::cout << "Garden count: " << nursery1.getGardenCount() << "\n";
+
+    nursery1.removeStaff(assistant);
+    nursery1.removeGarden(garden2);
+    delete caretaker;
+    delete assistant;
+    delete garden1;
+    delete garden2;
+
+    std::cout << "Final cleanup done.\n";
+
+
+    // =========== Strategy Testing ===============
+    std::cout << "=== Strategy/Plant Care ===\n";
+
+    std::vector<Plant*> plants;
+    plants.push_back(new Lavender());
+
+    std::cout << "\nAssigning care strategies...\n";
+    plants[0]->setCareStrategy(new SunnyCare());
+    plants[0]->applyCare();
+
+    std::cout << "\nSwitching to ShadyCare...\n";
+    plants[0]->setCareStrategy(new ShadyCare());
+    plants[0]->applyCare();
+
+    std::cout << "\nSwitching to PartialSunCare...\n";
+    plants[0]->setCareStrategy(new PartialSunCare());
+    plants[0]->applyCare();
+
+    std::cout << "\n=== Stress Test: Swapping Strategies Dynamically ===\n";
+    for (int i = 0; i < 5; ++i) {
+        CareStrategy* s;
+        if (i % 3 == 0)
+            s = new SunnyCare();
+        else if (i % 3 == 1)
+            s = new ShadyCare();
+        else
+            s = new PartialSunCare();
+
+        plants[0]->setCareStrategy(s);
+        plants[0]->applyCare();
     }
 
     update_panels();
@@ -665,9 +908,7 @@ int main() {
       break;
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-  }
+    std::cout << "\nTest complete. \n" << std::endl;
 
-  endwin();
-  return 0;
+    return 0;
 }
