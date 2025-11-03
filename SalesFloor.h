@@ -6,8 +6,12 @@
 class Customer;
 /// @brief Abstract base class representing a sales floor in the nursery.
 /// Manages inventory and handles customer notifications.
-class SalesFloor
-{
+class SalesFloor {
+public:
+protected:
+  /// @brief Inventory of plants available on the sales floor.
+  Inventory inventory;
+
 public:
   /// @brief Notifies the sales floor about a customer's interest in a plant.
   /// @param customer Pointer to the Customer object.
@@ -22,9 +26,10 @@ public:
   /// @return Pointer to the Inventory object.
   Inventory *getInventory() { return &inventory; }
 
-private:
-  /// @brief Inventory of plants available on the sales floor.
-  Inventory inventory;
+  void addToPlantInventory(Plant *plant) {
+    if (plant != nullptr)
+      inventory.tryAddItem(plant->getName());
+  }
 };
 
 #endif

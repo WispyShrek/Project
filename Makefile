@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -g -lncurses -lpanel -pthread
 LD = g++
 OUTDIR = out
 OBJDIR = $(OUTDIR)/obj
@@ -27,7 +27,7 @@ run: $(BINDIR)/program $(SRCFILES)
 	./$(BINDIR)/program
 
 test:
-	@if [! -d $(BINDIR) ]; then \
+	@if [ ! -d $(BINDIR) ]; then \
 		mkdir -p $(BINDIR);\
 	fi
 	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES)
