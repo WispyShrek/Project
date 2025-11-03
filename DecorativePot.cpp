@@ -1,17 +1,21 @@
 #include "DecorativePot.h"
 #include <sstream>
-// Default constructor and destructor can be omitted if not needed
+
+/// @brief Increases the price of the plant by 200 units.
+/// This method applies the cost of the decorative pot decoration.
 void DecorativePot::increasePrice() {
   plant->increasePrice(200); // increase price by 200 for decorative pot
 }
-
-void DecorativePot::addCust(
-    Customer *customer) // adds the customer to the plant's customer pointer
-{
+/// @brief Associates a customer with the decorated plant.
+/// Delegates the customer assignment to the underlying plant.
+/// @param customer Pointer to the Customer object.
+void DecorativePot::addCust(Customer *customer) {
   plant->addCust(customer); // delegation
 }
-std::string DecorativePot::print() // prints decorative pot details
-{
+/// @brief Prints the details of the plant with decorative pot decoration.
+/// Outputs the base plant details followed by decorative pot info.
+
+std::string DecorativePot::print() {
   std::stringstream pot;
   pot << "Decorative Pot Details: " << std::endl;
   pot << plant->print();

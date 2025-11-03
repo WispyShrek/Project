@@ -47,10 +47,11 @@ public:
    * If there are duplicate items, only the first one is removed.
    *
    * @param item The name of the item to remove from the inventory.
+   * @return A boolean indicating whether an item was removed;
    */
-  void removeItem(std::string item) override;
+  bool removeItem(std::string item) override;
 
-private:
+protected:
   std::vector<std::string> inventoryItems;
 };
 

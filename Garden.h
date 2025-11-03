@@ -55,7 +55,7 @@ public:
    * @param[in] item A pointer to the Plant object to be removed from the
    * garden.
    */
-  void removeItem(Plant *item);
+  bool removeItem(Plant *item);
 
   virtual void applyRays() = 0;
   void applyCare();

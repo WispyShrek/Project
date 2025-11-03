@@ -52,16 +52,17 @@ public:
    * @param[in] item Plant to add
    * @param[in] row Row index in [0..2]
    * @param[in] col Column index in [0..2]
+   * @returns a boolean representing successful addition
    */
-  void addItem(Plant *item, int row, int col);
+  bool addItem(Plant *item, int row, int col);
 
-  /*! @fn void greenHouse::removeItem(Plant *item)
+  /*! @fn bool greenHouse::removeItem(Plant *item)
    * @brief Removes the first matching plant pointer from the grid (sets cell to
    * nullptr). Decrements plantCount on success. Does not delete the Plant
    * object.
    * @param[in] item A pointer to the Plant object to be removed.
    */
-  void removeItem(Plant *item) override;
+  bool removeItem(Plant *item) override;
 };
 
 #endif

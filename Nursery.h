@@ -36,18 +36,10 @@ class Nursery {
 
 private:
   SalesFloor *salesFloor;
-  vector<Plant *> plantInventory;
   static Nursery *uniqueInstance;
   vector<Garden *> gardens;
+  vector<Plant *> plantInventory;
   double balance = 0;
-
-public:
-  const vector<Staff *> &getStaff();
-  const vector<Garden *> &getGardens();
-  double getBalance();
-  void addToBalance(double toAdd);
-  bool removeFromBalance(double toRemove);
-
   /**
    * @var vector<greenHouse*> greenHouses
    * @brief A collection of all greenhouses in the nursery.
@@ -71,12 +63,35 @@ public:
    * @return A reference to the unique Nursery instance.
    */
   static Nursery &instance();
-  /**
-   * @fn void Nursery::addGarden(Garden* newgarden)
+  /* @brief Returns a reference to the nursery's stafflist
+   * @return A reference to a vector of staff pointers
+   */
+  const std::vector<Staff *> &getStaff();
+  /* @brief Returns a reference to the nursery's garden list
+   * @return A reference to a vector of garden pointers
+   */
+  const std::vector<Garden *> &getGardens();
+
+  /** @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
    * @param newgarden A pointer to the Garden object to be added.
    */
+
   void addGarden(Garden *newgarden);
+  /* @brief adds an amount from the nursery's balance
+   * @param (double) amount to add
+   */
+  void addToBalance(double toAdd);
+  /* @brief removes an amount from the nursery's balance
+   * If the amount exceeds the balance nothing happens
+   * @param (double) amount to remove
+   * @return boolean representing that the value could be removed;
+   */
+  bool removeFromBalance(double toRemove);
+  /* @brief returns the balance of the nursery
+   * @return A double representing the balance of the nursery
+   */
+  double getBalance();
   /**
    * @fn void Nursery::addStaff(Staff* newStaff)
    * @brief Adds a new staff member to the nursery.
@@ -108,6 +123,16 @@ public:
    * @param gardenToRemove A pointer to the Garden object to be removed.
    */
   void removeGarden(Garden *gardenToRemove);
+  /**
+   * @brief Spawns a customer with randomized preferences and payment strategy.
+   *
+   * This function simulates customer creation at random intervals. It randomly
+   * selects a payment strategy (EFT, Card, or Cash), plant preferences
+   * (including optional decorations), and customer type (Easy or Fussy). The
+   * created customer is added to the nursery's internal list and deleted after
+   * use. Intended for dynamic simulation of customer behavior.
+   */
+
   void customerSpawner();
 
   /**

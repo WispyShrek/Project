@@ -99,6 +99,22 @@ Plant *Garden::removeMature() {
   return nullptr;
 }
 
+Iterator<Plant *> *Garden::CreateIterator() {
+  return new PlantIterator(plants);
+}
+
+bool Garden::removeItem(Plant *item) {
+  for (int r = 0; r < 3; ++r) {
+    for (int c = 0; c < 3; ++c) {
+      if (plants[r][c] == item) {
+        plants[r][c] = nullptr;
+        --plantCount;
+        return true;
+      }
+    }
+  }
+}
+
 Plant *Garden::removeDying() {
   for (int r = 0; r < 3; r++) {
     for (int c = 0; c < 3; c++) {
@@ -117,35 +133,16 @@ Plant *Garden::removeDying() {
 
 void Garden::addItem(Plant *item, int row, int col) {
   if (plantCount >= 9) {
-    std::cout << "Garden is full, cannot add more plants." << std::endl;
     return;
   }
   if (row < 0 || row >= 3 || col < 0 || col >= 3) {
-    std::cout << "Invalid position for plant." << std::endl;
     return;
   }
   if (plants[row][col] != nullptr) {
-    std::cout << "Cell already occupied." << std::endl;
     return;
   }
   plants[row][col] = item;
   ++plantCount;
-}
-
-Iterator<Plant *> *Garden::CreateIterator() {
-  return new PlantIterator(plants);
-}
-
-void Garden::removeItem(Plant *item) {
-  for (int r = 0; r < 3; r++) {
-    for (int c = 0; c < 3; c++) {
-      if (plants[r][c] == item) {
-        plants[r][c] = nullptr;
-        --plantCount;
-        return;
-      }
-    }
-  }
 }
 
 void Garden::applyCare() {

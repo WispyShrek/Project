@@ -121,6 +121,15 @@ void Nursery::removeStaff(Staff *staffToRemove) {
   }
 }
 // spawns customers randomly at random intervals
+
+/**
+ * @brief Spawns a customer with randomized preferences and payment strategy.
+ *
+ * This method simulates customer creation at random intervals. It randomly
+ * selects a payment strategy, plant preferences, and customer type (Easy or
+ * Fussy). The created customer is added to the nursery's internal list and
+ * deleted after use.
+ */
 void Nursery::customerSpawner() {
   using namespace std::chrono_literals;
 
@@ -281,8 +290,22 @@ TEST_SUITE("Nursery Singleton") {
     nursery.removeGarden(sunnyGarden);
     CHECK(nursery.getGardenCount() == initialGardenCount);
 
+    Garden *sunnyGarden = new Sunny();
+    nursery.addGarden(sunnyGarden);
+    CHECK(nursery.getGardenCount() == initialGardenCount + 1);
+
+    nursery.removeGarden(sunnyGarden);
+    CHECK(nursery.getGardenCount() == initialGardenCount);
+
     // Cleanup
     delete sunnyGarden;
+  }
+  TEST_CASE("customerSpawner creates customers without crashing") {
+    Nursery &nursery = Nursery::instance();
+
+    // This test just ensures that the method runs without exceptions.
+    // In a real test, we would want to mock dependencies and verify behavior.
+    CHECK_NOTHROW(nursery.customerSpawner());
   }
 }
 #endif

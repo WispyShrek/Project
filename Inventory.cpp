@@ -9,13 +9,14 @@ Iterator<std::string> *Inventory::CreateIterator() {
   return new InventoryIterator(inventoryItems);
 }
 
-void Inventory::removeItem(std::string item) {
+bool Inventory::removeItem(std::string item) {
   for (auto it = inventoryItems.begin(); it != inventoryItems.end(); ++it) {
     if (*it == item) {
       inventoryItems.erase(it);
-      return;
+      return true;
     }
   }
+  return false;
 }
 
 #ifdef ENABLE_DOCTESTS
