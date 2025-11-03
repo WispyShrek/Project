@@ -1,20 +1,8 @@
-/**
- * @file InventoryIterator.cpp
- * @brief Implementation of the InventoryIterator class.
- */
 #include "InventoryIterator.h"
 
-/**
- * @brief Constructs an iterator for a vector of strings.
- * @param items A reference to the vector of strings to iterate over.
- */
 InventoryIterator::InventoryIterator(std::vector<std::string> & items) : currentIndex(0), items(items){
 }
 
-/**
- * @brief Returns the current item string in the iteration.
- * @return The current item as a string, or an empty string if the iterator is past the end.
- */
 std::string InventoryIterator::currItem()
 {
     if(!isDone()){
@@ -25,35 +13,20 @@ std::string InventoryIterator::currItem()
     }
 }
 
-/**
- * @brief Resets the iterator to the first element.
- */
 void InventoryIterator::first(){
     currentIndex = 0;
 }
 
-/**
- * @brief Checks if the iteration is complete.
- * @return `true` if the iterator is past the last element, `false` otherwise.
- */
 bool InventoryIterator::isDone(){
     return currentIndex >= items.size();
 }
 
-/**
- * @brief Advances the iterator to the next element.
- * Does nothing if the iterator is already past the end.
- */
 void InventoryIterator::next(){
     if(!isDone()){
         currentIndex++;
     }
 }
 
-/**
- * @brief Moves the iterator to the previous element.
- * Does nothing if the iterator is at the beginning.
- */
 void InventoryIterator::prev(){
     if(currentIndex > 0){
         currentIndex--;

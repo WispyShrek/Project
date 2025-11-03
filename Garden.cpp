@@ -1,7 +1,3 @@
-/**
- * @file Garden.cpp
- * @brief Implementation of the Garden class.
- */
 #include "Garden.h"
 #include "PlantCaretaker.h"
 #include "Rose.h"
@@ -115,30 +111,12 @@ void Garden::TemplateMethod() {}
  */
 void Garden::applyCare() {}
 
-/**
- * @brief Attaches an observer (a PlantCaretaker) to the garden.
- *
- * This method is part of the Observer design pattern. It adds a staff member
- * to the list of observers that will be notified of changes.
- * @param staff A pointer to the PlantCaretaker to attach.
- */
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
-/**
- * @brief Detaches an observer (a PlantCaretaker) from the garden.
- *
- * This method is part of the Observer design pattern. It removes a staff member
- * from the list of observers.
- * @param staff A pointer to the PlantCaretaker to detach.
- */
 void Garden::detach(PlantCaretaker *staff) {
   this->staffList.erase(std::find(staffList.begin(), staffList.end(), staff));
 }
 
-/**
- * @brief Notifies all attached observers of a change.
- * This method iterates through the list of attached `PlantCaretaker`s and calls their `update` method.
- */
 void Garden::notify() {
   for (auto plantCaretaker : staffList) {
     plantCaretaker->update(this);

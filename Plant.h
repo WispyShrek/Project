@@ -129,10 +129,10 @@ public:
 
 protected:
   /** @fn Plant::Plant(Plant &toCopy)
-   * @brief Copy constructor for the Plant class. It takes a const reference.
+   * @brief Copy constructor for the Plant class.
    * @param toCopy A reference to the Plant object to be copied.
    */
-  Plant(const Plant &toCopy);
+  Plant(Plant &toCopy);
 };
 
 #endif

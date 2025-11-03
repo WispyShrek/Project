@@ -1,7 +1,3 @@
-/**
- * @file Inventory.cpp
- * @brief Implementation of the Inventory class.
- */
 #include "Inventory.h"
 
 /**

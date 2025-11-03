@@ -1,19 +1,9 @@
-/**
- * @file DecorativePot.cpp
- * @brief Implementation of the DecorativePot concrete decorator.
- */
 #include "DecorativePot.h"
 
-/**
- * @brief Increases the price of the wrapped plant by a fixed amount for the decorative pot.
- *
- * This method is an implementation of the decorator functionality. It calls the
- * `increasePrice` method on the wrapped `Plant` object, adding the cost
- * specific to this decorative pot (200).
- */
-void DecorativePot::increasePrice()
-{
-	plant->increasePrice(200);
+/// @brief Increases the price of the plant by 200 units.
+/// This method applies the cost of the decorative pot decoration.
+void DecorativePot::increasePrice() {
+  plant->increasePrice(200); // increase price by 200 for decorative pot
 }
 
 /**
