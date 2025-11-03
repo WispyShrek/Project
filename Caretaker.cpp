@@ -5,12 +5,10 @@ Caretaker::~Caretaker() {
 }
 
 PlantMemento* Caretaker::getPlantMemento() {
-	// TODO - implement Caretaker::getPlantMemento
 	return memento; 
 }
 
 void Caretaker::setPlantMemento(PlantMemento* mem) {
-	// TODO - implement Caretaker::setPlantMemento
 	memento = mem;
 }
 // The Caretaker only stores the memento it shouldnt modifies it.

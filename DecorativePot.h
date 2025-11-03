@@ -1,3 +1,7 @@
+/**
+ * @file DecorativePot.h
+ * @brief Defines the DecorativePot concrete decorator class.
+ */
 #ifndef DECORATIVEPOT_H
 #define DECORATIVEPOT_H
 #include "Customisation.h"

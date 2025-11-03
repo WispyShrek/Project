@@ -1,21 +1,58 @@
+/**
+ * @file Lily.cpp
+ * @brief Implementation of the Lily class.
+ */
 #include "Lily.h"
 
+/**
+ * @brief Default constructor for the Lily class.
+ * Initializes a Lily plant with a default care strategy of PartialSunCare and a price of 70.
+ */
 Lily::Lily() {
   this->strategy = new PartialSunCare();
   this->price = 70;
 };
 
-std::string Lily::getName() { return "Lily"; }
+/**
+ * @brief Gets the name of the plant.
+ * @return The string "Lily".
+ */
+std::string Lily::getName() {
+	return "Lily";
+}
 
-Lily *Lily::clone() { return new Lily(*this); }
+/**
+ * @brief Creates a deep copy of the Lily object.
+ * @return A new `Lily` pointer that is a clone of the current instance.
+ */
+Lily* Lily::clone() {
+	return new Lily(*this);
+}
 
-std::string Lily::print() {
-  std::string sprite;
-  sprite.append("\x1B[38;5;226m o");
+/**
+ * @brief Prints the name of the plant to the console.
+ */
+void Lily::print(){
+	std::cout << "Lily" << std::endl;
+}
 
-  sprite.append("\x1B[38;5;231m}");
-  this->currState->print(sprite);
-  return sprite;
+/**
+ * @brief Gets the price of the Lily plant.
+ * @return The price of the plant as a double.
+ */
+double Lily::getPrice() {
+	return price;
+}
+
+/**
+ * @brief Copy constructor for the Lily class.
+ *
+ * Creates a new Lily object by copying the state of an existing one,
+ * including its base Plant attributes and its specific price.
+ * @param toCopy A reference to the Lily object to be copied.
+ */
+Lily::Lily(Lily& toCopy)  : Plant(toCopy) {
+	this->price = toCopy.price;
 }
 
 double Lily::getPrice() { return price; }

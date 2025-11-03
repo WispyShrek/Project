@@ -1,14 +1,26 @@
+/**
+ * @file GardenIterator.cpp
+ * @brief Implementation of the GardenIterator class.
+ */
 #include "GardenIterator.h"
 
 //includes used for the unit testing
 #include "Garden.h"
-#include  "Sunny.h"
-#include  "Shady.h"
-#include  "PartialSun.h"
+#include "Sunny.h"
+#include "Shady.h"
+#include "PartialSun.h"
 
+/**
+ * @brief Constructs an iterator for a vector of Garden pointers.
+ * @param gardens A reference to the vector of gardens to iterate over.
+ */
 GardenIterator::GardenIterator(std::vector<Garden *> &gardens) : currentIndex(0), gardens(gardens){
 }
 
+/**
+ * @brief Returns the current Garden pointer in the iteration.
+ * @return A pointer to the current Garden, or `nullptr` if the iterator is past the end.
+ */
 Garden *GardenIterator::currItem(){
     if(!isDone()){
         return gardens[currentIndex];
@@ -17,20 +29,35 @@ Garden *GardenIterator::currItem(){
     }
 }
 
+/**
+ * @brief Resets the iterator to the first element.
+ */
 void GardenIterator::first(){
     currentIndex = 0;
 }
 
+/**
+ * @brief Checks if the iteration is complete.
+ * @return `true` if the iterator is past the last element, `false` otherwise.
+ */
 bool GardenIterator::isDone(){
     return currentIndex >= gardens.size();
 }
 
+/**
+ * @brief Advances the iterator to the next element.
+ * Does nothing if the iterator is already past the end.
+ */
 void GardenIterator::next(){
     if(!isDone()){
         ++currentIndex;
     }
 }
 
+/**
+ * @brief Moves the iterator to the previous element.
+ * Does nothing if the iterator is at the beginning.
+ */
 void GardenIterator::prev(){
     if(currentIndex > 0){
         --currentIndex;

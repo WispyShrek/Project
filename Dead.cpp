@@ -1,3 +1,7 @@
+/**
+ * @file Dead.cpp
+ * @brief Implementation of the Dead class, a concrete state in the State pattern.
+ */
 #include "Dead.h"
 void Dead::next(Plant *context) {}
 void Dead::print(std::string &sprite) {
