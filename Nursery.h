@@ -36,6 +36,7 @@ class Nursery {
 
 private:
   SalesFloor *salesFloor;
+  vector<Plant *> plantInventory;
   static Nursery *uniqueInstance;
   vector<Garden *> gardens;
   double balance = 0;
@@ -88,6 +89,19 @@ public:
    * @param staffToRemove A pointer to the Staff object to be removed.
    */
   void removeStaff(Staff *staffToRemove);
+  /**@fn void addToPlantInventory(Plant *);
+   *@brief Adds a plant to the nursery inventory
+   *If the plant is mature, automatically transfers the item to the salesfloor
+   * to be sold
+   *@param Plant pointer to be added to plantInventory
+   */
+  void addToPlantInventory(Plant *inventory);
+  /**@fn void addToPlantInventory(Plant *);
+   *@brief Removes a plant to the nursery inventory
+   *@return Plant pointer to the removed plant
+   */
+  Plant *removeFromPlantInventory();
+
   /**
    * @fn void Nursery::removeGarden(Garden* gardenToRemove)
    * @brief Removes a garden from the nursery.

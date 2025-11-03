@@ -90,6 +90,25 @@ void Nursery::removeGarden(Garden *gardenToRemove) {
     }
   }
 }
+void Nursery::addToPlantInventory(Plant *inventory) {
+  if (inventory == nullptr) {
+    return;
+  }
+  if (inventory->getState() == "Mature") {
+    salesFloor->addToPlantInventory(inventory);
+  } else {
+    plantInventory.push_back(inventory);
+  }
+}
+
+Plant *Nursery::removeFromPlantInventory() {
+  if (plantInventory.size() > 0) {
+    Plant *returned = plantInventory.back();
+    plantInventory.pop_back();
+    return returned;
+  }
+  return nullptr;
+}
 
 // remove staff from *state*
 

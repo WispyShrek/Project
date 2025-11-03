@@ -44,8 +44,8 @@ void Plant::prevState() {
   // TODO - implement Plant::prevState
   if (!currState)
     return;
-  if (!dynamic_cast<Dying *>(currState))
-    setState(new Dying());
+  if (dynamic_cast<Dying *>(currState))
+    dynamic_cast<Dying *>(currState)->prev(this);
 }
 
 void Plant::setCareStrategy(CareStrategy *strat) {

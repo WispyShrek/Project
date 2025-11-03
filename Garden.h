@@ -87,6 +87,17 @@ public:
    * update function invoked
    */
   void notify();
+  /** @fn Plant * Garden::removeMature()
+   * @brief removes one mature plant from garden if there are any
+   * @returns A plant pointer of a mature plant in the garden
+   */
+  Plant *removeMature();
+  /** @fn Plant * Garden::removeDying()
+   * @brief removes one dying plant from garden if there are any
+   * @returns A plant pointer of a dying plant in the garden
+   */
+
+  Plant *removeDying();
 
 protected:
   std::vector<std::vector<Plant *>> plants;

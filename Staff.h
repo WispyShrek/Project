@@ -17,12 +17,16 @@ class Staff : public SalesFloor {
   int cost = 200;
 
 public:
+  Staff() {
+    this->name = "TestStaff";
+    this->description = "No description available";
+  }
   /** @fn Staff::~Staff()
    * @brief Virtual destructor for the Staff class.
    */
   virtual ~Staff() {};
   virtual void care() = 0;
-  virtual bool notify(Customer *customer, Plant* plant) =0;
+  virtual bool notify(Customer *customer, Plant *plant) = 0;
   virtual void update() {};
   void setName(std::string name) { this->name = name; };
   void setDescription(std::string description) {

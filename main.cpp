@@ -273,26 +273,26 @@ int main() {
   // Hover descriptions for each item
   std::unordered_map<std::string, std::string> descriptions;
 
-  descriptions.emplace("Plant Seed",
+  descriptions.try_emplace("Plant Seed",
                            "Open submenu to plant different crops.");
-  descriptions.emplace("Harvest Plants", "Open submenu to harvest crops.");
-  descriptions.emplace(
+  descriptions.try_emplace("Harvest Plants", "Open submenu to harvest crops.");
+  descriptions.try_emplace(
       "Hire Staff",
       "Open submenu to hire \n customer assistants and plant caretakers.");
-  descriptions.emplace("Assign Staff",
+  descriptions.try_emplace("Assign Staff",
                            "Assign plant caretakers to gardens.");
-  descriptions.emplace("Exit", "Leave the nursery Simulation.");
-  descriptions.emplace("Back", "Return to main menu.");
+  descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
+  descriptions.try_emplace("Back", "Return to main menu.");
 
   for (auto plants : shopPlants) {
     std::stringstream plantDesc;
     plantDesc << plants->getDescription();
     plantDesc << "\n Cost: R";
     plantDesc << std::setprecision(2) << plants->getPrice();
-    descriptions.emplace(plants->getName(), plantDesc.str());
+    descriptions.try_emplace(plants->getName(), plantDesc.str());
   }
   for (auto staff : toHire) {
-    descriptions.emplace(staff->getName(), staff->getDescription());
+    descriptions.try_emplace(staff->getName(), staff->getDescription());
   }
 
   int choice = 0;
@@ -315,6 +315,8 @@ int main() {
   std::uniform_real_distribution<> chance(0.0, 1.0);
   nursery.addToBalance(500);
   bool careMenu = false;
+  bool harvest = false;
+  bool savePlant = false;
 
   while (running) {
 
@@ -365,10 +367,10 @@ int main() {
       current_menu = &plant_menu;
       break;
     case MenuState::WATER:
-      current_menu = &water_menu;
+      current_menu = &garden_menu;
       break;
     case MenuState::HARVEST:
-      current_menu = &harvest_menu;
+      current_menu = &garden_menu;
       break;
     case MenuState::STAFFHIRE:
       current_menu = &hire_menu;
@@ -455,10 +457,16 @@ int main() {
             state = MenuState::PLANT;
             choice = 0;
           } else if (item == "Care for Plants") {
-            state = MenuState::WATER;
+            careMenu = true;
+            state = MenuState::GARDENS;
             choice = 0;
           } else if (item == "Harvest Plants") {
-            state = MenuState::HARVEST;
+            harvest = true;
+            state = MenuState::GARDENS;
+            choice = 0;
+          } else if (item == "Save Plants") {
+            savePlant = true;
+            state = MenuState::GARDENS;
             choice = 0;
           } else if (item == "Hire Staff") {
             state = MenuState::STAFFHIRE;
@@ -490,7 +498,9 @@ int main() {
             if (nursery.getGardens()[choice]->tryAddItem(toAdd) == true) {
               mvwprintw(info_win, 15, 2, "%s has been planted in %s",
                         toAdd->getName().c_str(), garden_menu[choice].c_str());
-              nursery.removeFromBalance(toAdd->getPrice());
+              if (toAdd != nursery.removeFromPlantInventory()) {
+                nursery.removeFromBalance(toAdd->getPrice());
+              }
               toAdd = nullptr;
               state = MenuState::MAIN;
               choice = 0;
@@ -503,7 +513,8 @@ int main() {
             PlantCaretaker *caretaker =
                 dynamic_cast<PlantCaretaker *>(staffToAssign);
             if (caretaker) {
-              caretaker->update(nursery.getGardens()[choice]);
+              nursery.getGardens()[choice]->attach(
+                  dynamic_cast<PlantCaretaker *>(staffToAssign));
               mvwprintw(info_win, 15, 2, "%s assigned to %s",
                         staffToAssign->getName().c_str(),
                         garden_menu[choice].c_str());
@@ -513,6 +524,48 @@ int main() {
               wrefresh(info_win);
               std::this_thread::sleep_for(std::chrono::milliseconds(500));
             }
+          } else if (harvest) {
+            Plant *harvested = nursery.getGardens()[choice]->removeMature();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2,
+                        "You have harvested a mature %s to sell",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s has been added to the salesfloor",
+                        harvested->getName().c_str());
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+          } else if (savePlant) {
+            Plant *harvested = nursery.getGardens()[choice]->removeDying();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2, "You have saved a dying %s",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s needs to be planted in %s climate",
+                        harvested->getName().c_str(),
+                        harvested->getStrategy().c_str());
+              toAdd = harvested;
+              state = MenuState::GARDENS;
+              choice = 0;
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+          } else if (careMenu) {
+
+            nursery.getGardens()[choice]->applyCare();
+            print_multiline(
+                info_win, 18, 2,
+                "You have successfully tended\n to the plants in this garden");
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            state = MenuState::MAIN;
           } else {
             // This is a fallback for unhandled menu actions
             mvwprintw(garden_win, 6, 2, "Action for '%s' not implemented.",

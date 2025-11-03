@@ -25,7 +25,7 @@ std::string Garden::print() {
   int fillLength;
   gardenSprite.append("\x1B[38;5;130m");
   for (int r = 0; r < 3; r++) {
-    gardenSprite.append(25, '|');
+    gardenSprite.append(27, '|');
     gardenSprite.append("\n\x1B[38;5;130m");
     row.clear();
     row.append("|||");
@@ -33,7 +33,7 @@ std::string Garden::print() {
       plant.clear();
       plant.shrink_to_fit();
       if (plants[r][c] == nullptr) {
-        row.append("|||||");
+        row.append("||||||");
       } else {
         plant = plants[r][c]->print();
         if (plant.size() < 24) {
@@ -52,23 +52,20 @@ std::string Garden::print() {
       row.append("|||\x1B[38;5;130m");
     }
     gardenSprite.append(row);
-    fillLength = 25 - row.length();
+    fillLength = 27 - row.length();
     if (fillLength < 0) {
       fillLength = 0;
     }
     gardenSprite.append(fillLength, '|');
     gardenSprite.append("\n\x1B[38;5;130m");
   }
-  gardenSprite.append(25, '|');
+  gardenSprite.append(27, '|');
   gardenSprite.append("\n\x1B[38;5;130m");
 
   return gardenSprite;
 }
 
 bool Garden::tryAddItem(Plant *item) {
-  if (plantCount >= 9) {
-    return false;
-  }
   // place in first free slot (row-major)
   for (int r = 0; r < 3; r++) {
     for (int c = 0; c < 3; c++) {
@@ -76,11 +73,46 @@ bool Garden::tryAddItem(Plant *item) {
         plants[r][c] = item;
         ++plantCount;
         return true;
+      } else if (plants[r][c]->getState() == "Dead") {
+        delete plants[r][c];
+        plants[r][c] = item;
       }
     }
   }
   // Fallback if grid is unexpectedly full but count < 9
   return false;
+}
+
+Plant *Garden::removeMature() {
+  for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+      if (plants[r][c] != nullptr) {
+        if (plants[r][c]->getState() == "Mature") {
+          Plant *toHarvest = plants[r][c];
+          plantCount--;
+          plants[r][c] = nullptr;
+          return toHarvest;
+        }
+      }
+    }
+  }
+  return nullptr;
+}
+
+Plant *Garden::removeDying() {
+  for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+      if (plants[r][c] != nullptr) {
+        if (plants[r][c]->getState() == "Dying") {
+          Plant *toHarvest = plants[r][c];
+          plantCount--;
+          plants[r][c] = nullptr;
+          return toHarvest;
+        }
+      }
+    }
+  }
+  return nullptr;
 }
 
 void Garden::addItem(Plant *item, int row, int col) {
@@ -116,7 +148,17 @@ void Garden::removeItem(Plant *item) {
   }
 }
 
-void Garden::applyCare() {}
+void Garden::applyCare() {
+  for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+      if (plants[r][c] != nullptr) {
+        if (plants[r][c]->getState() == "Dying") {
+          plants[r][c]->prevState();
+        }
+      }
+    }
+  }
+}
 
 void Garden::attach(PlantCaretaker *staff) { this->staffList.push_back(staff); }
 
