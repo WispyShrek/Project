@@ -153,15 +153,18 @@ int main() {
   Garden *partial2 = new PartialSun();
   Garden *shady1 = new Shady();
   Garden *shady2 = new Shady();
-  greenHouse *g1 = new greenHouse();
-  greenHouse *g2 = new greenHouse();
-  greenHouse *g3 = new greenHouse();
   nursery.addGarden(sunny1);
   nursery.addGarden(sunny2);
   nursery.addGarden(partial1);
   nursery.addGarden(partial2);
   nursery.addGarden(shady1);
   nursery.addGarden(shady2);
+  greenHouse *g1 = new greenHouse();
+  greenHouse *g2 = new greenHouse();
+  greenHouse *g3 = new greenHouse();
+  nursery.addGreenhouse(g1);
+  nursery.addGreenhouse(g2);
+  nursery.addGreenhouse(g3);
   // vector contains all of the staff members that can be hired
   CustomerAssistantCreator assitantCreator = CustomerAssistantCreator();
   PlantCaretakerCreator caretakerCreator = PlantCaretakerCreator();
