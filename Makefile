@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -g -lncurses -lpanel -pthread
+CXXFLAGS = -Wall -g
 LD = g++
 
 OUTDIR = out

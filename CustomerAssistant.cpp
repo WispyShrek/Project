@@ -46,7 +46,6 @@ void CustomerAssistant::notify(Customer *customer)
     
     cout << "CustomerAssistant: notifying customer. Customer cart has changed:\n" << customer->cartToString() << "\n";
 }
-/// @brief Receives an update notification from the floor or garden.
 
 /**
  * @brief Receives a generic update notification.
@@ -56,14 +55,9 @@ void CustomerAssistant::notify(Customer *customer)
 void CustomerAssistant::update()
 {
 
-bool CustomerAssistant::notify(Customer *customer, Plant *plant) {
-  return this->inventory.removeItem(plant->getName());
+    cout << "CustomerAssistant: update() received from floor/garden\n";
 }
-/// @brief Receives an update notification from the floor or garden.
-void CustomerAssistant::update() {
-  cout << "CustomerAssistant: update() received from floor/garden\n";
-}
-/// @brief Unit test for basic functionality of CustomerAssistant.
+
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
@@ -80,16 +74,17 @@ TEST_CASE("CustomerAssistant: Test CustomerAssistant class") {
         void set() override {}
     };
 
-  assistant->care();
+    MockCustomer* mockCustomer = new MockCustomer();
+    assistant->notify(mockCustomer);
 
-  // Test update method
-  assistant->update();
+    // Test update method
+    assistant->update();
 
-  delete mockCustomer;
-  delete assistant;
+    delete mockCustomer;
+    delete assistant;
 }
 TEST_CASE("CustomerAssistant: Test Destructor") {
-  CustomerAssistant *assistant = new CustomerAssistant();
-  delete assistant; // Ensure no memory leaks occur
+    CustomerAssistant* assistant = new CustomerAssistant();
+    delete assistant; // Ensure no memory leaks occur
 }
 #endif

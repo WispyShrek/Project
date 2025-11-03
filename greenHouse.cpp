@@ -23,7 +23,6 @@ greenHouse::~greenHouse(){
         }
     }
   }
-}
 
 /**
  * @brief Activates the greenhouse's automated systems.
@@ -99,10 +98,9 @@ void greenHouse::addItem(Plant *item, int row, int col){
         std::cout << "Cell already occupied." << std::endl;
         return;
     }
+    plants[row][col] = item;
+    ++plantCount;
   }
-  // Fallback if grid has no free slot but count <= 9
-  return false;
-}
 
 /**
  * @brief Removes a plant from the greenhouse.
@@ -121,9 +119,7 @@ void greenHouse::removeItem(Plant *item){
         }
     }
   }
-  return false;
-}
-
+  
 #ifdef ENABLE_DOCTESTS
 #include "GreenhouseController.h"
 #include "Rose.h"
@@ -133,7 +129,7 @@ void greenHouse::removeItem(Plant *item){
 #include <string>
 #include <vector>
 
-    "greenHouse::powerSystem emits controller calls in order (unwired)") {
+TEST_CASE("greenHouse::powerSystem emits controller calls in order (unwired)") {
   greenHouse gh;
   std::ostringstream cap;
   auto *old = std::cerr.rdbuf(cap.rdbuf());
@@ -239,7 +235,7 @@ TEST_CASE("greenHouse::addItem(auto) fills first free slot in row-major "
 
   gh.addItem(pA, 0, 0);
   gh.addItem(pB, 0, 1);
-  gh.tryAddItem(pC); // should go to (0,2)
+  gh.addItem(pC); // should go to (0,2)
 
   Iterator<Plant *> *it = gh.CreateIterator();
   it->first();
@@ -319,7 +315,7 @@ TEST_CASE("After remove, addItem(auto) fills earliest hole in row-major") {
   gh.addItem(p3, 0, 2);
 
   gh.removeItem(p2); // hole at (0,1)
-  gh.tryAddItem(p4); // should occupy (0,1)
+  gh.addItem(p4); // should occupy (0,1)
 
   Iterator<Plant *> *it = gh.CreateIterator();
   it->first();
@@ -409,7 +405,7 @@ TEST_CASE("greenHouse operations sequence: add, remove, add (grid-aware)") {
   gh.addItem(p1, 0, 0);
   gh.addItem(p2, 0, 2);
   gh.removeItem(p1);
-  gh.tryAddItem(p3); // should take (0,0)
+  gh.addItem(p3); // should take (0,0)
 
   Iterator<Plant *> *it = gh.CreateIterator();
   it->first();
