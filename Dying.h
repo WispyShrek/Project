@@ -4,7 +4,6 @@
 #include "Dead.h"
 #include "Plant.h"
 #include "PlantState.h"
-#include "Dead.h"
 
 /** @class Dying
  * @brief A class representing the dying state of a plant, derived from the

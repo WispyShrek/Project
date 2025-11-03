@@ -4,12 +4,13 @@
 template <typename T>
 
 class Collection {
-  public:
-    virtual ~Collection() = default;
-    //the methods used for the iterator DP, the abstract methods.
-    virtual Iterator<T> *CreateIterator() = 0;
-    virtual void addItem(T item) = 0;
-    virtual void removeItem(T item) = 0;
+public:
+  // the methods used for the iterator DP, the abstract methods.
+  virtual Iterator<T> *CreateIterator() = 0;
+  virtual bool tryAddItem(T item) = 0;
+  virtual bool removeItem(T item) = 0;
+
+public:
 };
 
 #endif
