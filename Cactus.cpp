@@ -13,12 +13,13 @@ Cactus *Cactus::clone(){
     return new Cactus(*this);
 }
 
-void Cactus::print(){
+std::string Cactus::print(){
   std::string sprite;
   sprite.append("\x1B[38;5;34m *");
 
   sprite.append("\x1B[38;5;28m|");
-  std::cout << sprite;
+  this->currState->print(sprite);
+  return sprite;
 }
 
 double Cactus::getPrice(){

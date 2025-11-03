@@ -1,19 +1,19 @@
 #ifndef GREENHOUSE_H
 #define GREENHOUSE_H
 #include "Collection.h"
-#include "PlantIterator.h"
 #include "Plant.h"
+#include "PlantIterator.h"
 #include <vector>
 
 /** @class greenHouse
  * @brief A class representing a greenhouse that holds a 3x3 grid of plants.
- * 
- * The greenHouse class inherits from the Collection<Plant*> class and implements
- * methods to manage a 3x3 grid of Plant pointers, including adding, removing,
- * and iterating over the plants in the greenhouse.
+ *
+ * The greenHouse class inherits from the Collection<Plant*> class and
+ * implements methods to manage a 3x3 grid of Plant pointers, including adding,
+ * removing, and iterating over the plants in the greenhouse.
  */
 
-class greenHouse : public Collection<Plant*> {
+class greenHouse : public Collection<Plant *> {
 private:
   std::vector<std::vector<Plant *>> plants =
       std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));

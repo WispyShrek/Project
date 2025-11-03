@@ -1,14 +1,15 @@
 #include "Shady.h"
+#include "Dead.h"
 #include "Dying.h"
-
-Shady::Shady() {
-  // TODO - implement Shady::Shady
-}
+#include <random>
+Shady::Shady() { plantCount = 0; }
 
 void Shady::applyRays() {
-  // TODO - implement Shady::applyRays
   Iterator<Plant *> *plants = CreateIterator();
   plants->first();
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<> chance(0.0, 1.0);
   while (!plants->isDone()) {
     if (plants->currItem() != nullptr) {
       double roll = chance(gen);

@@ -14,13 +14,12 @@ class Customer;
 
 /** @class Plant
  * @brief An abstract base class representing a plant in the nursery.
- * 
+ *
  * The Plant class defines common attributes and behaviors for all plant types,
  * including state management, care strategies, and cloning functionality.
  */
 
-class Plant
-{
+class Plant {
 
 protected:
   Customer *customer;
@@ -45,11 +44,11 @@ public:
    * @param other A reference to the other Plant object to compare with.
    * @return A boolean indicating whether the two Plant objects are equal.
    */
-  const bool& operator==(const Plant& other);
+  bool operator==(const Plant &other);
   /** @fn  void Plant::increasePrice(double amount)
    * @brief Increases the price of the plant by a specified amount.
    * @param amount The amount to increase the price by.
-  */
+   */
   void increasePrice(double amount);
   /** @fn std::string Plant::getState()
    * @brief Retrieves the current state of the plant as a string.
@@ -66,6 +65,11 @@ public:
    * @return A string representing the name of the care strategy.
    */
   std::string getStrategy();
+  /** @fn std::string Plant::getDescription()
+   * @brief Returns a description of the plant
+   * @return A string description of plant attributes
+   */
+  std::string getDescription();
 
   virtual std::string getName() = 0;
   /** @fn void Plant::setStrategy(CareStrategy *strategy)
@@ -83,9 +87,9 @@ public:
    * @return A string representing the scent of the plant.
    */
   std::string getScent();
-  /** @fn std::string Plant::getPrice()
+  /** @fn double Plant::getPrice()
    * @brief Retrieves the price of the plant.
-   * @return A string representing the price of the plant.
+   * @return A double representing the price of the plant.
    */
   virtual double getPrice();
   /** @fn void Plant::nextState()
@@ -95,20 +99,22 @@ public:
   /** @fn void Plant::prevState()
    * @brief Transitions the plant to the previous state.
    */
-  void prevState(); 
+  void prevState();
   /** @fn void Plant::setCareStrategy(CareStrategy* s)
    * @brief Sets the care strategy for the plant.
    * @param s A pointer to the CareStrategy to set.
-  */
-  void setCareStrategy(CareStrategy* s);//added this for the Strategy design pattern
+   */
+  void setCareStrategy(
+      CareStrategy *s); // added this for the Strategy design pattern
   /** @fn void Plant::applyCare()
    * @brief Applies the care strategy to the plant.
    */
   void applyCare();
-  /** @fn void Plant::print()
-   * @brief Prints the details of the plant.
+  /** @fn std::string Plant::print()
+   * @brief Returns the details of the plant
+   * @return A string representing the plant
    */
-  virtual void print() = 0;
+  virtual std::string print();
   /** @fn void Plant::addCust(Customer *customer)
    * @brief Associates a customer with the plant.
    * @param customer A pointer to the Customer to associate with the plant.
@@ -124,7 +130,7 @@ public:
    * @param memento A pointer to the PlantMemento to restore from.
    */
   void setPlantMemento(PlantMemento *memento);
-  
+
   virtual Plant *clone() = 0;
 
 protected:
