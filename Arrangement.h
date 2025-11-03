@@ -3,6 +3,7 @@
 #include "Customisation.h"
 /// @brief Represents an arrangement decoration for a plant.
 /// Inherits from Customisation and adds arrangement-specific behavior.
+
 class Arrangement : public Customisation {
 private:
   /// @brief Tracks whether the arrangement has been added.
@@ -10,6 +11,7 @@ private:
 public:
   /// @brief Default constructor.
   /// Initializes the arrangement flag to false.
+
   Arrangement()
       : Customisation(), addedArrangement(false) {} // default constructor
   /// @brief Destructor.

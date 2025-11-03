@@ -16,8 +16,7 @@ void Giftwrapping::addCust(Customer *customer) {
 
 /// @brief Prints the details of the plant with giftwrapping decoration.
 /// @return A string with the plant details and giftwrapping information.
-std::string Giftwrapping::print() // prints giftwrapping details
-{
+std::string Giftwrapping::print() {
   std::stringstream wrapping;
   wrapping << "Giftwrapping Details: " << std::endl;
   wrapping << plant->print();

@@ -9,6 +9,8 @@ public:
   virtual Iterator<T> *CreateIterator() = 0;
   virtual bool tryAddItem(T item) = 0;
   virtual bool removeItem(T item) = 0;
+
+public:
 };
 
 #endif

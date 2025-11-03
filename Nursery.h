@@ -92,6 +92,7 @@ public:
    * @return A double representing the balance of the nursery
    */
   double getBalance();
+
   /**
    * @fn void Nursery::addStaff(Staff* newStaff)
    * @brief Adds a new staff member to the nursery.

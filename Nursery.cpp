@@ -120,8 +120,6 @@ void Nursery::removeStaff(Staff *staffToRemove) {
     }
   }
 }
-// spawns customers randomly at random intervals
-
 /**
  * @brief Spawns a customer with randomized preferences and payment strategy.
  *
@@ -224,8 +222,8 @@ void Nursery::customerSpawner() {
 }
 /**
  * @brief Adds a new garden to the nursery's collection.
- * @param newGarden A pointer to the Garden object to be added. Does nothing if
- * the pointer is null.
+ * @param newGarden A pointer to the Garden object to be added. Does nothing
+ * if the pointer is null.
  */
 
 #ifdef ENABLE_DOCTESTS
@@ -250,10 +248,10 @@ TEST_SUITE("Nursery Singleton") {
     // Ensure clean state for test
     while (nursery.getStaffCount() > 0) {
       // This is tricky without access to the internal vector.
-      // The main.cpp tests suggest we can do this, but it's better to test from
-      // a known state. For this test, we'll assume it's empty or we can manage
-      // what we add. A reset method on the singleton would be ideal for
-      // testing.
+      // The main.cpp tests suggest we can do this, but it's better to test
+      // from a known state. For this test, we'll assume it's empty or we can
+      // manage what we add. A reset method on the singleton would be ideal
+      // for testing.
     }
 
     size_t initialStaffCount = nursery.getStaffCount();

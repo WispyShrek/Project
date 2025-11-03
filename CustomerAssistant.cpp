@@ -18,6 +18,7 @@ CustomerAssistant::~CustomerAssistant() {
 void CustomerAssistant::care() {
   cout << "CustomerAssistant: should not be doing anything with plants\n";
 }
+/// @brief Receives an update notification from the floor or garden.
 
 /// @brief Notifies the assistant to remove a plant from inventory.
 /// @param customer Pointer to the Customer initiating the notification.

@@ -113,6 +113,7 @@ bool Garden::removeItem(Plant *item) {
       }
     }
   }
+  return false;
 }
 
 Plant *Garden::removeDying() {

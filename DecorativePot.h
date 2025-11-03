@@ -22,6 +22,7 @@ public:
   void addCust(Customer *customer) override;
   /// @brief Prints the plant details along with decorative pot info.
   std::string print() override;
+
   /// @brief Returns the name of the decoration.
   /// @return String "DecorativePot".
   std::string getName() override { return "DecorativePot"; }

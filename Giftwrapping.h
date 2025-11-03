@@ -5,6 +5,7 @@
 /// @brief Represents a giftwrapping decoration for a plant.
 /// Inherits from Customisation and adds giftwrapping-specific behavior.
 class Giftwrapping : public Customisation {
+
 private:
   /// @brief Tracks whether giftwrapping has been added.
   bool addedWrapping;
@@ -15,6 +16,7 @@ public:
   void setAddedWrapping(bool addedWrapping) {
     this->addedWrapping = addedWrapping;
   }
+
   /// @brief Gets the giftwrapping flag.
   /// @return True if giftwrapping was added, false otherwise.
   bool getAddedWrapping() const { return addedWrapping; }
@@ -25,6 +27,7 @@ public:
   void addCust(Customer *customer) override;
   /// @brief Prints the plant details along with giftwrapping info.
   std::string print() override;
+
   /// @brief Returns the name of the decoration.
   /// @return String "Giftwrapping".
   std::string getName() override { return "Giftwrapping"; }
