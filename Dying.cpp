@@ -1,6 +1,15 @@
 #include "Dying.h"
 
+Dying::Dying(Caretaker *prevStateCarer) {
+  this->prevStateCarer = prevStateCarer;
+  this->name = "Dying";
+}
 void Dying::next(Plant *context) { context->setState(new Dead()); }
+void Dying::prev(Plant *context) {
+  context->setState(prevStateCarer->getPlantMemento()->getState());
+  delete prevStateCarer;
+  prevStateCarer = nullptr;
+}
 
 PlantState *Dying::clone() const { return new Dying(*this); }
 

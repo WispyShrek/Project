@@ -36,8 +36,8 @@ std::string Garden::print() {
         row.append("|||||");
       } else {
         plant = plants[r][c]->print();
-        if (plant.size() < 28) {
-          int pad = (plant.size() - 8) / 2;
+        if (plant.size() < 24) {
+          int pad = (24 - plant.size()) / 4;
           plant.append("\x1B[38;5;130m");
           plant.insert(0, pad, '|');
         }

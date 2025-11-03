@@ -19,8 +19,10 @@ void Sunny::applyRays() {
           if (plants->currItem()->getState() == "Dying") {
             plants->currItem()->setState(new Dead());
           } else if (plants->currItem()->getState() != "Dead") {
-            plants->currItem()->createPlantMemento();
-            plants->currItem()->setState(new Dying());
+            Caretaker *caretaker = new Caretaker();
+            caretaker->setPlantMemento(
+                plants->currItem()->createPlantMemento());
+            plants->currItem()->setState(new Dying(caretaker));
           }
           changed = true;
         } else {
