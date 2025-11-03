@@ -1,34 +1,42 @@
 #include "Dying.h"
 
-void Dying::next(Plant* context) {
-	context->setState(new Dead());
+Dying::Dying(Caretaker *prevStateCarer) {
+  this->prevStateCarer = prevStateCarer;
+  this->name = "Dying";
+}
+void Dying::next(Plant *context) { context->setState(new Dead()); }
+void Dying::prev(Plant *context) {
+  context->setState(prevStateCarer->getPlantMemento()->getState());
+  delete prevStateCarer;
+  prevStateCarer = nullptr;
 }
 
-PlantState* Dying::clone() const {
-    return new Dying(*this);
-}
+PlantState *Dying::clone() const { return new Dying(*this); }
 
-void Dying::print() {
-	std::cout << "This plant is dying, apply care to it" << std::endl;
+void Dying::print(std::string &sprite) {
+  sprite.clear();
+  sprite.append("\x1B[38;5;178m^-\\");
 }
-
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
 TEST_CASE("Dying State: Test Dying class methods") {
-	Dying dyingState;
-	Plant* mockPlant = nullptr; // Using nullptr as we won't modify the plant in this test
+  Dying dyingState;
+  Plant *mockPlant =
+      nullptr; // Using nullptr as we won't modify the plant in this test
 
-	// Test next method
-	dyingState.next(mockPlant); // Currently does nothing
+  // Test next method
+  dyingState.next(mockPlant); // Currently does nothing
 
-	// Test print method
-	dyingState.print(); // Should print "This plant is dying, apply care to it"
+  // Test print method
+  std::string sprite = "";
+  dyingState.print(
+      sprite); // Should print "This plant is dying, apply care to it"
 
-	// Test clone method
-	PlantState* clonedState = dyingState.clone();
-	REQUIRE(clonedState != nullptr);
-	delete clonedState;
+  // Test clone method
+  PlantState *clonedState = dyingState.clone();
+  REQUIRE(clonedState != nullptr);
+  delete clonedState;
 }
 #endif

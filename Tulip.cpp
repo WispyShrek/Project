@@ -1,52 +1,45 @@
 #include "Tulip.h"
 
 Tulip::Tulip() {
-	this->strategy = new ShadyCare();
-	this->price = 50;
+  this->strategy = new ShadyCare();
+  this->price = 50;
 }
 
-std::string Tulip::getName() {
-	return "Tulip";
+std::string Tulip::getName() { return "Tulip"; }
+
+Tulip *Tulip::clone() { return new Tulip(*this); }
+
+std::string Tulip::print() {
+  std::string sprite;
+  sprite.append("\x1B[38;5;202m <>");
+  this->currState->print(sprite);
+  return sprite;
 }
 
-Tulip* Tulip::clone() {
-	return new Tulip(*this);
-}
+double Tulip::getPrice() { return price; }
 
-void Tulip::print(){
-	std::cout << "Tulip" << std::endl;
-}
-
-double Tulip::getPrice() {
-	return price;
-}
-
-Tulip::Tulip(Tulip& toCopy) : Plant(toCopy) {
-	this->price = toCopy.price;
-}
-
-
+Tulip::Tulip(Tulip &toCopy) : Plant(toCopy) { this->price = toCopy.price; }
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
 TEST_CASE("Tulip: Test Tulip class methods") {
-	Tulip tulip;
+  Tulip tulip;
 
-	// Test getName method
-	REQUIRE(tulip.getName() == "Tulip");
+  // Test getName method
+  REQUIRE(tulip.getName() == "Tulip");
 
-	// Test getPrice method
-	REQUIRE(tulip.getPrice() == 50);
+  // Test getPrice method
+  REQUIRE(tulip.getPrice() == 50);
 
-	// Test clone method
-	Tulip* clonedTulip = tulip.clone();
-	REQUIRE(clonedTulip != nullptr);
-	REQUIRE(clonedTulip->getName() == "Tulip");
-	REQUIRE(clonedTulip->getPrice() == 50);
-	delete clonedTulip;
+  // Test clone method
+  Tulip *clonedTulip = tulip.clone();
+  REQUIRE(clonedTulip != nullptr);
+  REQUIRE(clonedTulip->getName() == "Tulip");
+  REQUIRE(clonedTulip->getPrice() == 50);
+  delete clonedTulip;
 
-	// Test print method (just ensure it runs without error)
-	tulip.print();
+  // Test print method (just ensure it runs without error)
+  tulip.print();
 }
 #endif

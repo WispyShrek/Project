@@ -3,8 +3,7 @@
 #include "Customisation.h"
 /// @brief Represents a decorative pot customisation for a plant.
 /// Inherits from Customisation and adds decorative pot-specific behavior.
-class DecorativePot : public Customisation
-{
+class DecorativePot : public Customisation {
 private:
   /// @brief Tracks whether the decorative pot has been added.
   bool addedPot;
@@ -17,12 +16,13 @@ public:
   /// @return True if the pot was added, false otherwise.
   bool getAddedPot() const { return addedPot; }
   /// @brief Increases the price of the plant by the cost of the decorative pot.
-  void increasePrice();
+  void increasePrice() override;
   /// @brief Associates a customer with the decorated plant.
   /// @param customer Pointer to the Customer object.
-  void addCust(Customer *customer);
+  void addCust(Customer *customer) override;
   /// @brief Prints the plant details along with decorative pot info.
-  void print();
+  std::string print() override;
+
   /// @brief Returns the name of the decoration.
   /// @return String "DecorativePot".
   std::string getName() override { return "DecorativePot"; }
