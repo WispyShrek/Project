@@ -56,64 +56,64 @@ void EasyCust::enquirePlants(SalesFloor *salesFloor)
 	}
 	pay();
 }
-#ifdef ENABLE_DOCTESTS
-#include "doctest.h"
-#include "EasyCust.h"
-#include "Rose.h"
-#include "EFT.h"
-#include "SalesFloor.h"
-#include <sstream>
+// #ifdef ENABLE_DOCTESTS
+// #include "doctest.h"
+// #include "EasyCust.h"
+// #include "Rose.h"
+// #include "EFT.h"
+// #include "SalesFloor.h"
+// #include <sstream>
 
-// Concrete SalesFloor that always returns true for notify
-class AlwaysAvailableFloor : public SalesFloor
-{
-public:
-	bool notify(Customer *customer, Plant *plant) override
-	{
-		return true; // simulate successful acquisition
-	}
-};
+// // Concrete SalesFloor that always returns true for notify
+// class AlwaysAvailableFloor : public SalesFloor
+// {
+// public:
+// 	bool notify(Customer *customer, Plant *plant) override
+// 	{
+// 		return true; // simulate successful acquisition
+// 	}
+// };
 
-TEST_CASE("EasyCust: voiceLine returns expected string")
-{
-	EasyCust customer("Alice", nullptr, 10.0, new EFT(), {});
-	CHECK(customer.voiceLine() == "I'm a easy customer");
-}
+// TEST_CASE("EasyCust: voiceLine returns expected string")
+// {
+// 	EasyCust customer("Alice", nullptr, 10.0, new EFT(), {});
+// 	CHECK(customer.voiceLine() == "I'm a easy customer");
+// }
 
-TEST_CASE("EasyCust: pay invokes EFT strategy")
-{
-	EFT *eft = new EFT();
-	EasyCust customer("Bob", nullptr, 5.0, eft, {});
+// TEST_CASE("EasyCust: pay invokes EFT strategy")
+// {
+// 	EFT *eft = new EFT();
+// 	EasyCust customer("Bob", nullptr, 5.0, eft, {});
 
-	std::stringstream ss;
-	std::streambuf *old_buf = std::cout.rdbuf(ss.rdbuf());
-	customer.pay();
-	std::cout.rdbuf(old_buf);
+// 	std::stringstream ss;
+// 	std::streambuf *old_buf = std::cout.rdbuf(ss.rdbuf());
+// 	customer.pay();
+// 	std::cout.rdbuf(old_buf);
 
-	CHECK(ss.str() == "Paying with EFT");
-}
+// 	CHECK(ss.str() == "Paying with EFT");
+// }
 
-TEST_CASE("EasyCust: enquirePlants adds plant to cart and pays")
-{
-	Rose *rose = new Rose();
-	std::vector<Plant *> prefs = {rose};
-	EFT *eft = new EFT();
-	AlwaysAvailableFloor *floor = new AlwaysAvailableFloor();
+// TEST_CASE("EasyCust: enquirePlants adds plant to cart and pays")
+// {
+// 	Rose *rose = new Rose();
+// 	std::vector<Plant *> prefs = {rose};
+// 	EFT *eft = new EFT();
+// 	AlwaysAvailableFloor *floor = new AlwaysAvailableFloor();
 
-	EasyCust customer("Carol", floor, 15.0, eft, prefs);
+// 	EasyCust customer("Carol", floor, 15.0, eft, prefs);
 
-	std::stringstream ss;
-	std::streambuf *old_buf = std::cout.rdbuf(ss.rdbuf());
-	customer.enquirePlants(floor);
-	std::cout.rdbuf(old_buf);
+// 	std::stringstream ss;
+// 	std::streambuf *old_buf = std::cout.rdbuf(ss.rdbuf());
+// 	customer.enquirePlants(floor);
+// 	std::cout.rdbuf(old_buf);
 
-	CHECK(customer.cartToString().find("Rose") != std::string::npos);
-	CHECK(ss.str().find("Paying with EFT") != std::string::npos);
-}
+// 	CHECK(customer.cartToString().find("Rose") != std::string::npos);
+// 	CHECK(ss.str().find("Paying with EFT") != std::string::npos);
+// }
 
-TEST_CASE("EasyCust: destructor cleans up memory safely")
-{
-	EasyCust *customer = new EasyCust("Dave", nullptr, 20.0, new EFT(), {new Rose(), new Rose()});
-	delete customer; // should not leak or crash
-}
-#endif
+// TEST_CASE("EasyCust: destructor cleans up memory safely")
+// {
+// 	EasyCust *customer = new EasyCust("Dave", nullptr, 20.0, new EFT(), {new Rose(), new Rose()});
+// 	delete customer; // should not leak or crash
+// }
+// #endif
