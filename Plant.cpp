@@ -55,10 +55,7 @@ void Plant::setCareStrategy(CareStrategy *strat) {
   strategy = strat;
 }
 
-void Plant::applyCare() {
-  if (strategy)
-    strategy->applyCare();
-}
+void Plant::applyCare() { prevState(); }
 
 std::string Plant::print() {
   if (currState) {

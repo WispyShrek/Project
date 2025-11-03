@@ -105,7 +105,17 @@ void print_multiline(WINDOW *win, int start_y, int start_x,
   }
 }
 
-enum class MenuState { MAIN, PLANT, WATER, HARVEST, GARDENS, STAFFHIRE, STAFF };
+enum class MenuState {
+  MAIN,
+  PLANT,
+  WATER,
+  HARVEST,
+  GARDENS,
+  STAFFHIRE,
+  STAFF,
+  CHOICE,
+  GREENHOUSES
+};
 
 WINDOW *create_newwin(int height, int width, int starty, int startx,
                       const char *title) {
@@ -143,6 +153,9 @@ int main() {
   Garden *partial2 = new PartialSun();
   Garden *shady1 = new Shady();
   Garden *shady2 = new Shady();
+  greenHouse *g1 = new greenHouse();
+  greenHouse *g2 = new greenHouse();
+  greenHouse *g3 = new greenHouse();
   nursery.addGarden(sunny1);
   nursery.addGarden(sunny2);
   nursery.addGarden(partial1);
@@ -244,6 +257,8 @@ int main() {
   std::vector<std::string> main_menu = {"Plant Seed",     "Care for Plants",
                                         "Harvest Plants", "Hire Staff",
                                         "Assign Staff",   "Exit"};
+  std::vector<std::string> choice_menu = {"Plant in Garden",
+                                          "Plant in Greenhouse", "Back"};
   std::vector<std::string> plant_menu = std::vector<std::string>();
   for (auto plants : shopPlants) {
     plant_menu.push_back(plants->getName());
@@ -258,6 +273,7 @@ int main() {
   for (auto staff : nursery.getStaff()) {
     staff_menu.push_back(staff->getName());
   }
+  staff_menu.push_back("Back");
   std::vector<std::string> garden_menu = {"G 1 (Sunny)",
                                           "G 2 (Sunny)",
                                           "G 3 (Partial sun)",
@@ -265,7 +281,8 @@ int main() {
                                           "G 5 (Shady)",
                                           "G 6 (Shady)",
                                           "Back"};
-  staff_menu.push_back("Back");
+  std::vector<std::string> greenhouse_menu = {"Greenhouse 1", "Greenhouse 2",
+                                              "Greenhouse 3", "Back"};
   std::vector<std::string> water_menu = {"Water All", "Water Selected", "Back"};
   std::vector<std::string> harvest_menu = {"Harvest All", "Harvest Mature Only",
                                            "Back"};
@@ -313,7 +330,7 @@ int main() {
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_real_distribution<> chance(0.0, 1.0);
-  nursery.addToBalance(500);
+  nursery.addToBalance(5000);
   bool careMenu = false;
   bool harvest = false;
   bool savePlant = false;
@@ -351,7 +368,7 @@ int main() {
       for (auto garden : nursery.getGardens()) {
         double roll = chance(gen);
         if (roll < 0.9) {
-          garden->applyRays();
+          garden->tick();
         }
       }
       prevHour = hour;
@@ -381,6 +398,8 @@ int main() {
     case MenuState::GARDENS:
       current_menu = &garden_menu;
       break;
+    case MenuState::CHOICE:
+      current_menu = &choice_menu;
     }
 
     // --- Info Panel ---
@@ -476,13 +495,19 @@ int main() {
             choice = 0;
           } else if (item == "View inventory") {
           }
+        } else if (state == MenuState::CHOICE) {
+          if (item == "Plant in Garden") {
+            state = MenuState::GARDENS;
+          } else if (item == "Plant in Greenhouse") {
+            state = MenuState::GREENHOUSES;
+          }
         } else if (state == MenuState::PLANT) {
 
           toAdd = shopPlants[choice]->clone();
           if (nursery.getBalance() >= toAdd->getPrice()) {
             mvwprintw(info_win, 18, 2, "%s ready to be placed in a %s area",
                       toAdd->getName().c_str(), toAdd->getStrategy().c_str());
-            state = MenuState::GARDENS;
+            state = MenuState::CHOICE;
             choice = 0;
           } else {
             mvwprintw(info_win, 18, 2,
@@ -560,9 +585,9 @@ int main() {
           } else if (careMenu) {
 
             nursery.getGardens()[choice]->applyCare();
-            print_multiline(
-                info_win, 18, 2,
-                "You have successfully tended\n to the plants in this garden");
+            print_multiline(info_win, 18, 2,
+                            "You have successfully tended\n to the plants in "
+                            "this garden");
             wrefresh(info_win);
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
             state = MenuState::MAIN;

@@ -17,6 +17,7 @@ class greenHouse : public Collection<Plant *> {
 private:
   std::vector<std::vector<Plant *>> plants =
       std::vector<std::vector<Plant *>>(3, std::vector<Plant *>(3, nullptr));
+  CareStrategy *carestrategy;
   int plantCount = 0;
 
 public:
@@ -63,6 +64,14 @@ public:
    * @param[in] item A pointer to the Plant object to be removed.
    */
   bool removeItem(Plant *item) override;
+  /*@brief returns a description of the greenhouse
+   * @return A string description of the greenshouse and its contents
+   */
+  std::string getDescription();
+  /*@brief applies singular time unit to the greenhouse
+   * Plants may grow or die in this time unit
+   */
+  void tick();
 };
 
 #endif

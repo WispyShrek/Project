@@ -4,6 +4,14 @@
 #include "Sunny.h"
 #include <algorithm>
 #include <iostream>
+#include <regex>
+#include <string>
+
+int visible_length(const std::string &s) {
+  static const std::regex ansi_escape("\033\\[[0-9;]*m");
+  std::string clean = std::regex_replace(s, ansi_escape, "");
+  return static_cast<int>(clean.size());
+}
 
 Garden::Garden()
     : plantCount(0), plants(std::vector<std::vector<Plant *>>(
@@ -25,7 +33,7 @@ std::string Garden::print() {
   int fillLength;
   gardenSprite.append("\x1B[38;5;130m");
   for (int r = 0; r < 3; r++) {
-    gardenSprite.append(27, '|');
+    gardenSprite.append(36, '|');
     gardenSprite.append("\n\x1B[38;5;130m");
     row.clear();
     row.append("|||");
@@ -33,33 +41,29 @@ std::string Garden::print() {
       plant.clear();
       plant.shrink_to_fit();
       if (plants[r][c] == nullptr) {
-        row.append("||||||");
+        row.append("||||||||");
       } else {
         plant = plants[r][c]->print();
-        if (plant.size() < 24) {
-          int pad = (24 - plant.size()) / 4;
+        if (visible_length(plant) < 8) {
+          int pad = (8 - visible_length(plant)) / 2;
           plant.append("\x1B[38;5;130m");
           plant.insert(0, pad, '|');
         }
         row.append(plant);
-        fillLength = 6 - plant.length();
-        if (fillLength < 0) {
-          fillLength = 1;
-        }
-        row.append(fillLength, '|');
+        row.append(1, '|');
         row.append("\x1B[38;5;130m");
       }
       row.append("|||\x1B[38;5;130m");
     }
     gardenSprite.append(row);
-    fillLength = 27 - row.length();
+    fillLength = 36 - visible_length(row);
     if (fillLength < 0) {
       fillLength = 0;
     }
     gardenSprite.append(fillLength, '|');
     gardenSprite.append("\n\x1B[38;5;130m");
   }
-  gardenSprite.append(27, '|');
+  gardenSprite.append(36, '|');
   gardenSprite.append("\n\x1B[38;5;130m");
 
   return gardenSprite;
@@ -130,6 +134,14 @@ Plant *Garden::removeDying() {
     }
   }
   return nullptr;
+}
+
+void Garden::tick() {
+  applyRays();
+  if (changed) {
+    notify();
+    changed = false;
+  }
 }
 
 void Garden::addItem(Plant *item, int row, int col) {

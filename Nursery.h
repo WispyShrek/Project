@@ -22,7 +22,6 @@
 #include <random>
 #include <thread>
 #include <vector>
-using namespace std;
 
 /**
  * @class Nursery
@@ -35,22 +34,21 @@ using namespace std;
 class Nursery {
 
 private:
-  SalesFloor *salesFloor;
   static Nursery *uniqueInstance;
-  vector<Garden *> gardens;
-  vector<Plant *> plantInventory;
+  std::vector<Garden *> gardens;
+  std::vector<Plant *> plantInventory;
   double balance = 0;
   /**
    * @var vector<greenHouse*> greenHouses
    * @brief A collection of all greenhouses in the nursery.
    */
-  vector<greenHouse *> greenHouses;
+  std::vector<greenHouse *> greenHouses;
   /**
    * @var vector<Staff*> staff
    * @brief A collection of all staff members in the nursery.
    */
-  vector<Staff *> staff;
-  vector<Customer *> customers;
+  std::vector<Staff *> staff;
+  std::vector<Customer *> customers;
 
 public:
   /**
@@ -71,12 +69,20 @@ public:
    * @return A reference to a vector of garden pointers
    */
   const std::vector<Garden *> &getGardens();
+  /* @brief Returns a reference to the nursery's greenhouse list
+   * @return A reference to a vector of greenhouse pointers
+   */
+  const std::vector<greenHouse *> &getGreenhouses();
+  /** @fn void Nursery::addGreenhouse(greenHouse* greenhouse)
+   * @brief Adds a new greenhouse to the nursery.
+   * @param newgarden A pointer to the greenHouse object to be added.
+   */
+  void addGreenhouse(greenHouse *greenhouse);
 
   /** @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
    * @param newgarden A pointer to the Garden object to be added.
    */
-
   void addGarden(Garden *newgarden);
   /* @brief adds an amount from the nursery's balance
    * @param (double) amount to add

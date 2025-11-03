@@ -3,6 +3,7 @@
  * @brief Implementation of the Nursery class.
  */
 #include "Nursery.h"
+#include "CustomerAssistantCreator.h"
 #include <algorithm> // For std::remove
 
 /**
@@ -40,8 +41,10 @@ Nursery::~Nursery() {
  * @return A reference to the unique Nursery instance.
  */
 Nursery &Nursery::instance() {
-  static Nursery
-      uniqueInstance; // don't have to create new nursery object to call class
+  static Nursery uniqueInstance;
+  CustomerAssistantCreator *staffCreator =
+      new CustomerAssistantCreator(); // don't have to create new nursery object
+  uniqueInstance.staff.push_back(staffCreator->createStaff()); // to call class
   //(ex. Nursery& nursery = Nursery::instance() Call the static function
   // instance() that belongs to the class Nursery. and not a specific object)
   return uniqueInstance;
@@ -69,7 +72,11 @@ double Nursery::getBalance() { return this->balance; }
 
 const vector<Garden *> &Nursery::getGardens() { return this->gardens; };
 
-// add garden to list/*state*
+/**
+ * @brief Adds a new garden to the nursery's collection.
+ * @param newGarden A pointer to the Garden object to be added. Does nothing
+ * if the pointer is null.
+ */
 void Nursery::addGarden(Garden *newGarden) {
   if (newGarden)
     gardens.push_back(newGarden);
@@ -95,7 +102,11 @@ void Nursery::addToPlantInventory(Plant *inventory) {
     return;
   }
   if (inventory->getState() == "Mature") {
-    salesFloor->addToPlantInventory(inventory);
+    for (auto staffmember : staff) {
+      if (dynamic_cast<CustomerAssistant *>(staffmember)) {
+        staffmember->addToPlantInventory(inventory);
+      }
+    }
   } else {
     plantInventory.push_back(inventory);
   }
@@ -135,96 +146,97 @@ void Nursery::customerSpawner() {
   std::mt19937 gen(rd());
   std::uniform_int_distribution<int> stratDist(0, 2); // 0=EFT, 1=Card, 2=Cash
   std::uniform_int_distribution<int> custDist(0, 1);  // 0=Fussy, 1=Easy
-  std::uniform_int_distribution<int> delayDist(500, 1500); // delay in ms
 
-  bool running = true; // optional: could be controlled externally
+  // Choose a payment strategy
+  PaymentStrategy *strategy = nullptr;
+  switch (stratDist(gen)) {
+  case 0:
+    strategy = new EFT();
+    break;
+  case 1:
+    strategy = new Card();
+    break;
+  case 2:
+    strategy = new Cash();
+    break;
+  }
 
-  while (running) {
-    // Sleep for a random interval
-    std::this_thread::sleep_for(std::chrono::milliseconds(delayDist(gen)));
+  std::vector<Plant *> preferredPlants;
+  int listSize = rand() % 10 + 1;
+  int decorationSize = rand() % 3;
 
-    // Choose a payment strategy
-    PaymentStrategy *strategy = nullptr;
-    switch (stratDist(gen)) {
+  for (int i = 0; i < listSize; i++) {
+    std::cout << "Generating preferred plant " << i + 1 << std::endl;
+    // Create a random plant and add it to the preferredPlants vector
+    Plant *newPlant = nullptr;
+    int plantType = rand() % 4;
+    switch (plantType) {
     case 0:
-      strategy = new EFT();
+      newPlant = new Lily();
       break;
     case 1:
-      strategy = new Card();
+      newPlant = new Tulip();
       break;
     case 2:
-      strategy = new Cash();
+      newPlant = new Lavender();
+      break;
+    case 3:
+      newPlant = new Rose();
+
+    default:
+      newPlant = new Lily(); // Fallback
       break;
     }
-
-    std::vector<Plant *> preferredPlants;
-    int listSize = rand() % 10 + 1;
-    int decorationSize = rand() % 3;
-
-    for (int i = 0; i < listSize; i++) {
-      std::cout << "Generating preferred plant " << i + 1 << std::endl;
-      // Create a random plant and add it to the preferredPlants vector
-      Plant *newPlant = nullptr;
-      int plantType = rand() % 4;
-      switch (plantType) {
+    int decorationType = rand() % 3;
+    for (int j = 0; j < decorationSize; j++) {
+      switch (decorationType) {
       case 0:
-        newPlant = new Lily();
+        newPlant = new Arrangement(); // wrap with Arrangement
         break;
       case 1:
-        newPlant = new Tulip();
+        newPlant = new Giftwrapping(); // wrap with Giftwrapping
         break;
       case 2:
-        newPlant = new Lavender();
+        newPlant = new DecorativePot(); // wrap with DecorativePot
         break;
-      case 3:
-        newPlant = new Rose();
-
       default:
-        newPlant = new Lily(); // Fallback
         break;
       }
-      int decorationType = rand() % 3;
-      for (int j = 0; j < decorationSize; j++) {
-        switch (decorationType) {
-        case 0:
-          newPlant = new Arrangement(); // wrap with Arrangement
-          break;
-        case 1:
-          newPlant = new Giftwrapping(); // wrap with Giftwrapping
-          break;
-        case 2:
-          newPlant = new DecorativePot(); // wrap with DecorativePot
-          break;
-        default:
-          break;
-        }
-      }
-      preferredPlants.push_back(newPlant);
     }
-    double time = static_cast<double>(
-        rand() % 11 + 5); // time available between 5 and 15 minutes
-    // Create a random customer
-    Customer *newCustomer = nullptr;
-    customers.push_back(newCustomer);
-    if (custDist(gen) == 0) {
-      newCustomer = new FussyCust("Fussy Customer", salesFloor, time, strategy,
-                                  preferredPlants);
-    } else {
-      newCustomer = new EasyCust("Easy Customer", salesFloor, time, strategy,
-                                 preferredPlants);
+    preferredPlants.push_back(newPlant);
+  }
+  double time = static_cast<double>(
+      rand() % 11 + 5); // time available between 5 and 15 minutes
+  // Create a random customer
+  Customer *newCustomer = nullptr;
+  std::vector<Staff *> availableAssistants;
+  for (auto staffmember : staff) {
+    if (dynamic_cast<CustomerAssistant *>(staffmember)) {
+      availableAssistants.push_back(staffmember);
     }
-    running = false;
   }
-  for (int i = 0; i < int(customers.size()); i++) {
-    delete customers[i];
-    customers[i] = NULL;
+  int size = availableAssistants.size();
+  std::uniform_int_distribution<int> assistantDist(0, size - 1);
+
+  if (custDist(gen) == 0) {
+    newCustomer =
+        new FussyCust("Fussy Customer", availableAssistants[assistantDist(gen)],
+                      time, strategy, preferredPlants);
+  } else {
+    newCustomer =
+        new EasyCust("Easy Customer", availableAssistants[assistantDist(gen)],
+                     time, strategy, preferredPlants);
   }
+
+  customers.push_back(newCustomer);
 }
-/**
- * @brief Adds a new garden to the nursery's collection.
- * @param newGarden A pointer to the Garden object to be added. Does nothing
- * if the pointer is null.
- */
+const std::vector<greenHouse *> &Nursery::getGreenhouses() {
+  return this->greenHouses;
+}
+void Nursery::addGreenhouse(greenHouse *greenhouse) {
+  if (greenhouse != nullptr)
+    this->greenHouses.push_back(greenhouse);
+}
 
 #ifdef ENABLE_DOCTESTS
 #include "CustomerAssistant.h"

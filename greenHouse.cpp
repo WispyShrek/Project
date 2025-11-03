@@ -13,6 +13,8 @@ greenHouse::~greenHouse() {
   }
 }
 
+void greenHouse::tick() {}
+
 void greenHouse::powerSystem() {
   GreenhouseController controller;
   controller.flipUpSprinklers();
