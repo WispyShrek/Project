@@ -44,7 +44,8 @@ Nursery &Nursery::instance() {
   static Nursery uniqueInstance;
   CustomerAssistantCreator *staffCreator =
       new CustomerAssistantCreator(); // don't have to create new nursery object
-  uniqueInstance.staff.push_back(staffCreator->createStaff()); // to call class
+  uniqueInstance.staff.push_back(staffCreator->createStaff());
+  uniqueInstance.greenHouses = std::vector<greenHouse *>(); // to call class
   //(ex. Nursery& nursery = Nursery::instance() Call the static function
   // instance() that belongs to the class Nursery. and not a specific object)
   return uniqueInstance;
@@ -131,6 +132,7 @@ void Nursery::removeStaff(Staff *staffToRemove) {
     }
   }
 }
+
 /**
  * @brief Spawns a customer with randomized preferences and payment strategy.
  *
@@ -139,7 +141,7 @@ void Nursery::removeStaff(Staff *staffToRemove) {
  * Fussy). The created customer is added to the nursery's internal list and
  * deleted after use.
  */
-void Nursery::customerSpawner() {
+std::string Nursery::customerSpawner() {
   using namespace std::chrono_literals;
 
   std::random_device rd;
@@ -166,7 +168,6 @@ void Nursery::customerSpawner() {
   int decorationSize = rand() % 3;
 
   for (int i = 0; i < listSize; i++) {
-    std::cout << "Generating preferred plant " << i + 1 << std::endl;
     // Create a random plant and add it to the preferredPlants vector
     Plant *newPlant = nullptr;
     int plantType = rand() % 4;
@@ -191,19 +192,27 @@ void Nursery::customerSpawner() {
     for (int j = 0; j < decorationSize; j++) {
       switch (decorationType) {
       case 0:
-        newPlant = new Arrangement(); // wrap with Arrangement
+        Arrangement *arrangement;
+        arrangement->plant = newPlant;
+        arrangement->increasePrice();
+        preferredPlants.push_back(arrangement);
         break;
       case 1:
-        newPlant = new Giftwrapping(); // wrap with Giftwrapping
+        Giftwrapping *giftwrap;
+        giftwrap->plant = newPlant;
+        giftwrap->increasePrice();
+        preferredPlants.push_back(giftwrap);
         break;
       case 2:
-        newPlant = new DecorativePot(); // wrap with DecorativePot
+        DecorativePot *potted;
+        potted->plant = newPlant;
+        giftwrap->increasePrice();
+        preferredPlants.push_back(potted);
         break;
       default:
         break;
       }
     }
-    preferredPlants.push_back(newPlant);
   }
   double time = static_cast<double>(
       rand() % 11 + 5); // time available between 5 and 15 minutes
@@ -229,6 +238,7 @@ void Nursery::customerSpawner() {
   }
 
   customers.push_back(newCustomer);
+  return newCustomer->voiceLine();
 }
 const std::vector<greenHouse *> &Nursery::getGreenhouses() {
   return this->greenHouses;
@@ -236,6 +246,27 @@ const std::vector<greenHouse *> &Nursery::getGreenhouses() {
 void Nursery::addGreenhouse(greenHouse *greenhouse) {
   if (greenhouse != nullptr)
     this->greenHouses.push_back(greenhouse);
+}
+void Nursery::logPurchase(const std::string &message) {
+  purchaseMessages.push_back(message);
+  if (purchaseMessages.size() > 100)
+    purchaseMessages.erase(purchaseMessages.begin());
+}
+
+std::vector<std::string> Nursery::getPurchaseMessages() {
+  return purchaseMessages;
+}
+
+void Nursery::clearPurchaseMessages() { purchaseMessages.clear(); }
+void Nursery::removeCust(Customer *customer) {
+  for (auto cust : this->customers) {
+    if (cust == customer) {
+      if (cust != nullptr) {
+        this->balance += cust->buyItems();
+        cust = nullptr;
+      }
+    }
+  }
 }
 
 #ifdef ENABLE_DOCTESTS

@@ -1,20 +1,16 @@
 #include "LightsOn.h"
 
-LightsOn::LightsOn() : lights(new Light) {} 
+LightsOn::LightsOn(Light *lights) { this->lights = lights; }
 
-void LightsOn::execute() {
-	lights->turnOn();
-}
-
-
+void LightsOn::execute() { lights->turnOn(); }
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
 TEST_CASE("LightsOn: Test LightsOn class methods") {
-	LightsOn lightsOnCommand;
+  LightsOn lightsOnCommand;
 
-	// Test execute method
-	lightsOnCommand.execute(); // Should turn on the lights (prints "Light: ON")
+  // Test execute method
+  lightsOnCommand.execute(); // Should turn on the lights (prints "Light: ON")
 }
 #endif

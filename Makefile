@@ -1,37 +1,33 @@
 CC = gcc
 CXX = g++
-CXXFLAGS = -Wall -g -lncurses -lpanel -pthread
+CXXFLAGS = -Wall -g -pthread
+LDFLAGS = -lncurses -lpanel
 LD = g++
+
 OUTDIR = out
 OBJDIR = $(OUTDIR)/obj
 BINDIR = $(OUTDIR)/bin
+
 SRCFILES = $(filter-out testing.cpp, $(wildcard *.cpp))
 TESTFILES = $(filter-out main.cpp, $(wildcard *.cpp))
 
-all:
-	make $(BINDIR)/program
+all: $(BINDIR)/program
 
-$(BINDIR)/program: $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCFILES)) 
-	@if [ ! -d $(BINDIR) ]; then \
-		mkdir -p $(BINDIR); \
-	fi
-	$(CXX) $(CXXFLAGS) -o $(BINDIR)/program $^
+$(BINDIR)/program: $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCFILES))
+	@mkdir -p $(BINDIR)
+	$(LD) -o $@ $^ $(LDFLAGS)
 
 $(OBJDIR)/%.o: %.cpp
-	@if [ ! -d $(OBJDIR) ]; then \
-		mkdir -p $(OBJDIR); \
-	fi
-	$(CXX) -c $(CXXFLAGS) -o $@ $< 
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-run: $(BINDIR)/program $(SRCFILES)
+run: $(BINDIR)/program
 	./$(BINDIR)/program
 
-test:
-	@if [ ! -d $(BINDIR) ]; then \
-		mkdir -p $(BINDIR);\
-	fi
-	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES)
+test: $(TESTFILES)
+	@mkdir -p $(BINDIR)
+	$(CXX) $(CXXFLAGS) -DENABLE_DOCTESTS -o $(BINDIR)/test $(TESTFILES) $(LDFLAGS)
 	./$(BINDIR)/test
 
 clean:
-	rm -r $(OUTDIR)
+	rm -rf $(OUTDIR)

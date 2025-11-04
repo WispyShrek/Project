@@ -1,6 +1,7 @@
 #ifndef GREENHOUSE_H
 #define GREENHOUSE_H
 #include "Collection.h"
+#include "GreenhouseController.h"
 #include "Plant.h"
 #include "PlantIterator.h"
 #include <vector>
@@ -21,15 +22,21 @@ private:
   int plantCount = 0;
 
 public:
+  bool wet = false;
+  bool bright = false;
+
   /** @fn @greenHouse::greenHouse()
    * @brief Constructor for greenHouse class.
    */
-  virtual ~greenHouse();
+  greenHouse();
+  ~greenHouse();
   /** @fn void greenHouse::powerSystem()
-   * @brief Powers the greenhouse system, toggling sprinklers and lights on or
-   * off.
+   * @brief Initialises the greenhouse power and water systems for toggling
+   * sprinklers and lights on or off.
+   * @return GreenhouseController pointer for the controller that can be used on
+   * the greenhouse;
    */
-  void powerSystem();
+  GreenhouseController *powerSystem();
 
   /*! @fn Iterator<Plant*> *greenHouse::CreateIterator()
    * @brief Creates an iterator over the 3x3 plant grid (row-major, skips
@@ -72,6 +79,15 @@ public:
    * Plants may grow or die in this time unit
    */
   void tick();
+  /*@brief removes one dying plant from greenhouse
+   * @return A plant pointer of a dying plant or null
+   */
+  Plant *removeDying();
+  /*@brief removes one mature plant from greenhouse
+   * @return A plant pointer of a mature plant or null
+   */
+  Plant *removeMature();
+  std::string print();
 };
 
 #endif

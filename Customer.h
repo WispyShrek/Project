@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-
+class Nursery;
 /// @brief Represents a customer interacting with the sales floor and managing a
 /// cart of plants. This is an abstract base class with virtual methods for
 /// customization.
@@ -26,6 +26,8 @@ private: // attributes
   double timeAvailable;
 
 public: /// @brief Default constructor.
+  /// @brief Vector holding the customer's preferred plants.
+  vector<Plant *> preferredPlants;
   Customer();
   /// @brief Parameterized constructor.
   /// @param name Name of the customer.
@@ -46,7 +48,7 @@ public: /// @brief Default constructor.
   void addDecoration(Customisation *decorator, Plant *plant);
   /// @brief Adds a plant to the customer's cart.
   /// @param plant Pointer to the Plant object.
-  void addToCart(Plant *plant);
+  string addToCart(Plant *plant);
   /// @brief Removes a plant from the customer's cart.
   /// @param plant Pointer to the Plant object to remove.
   void removeFromCart(Plant *plant);
@@ -55,7 +57,11 @@ public: /// @brief Default constructor.
   string cartToString();
   /// @brief Abstract method for customer to enquire about plants.
   /// @param salesFloor Pointer to the SalesFloor to enquire from.
-  virtual void enquirePlants(SalesFloor *salesFloor) = 0;
+  virtual string enquirePlants(SalesFloor *salesFloor) = 0;
+  double buyItems();
+  std::string decTime();
+  int getCartSize() { return this->cart.size(); }
+  SalesFloor *getSalesFloor() { return salesFloor; }
 };
 
 #endif

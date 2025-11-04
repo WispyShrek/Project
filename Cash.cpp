@@ -11,7 +11,8 @@
  * It prints a message to the standard output to signify that the payment
  * is being processed via cash.
  */
-std::string Cash::pay() {
+std::string Cash::pay()
+{
   // TODO - implement Cash::pay
-  return "Pay with cash";
+  return "Paying with cash";
 }

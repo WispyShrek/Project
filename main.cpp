@@ -114,7 +114,8 @@ enum class MenuState {
   STAFFHIRE,
   STAFF,
   CHOICE,
-  GREENHOUSES
+  GREENHOUSES,
+  CONTROLS
 };
 
 WINDOW *create_newwin(int height, int width, int starty, int startx,
@@ -153,15 +154,29 @@ int main() {
   Garden *partial2 = new PartialSun();
   Garden *shady1 = new Shady();
   Garden *shady2 = new Shady();
-  greenHouse *g1 = new greenHouse();
-  greenHouse *g2 = new greenHouse();
-  greenHouse *g3 = new greenHouse();
   nursery.addGarden(sunny1);
   nursery.addGarden(sunny2);
   nursery.addGarden(partial1);
   nursery.addGarden(partial2);
   nursery.addGarden(shady1);
   nursery.addGarden(shady2);
+  greenHouse *g1 = new greenHouse();
+  greenHouse *g2 = new greenHouse();
+  greenHouse *g3 = new greenHouse();
+  GreenhouseController *c1 = g1->powerSystem();
+  GreenhouseController *c2 = g2->powerSystem();
+  GreenhouseController *c3 = g3->powerSystem();
+  nursery.addGreenhouse(g1);
+  nursery.addGreenhouse(g2);
+  nursery.addGreenhouse(g3);
+  std::vector<GreenhouseController *> controllers;
+  controllers.push_back(c1);
+  controllers.push_back(c2);
+  controllers.push_back(c3);
+  std::vector<greenHouse *> greenhouses;
+  greenhouses.push_back(g1);
+  greenhouses.push_back(g2);
+  greenhouses.push_back(g3);
   // vector contains all of the staff members that can be hired
   CustomerAssistantCreator assitantCreator = CustomerAssistantCreator();
   PlantCaretakerCreator caretakerCreator = PlantCaretakerCreator();
@@ -220,6 +235,15 @@ int main() {
   shopPlants.push_back(dollyRose);
   shopPlants.push_back(dollyLily);
   shopPlants.push_back(dollyTulip);
+  // customer log
+
+  std::vector<std::string> customerLog;
+  int scroll_offset = 0;
+  const int visible_lines = 5; // fits in your 5-line customer_win
+  // purchase log
+  std::vector<std::string> purchaseLog;
+  int purchase_scroll_offset = 0;
+  const int purchase_visible_lines = 5;
 
   // gui initialization
   initscr();
@@ -240,25 +264,37 @@ int main() {
   getmaxyx(stdscr, height, width);
 
   int info_width = width / 4;
+  int info_height = height * 0.6;
   int main_width = width - info_width;
   int menu_height = 5;
+  int customer_height = height * 0.25;
+  int purchase_height = height - info_height - customer_height;
   int garden_height = height - menu_height;
 
   WINDOW *garden_win = create_newwin(garden_height, main_width, 0, 0, "Garden");
   WINDOW *menu_win =
       create_newwin(menu_height, main_width, garden_height, 0, "Menu");
   WINDOW *info_win =
-      create_newwin(height, info_width, 0, main_width, "Nursery Info");
+      create_newwin(info_height, info_width, 0, main_width, "Nursery Info");
+  WINDOW *customer_win = create_newwin(customer_height, info_width, info_height,
+                                       main_width, "Customer");
+  WINDOW *purchase_win =
+      create_newwin(purchase_height, info_width, info_height + customer_height,
+                    main_width, "Purchases");
+  PANEL *purchase_panel = new_panel(purchase_win);
 
   PANEL *garden_panel = new_panel(garden_win);
   PANEL *menu_panel = new_panel(menu_win);
   PANEL *info_panel = new_panel(info_win);
+  PANEL *customer_panel = new_panel(customer_win);
 
-  std::vector<std::string> main_menu = {"Plant Seed",     "Care for Plants",
-                                        "Harvest Plants", "Hire Staff",
-                                        "Assign Staff",   "Exit"};
-  std::vector<std::string> choice_menu = {"Plant in Garden",
-                                          "Plant in Greenhouse", "Back"};
+  std::vector<std::string> main_menu = {
+      "Plant Seed", "Care for Plants", "Harvest Plants",
+      "Hire Staff", "Assign Staff",    "GH Controls",
+      "Exit"};
+  std::vector<std::string> choice_menu = {"Gardens", "Greenhouses", "Back"};
+  std::vector<std::string> controls_menu = {
+      "Lights on", "Lights off", "Sprinklers on", "Sprinklers off", "Back"};
   std::vector<std::string> plant_menu = std::vector<std::string>();
   for (auto plants : shopPlants) {
     plant_menu.push_back(plants->getName());
@@ -298,9 +334,11 @@ int main() {
       "Open submenu to hire \n customer assistants and plant caretakers.");
   descriptions.emplace("Assign Staff",
                            "Assign plant caretakers to gardens.");
-  descriptions.emplace("Exit", "Leave the nursery Simulation.");
-  descriptions.emplace("Back", "Return to main menu.");
-
+  descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
+  descriptions.try_emplace("Back", "Return to main menu.");
+  descriptions.try_emplace("GH Controls",
+                           "Controls for the lights \nand sprinklers of \nthe "
+                           "greenhouses");
   for (auto plants : shopPlants) {
     std::stringstream plantDesc;
     plantDesc << plants->getDescription();
@@ -334,8 +372,17 @@ int main() {
   bool careMenu = false;
   bool harvest = false;
   bool savePlant = false;
+  bool control = false;
+  GreenhouseController *controller = nullptr;
+  descriptions.try_emplace("Greenhouse 1", greenhouses[0]->getDescription());
+  descriptions.try_emplace("Greenhouse 2", greenhouses[1]->getDescription());
+  descriptions.try_emplace("Greenhouse 3", greenhouses[2]->getDescription());
 
   while (running) {
+
+    descriptions["Greenhouse 1"] = greenhouses[0]->getDescription();
+    descriptions["Greenhouse 2"] = greenhouses[1]->getDescription();
+    descriptions["Greenhouse 3"] = greenhouses[2]->getDescription();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
     auto now = clock::now();
@@ -350,6 +397,46 @@ int main() {
 
     std::string time_str = format_time(hour, minute);
     std::string phase = get_time_phase(hour);
+    //--- Customer panel ---
+    string cust;
+    werase(customer_win);
+    wborder(customer_win, ACS_VLINE, ACS_VLINE, // left, right
+            ACS_HLINE, ' ',                     // top, bottom → bottom is blank
+            ACS_ULCORNER, ACS_URCORNER,         // top-left, top-right
+            ' ', ' '); // bottom-left, bottom-right → blank
+    wattron(customer_win, COLOR_PAIR(1));
+    mvwprintw(customer_win, 0, 2, " Customer ");
+    wattroff(customer_win, COLOR_PAIR(1));
+    int y = 1;
+    for (int i = scroll_offset;
+         i < std::min((int)customerLog.size(), scroll_offset + visible_lines);
+         ++i) {
+      print_multiline(customer_win, y += 2, 2, customerLog[i]);
+    }
+    // --- Purchase panel ---
+    nursery.getCustomers();
+    if (purchaseLog.size() > 15)
+      purchaseLog.erase(purchaseLog.begin());
+
+    for (const auto &msg : nursery.getPurchaseMessages()) {
+      purchaseLog.push_back(msg);
+    }
+    nursery.clearPurchaseMessages();
+
+    werase(purchase_win);
+    wborder(purchase_win, ACS_VLINE, ACS_VLINE, ACS_HLINE, ' ', ACS_ULCORNER,
+            ACS_URCORNER, ' ', ' ');
+    wattron(purchase_win, COLOR_PAIR(2));
+    mvwprintw(purchase_win, 0, 2, " Purchases ");
+    wattroff(purchase_win, COLOR_PAIR(2));
+
+    int py = 1;
+    for (int i = purchase_scroll_offset;
+         i < std::min((int)purchaseLog.size(),
+                      purchase_scroll_offset + purchase_visible_lines);
+         ++i) {
+      print_multiline(purchase_win, py++, 2, purchaseLog[i]);
+    }
 
     // --- Garden Panel ---
     werase(garden_win);
@@ -360,17 +447,63 @@ int main() {
     print_with_ansi(garden_win, 4, 4, nursery.getGardens()[0]->print());
     print_with_ansi(garden_win, 4, 44, nursery.getGardens()[1]->print());
     print_with_ansi(garden_win, 4, 84, nursery.getGardens()[2]->print());
-    print_with_ansi(garden_win, 18, 4, nursery.getGardens()[3]->print());
-    print_with_ansi(garden_win, 18, 44, nursery.getGardens()[4]->print());
-    print_with_ansi(garden_win, 18, 84, nursery.getGardens()[5]->print());
+    print_with_ansi(garden_win, 16, 4, nursery.getGardens()[3]->print());
+    print_with_ansi(garden_win, 16, 44, nursery.getGardens()[4]->print());
+    print_with_ansi(garden_win, 16, 84, nursery.getGardens()[5]->print());
+    print_with_ansi(garden_win, 28, 4, nursery.getGreenhouses()[0]->print());
+    print_with_ansi(garden_win, 28, 44, nursery.getGreenhouses()[1]->print());
+    print_with_ansi(garden_win, 28, 84, nursery.getGreenhouses()[2]->print());
+    // greenhouses keep the same climate at night
+    if (prevHour < hour) {
+      for (auto greenhouse : nursery.getGreenhouses()) {
+        greenhouse->tick();
+      }
+    }
+
     // random events that have a chance to happen every hour in the daytime
-    if (((phase == "Morning") || (phase == "Afternoon")) && (prevHour < hour)) {
-      for (auto garden : nursery.getGardens()) {
-        double roll = chance(gen);
-        if (roll < 0.9) {
-          garden->tick();
+    if ((phase == "Morning") || (phase == "Afternoon")) {
+      if (prevHour < hour) {
+        for (auto garden : nursery.getGardens()) {
+          double roll = chance(gen);
+          if (roll < 0.9) {
+            garden->tick();
+          }
+        }
+        for (auto staff : nursery.getStaff()) {
+          double roll = chance(gen);
+          if (roll <= 0.85) {
+            staff->care();
+          }
         }
       }
+      if ((prevHour < hour) || (chance(gen) < 0.0005)) {
+        nursery.customerSpawner();
+        std::string voice = nursery.getLatestCustomerVoice();
+        if (!voice.empty()) {
+          customerLog.push_back(voice);
+          if (customerLog.size() > 100)
+            customerLog.erase(
+                customerLog.begin()); // optional cap // auto-scroll
+        }
+      } else {
+        cust = "";
+      }
+
+      if (day_seconds % 30 == 0) {
+        for (auto customer : nursery.getCustomers()) {
+          if (customer != nullptr) {
+            customerLog.push_back(customer->decTime());
+            customer->enquirePlants(customer->getSalesFloor());
+            if (customer->getCartSize() > 0) {
+              nursery.removeCust(customer);
+            }
+          }
+        }
+      }
+
+      prevHour = hour;
+    }
+    if (prevHour < hour) {
       prevHour = hour;
     }
 
@@ -400,6 +533,12 @@ int main() {
       break;
     case MenuState::CHOICE:
       current_menu = &choice_menu;
+      break;
+    case MenuState::GREENHOUSES:
+      current_menu = &greenhouse_menu;
+      break;
+    case MenuState::CONTROLS:
+      current_menu = &controls_menu;
     }
 
     // --- Info Panel ---
@@ -412,7 +551,6 @@ int main() {
     mvwprintw(info_win, 3, 2, "Time: %s", time_str.c_str());
     mvwprintw(info_win, 4, 2, "Phase: %s", phase.c_str());
     mvwprintw(info_win, 6, 2, "Balance: R%.2f", nursery.getBalance());
-    mvwprintw(info_win, 7, 2, "Temp: 22°C");
 
     // --- Show hover description ---
     std::string hovered = (*current_menu)[choice];
@@ -466,6 +604,9 @@ int main() {
         toAdd = nullptr;
         staffToAssign = nullptr;
         choice = 0;
+        control = false;
+        harvest = false;
+        savePlant = false;
         break;
       } else {
         if (state == MenuState::MAIN) {
@@ -481,7 +622,7 @@ int main() {
             choice = 0;
           } else if (item == "Harvest Plants") {
             harvest = true;
-            state = MenuState::GARDENS;
+            state = MenuState::CHOICE;
             choice = 0;
           } else if (item == "Save Plants") {
             savePlant = true;
@@ -493,12 +634,17 @@ int main() {
           } else if (item == "Assign Staff") {
             state = MenuState::STAFF;
             choice = 0;
-          } else if (item == "View inventory") {
+
+          } else if (item == "GH Controls") {
+            state = MenuState::GREENHOUSES;
+            choice = 0;
+            control = true;
+            break;
           }
         } else if (state == MenuState::CHOICE) {
-          if (item == "Plant in Garden") {
+          if (item == "Gardens") {
             state = MenuState::GARDENS;
-          } else if (item == "Plant in Greenhouse") {
+          } else if (item == "Greenhouses") {
             state = MenuState::GREENHOUSES;
           }
         } else if (state == MenuState::PLANT) {
@@ -517,7 +663,6 @@ int main() {
           }
           wrefresh(info_win);
           std::this_thread::sleep_for(std::chrono::milliseconds(300));
-
         } else if (state == MenuState::GARDENS) {
           if (toAdd != nullptr) {
             if (nursery.getGardens()[choice]->tryAddItem(toAdd) == true) {
@@ -563,7 +708,6 @@ int main() {
             }
             wrefresh(info_win);
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
-
           } else if (savePlant) {
             Plant *harvested = nursery.getGardens()[choice]->removeDying();
             if (harvested != nullptr) {
@@ -574,14 +718,13 @@ int main() {
                         harvested->getName().c_str(),
                         harvested->getStrategy().c_str());
               toAdd = harvested;
-              state = MenuState::GARDENS;
+              state = MenuState::CHOICE;
               choice = 0;
             } else {
               mvwprintw(info_win, 15, 2, "No plants ready to harvest");
             }
             wrefresh(info_win);
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
-
           } else if (careMenu) {
 
             nursery.getGardens()[choice]->applyCare();
@@ -597,6 +740,101 @@ int main() {
                       item.c_str());
             wrefresh(garden_win);
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          }
+
+        } else if (state == MenuState::GREENHOUSES) {
+          if (toAdd != nullptr) {
+            if (nursery.getGreenhouses()[choice]->tryAddItem(toAdd) == true) {
+              mvwprintw(info_win, 15, 2, "%s has been planted in %s",
+                        toAdd->getName().c_str(),
+                        greenhouse_menu[choice].c_str());
+              if (toAdd != nursery.removeFromPlantInventory()) {
+                nursery.removeFromBalance(toAdd->getPrice());
+              }
+              toAdd = nullptr;
+              state = MenuState::MAIN;
+              choice = 0;
+            } else {
+              mvwprintw(info_win, 15, 2, "The selected greenhouse is full");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+            }
+          } else if (harvest) {
+            Plant *harvested = nursery.getGreenhouses()[choice]->removeMature();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2,
+                        "You have harvested a mature %s to sell",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s has been added to the salesfloor",
+                        harvested->getName().c_str());
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+          } else if (savePlant) {
+            Plant *harvested = nursery.getGreenhouses()[choice]->removeDying();
+            if (harvested != nullptr) {
+              nursery.addToPlantInventory(harvested);
+              mvwprintw(info_win, 15, 2, "You have saved a dying %s",
+                        harvested->getName().c_str());
+              mvwprintw(info_win, 18, 2, "%s needs to be planted in %s climate",
+                        harvested->getName().c_str(),
+                        harvested->getStrategy().c_str());
+              toAdd = harvested;
+              state = MenuState::CHOICE;
+              choice = 0;
+            } else {
+              mvwprintw(info_win, 15, 2, "No plants ready to harvest");
+            }
+            wrefresh(info_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+          } else if (control) {
+            controller = controllers[choice];
+            state = MenuState::CONTROLS;
+            choice = 0;
+          } else {
+            // This is a fallback for unhandled menu actions
+            mvwprintw(garden_win, 6, 2, "Action for '%s' not implemented.",
+                      item.c_str());
+            wrefresh(garden_win);
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+          }
+
+        } else if (state == MenuState::CONTROLS) {
+          if (controller != nullptr) {
+            if (choice == 0) {
+              controller->flipUpLights();
+
+              mvwprintw(info_win, 15, 2, "Lights are now on");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 1) {
+              controller->flipDownLights();
+              mvwprintw(info_win, 15, 2, "Lights are now off");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 2) {
+              controller->flipUpSprinklers();
+              mvwprintw(info_win, 15, 2, "Sprinklers are now on");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 3) {
+              controller->flipDownSprinklers();
+              mvwprintw(info_win, 15, 2, "Sprinklers are now off");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else {
+              state = MenuState::MAIN;
+              choice = 0;
+            }
           }
         } else if (state == MenuState::STAFFHIRE) {
           Staff *staffToHire = toHire[choice];
@@ -631,7 +869,6 @@ int main() {
               mvwprintw(info_win, 19, 2, "%s is now on the sales floor!",
                         staffToHire->getName().c_str());
             }
-
           } else {
             mvwprintw(info_win, 18, 2, "Not enough money to hire %s.",
                       staffToHire->getName().c_str());
@@ -662,6 +899,14 @@ int main() {
         state = MenuState::MAIN;
         choice = 0;
       }
+      break;
+    case KEY_UP:
+      if (scroll_offset > 0)
+        scroll_offset--;
+      break;
+    case KEY_DOWN:
+      if (scroll_offset + visible_lines < customerLog.size())
+        scroll_offset++;
       break;
     }
 

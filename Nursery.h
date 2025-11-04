@@ -49,6 +49,7 @@ private:
    */
   std::vector<Staff *> staff;
   std::vector<Customer *> customers;
+  std::vector<std::string> purchaseMessages;
 
 public:
   /**
@@ -78,6 +79,7 @@ public:
    * @param newgarden A pointer to the greenHouse object to be added.
    */
   void addGreenhouse(greenHouse *greenhouse);
+  void removeCust(Customer *customer);
 
   /** @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
@@ -98,7 +100,7 @@ public:
    * @return A double representing the balance of the nursery
    */
   double getBalance();
-
+  std::vector<Customer *> &getCustomers() { return this->customers; };
   /**
    * @fn void Nursery::addStaff(Staff* newStaff)
    * @brief Adds a new staff member to the nursery.
@@ -124,6 +126,15 @@ public:
    */
   Plant *removeFromPlantInventory();
 
+  std::string getLatestCustomerVoice() {
+
+    if (customers.empty() || customers.back() == nullptr)
+      return "";
+    return customers.back()->voiceLine();
+  }
+
+  std::vector<Customer *> getCusts() { return customers; }
+
   /**
    * @fn void Nursery::removeGarden(Garden* gardenToRemove)
    * @brief Removes a garden from the nursery.
@@ -140,7 +151,7 @@ public:
    * use. Intended for dynamic simulation of customer behavior.
    */
 
-  void customerSpawner();
+  std::string customerSpawner();
 
   /**
    * @fn size_t Nursery::getGardenCount() const
@@ -156,6 +167,9 @@ public:
    * @return The number of staff members.
    */
   size_t getStaffCount() const { return staff.size(); }
+  void logPurchase(const std::string &message);
+  std::vector<std::string> getPurchaseMessages();
+  void clearPurchaseMessages();
 
 protected:
   /**
