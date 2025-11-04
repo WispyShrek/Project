@@ -13,8 +13,7 @@
  * class. The single instance should be accessed via the static `instance()`
  * method.
  */
-Nursery::Nursery()
-{
+Nursery::Nursery() {
   // Constructor is intentionally empty.
 }
 
@@ -25,8 +24,7 @@ Nursery::Nursery()
  * Ownership of Garden and Staff objects is managed externally.
  * The Nursery only manages the collections of pointers.
  */
-Nursery::~Nursery()
-{
+Nursery::~Nursery() {
   // The Nursery does not own the Garden or Staff pointers,
   // so it does not delete them. Cleanup is handled by the caller
   // that creates these objects.
@@ -42,12 +40,12 @@ Nursery::~Nursery()
  *
  * @return A reference to the unique Nursery instance.
  */
-Nursery &Nursery::instance()
-{
+Nursery &Nursery::instance() {
   static Nursery uniqueInstance;
   CustomerAssistantCreator *staffCreator =
-      new CustomerAssistantCreator();                          // don't have to create new nursery object
-  uniqueInstance.staff.push_back(staffCreator->createStaff()); // to call class
+      new CustomerAssistantCreator(); // don't have to create new nursery object
+  uniqueInstance.staff.push_back(staffCreator->createStaff());
+  uniqueInstance.greenHouses = std::vector<greenHouse *>(); // to call class
   //(ex. Nursery& nursery = Nursery::instance() Call the static function
   // instance() that belongs to the class Nursery. and not a specific object)
   return uniqueInstance;
@@ -64,10 +62,8 @@ Nursery &Nursery::instance()
 const vector<Staff *> &Nursery::getStaff() { return this->staff; }
 
 void Nursery::addToBalance(double toAdd) { this->balance += toAdd; }
-bool Nursery::removeFromBalance(double toRemove)
-{
-  if (balance >= toRemove)
-  {
+bool Nursery::removeFromBalance(double toRemove) {
+  if (balance >= toRemove) {
     balance -= toRemove;
     return true;
   }
@@ -82,57 +78,43 @@ const vector<Garden *> &Nursery::getGardens() { return this->gardens; };
  * @param newGarden A pointer to the Garden object to be added. Does nothing
  * if the pointer is null.
  */
-void Nursery::addGarden(Garden *newGarden)
-{
+void Nursery::addGarden(Garden *newGarden) {
   if (newGarden)
     gardens.push_back(newGarden);
 }
 
 // add staff to list/*state*
-void Nursery::addStaff(Staff *newStaff)
-{
+void Nursery::addStaff(Staff *newStaff) {
   if (newStaff)
     staff.push_back(newStaff);
 }
 
 // remove garden from *state*
-void Nursery::removeGarden(Garden *gardenToRemove)
-{
-  for (size_t i = 0; i < gardens.size(); ++i)
-  {
-    if (gardens[i] == gardenToRemove)
-    {
+void Nursery::removeGarden(Garden *gardenToRemove) {
+  for (size_t i = 0; i < gardens.size(); ++i) {
+    if (gardens[i] == gardenToRemove) {
       gardens.erase(gardens.begin() + i);
       break;
     }
   }
 }
-void Nursery::addToPlantInventory(Plant *inventory)
-{
-  if (inventory == nullptr)
-  {
+void Nursery::addToPlantInventory(Plant *inventory) {
+  if (inventory == nullptr) {
     return;
   }
-  if (inventory->getState() == "Mature")
-  {
-    for (auto staffmember : staff)
-    {
-      if (dynamic_cast<CustomerAssistant *>(staffmember))
-      {
+  if (inventory->getState() == "Mature") {
+    for (auto staffmember : staff) {
+      if (dynamic_cast<CustomerAssistant *>(staffmember)) {
         staffmember->addToPlantInventory(inventory);
       }
     }
-  }
-  else
-  {
+  } else {
     plantInventory.push_back(inventory);
   }
 }
 
-Plant *Nursery::removeFromPlantInventory()
-{
-  if (plantInventory.size() > 0)
-  {
+Plant *Nursery::removeFromPlantInventory() {
+  if (plantInventory.size() > 0) {
     Plant *returned = plantInventory.back();
     plantInventory.pop_back();
     return returned;
@@ -142,12 +124,9 @@ Plant *Nursery::removeFromPlantInventory()
 
 // remove staff from *state*
 
-void Nursery::removeStaff(Staff *staffToRemove)
-{
-  for (size_t i = 0; i < staff.size(); ++i)
-  {
-    if (staff[i] == staffToRemove)
-    {
+void Nursery::removeStaff(Staff *staffToRemove) {
+  for (size_t i = 0; i < staff.size(); ++i) {
+    if (staff[i] == staffToRemove) {
       staff.erase(staff.begin() + i);
       break;
     }
@@ -162,8 +141,7 @@ void Nursery::removeStaff(Staff *staffToRemove)
  * Fussy). The created customer is added to the nursery's internal list and
  * deleted after use.
  */
-std::string Nursery::customerSpawner()
-{
+std::string Nursery::customerSpawner() {
   using namespace std::chrono_literals;
 
   std::random_device rd;
@@ -173,8 +151,7 @@ std::string Nursery::customerSpawner()
 
   // Choose a payment strategy
   PaymentStrategy *strategy = nullptr;
-  switch (stratDist(gen))
-  {
+  switch (stratDist(gen)) {
   case 0:
     strategy = new EFT();
     break;
@@ -190,13 +167,11 @@ std::string Nursery::customerSpawner()
   int listSize = rand() % 10 + 1;
   int decorationSize = rand() % 3;
 
-  for (int i = 0; i < listSize; i++)
-  {
+  for (int i = 0; i < listSize; i++) {
     // Create a random plant and add it to the preferredPlants vector
     Plant *newPlant = nullptr;
     int plantType = rand() % 4;
-    switch (plantType)
-    {
+    switch (plantType) {
     case 0:
       newPlant = new Lily();
       break;
@@ -214,48 +189,49 @@ std::string Nursery::customerSpawner()
       break;
     }
     int decorationType = rand() % 3;
-    for (int j = 0; j < decorationSize; j++)
-    {
-      switch (decorationType)
-      {
+    for (int j = 0; j < decorationSize; j++) {
+      switch (decorationType) {
       case 0:
-        newPlant = new Arrangement(); // wrap with Arrangement
+        Arrangement *arrangement;
+        arrangement->plant = newPlant;
+        arrangement->increasePrice();
+        preferredPlants.push_back(arrangement);
         break;
       case 1:
-        newPlant = new Giftwrapping(); // wrap with Giftwrapping
+        Giftwrapping *giftwrap;
+        giftwrap->plant = newPlant;
+        giftwrap->increasePrice();
+        preferredPlants.push_back(giftwrap);
         break;
       case 2:
-        newPlant = new DecorativePot(); // wrap with DecorativePot
+        DecorativePot *potted;
+        potted->plant = newPlant;
+        giftwrap->increasePrice();
+        preferredPlants.push_back(potted);
         break;
       default:
         break;
       }
     }
-    preferredPlants.push_back(newPlant);
   }
   double time = static_cast<double>(
       rand() % 11 + 5); // time available between 5 and 15 minutes
   // Create a random customer
   Customer *newCustomer = nullptr;
   std::vector<Staff *> availableAssistants;
-  for (auto staffmember : staff)
-  {
-    if (dynamic_cast<CustomerAssistant *>(staffmember))
-    {
+  for (auto staffmember : staff) {
+    if (dynamic_cast<CustomerAssistant *>(staffmember)) {
       availableAssistants.push_back(staffmember);
     }
   }
   int size = availableAssistants.size();
   std::uniform_int_distribution<int> assistantDist(0, size - 1);
 
-  if (custDist(gen) == 0)
-  {
+  if (custDist(gen) == 0) {
     newCustomer =
         new FussyCust("Fussy Customer", availableAssistants[assistantDist(gen)],
                       time, strategy, preferredPlants);
-  }
-  else
-  {
+  } else {
     newCustomer =
         new EasyCust("Easy Customer", availableAssistants[assistantDist(gen)],
                      time, strategy, preferredPlants);
@@ -264,30 +240,33 @@ std::string Nursery::customerSpawner()
   customers.push_back(newCustomer);
   return newCustomer->voiceLine();
 }
-const std::vector<greenHouse *> &Nursery::getGreenhouses()
-{
+const std::vector<greenHouse *> &Nursery::getGreenhouses() {
   return this->greenHouses;
 }
-void Nursery::addGreenhouse(greenHouse *greenhouse)
-{
+void Nursery::addGreenhouse(greenHouse *greenhouse) {
   if (greenhouse != nullptr)
     this->greenHouses.push_back(greenhouse);
 }
-void Nursery::logPurchase(const std::string &message)
-{
+void Nursery::logPurchase(const std::string &message) {
   purchaseMessages.push_back(message);
   if (purchaseMessages.size() > 100)
     purchaseMessages.erase(purchaseMessages.begin());
 }
 
-std::vector<std::string> Nursery::getPurchaseMessages()
-{
+std::vector<std::string> Nursery::getPurchaseMessages() {
   return purchaseMessages;
 }
 
-void Nursery::clearPurchaseMessages()
-{
-  purchaseMessages.clear();
+void Nursery::clearPurchaseMessages() { purchaseMessages.clear(); }
+void Nursery::removeCust(Customer *customer) {
+  for (auto cust : this->customers) {
+    if (cust == customer) {
+      if (cust != nullptr) {
+        this->balance += cust->buyItems();
+        cust = nullptr;
+      }
+    }
+  }
 }
 
 #ifdef ENABLE_DOCTESTS
@@ -298,23 +277,19 @@ void Nursery::clearPurchaseMessages()
 #include "Sunny.h" // For creating concrete Garden objects
 #include "doctest.h"
 
-TEST_SUITE("Nursery Singleton")
-{
-  TEST_CASE("instance() returns a single, unique instance")
-  {
+TEST_SUITE("Nursery Singleton") {
+  TEST_CASE("instance() returns a single, unique instance") {
     Nursery &nursery1 = Nursery::instance();
     Nursery &nursery2 = Nursery::instance();
 
     CHECK(&nursery1 == &nursery2);
   }
 
-  TEST_CASE("addStaff and removeStaff correctly modify the staff collection")
-  {
+  TEST_CASE("addStaff and removeStaff correctly modify the staff collection") {
     Nursery &nursery = Nursery::instance();
 
     // Ensure clean state for test
-    while (nursery.getStaffCount() > 0)
-    {
+    while (nursery.getStaffCount() > 0) {
       // This is tricky without access to the internal vector.
       // The main.cpp tests suggest we can do this, but it's better to test
       // from a known state. For this test, we'll assume it's empty or we can
@@ -345,8 +320,7 @@ TEST_SUITE("Nursery Singleton")
   }
 
   TEST_CASE(
-      "addGarden and removeGarden correctly modify the garden collection")
-  {
+      "addGarden and removeGarden correctly modify the garden collection") {
     Nursery &nursery = Nursery::instance();
     size_t initialGardenCount = nursery.getGardenCount();
 
@@ -367,8 +341,7 @@ TEST_SUITE("Nursery Singleton")
     // Cleanup
     delete sunnyGarden;
   }
-  TEST_CASE("customerSpawner creates customers without crashing")
-  {
+  TEST_CASE("customerSpawner creates customers without crashing") {
     Nursery &nursery = Nursery::instance();
 
     // This test just ensures that the method runs without exceptions.

@@ -14,8 +14,7 @@ class Nursery;
 /// @brief Represents a customer interacting with the sales floor and managing a
 /// cart of plants. This is an abstract base class with virtual methods for
 /// customization.
-class Customer
-{
+class Customer {
 private: // attributes
   /// @brief The customer's shopping cart containing Plant pointers.
   vector<Plant *> cart;
@@ -27,6 +26,8 @@ private: // attributes
   double timeAvailable;
 
 public: /// @brief Default constructor.
+  /// @brief Vector holding the customer's preferred plants.
+  vector<Plant *> preferredPlants;
   Customer();
   /// @brief Parameterized constructor.
   /// @param name Name of the customer.
@@ -57,6 +58,9 @@ public: /// @brief Default constructor.
   /// @brief Abstract method for customer to enquire about plants.
   /// @param salesFloor Pointer to the SalesFloor to enquire from.
   virtual string enquirePlants(SalesFloor *salesFloor) = 0;
+  double buyItems();
+  std::string decTime();
+  int getCartSize() { return this->cart.size(); }
   SalesFloor *getSalesFloor() { return salesFloor; }
 };
 

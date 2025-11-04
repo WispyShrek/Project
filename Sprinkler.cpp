@@ -1,12 +1,13 @@
 #include "Sprinkler.h"
+#include "greenHouse.h"
 
 #include <iostream>
 
 Sprinkler::Sprinkler(greenHouse *greenhouse) { this->greenhouse = greenhouse; }
 
-void Sprinkler::turnOn() { std::cout << "Sprinkler: ON" << std::endl; }
+void Sprinkler::turnOn() { greenhouse->wet = true; }
 
-void Sprinkler::turnOff() { std::cout << "Sprinkler: OFF" << std::endl; }
+void Sprinkler::turnOff() { greenhouse->wet = false; }
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"

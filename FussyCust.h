@@ -1,16 +1,13 @@
 #ifndef FUSSYCUST_H
 #define FUSSYCUST_H
-#include <vector>
-#include <string>
 #include "Customer.h"
 #include "SalesFloor.h"
-/// @brief Represents a fussy customer with specific preferences and a payment strategy.
-/// Inherits from the abstract Customer class.
-class FussyCust : public Customer
-{
+#include <string>
+#include <vector>
+/// @brief Represents a fussy customer with specific preferences and a payment
+/// strategy. Inherits from the abstract Customer class.
+class FussyCust : public Customer {
 private:
-  /// @brief Vector holding the customer's preferred plants.
-  vector<Plant *> preferredPlants;
   /// @brief Pointer to the customer's chosen payment strategy.
   PaymentStrategy *paymentStrategy;
 
@@ -23,7 +20,8 @@ public:
   /// @param timeAvailable Time available for shopping.
   /// @param paymentStrategy Pointer to the PaymentStrategy object.
   /// @param preferredPlants Vector of preferred Plant pointers.
-  FussyCust(std::string name, SalesFloor *salesFloor, double timeAvailable, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
+  FussyCust(std::string name, SalesFloor *salesFloor, double timeAvailable,
+            PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
   /// @brief Destructor.
   /// Cleans up resources used by the customer.
   ~FussyCust();
@@ -39,7 +37,8 @@ public:
   /// @param strategy Pointer to the new PaymentStrategy object.
   void setPaymentStrategy(PaymentStrategy *strategy);
   /// @brief Enquires about preferred plants from the sales floor.
-  /// If a preferred plant is available, adds it to the cart and removes it from preferences.
+  /// If a preferred plant is available, adds it to the cart and removes it from
+  /// preferences.
   /// @param salesFloor Pointer to the SalesFloor object.
   string enquirePlants(SalesFloor *salesFloor) override;
 };

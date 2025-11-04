@@ -31,8 +31,7 @@
  * of the nursery exists throughout the application. It provides a central
  * point of access for managing all major components of the nursery.
  */
-class Nursery
-{
+class Nursery {
 
 private:
   static Nursery *uniqueInstance;
@@ -80,6 +79,7 @@ public:
    * @param newgarden A pointer to the greenHouse object to be added.
    */
   void addGreenhouse(greenHouse *greenhouse);
+  void removeCust(Customer *customer);
 
   /** @fn void Nursery::addGarden(Garden* newgarden)
    * @brief Adds a new garden to the nursery.
@@ -126,18 +126,14 @@ public:
    */
   Plant *removeFromPlantInventory();
 
-  std::string getLatestCustomerVoice()
-  {
+  std::string getLatestCustomerVoice() {
 
     if (customers.empty() || customers.back() == nullptr)
       return "";
     return customers.back()->voiceLine();
   }
 
-  std::vector<Customer *> getCusts()
-  {
-    return customers;
-  }
+  std::vector<Customer *> getCusts() { return customers; }
 
   /**
    * @fn void Nursery::removeGarden(Garden* gardenToRemove)

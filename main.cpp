@@ -173,6 +173,10 @@ int main() {
   controllers.push_back(c1);
   controllers.push_back(c2);
   controllers.push_back(c3);
+  std::vector<greenHouse *> greenhouses;
+  greenhouses.push_back(g1);
+  greenhouses.push_back(g2);
+  greenhouses.push_back(g3);
   // vector contains all of the staff members that can be hired
   CustomerAssistantCreator assitantCreator = CustomerAssistantCreator();
   PlantCaretakerCreator caretakerCreator = PlantCaretakerCreator();
@@ -260,19 +264,23 @@ int main() {
   getmaxyx(stdscr, height, width);
 
   int info_width = width / 4;
+  int info_height = height * 0.6;
   int main_width = width - info_width;
   int menu_height = 5;
+  int customer_height = height * 0.25;
+  int purchase_height = height - info_height - customer_height;
   int garden_height = height - menu_height;
 
   WINDOW *garden_win = create_newwin(garden_height, main_width, 0, 0, "Garden");
   WINDOW *menu_win =
       create_newwin(menu_height, main_width, garden_height, 0, "Menu");
   WINDOW *info_win =
-      create_newwin(height, info_width, 0, main_width, "Nursery Info");
-  WINDOW *customer_win = create_newwin(height - 30, info_width, height - 30,
+      create_newwin(info_height, info_width, 0, main_width, "Nursery Info");
+  WINDOW *customer_win = create_newwin(customer_height, info_width, info_height,
                                        main_width, "Customer");
   WINDOW *purchase_win =
-      create_newwin(5, info_width, height - 25, main_width, "Purchases");
+      create_newwin(purchase_height, info_width, info_height + customer_height,
+                    main_width, "Purchases");
   PANEL *purchase_panel = new_panel(purchase_win);
 
   PANEL *garden_panel = new_panel(garden_win);
@@ -282,7 +290,7 @@ int main() {
 
   std::vector<std::string> main_menu = {
       "Plant Seed", "Care for Plants", "Harvest Plants",
-      "Hire Staff", "Assign Staff",    "Greenhouse Controls",
+      "Hire Staff", "Assign Staff",    "GH Controls",
       "Exit"};
   std::vector<std::string> choice_menu = {"Gardens", "Greenhouses", "Back"};
   std::vector<std::string> controls_menu = {
@@ -328,7 +336,9 @@ int main() {
                            "Assign plant caretakers to gardens.");
   descriptions.try_emplace("Exit", "Leave the nursery Simulation.");
   descriptions.try_emplace("Back", "Return to main menu.");
-
+  descriptions.try_emplace("GH Controls",
+                           "Controls for the lights \nand sprinklers of \nthe "
+                           "greenhouses");
   for (auto plants : shopPlants) {
     std::stringstream plantDesc;
     plantDesc << plants->getDescription();
@@ -364,8 +374,15 @@ int main() {
   bool savePlant = false;
   bool control = false;
   GreenhouseController *controller = nullptr;
+  descriptions.try_emplace("Greenhouse 1", greenhouses[0]->getDescription());
+  descriptions.try_emplace("Greenhouse 2", greenhouses[1]->getDescription());
+  descriptions.try_emplace("Greenhouse 3", greenhouses[2]->getDescription());
 
   while (running) {
+
+    descriptions["Greenhouse 1"] = greenhouses[0]->getDescription();
+    descriptions["Greenhouse 2"] = greenhouses[1]->getDescription();
+    descriptions["Greenhouse 3"] = greenhouses[2]->getDescription();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
     auto now = clock::now();
@@ -382,17 +399,6 @@ int main() {
     std::string phase = get_time_phase(hour);
     //--- Customer panel ---
     string cust;
-    if (total_game_seconds % 5 == 0) { // every 30 real-time minutes
-      nursery.customerSpawner();
-      std::string voice = nursery.getLatestCustomerVoice();
-      if (!voice.empty()) {
-        customerLog.push_back(voice);
-        if (customerLog.size() > 100)
-          customerLog.erase(customerLog.begin()); // optional cap // auto-scroll
-      }
-    } else {
-      cust = "";
-    }
     werase(customer_win);
     wborder(customer_win, ACS_VLINE, ACS_VLINE, // left, right
             ACS_HLINE, ' ',                     // top, bottom → bottom is blank
@@ -409,7 +415,7 @@ int main() {
     }
     // --- Purchase panel ---
     nursery.getCustomers();
-    if (purchaseLog.size() > 100)
+    if (purchaseLog.size() > 15)
       purchaseLog.erase(purchaseLog.begin());
 
     for (const auto &msg : nursery.getPurchaseMessages()) {
@@ -441,17 +447,63 @@ int main() {
     print_with_ansi(garden_win, 4, 4, nursery.getGardens()[0]->print());
     print_with_ansi(garden_win, 4, 44, nursery.getGardens()[1]->print());
     print_with_ansi(garden_win, 4, 84, nursery.getGardens()[2]->print());
-    print_with_ansi(garden_win, 18, 4, nursery.getGardens()[3]->print());
-    print_with_ansi(garden_win, 18, 44, nursery.getGardens()[4]->print());
-    print_with_ansi(garden_win, 18, 84, nursery.getGardens()[5]->print());
+    print_with_ansi(garden_win, 16, 4, nursery.getGardens()[3]->print());
+    print_with_ansi(garden_win, 16, 44, nursery.getGardens()[4]->print());
+    print_with_ansi(garden_win, 16, 84, nursery.getGardens()[5]->print());
+    print_with_ansi(garden_win, 28, 4, nursery.getGreenhouses()[0]->print());
+    print_with_ansi(garden_win, 28, 44, nursery.getGreenhouses()[1]->print());
+    print_with_ansi(garden_win, 28, 84, nursery.getGreenhouses()[2]->print());
+    // greenhouses keep the same climate at night
+    if (prevHour < hour) {
+      for (auto greenhouse : nursery.getGreenhouses()) {
+        greenhouse->tick();
+      }
+    }
+
     // random events that have a chance to happen every hour in the daytime
-    if (((phase == "Morning") || (phase == "Afternoon")) && (prevHour < hour)) {
-      for (auto garden : nursery.getGardens()) {
-        double roll = chance(gen);
-        if (roll < 0.9) {
-          garden->tick();
+    if ((phase == "Morning") || (phase == "Afternoon")) {
+      if (prevHour < hour) {
+        for (auto garden : nursery.getGardens()) {
+          double roll = chance(gen);
+          if (roll < 0.9) {
+            garden->tick();
+          }
+        }
+        for (auto staff : nursery.getStaff()) {
+          double roll = chance(gen);
+          if (roll <= 0.85) {
+            staff->care();
+          }
         }
       }
+      if ((prevHour < hour) || (chance(gen) < 0.0005)) {
+        nursery.customerSpawner();
+        std::string voice = nursery.getLatestCustomerVoice();
+        if (!voice.empty()) {
+          customerLog.push_back(voice);
+          if (customerLog.size() > 100)
+            customerLog.erase(
+                customerLog.begin()); // optional cap // auto-scroll
+        }
+      } else {
+        cust = "";
+      }
+
+      if (day_seconds % 30 == 0) {
+        for (auto customer : nursery.getCustomers()) {
+          if (customer != nullptr) {
+            customerLog.push_back(customer->decTime());
+            customer->enquirePlants(customer->getSalesFloor());
+            if (customer->getCartSize() > 0) {
+              nursery.removeCust(customer);
+            }
+          }
+        }
+      }
+
+      prevHour = hour;
+    }
+    if (prevHour < hour) {
       prevHour = hour;
     }
 
@@ -552,6 +604,9 @@ int main() {
         toAdd = nullptr;
         staffToAssign = nullptr;
         choice = 0;
+        control = false;
+        harvest = false;
+        savePlant = false;
         break;
       } else {
         if (state == MenuState::MAIN) {
@@ -580,7 +635,7 @@ int main() {
             state = MenuState::STAFF;
             choice = 0;
 
-          } else if (item == "Greenhouse Controls") {
+          } else if (item == "GH Controls") {
             state = MenuState::GREENHOUSES;
             choice = 0;
             control = true;
@@ -751,25 +806,35 @@ int main() {
 
         } else if (state == MenuState::CONTROLS) {
           if (controller != nullptr) {
-            if (choice == 1) {
+            if (choice == 0) {
               controller->flipUpLights();
 
               mvwprintw(info_win, 15, 2, "Lights are now on");
-            } else if (choice == 2) {
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 1) {
               controller->flipDownLights();
               mvwprintw(info_win, 15, 2, "Lights are now off");
-            } else if (choice == 3) {
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 2) {
               controller->flipUpSprinklers();
               mvwprintw(info_win, 15, 2, "Sprinklers are now on");
-            } else if (choice == 4) {
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            } else if (choice == 3) {
               controller->flipDownSprinklers();
               mvwprintw(info_win, 15, 2, "Sprinklers are now off");
+              wrefresh(info_win);
+              std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
             } else {
               state = MenuState::MAIN;
               choice = 0;
             }
-            wrefresh(info_win);
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));
           }
         } else if (state == MenuState::STAFFHIRE) {
           Staff *staffToHire = toHire[choice];

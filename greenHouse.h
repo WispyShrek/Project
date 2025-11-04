@@ -22,9 +22,13 @@ private:
   int plantCount = 0;
 
 public:
+  bool wet = false;
+  bool bright = false;
+
   /** @fn @greenHouse::greenHouse()
    * @brief Constructor for greenHouse class.
    */
+  greenHouse();
   ~greenHouse();
   /** @fn void greenHouse::powerSystem()
    * @brief Initialises the greenhouse power and water systems for toggling
@@ -83,6 +87,7 @@ public:
    * @return A plant pointer of a mature plant or null
    */
   Plant *removeMature();
+  std::string print();
 };
 
 #endif

@@ -4,9 +4,9 @@
 
 Light::Light(greenHouse *greenHouse) { this->greenhouse = greenHouse; }
 
-void Light::turnOn() { std::cout << "Light: ON" << std::endl; }
+void Light::turnOn() { greenhouse->bright = true; }
 
-void Light::turnOff() { std::cout << "Light: OFF" << std::endl; }
+void Light::turnOff() { greenhouse->bright = false; }
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"

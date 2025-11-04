@@ -1,14 +1,26 @@
 #include "greenHouse.h"
+#include "AridCare.h"
 #include "GreenhouseController.h"
 #include "Light.h"
 #include "LightsOff.h"
 #include "LightsOn.h"
 #include "PartialSun.h"
+#include "PartialSunCare.h"
 #include "Rose.h"
 #include "Shady.h"
+#include "ShadyCare.h"
 #include "Sprinkler.h"
 #include "Sunny.h"
+#include <random>
+#include <regex>
+#include <string>
 
+int visible_ghlength(const std::string &s) {
+  static const std::regex ansi_escape("\033\\[[0-9;]*m");
+  std::string clean = std::regex_replace(s, ansi_escape, "");
+  return static_cast<int>(clean.size());
+}
+greenHouse::greenHouse() { this->carestrategy = new PartialSunCare(); }
 greenHouse::~greenHouse() {
   for (auto &row : plants) {
     for (auto *&p : row) {
@@ -17,7 +29,46 @@ greenHouse::~greenHouse() {
   }
 }
 
-void greenHouse::tick() {}
+void greenHouse::tick() {
+  if (wet && bright) {
+    this->carestrategy = new SunnyCare();
+  } else if ((!wet) && bright) {
+    this->carestrategy = new AridCare();
+  } else if ((!wet) && (!bright)) {
+    this->carestrategy = new PartialSunCare();
+  } else if ((wet) && (!bright)) {
+    this->carestrategy = new ShadyCare();
+  }
+
+  Iterator<Plant *> *plants = CreateIterator();
+  plants->first();
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<> chance(0.0, 1.0);
+  while (!plants->isDone()) {
+    if (plants->currItem() != nullptr) {
+      double roll = chance(gen);
+      if (roll <= 0.2) {
+        if (plants->currItem()->getStrategy() !=
+            this->carestrategy->getStrategyName()) {
+          if (plants->currItem()->getState() == "Dying") {
+            plants->currItem()->setState(new Dead());
+          } else if (plants->currItem()->getState() != "Dead") {
+            Caretaker *caretaker = new Caretaker();
+            caretaker->setPlantMemento(
+                plants->currItem()->createPlantMemento());
+            plants->currItem()->setState(new Dying(caretaker));
+          }
+        } else {
+          plants->currItem()->nextState();
+        }
+      } else if (roll <= 0.3) {
+        plants->currItem()->nextState();
+      }
+    }
+    plants->next();
+  }
+}
 
 GreenhouseController *greenHouse::powerSystem() {
   Sprinkler *sprinklers = new Sprinkler(this);
@@ -105,6 +156,59 @@ bool greenHouse::removeItem(Plant *item) {
     }
   }
   return false;
+}
+
+std::string greenHouse::print() {
+  std::string gardenSprite;
+  std::string row;
+  std::string plant;
+  int fillLength;
+  gardenSprite.append("\x1B[38;5;172m");
+  for (int r = 0; r < 3; r++) {
+    gardenSprite.append(36, '|');
+    gardenSprite.append("\n\x1B[38;5;172m");
+    row.clear();
+    row.append("|||");
+    for (int c = 0; c < 3; c++) {
+      plant.clear();
+      plant.shrink_to_fit();
+      if (plants[r][c] == nullptr) {
+        row.append("||||||||");
+      } else {
+        plant = plants[r][c]->print();
+        if (visible_ghlength(plant) < 8) {
+          int pad = (8 - visible_ghlength(plant)) / 2;
+          plant.append("\x1B[38;5;172m");
+          plant.insert(0, pad, '|');
+        }
+        row.append(plant);
+        row.append(1, '|');
+        row.append("\x1B[38;5;172m");
+      }
+      row.append("|||\x1B[38;5;172m");
+    }
+    gardenSprite.append(row);
+    fillLength = 36 - visible_ghlength(row);
+    if (fillLength < 0) {
+      fillLength = 0;
+    }
+    gardenSprite.append(fillLength, '|');
+    gardenSprite.append("\n\x1B[38;5;172m");
+  }
+  gardenSprite.append(36, '|');
+  gardenSprite.append("\n\x1B[38;5;172m");
+
+  return gardenSprite;
+}
+
+std::string greenHouse::getDescription() {
+  std::string description;
+  description += "Climate: " + this->carestrategy->getStrategyName();
+  description += "\nSoil: ";
+  description += (wet) ? "wet" : "dry";
+  description += "\nLight level: ";
+  description += (bright) ? "bright" : "dark";
+  return description;
 }
 
 #ifdef ENABLE_DOCTESTS

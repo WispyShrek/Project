@@ -1,16 +1,13 @@
 #ifndef EASYCUST_H
 #define EASYCUST_H
-#include <vector>
-#include <string>
 #include "Customer.h"
 #include "SalesFloor.h"
-/// @brief Represents an easygoing customer with predefined preferences and a payment strategy.
-/// Inherits from the abstract Customer class.
-class EasyCust : public Customer
-{
+#include <string>
+#include <vector>
+/// @brief Represents an easygoing customer with predefined preferences and a
+/// payment strategy. Inherits from the abstract Customer class.
+class EasyCust : public Customer {
 private:
-  /// @brief Vector holding the customer's preferred plants.
-  vector<Plant *> preferredPlants;
   /// @brief Pointer to the customer's chosen payment strategy.
   PaymentStrategy *paymentStrategy;
 
@@ -23,7 +20,8 @@ public:
   /// @param timeAvailable Time available for shopping.
   /// @param paymentStrategy Pointer to the PaymentStrategy object.
   /// @param preferredPlants Vector of preferred Plant pointers.
-  EasyCust(std::string name, SalesFloor *salesFloor, double timeAvailable, PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
+  EasyCust(std::string name, SalesFloor *salesFloor, double timeAvailable,
+           PaymentStrategy *paymentStrategy, vector<Plant *> preferredPlants);
   /// @brief Destructor.
   /// Cleans up preferred plants and payment strategy.
   ~EasyCust();
