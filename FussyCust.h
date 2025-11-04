@@ -1,6 +1,9 @@
 #ifndef FUSSYCUST_H
 #define FUSSYCUST_H
+#include <vector>
+#include <string>
 #include "Customer.h"
+#include "SalesFloor.h"
 /// @brief Represents a fussy customer with specific preferences and a payment strategy.
 /// Inherits from the abstract Customer class.
 class FussyCust : public Customer
@@ -38,6 +41,6 @@ public:
   /// @brief Enquires about preferred plants from the sales floor.
   /// If a preferred plant is available, adds it to the cart and removes it from preferences.
   /// @param salesFloor Pointer to the SalesFloor object.
-  void enquirePlants(SalesFloor *salesFloor) override;
+  string enquirePlants(SalesFloor *salesFloor) override;
 };
 #endif

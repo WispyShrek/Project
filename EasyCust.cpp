@@ -33,13 +33,14 @@ void EasyCust::pay()
 /// @return A string representing the customer's voice line.
 string EasyCust::voiceLine()
 {
-	return "I'm a easy customer";
+	return "A customer has arrived!\n They look chill:)";
 }
 /// @brief Enquires about preferred plants from the sales floor.
 /// If a preferred plant is available, adds it to the cart and removes it from preferences.
 /// @param salesFloor Pointer to the SalesFloor object.
-void EasyCust::enquirePlants(SalesFloor *salesFloor)
+string EasyCust::enquirePlants(SalesFloor *salesFloor)
 {
+	string out;
 	for (int i = 0; i < int(preferredPlants.size()); i++)
 	{
 		bool got = salesFloor->notify(this, preferredPlants[i]);
@@ -47,14 +48,17 @@ void EasyCust::enquirePlants(SalesFloor *salesFloor)
 		{
 			preferredPlants.erase(preferredPlants.begin() + i);
 			addToCart(preferredPlants[i]);
+			out = "Found preferred plant: " + preferredPlants[i]->getName();
 			break;
 		}
 		else
 		{
+			out = "Preferred plant not available: " + preferredPlants[i]->getName();
 			break;
 		}
 	}
 	pay();
+	return out;
 }
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"

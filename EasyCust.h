@@ -1,6 +1,9 @@
 #ifndef EASYCUST_H
 #define EASYCUST_H
+#include <vector>
+#include <string>
 #include "Customer.h"
+#include "SalesFloor.h"
 /// @brief Represents an easygoing customer with predefined preferences and a payment strategy.
 /// Inherits from the abstract Customer class.
 class EasyCust : public Customer
@@ -37,7 +40,7 @@ public:
   void setPaymentStrategy(PaymentStrategy *strategy);
   /// @brief Enquires about preferred plants from the sales floor.
   /// @param salesFloor Pointer to the SalesFloor object.
-  void enquirePlants(SalesFloor *salesFloor) override;
+  string enquirePlants(SalesFloor *salesFloor) override;
 };
 
 #endif
