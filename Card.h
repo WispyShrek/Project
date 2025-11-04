@@ -4,8 +4,8 @@
  */
 #ifndef CARD_H
 #define CARD_H
-#include <iostream>
 #include "PaymentStrategy.h"
+#include <iostream>
 
 /**
  * @class Card
@@ -16,9 +16,9 @@
  */
 class Card : public PaymentStrategy {
 public:
-  Card(){}
-  ~Card(){}
-  void pay();
+  Card() {}
+  ~Card() {}
+  std::string pay();
 };
 
-#endif 
+#endif

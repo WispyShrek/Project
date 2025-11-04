@@ -11,6 +11,4 @@
  * It prints a message to the standard output to signify that the payment
  * is being processed via card.
  */
-void Card::pay() {
-	std::cout << "Pay with card"; 
-}
+std::string Card::pay() { return "Paying with card"; }

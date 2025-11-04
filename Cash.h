@@ -4,8 +4,8 @@
  */
 #ifndef CASH_H
 #define CASH_H
-#include <iostream>
 #include "PaymentStrategy.h"
+#include <iostream>
 
 /**
  * @class Cash
@@ -17,9 +17,9 @@
 class Cash : public PaymentStrategy {
 
 public:
-  Cash(){}
-  ~Cash(){}
-  void pay();
+  Cash() {}
+  ~Cash() {}
+  std::string pay();
 };
 
 #endif // CASH_H

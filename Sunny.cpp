@@ -14,7 +14,7 @@ void Sunny::applyRays() {
   while (!plants->isDone()) {
     if (plants->currItem() != nullptr) {
       double roll = chance(gen);
-      if (roll <= 0.1) {
+      if (roll <= 0.2) {
         if (plants->currItem()->getStrategy() != "Sunny") {
           if (plants->currItem()->getState() == "Dying") {
             plants->currItem()->setState(new Dead());
@@ -28,6 +28,8 @@ void Sunny::applyRays() {
         } else {
           plants->currItem()->nextState();
         }
+      } else if (roll <= 0.3) {
+        plants->currItem()->nextState();
       }
     }
     plants->next();

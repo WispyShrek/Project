@@ -1,7 +1,7 @@
 #ifndef EFT_H
 #define EFT_H
-#include <iostream>
 #include "PaymentStrategy.h"
+#include <iostream>
 
 /**
  * @class EFT
@@ -12,9 +12,9 @@
  */
 class EFT : public PaymentStrategy {
 public:
-  EFT(){}
-  ~EFT(){}
-  void pay();
+  EFT() {}
+  ~EFT() {}
+  std::string pay();
 };
 
 #endif

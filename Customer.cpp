@@ -1,4 +1,5 @@
 #include "Customer.h"
+#include "Nursery.h"
 #include <cmath>
 
 /// @brief Default constructor for Customer.
@@ -44,8 +45,12 @@ void Customer::addDecoration(Customisation *decorator, Plant *plant) {
 }
 /// @brief Adds a plant to the customer's cart.
 /// @param plant Pointer to the Plant object to add.
-void Customer::addToCart(Plant *plant) { // adds plant to cart
+string Customer::addToCart(Plant *plant) {
+  // adds plant to cart
   cart.push_back(plant);
+  Nursery::instance().logPurchase("A customer bought a plant: " +
+                                  plant->getName());
+  return "Plant added to cart: " + plant->getName();
 }
 /// @brief Returns a string representation of the cart contents.
 /// Includes plant name, colour, scent, and price.
@@ -63,6 +68,27 @@ string Customer::cartToString() { // returns string representation of cart
   }
   cartContents += "Total Plants: " + to_string(count) + "\n";
   return cartContents;
+}
+double Customer::buyItems() {
+  if (timeAvailable <= 0) {
+    return 0;
+  }
+  double toPay = 0;
+  for (auto contents : this->cart) {
+    if (contents != nullptr)
+      toPay += contents->getPrice();
+  }
+  return toPay;
+}
+
+std::string Customer::decTime() {
+  this->timeAvailable--;
+  if (this->timeAvailable > 5) {
+    return "Customer is patiently waiting";
+  } else if (this->timeAvailable > 0) {
+    return "Customer is getting impatient";
+  }
+  return "Customer has left unsatisfied";
 }
 #ifdef ENABLE_DOCTESTS
 #include "Customer.h"
