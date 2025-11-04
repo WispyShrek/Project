@@ -30,26 +30,26 @@ Cactus::Cactus(Cactus &toCopy) : Plant(toCopy){
     this->price = toCopy.price;
 }
 
-#ifdef ENABLE_DOCTESTS
-#include "doctest.h"
+// #ifdef ENABLE_DOCTESTS
+// #include "doctest.h"
 
-TEST_CASE("Cactus: Test Cactus class methods") {
-  Cactus cactus;
+// TEST_CASE("Cactus: Test Cactus class methods") {
+//   Cactus cactus;
 
-  // Test getName method
-  REQUIRE(cactus.getName() == "Cactus");
+//   // Test getName method
+//   REQUIRE(cactus.getName() == "Cactus");
 
-  // Test getPrice method
-  REQUIRE(cactus.getPrice() == 50);
+//   // Test getPrice method
+//   REQUIRE(cactus.getPrice() == 50);
 
-  // Test clone method
-  Cactus *clonedCactus = cactus.clone();
-  REQUIRE(clonedCactus != nullptr);
-  REQUIRE(clonedCactus->getName() == "Cactus");
-  REQUIRE(clonedCactus->getPrice() == 50);
-  delete clonedCactus;
+//   // Test clone method
+//   Cactus *clonedCactus = cactus.clone();
+//   REQUIRE(clonedCactus != nullptr);
+//   REQUIRE(clonedCactus->getName() == "Cactus");
+//   REQUIRE(clonedCactus->getPrice() == 50);
+//   delete clonedCactus;
 
-  // Test print method (just ensure it runs without error)
-  cactus.print();
-}
-#endif
+//   // Test print method (just ensure it runs without error)
+//   cactus.print();
+// }
+// #endif

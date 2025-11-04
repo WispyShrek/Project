@@ -13,5 +13,5 @@
  */
 std::string Cash::pay() {
   // TODO - implement Cash::pay
-  std::cout << "Pay with cash";
+  return "Pay with cash";
 }

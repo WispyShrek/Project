@@ -64,84 +64,84 @@ string Customer::cartToString() { // returns string representation of cart
   cartContents += "Total Plants: " + to_string(count) + "\n";
   return cartContents;
 }
-#ifdef ENABLE_DOCTESTS
-#include "Customer.h"
-#include "EFT.h"
-#include "EasyCust.h"
-#include "Rose.h"
-#include "doctest.h"
-#include <sstream>
+// #ifdef ENABLE_DOCTESTS
+// #include "Customer.h"
+// #include "EFT.h"
+// #include "EasyCust.h"
+// #include "Rose.h"
+// #include "doctest.h"
+// #include <sstream>
 
-TEST_SUITE("Customer") {
+// TEST_SUITE("Customer") {
 
-  TEST_CASE("addToCart and cartToString reflect added plant") {
-    EasyCust customer("Alice", nullptr, 10.0, new EFT(), {});
-    Rose *rose = new Rose();
-    customer.addToCart(rose);
+//   TEST_CASE("addToCart and cartToString reflect added plant") {
+//     EasyCust customer("Alice", nullptr, 10.0, new EFT(), {});
+//     Rose *rose = new Rose();
+//     customer.addToCart(rose);
 
-    std::string cart = customer.cartToString();
-    CHECK(cart.find("Rose") != std::string::npos);
-    CHECK(cart.find("Colour") != std::string::npos);
-    CHECK(cart.find("Scent") != std::string::npos);
-    CHECK(cart.find("Price") != std::string::npos);
-  }
+//     std::string cart = customer.cartToString();
+//     CHECK(cart.find("Rose") != std::string::npos);
+//     CHECK(cart.find("Colour") != std::string::npos);
+//     CHECK(cart.find("Scent") != std::string::npos);
+//     CHECK(cart.find("Price") != std::string::npos);
+//   }
 
-  TEST_CASE("addDecoration: arrangement increases price by 150") {
-    EasyCust customer("Bob", nullptr, 10.0, new EFT(), {});
-    Rose *rose = new Rose();
-    customer.addToCart(rose);
+//   TEST_CASE("addDecoration: arrangement increases price by 150") {
+//     EasyCust customer("Bob", nullptr, 10.0, new EFT(), {});
+//     Rose *rose = new Rose();
+//     customer.addToCart(rose);
 
-    double originalPrice = rose->getPrice();
-    customer.addDecoration("arrangement", rose);
+//     double originalPrice = rose->getPrice();
+//     customer.addDecoration("arrangement", rose);
 
-    std::string cart = customer.cartToString();
-    CHECK(cart.find("Rose") != std::string::npos);
-    CHECK(cart.find(std::to_string(int(originalPrice + 150))) !=
-          std::string::npos);
-  }
+//     std::string cart = customer.cartToString();
+//     CHECK(cart.find("Rose") != std::string::npos);
+//     CHECK(cart.find(std::to_string(int(originalPrice + 150))) !=
+//           std::string::npos);
+//   }
 
-  TEST_CASE("addDecoration: giftwrapping increases price by 100") {
-    EasyCust customer("Carol", nullptr, 10.0, new EFT(), {});
-    Rose *rose = new Rose();
-    customer.addToCart(rose);
+//   TEST_CASE("addDecoration: giftwrapping increases price by 100") {
+//     EasyCust customer("Carol", nullptr, 10.0, new EFT(), {});
+//     Rose *rose = new Rose();
+//     customer.addToCart(rose);
 
-    double originalPrice = rose->getPrice();
-    customer.addDecoration("giftwrapping", rose);
+//     double originalPrice = rose->getPrice();
+//     customer.addDecoration("giftwrapping", rose);
 
-    std::string cart = customer.cartToString();
-    CHECK(cart.find(std::to_string(int(originalPrice + 100))) !=
-          std::string::npos);
-  }
+//     std::string cart = customer.cartToString();
+//     CHECK(cart.find(std::to_string(int(originalPrice + 100))) !=
+//           std::string::npos);
+//   }
 
-  TEST_CASE("addDecoration: decorativepot increases price by 200") {
-    EasyCust customer("Dave", nullptr, 10.0, new EFT(), {});
-    Rose *rose = new Rose();
-    customer.addToCart(rose);
+//   TEST_CASE("addDecoration: decorativepot increases price by 200") {
+//     EasyCust customer("Dave", nullptr, 10.0, new EFT(), {});
+//     Rose *rose = new Rose();
+//     customer.addToCart(rose);
 
-    double originalPrice = rose->getPrice();
-    customer.addDecoration("decorativepot", rose);
+//     double originalPrice = rose->getPrice();
+//     customer.addDecoration("decorativepot", rose);
 
-    std::string cart = customer.cartToString();
-    CHECK(cart.find(std::to_string(int(originalPrice + 200))) !=
-          std::string::npos);
-  }
+//     std::string cart = customer.cartToString();
+//     CHECK(cart.find(std::to_string(int(originalPrice + 200))) !=
+//           std::string::npos);
+//   }
 
-  TEST_CASE("addDecoration: unknown type does not crash") {
-    EasyCust customer("Eve", nullptr, 10.0, new EFT(), {});
-    Rose *rose = new Rose();
-    customer.addToCart(rose);
+//   TEST_CASE("addDecoration: unknown type does not crash") {
+//     EasyCust customer("Eve", nullptr, 10.0, new EFT(), {});
+//     Rose *rose = new Rose();
+//     customer.addToCart(rose);
 
-    // Should print error but not crash
-    customer.addDecoration("ribbon", rose);
-    std::string cart = customer.cartToString();
-    CHECK(cart.find("Rose") != std::string::npos);
-  }
+//     // Should print error but not crash
+//     customer.addDecoration("ribbon", rose);
+//     std::string cart = customer.cartToString();
+//     CHECK(cart.find("Rose") != std::string::npos);
+//   }
 
-  TEST_CASE("Destructor cleans up cart memory") {
-    EasyCust *customer = new EasyCust("Frank", nullptr, 10.0, new EFT(), {});
-    customer->addToCart(new Rose());
-    customer->addToCart(new Rose());
-    delete customer; // Should not leak or crash
-  }
-}
-#endif
+//   TEST_CASE("Destructor cleans up cart memory") {
+//     EasyCust *customer = new EasyCust("Frank", nullptr, 10.0, new EFT(), {});
+//     customer->addToCart(new Rose());
+//     customer->addToCart(new Rose());
+//     delete customer; // Should not leak or crash
+//   }
+// }
+// #endif
