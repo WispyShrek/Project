@@ -288,15 +288,6 @@ TEST_SUITE("Nursery Singleton") {
   TEST_CASE("addStaff and removeStaff correctly modify the staff collection") {
     Nursery &nursery = Nursery::instance();
 
-    // Ensure clean state for test
-    while (nursery.getStaffCount() > 0) {
-      // This is tricky without access to the internal vector.
-      // The main.cpp tests suggest we can do this, but it's better to test
-      // from a known state. For this test, we'll assume it's empty or we can
-      // manage what we add. A reset method on the singleton would be ideal
-      // for testing.
-    }
-
     size_t initialStaffCount = nursery.getStaffCount();
 
     Staff *caretaker = new PlantCaretaker();
@@ -323,13 +314,6 @@ TEST_SUITE("Nursery Singleton") {
       "addGarden and removeGarden correctly modify the garden collection") {
     Nursery &nursery = Nursery::instance();
     size_t initialGardenCount = nursery.getGardenCount();
-
-    Garden *sunnyGarden = new Sunny();
-    nursery.addGarden(sunnyGarden);
-    CHECK(nursery.getGardenCount() == initialGardenCount + 1);
-
-    nursery.removeGarden(sunnyGarden);
-    CHECK(nursery.getGardenCount() == initialGardenCount);
 
     Garden *sunnyGarden = new Sunny();
     nursery.addGarden(sunnyGarden);

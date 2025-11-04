@@ -35,6 +35,7 @@ void CustomerAssistant::update() {}
 
 TEST_CASE("CustomerAssistant: Test CustomerAssistant class") {
   SalesFloor *floor = nullptr;
+  // SalesFloor *floor = nullptr;
   CustomerAssistant *assistant = new CustomerAssistant();
 
   assistant->care();
@@ -42,7 +43,7 @@ TEST_CASE("CustomerAssistant: Test CustomerAssistant class") {
   // Test update method
   assistant->update();
 
-  delete mockCustomer;
+  // delete mockCustomer;
   delete assistant;
 }
 TEST_CASE("CustomerAssistant: Test Destructor") {
