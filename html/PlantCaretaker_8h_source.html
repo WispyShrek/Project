@@ -74,24 +74,35 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Customer.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classGarden.html">Garden</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classPlantCaretaker.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlantCaretaker.html">PlantCaretaker</a> : <span class="keyword">public</span> <a class="code" href="classStaff.html">Staff</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  std::queue&lt;Garden *&gt; careQueue;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  std::vector&lt;Customer *&gt; custList;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="classPlantCaretaker.html">PlantCaretaker</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classPlantCaretaker.html#af90b3485a918b76f57cec33f109d2d2f">care</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPlantCaretaker.html#a2f622e80ca022683ffa4393a2cea2453">update</a>(<a class="code" href="classGarden.html">Garden</a> *subjectOfCare);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ~<a class="code" href="classPlantCaretaker.html">PlantCaretaker</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classPlantCaretaker.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPlantCaretaker.html">PlantCaretaker</a> : <span class="keyword">public</span> <a class="code" href="classStaff.html">Staff</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  std::queue&lt;Garden *&gt; careQueue;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  std::vector&lt;Customer *&gt; custList;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="classPlantCaretaker.html#ae487981acf1782c7c15d53a1aa127e2f">PlantCaretaker</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classPlantCaretaker.html#af90b3485a918b76f57cec33f109d2d2f">care</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classStaff.html#af367b9e3b12854de32be524165d49704">update</a>(<a class="code" href="classGarden.html">Garden</a> *subjectOfCare);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classPlantCaretaker.html#ad098c948d3d9c865026f07fda0042c7a">~PlantCaretaker</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classPlantCaretaker.html#a72872eff15c79f5f4759198f659be2ab">   37</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classPlantCaretaker.html#a72872eff15c79f5f4759198f659be2ab">notify</a>(<a class="code" href="classCustomer.html">Customer</a> *customer, <a class="code" href="classPlant.html">Plant</a> *plant)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Represents a customer interacting with the sales floor and managing a cart of plants....</div><div class="ttdef"><b>Definition:</b> Customer.h:17</div></div>
 <div class="ttc" id="aclassGarden_html"><div class="ttname"><a href="classGarden.html">Garden</a></div><div class="ttdef"><b>Definition:</b> Garden.h:10</div></div>
-<div class="ttc" id="aclassPlantCaretaker_html"><div class="ttname"><a href="classPlantCaretaker.html">PlantCaretaker</a></div><div class="ttdef"><b>Definition:</b> PlantCaretaker.h:10</div></div>
-<div class="ttc" id="aclassPlantCaretaker_html_a2f622e80ca022683ffa4393a2cea2453"><div class="ttname"><a href="classPlantCaretaker.html#a2f622e80ca022683ffa4393a2cea2453">PlantCaretaker::update</a></div><div class="ttdeci">void update(Garden *subjectOfCare)</div><div class="ttdoc">Adds new garden to careQueue. The update function takes a the input parameter and pushes it to the ba...</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.cpp:25</div></div>
-<div class="ttc" id="aclassPlantCaretaker_html_af90b3485a918b76f57cec33f109d2d2f"><div class="ttname"><a href="classPlantCaretaker.html#af90b3485a918b76f57cec33f109d2d2f">PlantCaretaker::care</a></div><div class="ttdeci">void care() override</div><div class="ttdoc">Applies care to gardens. The care function dequeues a garden pointer the from the front of the careQu...</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.cpp:17</div></div>
-<div class="ttc" id="aclassStaff_html"><div class="ttname"><a href="classStaff.html">Staff</a></div><div class="ttdoc">An abstract base class representing staff members in the nursery.</div><div class="ttdef"><b>Definition:</b> Staff.h:15</div></div>
+<div class="ttc" id="aclassPlantCaretaker_html"><div class="ttname"><a href="classPlantCaretaker.html">PlantCaretaker</a></div><div class="ttdef"><b>Definition:</b> PlantCaretaker.h:11</div></div>
+<div class="ttc" id="aclassPlantCaretaker_html_a72872eff15c79f5f4759198f659be2ab"><div class="ttname"><a href="classPlantCaretaker.html#a72872eff15c79f5f4759198f659be2ab">PlantCaretaker::notify</a></div><div class="ttdeci">bool notify(Customer *customer, Plant *plant) override</div><div class="ttdoc">Pure virtual method to handle customer notifications.</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.h:37</div></div>
+<div class="ttc" id="aclassPlantCaretaker_html_ad098c948d3d9c865026f07fda0042c7a"><div class="ttname"><a href="classPlantCaretaker.html#ad098c948d3d9c865026f07fda0042c7a">PlantCaretaker::~PlantCaretaker</a></div><div class="ttdeci">~PlantCaretaker()</div><div class="ttdoc">Destructor for PlantCaretaker. Clears the care queue and deletes all customers in the list.</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.cpp:11</div></div>
+<div class="ttc" id="aclassPlantCaretaker_html_ae487981acf1782c7c15d53a1aa127e2f"><div class="ttname"><a href="classPlantCaretaker.html#ae487981acf1782c7c15d53a1aa127e2f">PlantCaretaker::PlantCaretaker</a></div><div class="ttdeci">PlantCaretaker()</div><div class="ttdoc">Default constructor for PlantCaretaker. Initializes the care queue and customer list.</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.cpp:5</div></div>
+<div class="ttc" id="aclassPlantCaretaker_html_af90b3485a918b76f57cec33f109d2d2f"><div class="ttname"><a href="classPlantCaretaker.html#af90b3485a918b76f57cec33f109d2d2f">PlantCaretaker::care</a></div><div class="ttdeci">void care() override</div><div class="ttdoc">Applies care to the next garden in the queue. Pops the front garden from the queue and calls its appl...</div><div class="ttdef"><b>Definition:</b> PlantCaretaker.cpp:22</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
+<div class="ttc" id="aclassStaff_html"><div class="ttname"><a href="classStaff.html">Staff</a></div><div class="ttdoc">An abstract base class representing staff members in the nursery.</div><div class="ttdef"><b>Definition:</b> Staff.h:17</div></div>
+<div class="ttc" id="aclassStaff_html_af367b9e3b12854de32be524165d49704"><div class="ttname"><a href="classStaff.html#af367b9e3b12854de32be524165d49704">Staff::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Optional method to receive updates from observable subjects.</div><div class="ttdef"><b>Definition:</b> Staff.h:55</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

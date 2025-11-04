@@ -2,20 +2,86 @@
 \label{classSalesFloor}\index{SalesFloor@{SalesFloor}}
 
 
+Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer notifications.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Floor.\+h$>$}
+
+
+
 Inheritance diagram for Sales\+Floor\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=296pt]{classSalesFloor__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
+
+
+Collaboration diagram for Sales\+Floor\+:
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSalesFloor_a93daa0141987464cfa481c6bc634621e}\label{classSalesFloor_a93daa0141987464cfa481c6bc634621e}} 
-virtual void {\bfseries notify} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)=0
+virtual bool \mbox{\hyperlink{classSalesFloor_ab8d0f1e40012b12cafc123152bfab35b}{notify}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)=0
+\begin{DoxyCompactList}\small\item\em Notifies the sales floor about a customer\textquotesingle{}s interest in a plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesFloor_aaa630ba1a639bff6b93dc580a04cdb91}\label{classSalesFloor_aaa630ba1a639bff6b93dc580a04cdb91}} 
+\mbox{\hyperlink{classSalesFloor_aaa630ba1a639bff6b93dc580a04cdb91}{Sales\+Floor}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesFloor_a00b9cd4cff7a9cd2c14ae8737d7c2fd5}\label{classSalesFloor_a00b9cd4cff7a9cd2c14ae8737d7c2fd5}} 
+virtual \mbox{\hyperlink{classSalesFloor_a00b9cd4cff7a9cd2c14ae8737d7c2fd5}{$\sim$\+Sales\+Floor}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInventory}{Inventory}} $\ast$ \mbox{\hyperlink{classSalesFloor_afea1df67eaff1ef614df240b74be2043}{get\+Inventory}} ()
+\begin{DoxyCompactList}\small\item\em Provides access to the inventory managed by the sales floor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSalesFloor_a9dfdf40209963995ee89043fc62a8d00}\label{classSalesFloor_a9dfdf40209963995ee89043fc62a8d00}} 
+void {\bfseries add\+To\+Plant\+Inventory} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
 \end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSalesFloor_ac8791c518192fcc42ad57d6d71d359c2}\label{classSalesFloor_ac8791c518192fcc42ad57d6d71d359c2}} 
+\mbox{\hyperlink{classInventory}{Inventory}} \mbox{\hyperlink{classSalesFloor_ac8791c518192fcc42ad57d6d71d359c2}{inventory}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classInventory}{Inventory}} of plants available on the sales floor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer notifications. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSalesFloor_afea1df67eaff1ef614df240b74be2043}\label{classSalesFloor_afea1df67eaff1ef614df240b74be2043}} 
+\index{SalesFloor@{SalesFloor}!getInventory@{getInventory}}
+\index{getInventory@{getInventory}!SalesFloor@{SalesFloor}}
+\doxysubsubsection{\texorpdfstring{getInventory()}{getInventory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInventory}{Inventory}}$\ast$ Sales\+Floor\+::get\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Provides access to the inventory managed by the sales floor. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{classInventory}{Inventory}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSalesFloor_ab8d0f1e40012b12cafc123152bfab35b}\label{classSalesFloor_ab8d0f1e40012b12cafc123152bfab35b}} 
+\index{SalesFloor@{SalesFloor}!notify@{notify}}
+\index{notify@{notify}!SalesFloor@{SalesFloor}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily virtual bool Sales\+Floor\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Notifies the sales floor about a customer\textquotesingle{}s interest in a plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plant is available and processed; false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classStaff_ab4568017d7f5073089ace25caeea2c04}{Staff}}, \mbox{\hyperlink{classPlantCaretaker_a72872eff15c79f5f4759198f659be2ab}{Plant\+Caretaker}}, and \mbox{\hyperlink{classCustomerAssistant_a49ff37eb535da68283d62fdf884ecbae}{Customer\+Assistant}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -68,6 +68,11 @@ $(function() {
 <div class="title">FussyCust Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstract <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> class.  
+ <a href="classFussyCust.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="FussyCust_8h_source.html">FussyCust.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for FussyCust:</div>
 <div class="dyncontent">
@@ -89,32 +94,297 @@ Collaboration diagram for FussyCust:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a56ee017bd4213a7ebe2158ca654b0b58"><td class="memItemLeft" align="right" valign="top"><a id="a56ee017bd4213a7ebe2158ca654b0b58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> ()</td></tr>
-<tr class="separator:a56ee017bd4213a7ebe2158ca654b0b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add709be95368df8de48c0e616f3295ec"><td class="memItemLeft" align="right" valign="top"><a id="add709be95368df8de48c0e616f3295ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> ()</td></tr>
-<tr class="separator:add709be95368df8de48c0e616f3295ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb1e168b07873b1995e304719b14407"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a5fb1e168b07873b1995e304719b14407">FussyCust</a> ()</td></tr>
+<tr class="memdesc:a5fb1e168b07873b1995e304719b14407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classFussyCust.html#a5fb1e168b07873b1995e304719b14407">More...</a><br /></td></tr>
+<tr class="separator:a5fb1e168b07873b1995e304719b14407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5af71330020a033675f29224050d1863"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a5af71330020a033675f29224050d1863">FussyCust</a> (std::string name, <a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor, double timeAvailable, <a class="el" href="classPaymentStrategy.html">PaymentStrategy</a> *paymentStrategy, vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; <a class="el" href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">preferredPlants</a>)</td></tr>
+<tr class="memdesc:a5af71330020a033675f29224050d1863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor.  <a href="classFussyCust.html#a5af71330020a033675f29224050d1863">More...</a><br /></td></tr>
+<tr class="separator:a5af71330020a033675f29224050d1863"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9000db1b5dc153ceec9df462b6b6191"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#ac9000db1b5dc153ceec9df462b6b6191">~FussyCust</a> ()</td></tr>
+<tr class="memdesc:ac9000db1b5dc153ceec9df462b6b6191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Cleans up resources used by the customer.  <a href="classFussyCust.html#ac9000db1b5dc153ceec9df462b6b6191">More...</a><br /></td></tr>
+<tr class="separator:ac9000db1b5dc153ceec9df462b6b6191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a174088950b0856605d4b139834af57"><td class="memItemLeft" align="right" valign="top"><a id="a0a174088950b0856605d4b139834af57"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a0a174088950b0856605d4b139834af57">pay</a> ()</td></tr>
+<tr class="memdesc:a0a174088950b0856605d4b139834af57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the customer's payment strategy. <br /></td></tr>
+<tr class="separator:a0a174088950b0856605d4b139834af57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f30a8237bcd947b219eccc0f475b7f2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a3f30a8237bcd947b219eccc0f475b7f2">voiceLine</a> () override</td></tr>
+<tr class="memdesc:a3f30a8237bcd947b219eccc0f475b7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a voice line specific to <a class="el" href="classFussyCust.html" title="Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstr...">FussyCust</a>.  <a href="classFussyCust.html#a3f30a8237bcd947b219eccc0f475b7f2">More...</a><br /></td></tr>
+<tr class="separator:a3f30a8237bcd947b219eccc0f475b7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa576c47fcadfd2179b144cc17c2f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPaymentStrategy.html">PaymentStrategy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#aaaa576c47fcadfd2179b144cc17c2f4b">getPaymentStrategy</a> () const</td></tr>
+<tr class="memdesc:aaaa576c47fcadfd2179b144cc17c2f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the customer's payment strategy.  <a href="classFussyCust.html#aaaa576c47fcadfd2179b144cc17c2f4b">More...</a><br /></td></tr>
+<tr class="separator:aaaa576c47fcadfd2179b144cc17c2f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eb4a21629d3c8b5efdcbabed541fcaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a0eb4a21629d3c8b5efdcbabed541fcaa">setPaymentStrategy</a> (<a class="el" href="classPaymentStrategy.html">PaymentStrategy</a> *strategy)</td></tr>
+<tr class="memdesc:a0eb4a21629d3c8b5efdcbabed541fcaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the customer's payment strategy.  <a href="classFussyCust.html#a0eb4a21629d3c8b5efdcbabed541fcaa">More...</a><br /></td></tr>
+<tr class="separator:a0eb4a21629d3c8b5efdcbabed541fcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6de7967e246ae51a930db762de11dea0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFussyCust.html#a6de7967e246ae51a930db762de11dea0">enquirePlants</a> (<a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor) override</td></tr>
+<tr class="memdesc:a6de7967e246ae51a930db762de11dea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enquires about preferred plants from the sales floor. If a preferred plant is available, adds it to the cart and removes it from preferences.  <a href="classFussyCust.html#a6de7967e246ae51a930db762de11dea0">More...</a><br /></td></tr>
+<tr class="separator:a6de7967e246ae51a930db762de11dea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCustomer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCustomer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCustomer.html">Customer</a></td></tr>
-<tr class="memitem:ad96be5d3982c784a35aed85140cca299 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="ad96be5d3982c784a35aed85140cca299"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Customer</b> (std::string name, <a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor)</td></tr>
-<tr class="separator:ad96be5d3982c784a35aed85140cca299 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8adce2f32043c1fa5f0ede2de0d6c173 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a8adce2f32043c1fa5f0ede2de0d6c173"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addDecoration</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="separator:a8adce2f32043c1fa5f0ede2de0d6c173 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f50dcd04ce829e290da1bae29ed1e79 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a9f50dcd04ce829e290da1bae29ed1e79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addToCart</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="separator:a9f50dcd04ce829e290da1bae29ed1e79 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1ed6573e08d3047607293e5bdac580 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a9e1ed6573e08d3047607293e5bdac580"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeFromCart</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memitem:abcc8fae9701e5ba9d7d6fe44498b34e3 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="abcc8fae9701e5ba9d7d6fe44498b34e3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#abcc8fae9701e5ba9d7d6fe44498b34e3">Customer</a> ()</td></tr>
+<tr class="memdesc:abcc8fae9701e5ba9d7d6fe44498b34e3 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a>. Initializes name to empty string and salesFloor to NULL. <br /></td></tr>
+<tr class="separator:abcc8fae9701e5ba9d7d6fe44498b34e3 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a039915ac7cf2aabff650178d015b2391 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a039915ac7cf2aabff650178d015b2391">Customer</a> (std::string name, <a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor, double timeAvailable)</td></tr>
+<tr class="memdesc:a039915ac7cf2aabff650178d015b2391 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor.  <a href="classCustomer.html#a039915ac7cf2aabff650178d015b2391">More...</a><br /></td></tr>
+<tr class="separator:a039915ac7cf2aabff650178d015b2391 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab93fb14683b0393b9c900109f77c2629 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#ab93fb14683b0393b9c900109f77c2629">~Customer</a> ()</td></tr>
+<tr class="memdesc:ab93fb14683b0393b9c900109f77c2629 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCustomer.html#ab93fb14683b0393b9c900109f77c2629">More...</a><br /></td></tr>
+<tr class="separator:ab93fb14683b0393b9c900109f77c2629 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa282058f6c45ae529e1bfc876021c38 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">getTimeLine</a> ()</td></tr>
+<tr class="memdesc:aaa282058f6c45ae529e1bfc876021c38 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a string representing the customer's time availability.  <a href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">More...</a><br /></td></tr>
+<tr class="separator:aaa282058f6c45ae529e1bfc876021c38 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7afb8352f10e277b2b178e8e26c028b2 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a7afb8352f10e277b2b178e8e26c028b2">addDecoration</a> (<a class="el" href="classCustomisation.html">Customisation</a> *decorator, <a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:a7afb8352f10e277b2b178e8e26c028b2 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a decoration to a plant in the cart.  <a href="classCustomer.html#a7afb8352f10e277b2b178e8e26c028b2">More...</a><br /></td></tr>
+<tr class="separator:a7afb8352f10e277b2b178e8e26c028b2 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10783e7df0f1ea75679d697c253b844 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#ad10783e7df0f1ea75679d697c253b844">addToCart</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:ad10783e7df0f1ea75679d697c253b844 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the customer's cart.  <a href="classCustomer.html#ad10783e7df0f1ea75679d697c253b844">More...</a><br /></td></tr>
+<tr class="separator:ad10783e7df0f1ea75679d697c253b844 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e1ed6573e08d3047607293e5bdac580 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">removeFromCart</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:a9e1ed6573e08d3047607293e5bdac580 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a plant from the customer's cart.  <a href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">More...</a><br /></td></tr>
 <tr class="separator:a9e1ed6573e08d3047607293e5bdac580 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d756ecc1e055b13acabb6e68867e6c2 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a0d756ecc1e055b13acabb6e68867e6c2"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>cartToString</b> ()</td></tr>
+<tr class="memitem:a0d756ecc1e055b13acabb6e68867e6c2 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a0d756ecc1e055b13acabb6e68867e6c2">cartToString</a> ()</td></tr>
+<tr class="memdesc:a0d756ecc1e055b13acabb6e68867e6c2 inherit pub_methods_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the cart contents.  <a href="classCustomer.html#a0d756ecc1e055b13acabb6e68867e6c2">More...</a><br /></td></tr>
 <tr class="separator:a0d756ecc1e055b13acabb6e68867e6c2 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb2e13cc7a8006b42b21c97d16f2ae9 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a4fb2e13cc7a8006b42b21c97d16f2ae9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b> ()</td></tr>
-<tr class="separator:a4fb2e13cc7a8006b42b21c97d16f2ae9 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362ed2a14a838049e2bedf71cf42a3fd inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a362ed2a14a838049e2bedf71cf42a3fd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>buyItems</b> ()</td></tr>
+<tr class="separator:a362ed2a14a838049e2bedf71cf42a3fd inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d0befd0c11001f648c5ec02ca3682ab inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a1d0befd0c11001f648c5ec02ca3682ab"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>decTime</b> ()</td></tr>
+<tr class="separator:a1d0befd0c11001f648c5ec02ca3682ab inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f662480a5bcc5f28455838c8a217dca inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="a2f662480a5bcc5f28455838c8a217dca"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getCartSize</b> ()</td></tr>
+<tr class="separator:a2f662480a5bcc5f28455838c8a217dca inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45c77e71b1e48a12445d11add18d807 inherit pub_methods_classCustomer"><td class="memItemLeft" align="right" valign="top"><a id="aa45c77e71b1e48a12445d11add18d807"></a>
+<a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSalesFloor</b> ()</td></tr>
+<tr class="separator:aa45c77e71b1e48a12445d11add18d807 inherit pub_methods_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_classCustomer"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classCustomer')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classCustomer.html">Customer</a></td></tr>
+<tr class="memitem:aadd58f56d9333e88d58c1b32f191aaa7 inherit pub_attribs_classCustomer"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">preferredPlants</a></td></tr>
+<tr class="memdesc:aadd58f56d9333e88d58c1b32f191aaa7 inherit pub_attribs_classCustomer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">More...</a><br /></td></tr>
+<tr class="separator:aadd58f56d9333e88d58c1b32f191aaa7 inherit pub_attribs_classCustomer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstract <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5fb1e168b07873b1995e304719b14407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb1e168b07873b1995e304719b14407">&#9670;&nbsp;</a></span>FussyCust() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FussyCust::FussyCust </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Default constructor for <a class="el" href="classFussyCust.html" title="Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstr...">FussyCust</a>. </p>
+
+</div>
+</div>
+<a id="a5af71330020a033675f29224050d1863"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af71330020a033675f29224050d1863">&#9670;&nbsp;</a></span>FussyCust() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FussyCust::FussyCust </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td>
+          <td class="paramname"><em>salesFloor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>timeAvailable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPaymentStrategy.html">PaymentStrategy</a> *&#160;</td>
+          <td class="paramname"><em>paymentStrategy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td>
+          <td class="paramname"><em>preferredPlants</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parameterized constructor. </p>
+<p>Parameterized constructor for <a class="el" href="classFussyCust.html" title="Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstr...">FussyCust</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the customer. </td></tr>
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> object. </td></tr>
+    <tr><td class="paramname">timeAvailable</td><td>Time available for shopping. </td></tr>
+    <tr><td class="paramname">paymentStrategy</td><td>Pointer to the <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> object. </td></tr>
+    <tr><td class="paramname">preferredPlants</td><td>Vector of preferred <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> pointers.</td></tr>
+    <tr><td class="paramname">name</td><td>Name of the customer. </td></tr>
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> object. </td></tr>
+    <tr><td class="paramname">timeAvailable</td><td>Time available for shopping. </td></tr>
+    <tr><td class="paramname">paymentStrategy</td><td>Pointer to the <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> used by the customer. </td></tr>
+    <tr><td class="paramname">preferredPlants</td><td>Vector of preferred <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> pointers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9000db1b5dc153ceec9df462b6b6191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9000db1b5dc153ceec9df462b6b6191">&#9670;&nbsp;</a></span>~FussyCust()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FussyCust::~FussyCust </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. Cleans up resources used by the customer. </p>
+<p>Destructor for <a class="el" href="classFussyCust.html" title="Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstr...">FussyCust</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6de7967e246ae51a930db762de11dea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de7967e246ae51a930db762de11dea0">&#9670;&nbsp;</a></span>enquirePlants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string FussyCust::enquirePlants </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td>
+          <td class="paramname"><em>salesFloor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enquires about preferred plants from the sales floor. If a preferred plant is available, adds it to the cart and removes it from preferences. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">Customer</a>.</p>
+
+</div>
+</div>
+<a id="aaaa576c47fcadfd2179b144cc17c2f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa576c47fcadfd2179b144cc17c2f4b">&#9670;&nbsp;</a></span>getPaymentStrategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPaymentStrategy.html">PaymentStrategy</a>* FussyCust::getPaymentStrategy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the customer's payment strategy. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a0eb4a21629d3c8b5efdcbabed541fcaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb4a21629d3c8b5efdcbabed541fcaa">&#9670;&nbsp;</a></span>setPaymentStrategy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FussyCust::setPaymentStrategy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPaymentStrategy.html">PaymentStrategy</a> *&#160;</td>
+          <td class="paramname"><em>strategy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the customer's payment strategy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strategy</td><td>Pointer to the new <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f30a8237bcd947b219eccc0f475b7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f30a8237bcd947b219eccc0f475b7f2">&#9670;&nbsp;</a></span>voiceLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string FussyCust::voiceLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a voice line specific to <a class="el" href="classFussyCust.html" title="Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstr...">FussyCust</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the customer's voice line. </dd></dl>
+
+<p>Implements <a class="el" href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">Customer</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="FussyCust_8h_source.html">FussyCust.h</a></li>
 <li>FussyCust.cpp</li>

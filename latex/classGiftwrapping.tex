@@ -2,40 +2,161 @@
 \label{classGiftwrapping}\index{Giftwrapping@{Giftwrapping}}
 
 
+Represents a giftwrapping decoration for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds giftwrapping-\/specific behavior.  
+
+
+
+
+{\ttfamily \#include $<$Giftwrapping.\+h$>$}
+
+
+
 Inheritance diagram for Giftwrapping\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=167pt]{classGiftwrapping__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Giftwrapping\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classGiftwrapping__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGiftwrapping_a3484b648ba9480a48e998de6c8768419}\label{classGiftwrapping_a3484b648ba9480a48e998de6c8768419}} 
-void {\bfseries set\+Added\+Wrapping} (bool added\+Wrapping)
-\item 
-\mbox{\Hypertarget{classGiftwrapping_a34b5ea9a7ec0317dc6b2733d38e7ddfb}\label{classGiftwrapping_a34b5ea9a7ec0317dc6b2733d38e7ddfb}} 
-bool {\bfseries get\+Added\+Wrapping} () const
-\item 
-\mbox{\Hypertarget{classGiftwrapping_ae279f2644e8e64f27028c30e2ab87074}\label{classGiftwrapping_ae279f2644e8e64f27028c30e2ab87074}} 
-void {\bfseries increase\+Price} ()
-\item 
-\mbox{\Hypertarget{classGiftwrapping_a6c03dff69a2cdfc3e2c034df170cf102}\label{classGiftwrapping_a6c03dff69a2cdfc3e2c034df170cf102}} 
-void {\bfseries add\+Cust} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classGiftwrapping_a3484b648ba9480a48e998de6c8768419}{set\+Added\+Wrapping}} (bool added\+Wrapping)
+\begin{DoxyCompactList}\small\item\em Sets the giftwrapping flag. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGiftwrapping_a34b5ea9a7ec0317dc6b2733d38e7ddfb}{get\+Added\+Wrapping}} () const
+\begin{DoxyCompactList}\small\item\em Gets the giftwrapping flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGiftwrapping_a4b82854e92c275f56a4d0c4480fdc9e0}{increase\+Price}} () override
+\begin{DoxyCompactList}\small\item\em Increases the price of the plant by the cost of giftwrapping. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGiftwrapping_a5eaf6dfcef9bd3fd074d94ba6cde359f}{add\+Cust}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer) override
+\begin{DoxyCompactList}\small\item\em Associates a customer with the decorated plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGiftwrapping_ac3e9c57bc56da60ef173ea2c87399ccf}{print}} () override
+\begin{DoxyCompactList}\small\item\em Prints the plant details along with giftwrapping info. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGiftwrapping_a030aad363db06f58b63189f41d3de830}{get\+Name}} () override
+\begin{DoxyCompactList}\small\item\em Returns the name of the decoration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classGiftwrapping_af55ef2a776cf909700fc555e379483ec}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a copy of the \mbox{\hyperlink{classGiftwrapping}{Giftwrapping}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a giftwrapping decoration for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds giftwrapping-\/specific behavior. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGiftwrapping_a5eaf6dfcef9bd3fd074d94ba6cde359f}\label{classGiftwrapping_a5eaf6dfcef9bd3fd074d94ba6cde359f}} 
+\index{Giftwrapping@{Giftwrapping}!addCust@{addCust}}
+\index{addCust@{addCust}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{addCust()}{addCust()}}
+{\footnotesize\ttfamily void Giftwrapping\+::add\+Cust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Associates a customer with the decorated plant. 
+
+Associates a customer with the decorated plant. Delegates the customer assignment to the underlying plant.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}{Customisation}}.
+
+\mbox{\Hypertarget{classGiftwrapping_af55ef2a776cf909700fc555e379483ec}\label{classGiftwrapping_af55ef2a776cf909700fc555e379483ec}} 
+\index{Giftwrapping@{Giftwrapping}!clone@{clone}}
+\index{clone@{clone}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Giftwrapping\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a copy of the \mbox{\hyperlink{classGiftwrapping}{Giftwrapping}} object. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \mbox{\hyperlink{classGiftwrapping}{Giftwrapping}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classGiftwrapping_a34b5ea9a7ec0317dc6b2733d38e7ddfb}\label{classGiftwrapping_a34b5ea9a7ec0317dc6b2733d38e7ddfb}} 
+\index{Giftwrapping@{Giftwrapping}!getAddedWrapping@{getAddedWrapping}}
+\index{getAddedWrapping@{getAddedWrapping}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{getAddedWrapping()}{getAddedWrapping()}}
+{\footnotesize\ttfamily bool Giftwrapping\+::get\+Added\+Wrapping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the giftwrapping flag. 
+
+\begin{DoxyReturn}{Returns}
+True if giftwrapping was added, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGiftwrapping_a030aad363db06f58b63189f41d3de830}\label{classGiftwrapping_a030aad363db06f58b63189f41d3de830}} 
+\index{Giftwrapping@{Giftwrapping}!getName@{getName}}
+\index{getName@{getName}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Giftwrapping\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the name of the decoration. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Giftwrapping\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classGiftwrapping_a4b82854e92c275f56a4d0c4480fdc9e0}\label{classGiftwrapping_a4b82854e92c275f56a4d0c4480fdc9e0}} 
+\index{Giftwrapping@{Giftwrapping}!increasePrice@{increasePrice}}
+\index{increasePrice@{increasePrice}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{increasePrice()}{increasePrice()}}
+{\footnotesize\ttfamily void Giftwrapping\+::increase\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Increases the price of the plant by the cost of giftwrapping. 
+
+Increases the price of the plant by 100 units. This method applies the cost of the giftwrapping decoration. 
+
+Implements \mbox{\hyperlink{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}{Customisation}}.
+
+\mbox{\Hypertarget{classGiftwrapping_ac3e9c57bc56da60ef173ea2c87399ccf}\label{classGiftwrapping_ac3e9c57bc56da60ef173ea2c87399ccf}} 
+\index{Giftwrapping@{Giftwrapping}!print@{print}}
+\index{print@{print}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Giftwrapping\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints the plant details along with giftwrapping info. 
+
+Prints the details of the plant with giftwrapping decoration.
+
+\begin{DoxyReturn}{Returns}
+A string with the plant details and giftwrapping information. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
+\mbox{\Hypertarget{classGiftwrapping_a3484b648ba9480a48e998de6c8768419}\label{classGiftwrapping_a3484b648ba9480a48e998de6c8768419}} 
+\index{Giftwrapping@{Giftwrapping}!setAddedWrapping@{setAddedWrapping}}
+\index{setAddedWrapping@{setAddedWrapping}!Giftwrapping@{Giftwrapping}}
+\doxysubsubsection{\texorpdfstring{setAddedWrapping()}{setAddedWrapping()}}
+{\footnotesize\ttfamily void Giftwrapping\+::set\+Added\+Wrapping (\begin{DoxyParamCaption}\item[{bool}]{added\+Wrapping }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the giftwrapping flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em added\+Wrapping} & Boolean indicating if giftwrapping was added. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

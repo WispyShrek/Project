@@ -67,35 +67,53 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMER_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMER_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;SalesFloor.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classCustomer.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomer.html">Customer</a>{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    vector&lt;Plant *&gt; cart;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classSalesFloor.html">SalesFloor</a>* salesFloor;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">string</span> name;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classCustomer.html">Customer</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classCustomer.html">Customer</a>(std::string name, <a class="code" href="classSalesFloor.html">SalesFloor</a>* salesFloor);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classCustomer.html">Customer</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> addDecoration(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> addToCart(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> removeFromCart(<a class="code" href="classPlant.html">Plant</a>* plant);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">string</span> cartToString();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> changed();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> get() = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> set() = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Arrangement.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Customisation.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;DecorativePot.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Giftwrapping.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;PaymentStrategy.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;SalesFloor.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classNursery.html">Nursery</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classCustomer.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomer.html">Customer</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>  vector&lt;Plant *&gt; cart;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classSalesFloor.html">SalesFloor</a> *salesFloor;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">string</span> name;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">double</span> timeAvailable;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdef"><b>Definition:</b> Customer.h:9</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
-<div class="ttc" id="aclassSalesFloor_html"><div class="ttname"><a href="classSalesFloor.html">SalesFloor</a></div><div class="ttdef"><b>Definition:</b> SalesFloor.h:8</div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>: </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">   30</a></span>&#160;  vector&lt;Plant *&gt; <a class="code" href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">preferredPlants</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="classCustomer.html">Customer</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classCustomer.html">Customer</a>(std::string name, <a class="code" href="classSalesFloor.html">SalesFloor</a> *salesFloor, <span class="keywordtype">double</span> timeAvailable);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classCustomer.html">Customer</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">   41</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">voiceLine</a>() = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">   44</a></span>&#160;  <span class="keywordtype">string</span> <a class="code" href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">getTimeLine</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> addDecoration(<a class="code" href="classCustomisation.html">Customisation</a> *decorator, <a class="code" href="classPlant.html">Plant</a> *plant);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">string</span> addToCart(<a class="code" href="classPlant.html">Plant</a> *plant);</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">   54</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">removeFromCart</a>(<a class="code" href="classPlant.html">Plant</a> *plant);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">string</span> cartToString();</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">   60</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code" href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">enquirePlants</a>(<a class="code" href="classSalesFloor.html">SalesFloor</a> *salesFloor) = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">double</span> buyItems();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  std::string decTime();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">int</span> getCartSize() { <span class="keywordflow">return</span> this-&gt;cart.size(); }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="classSalesFloor.html">SalesFloor</a> *getSalesFloor() { <span class="keywordflow">return</span> salesFloor; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Represents a customer interacting with the sales floor and managing a cart of plants....</div><div class="ttdef"><b>Definition:</b> Customer.h:17</div></div>
+<div class="ttc" id="aclassCustomer_html_a1bd2b4acaf9a0d25eeecbf0439ec9a73"><div class="ttname"><a href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">Customer::voiceLine</a></div><div class="ttdeci">virtual string voiceLine()=0</div><div class="ttdoc">Abstract method for customer-specific voice line.</div></div>
+<div class="ttc" id="aclassCustomer_html_a9ae7cc4763ead810ecb0107eeadceee8"><div class="ttname"><a href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">Customer::enquirePlants</a></div><div class="ttdeci">virtual string enquirePlants(SalesFloor *salesFloor)=0</div><div class="ttdoc">Abstract method for customer to enquire about plants.</div></div>
+<div class="ttc" id="aclassCustomer_html_a9e1ed6573e08d3047607293e5bdac580"><div class="ttname"><a href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">Customer::removeFromCart</a></div><div class="ttdeci">void removeFromCart(Plant *plant)</div><div class="ttdoc">Removes a plant from the customer's cart.</div></div>
+<div class="ttc" id="aclassCustomer_html_aaa282058f6c45ae529e1bfc876021c38"><div class="ttname"><a href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">Customer::getTimeLine</a></div><div class="ttdeci">string getTimeLine()</div><div class="ttdoc">Gets a string representing the customer's time availability.</div></div>
+<div class="ttc" id="aclassCustomer_html_aadd58f56d9333e88d58c1b32f191aaa7"><div class="ttname"><a href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">Customer::preferredPlants</a></div><div class="ttdeci">vector&lt; Plant * &gt; preferredPlants</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> Customer.h:30</div></div>
+<div class="ttc" id="aclassCustomisation_html"><div class="ttname"><a href="classCustomisation.html">Customisation</a></div><div class="ttdoc">Abstract base class for plant customisations (decorators). Inherits from Plant and wraps another Plan...</div><div class="ttdef"><b>Definition:</b> Customisation.h:7</div></div>
+<div class="ttc" id="aclassNursery_html"><div class="ttname"><a href="classNursery.html">Nursery</a></div><div class="ttdoc">Manages the entire nursery, including gardens, greenhouses, and staff.</div><div class="ttdef"><b>Definition:</b> Nursery.h:34</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
+<div class="ttc" id="aclassSalesFloor_html"><div class="ttname"><a href="classSalesFloor.html">SalesFloor</a></div><div class="ttdoc">Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...</div><div class="ttdef"><b>Definition:</b> SalesFloor.h:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

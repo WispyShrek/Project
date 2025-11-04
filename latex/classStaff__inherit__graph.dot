@@ -1,0 +1,13 @@
+digraph "Staff"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Staff",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="An abstract base class representing staff members in the nursery."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="SalesFloor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSalesFloor.html",tooltip="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="CustomerAssistant",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCustomerAssistant.html",tooltip="A class representing a customer assistant staff member in the nursery."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="PlantCaretaker",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPlantCaretaker.html",tooltip=" "];
+}

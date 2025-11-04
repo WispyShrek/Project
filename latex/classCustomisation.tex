@@ -2,40 +2,61 @@
 \label{classCustomisation}\index{Customisation@{Customisation}}
 
 
+Abstract base class for plant customisations (decorators). Inherits from \mbox{\hyperlink{classPlant}{Plant}} and wraps another \mbox{\hyperlink{classPlant}{Plant}} object to add features like decorations.  
+
+
+
+
+{\ttfamily \#include $<$Customisation.\+h$>$}
+
+
+
 Inheritance diagram for Customisation\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classCustomisation__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Customisation\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classCustomisation__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}\label{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}} 
-virtual void {\bfseries increase\+Price} ()=0
-\item 
-\mbox{\Hypertarget{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}\label{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}} 
-virtual void {\bfseries add\+Cust} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)=0
-\end{DoxyCompactItemize}
+virtual void \mbox{\hyperlink{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}{increase\+Price}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to increase the price of the decorated plant. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}{add\+Cust}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to associate a customer with the decorated plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classCustomisation_a3f346f139a00d9285419ca43a9eb2307}\label{classCustomisation_a3f346f139a00d9285419ca43a9eb2307}} 
-\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries plant}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classCustomisation_a3f346f139a00d9285419ca43a9eb2307}{plant}}
+\begin{DoxyCompactList}\small\item\em Pointer to the underlying \mbox{\hyperlink{classPlant}{Plant}} being decorated. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for plant customisations (decorators). Inherits from \mbox{\hyperlink{classPlant}{Plant}} and wraps another \mbox{\hyperlink{classPlant}{Plant}} object to add features like decorations. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}\label{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}} 
+\index{Customisation@{Customisation}!addCust@{addCust}}
+\index{addCust@{addCust}!Customisation@{Customisation}}
+\doxysubsubsection{\texorpdfstring{addCust()}{addCust()}}
+{\footnotesize\ttfamily virtual void Customisation\+::add\+Cust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to associate a customer with the decorated plant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGiftwrapping_a5eaf6dfcef9bd3fd074d94ba6cde359f}{Giftwrapping}}, \mbox{\hyperlink{classDecorativePot_ab8c0c9fbac81630a1307fef355379ca9}{Decorative\+Pot}}, and \mbox{\hyperlink{classArrangement_a5b4d32094b6b5932ace6f37806fc807d}{Arrangement}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

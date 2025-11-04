@@ -2,33 +2,163 @@
 \label{classEasyCust}\index{EasyCust@{EasyCust}}
 
 
+Represents an easygoing customer with predefined preferences and a payment strategy. Inherits from the abstract \mbox{\hyperlink{classCustomer}{Customer}} class.  
+
+
+
+
+{\ttfamily \#include $<$Easy\+Cust.\+h$>$}
+
+
+
 Inheritance diagram for Easy\+Cust\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=144pt]{classEasyCust__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Easy\+Cust\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=144pt]{classEasyCust__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEasyCust_a8f68f3ff7fb6c4bfa2a67573f5d22636}\label{classEasyCust_a8f68f3ff7fb6c4bfa2a67573f5d22636}} 
-void {\bfseries get} ()
-\item 
-\mbox{\Hypertarget{classEasyCust_a43fddaf1cc76c03d070ed7359d56186f}\label{classEasyCust_a43fddaf1cc76c03d070ed7359d56186f}} 
-void {\bfseries set} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classEasyCust_aa372a59b99a7f957771c00fc26c15260}\label{classEasyCust_aa372a59b99a7f957771c00fc26c15260}} 
+\mbox{\hyperlink{classEasyCust_aa372a59b99a7f957771c00fc26c15260}{Easy\+Cust}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEasyCust_ae0a19c3617f715ac5b50b5c9aa8344c2}{Easy\+Cust}} (std\+::string name, \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor, double time\+Available, \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$payment\+Strategy, vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomer_aadd58f56d9333e88d58c1b32f191aaa7}{preferred\+Plants}})
+\begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEasyCust_ab78b9730a25299c4b6b517baac88e110}{$\sim$\+Easy\+Cust}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Cleans up preferred plants and payment strategy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEasyCust_ad8092701807b8e44e8bac7df35442b68}\label{classEasyCust_ad8092701807b8e44e8bac7df35442b68}} 
+void \mbox{\hyperlink{classEasyCust_ad8092701807b8e44e8bac7df35442b68}{pay}} ()
+\begin{DoxyCompactList}\small\item\em Executes the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEasyCust_ab89d3579e4e681ff892b518a74241297}{voice\+Line}} () override
+\begin{DoxyCompactList}\small\item\em Returns a voice line specific to \mbox{\hyperlink{classEasyCust}{Easy\+Cust}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$ \mbox{\hyperlink{classEasyCust_a2cd11949004b2b7a78676db7ccb6a529}{get\+Payment\+Strategy}} () const
+\begin{DoxyCompactList}\small\item\em Gets the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEasyCust_a96a93058de584534c70e0b14c76718b8}{set\+Payment\+Strategy}} (\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$strategy)
+\begin{DoxyCompactList}\small\item\em Sets the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEasyCust_aa1ec72422f9be46ac8852765a43222d0}{enquire\+Plants}} (\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor) override
+\begin{DoxyCompactList}\small\item\em Enquires about preferred plants from the sales floor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents an easygoing customer with predefined preferences and a payment strategy. Inherits from the abstract \mbox{\hyperlink{classCustomer}{Customer}} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEasyCust_ae0a19c3617f715ac5b50b5c9aa8344c2}\label{classEasyCust_ae0a19c3617f715ac5b50b5c9aa8344c2}} 
+\index{EasyCust@{EasyCust}!EasyCust@{EasyCust}}
+\index{EasyCust@{EasyCust}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{EasyCust()}{EasyCust()}}
+{\footnotesize\ttfamily Easy\+Cust\+::\+Easy\+Cust (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor,  }\item[{double}]{t,  }\item[{\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$}]{payment\+Strategy,  }\item[{vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$}]{preferred\+Plants }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor. 
+
+Constructs an \mbox{\hyperlink{classEasyCust}{Easy\+Cust}} object with name, sales floor, time, payment strategy, and preferred plants.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em time\+Available} & Time available for shopping. \\
+\hline
+{\em payment\+Strategy} & Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. \\
+\hline
+{\em preferred\+Plants} & Vector of preferred \mbox{\hyperlink{classPlant}{Plant}} pointers.\\
+\hline
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em t} & Time available for shopping. \\
+\hline
+{\em payment\+Strategy} & Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} used by the customer. \\
+\hline
+{\em preferred\+Plants} & Vector of preferred \mbox{\hyperlink{classPlant}{Plant}} pointers. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEasyCust_ab78b9730a25299c4b6b517baac88e110}\label{classEasyCust_ab78b9730a25299c4b6b517baac88e110}} 
+\index{EasyCust@{EasyCust}!````~EasyCust@{$\sim$EasyCust}}
+\index{````~EasyCust@{$\sim$EasyCust}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{$\sim$EasyCust()}{~EasyCust()}}
+{\footnotesize\ttfamily Easy\+Cust\+::$\sim$\+Easy\+Cust (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. Cleans up preferred plants and payment strategy. 
+
+Destructor for \mbox{\hyperlink{classEasyCust}{Easy\+Cust}}. Cleans up dynamically allocated preferred plants and payment strategy. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEasyCust_aa1ec72422f9be46ac8852765a43222d0}\label{classEasyCust_aa1ec72422f9be46ac8852765a43222d0}} 
+\index{EasyCust@{EasyCust}!enquirePlants@{enquirePlants}}
+\index{enquirePlants@{enquirePlants}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{enquirePlants()}{enquirePlants()}}
+{\footnotesize\ttfamily string Easy\+Cust\+::enquire\+Plants (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Enquires about preferred plants from the sales floor. 
+
+Enquires about preferred plants from the sales floor. If a preferred plant is available, adds it to the cart and removes it from preferences.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCustomer_a9ae7cc4763ead810ecb0107eeadceee8}{Customer}}.
+
+\mbox{\Hypertarget{classEasyCust_a2cd11949004b2b7a78676db7ccb6a529}\label{classEasyCust_a2cd11949004b2b7a78676db7ccb6a529}} 
+\index{EasyCust@{EasyCust}!getPaymentStrategy@{getPaymentStrategy}}
+\index{getPaymentStrategy@{getPaymentStrategy}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{getPaymentStrategy()}{getPaymentStrategy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}}$\ast$ Easy\+Cust\+::get\+Payment\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the customer\textquotesingle{}s payment strategy. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEasyCust_a96a93058de584534c70e0b14c76718b8}\label{classEasyCust_a96a93058de584534c70e0b14c76718b8}} 
+\index{EasyCust@{EasyCust}!setPaymentStrategy@{setPaymentStrategy}}
+\index{setPaymentStrategy@{setPaymentStrategy}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{setPaymentStrategy()}{setPaymentStrategy()}}
+{\footnotesize\ttfamily void Easy\+Cust\+::set\+Payment\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$}]{strategy }\end{DoxyParamCaption})}
+
+
+
+Sets the customer\textquotesingle{}s payment strategy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strategy} & Pointer to the new \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEasyCust_ab89d3579e4e681ff892b518a74241297}\label{classEasyCust_ab89d3579e4e681ff892b518a74241297}} 
+\index{EasyCust@{EasyCust}!voiceLine@{voiceLine}}
+\index{voiceLine@{voiceLine}!EasyCust@{EasyCust}}
+\doxysubsubsection{\texorpdfstring{voiceLine()}{voiceLine()}}
+{\footnotesize\ttfamily string Easy\+Cust\+::voice\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a voice line specific to \mbox{\hyperlink{classEasyCust}{Easy\+Cust}}. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the customer\textquotesingle{}s voice line. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCustomer_a1bd2b4acaf9a0d25eeecbf0439ec9a73}{Customer}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

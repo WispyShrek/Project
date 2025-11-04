@@ -68,19 +68,21 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMISATION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMISATION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classCustomisation.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomisation.html">Customisation</a> : <span class="keyword">public</span> <a class="code" href="classPlant.html">Plant</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="classPlant.html">Plant</a> *plant;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> increasePrice() = 0;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addCust(<a class="code" href="classCustomer.html">Customer</a> *customer) = 0;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdef"><b>Definition:</b> Customer.h:9</div></div>
-<div class="ttc" id="aclassCustomisation_html"><div class="ttname"><a href="classCustomisation.html">Customisation</a></div><div class="ttdef"><b>Definition:</b> Customisation.h:5</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classCustomisation.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCustomisation.html">Customisation</a> : <span class="keyword">public</span> <a class="code" href="classPlant.html">Plant</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classCustomisation.html#a3f346f139a00d9285419ca43a9eb2307">   10</a></span>&#160;  <a class="code" href="classPlant.html">Plant</a> *<a class="code" href="classCustomisation.html#a3f346f139a00d9285419ca43a9eb2307">plant</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classCustomisation.html#a4b040eb98fdf6434e33cc011d9327e92">   12</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCustomisation.html#a4b040eb98fdf6434e33cc011d9327e92">increasePrice</a>() = 0;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classCustomisation.html#a2757ac43f484ee68a173406674c5cbf0">   15</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCustomisation.html#a2757ac43f484ee68a173406674c5cbf0">addCust</a>(<a class="code" href="classCustomer.html">Customer</a> *customer) = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Represents a customer interacting with the sales floor and managing a cart of plants....</div><div class="ttdef"><b>Definition:</b> Customer.h:17</div></div>
+<div class="ttc" id="aclassCustomisation_html"><div class="ttname"><a href="classCustomisation.html">Customisation</a></div><div class="ttdoc">Abstract base class for plant customisations (decorators). Inherits from Plant and wraps another Plan...</div><div class="ttdef"><b>Definition:</b> Customisation.h:7</div></div>
+<div class="ttc" id="aclassCustomisation_html_a2757ac43f484ee68a173406674c5cbf0"><div class="ttname"><a href="classCustomisation.html#a2757ac43f484ee68a173406674c5cbf0">Customisation::addCust</a></div><div class="ttdeci">virtual void addCust(Customer *customer)=0</div><div class="ttdoc">Pure virtual method to associate a customer with the decorated plant.</div></div>
+<div class="ttc" id="aclassCustomisation_html_a3f346f139a00d9285419ca43a9eb2307"><div class="ttname"><a href="classCustomisation.html#a3f346f139a00d9285419ca43a9eb2307">Customisation::plant</a></div><div class="ttdeci">Plant * plant</div><div class="ttdoc">Pointer to the underlying Plant being decorated.</div><div class="ttdef"><b>Definition:</b> Customisation.h:10</div></div>
+<div class="ttc" id="aclassCustomisation_html_a4b040eb98fdf6434e33cc011d9327e92"><div class="ttname"><a href="classCustomisation.html#a4b040eb98fdf6434e33cc011d9327e92">Customisation::increasePrice</a></div><div class="ttdeci">virtual void increasePrice()=0</div><div class="ttdoc">Pure virtual method to increase the price of the decorated plant.</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

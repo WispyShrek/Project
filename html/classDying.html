@@ -94,13 +94,19 @@ Collaboration diagram for Dying:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3725e28dffcc40c3f4690eff7b122652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDying.html#a3725e28dffcc40c3f4690eff7b122652">next</a> (<a class="el" href="classPlant.html">Plant</a> *context)</td></tr>
-<tr class="memdesc:a3725e28dffcc40c3f4690eff7b122652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state.  <a href="classDying.html#a3725e28dffcc40c3f4690eff7b122652">More...</a><br /></td></tr>
-<tr class="separator:a3725e28dffcc40c3f4690eff7b122652"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaccdcd2ce1b874611f82720471f09f07"><td class="memItemLeft" align="right" valign="top"><a id="aaccdcd2ce1b874611f82720471f09f07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDying.html#aaccdcd2ce1b874611f82720471f09f07">print</a> ()</td></tr>
-<tr class="memdesc:aaccdcd2ce1b874611f82720471f09f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the dying state. <br /></td></tr>
-<tr class="separator:aaccdcd2ce1b874611f82720471f09f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c761bf7bca193d0fdfb9f1ce217022"><td class="memItemLeft" align="right" valign="top"><a id="ab3c761bf7bca193d0fdfb9f1ce217022"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Dying</b> (<a class="el" href="classCaretaker.html">Caretaker</a> *prevStateCarer)</td></tr>
+<tr class="separator:ab3c761bf7bca193d0fdfb9f1ce217022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb7d8a0f0bc0d16ba33415a32c39d06"><td class="memItemLeft" align="right" valign="top"><a id="a3bb7d8a0f0bc0d16ba33415a32c39d06"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>prev</b> (<a class="el" href="classPlant.html">Plant</a> *context)</td></tr>
+<tr class="separator:a3bb7d8a0f0bc0d16ba33415a32c39d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ca84a13ba36b7ae597f25df5dec936"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDying.html#a47ca84a13ba36b7ae597f25df5dec936">next</a> (<a class="el" href="classPlant.html">Plant</a> *context) override</td></tr>
+<tr class="memdesc:a47ca84a13ba36b7ae597f25df5dec936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state.  <a href="classDying.html#a47ca84a13ba36b7ae597f25df5dec936">More...</a><br /></td></tr>
+<tr class="separator:a47ca84a13ba36b7ae597f25df5dec936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa796b8f3cb4f21ad19e155c78f2ce07a"><td class="memItemLeft" align="right" valign="top"><a id="aa796b8f3cb4f21ad19e155c78f2ce07a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDying.html#aa796b8f3cb4f21ad19e155c78f2ce07a">print</a> (std::string &amp;sprite) override</td></tr>
+<tr class="memdesc:aa796b8f3cb4f21ad19e155c78f2ce07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the dying state. <br /></td></tr>
+<tr class="separator:aa796b8f3cb4f21ad19e155c78f2ce07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc010b7cb5535e92420f50e66ebe0bf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlantState.html">PlantState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">clone</a> () const override</td></tr>
 <tr class="memdesc:acc010b7cb5535e92420f50e66ebe0bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a clone of the <a class="el" href="classDying.html" title="A class representing the dying state of a plant, derived from the PlantState base class.">Dying</a> state.  <a href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">More...</a><br /></td></tr>
 <tr class="separator:acc010b7cb5535e92420f50e66ebe0bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,6 +115,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantState.html#a30b77856181f7ac6ea6036bc5b8c6c9a">~PlantState</a> ()</td></tr>
 <tr class="memdesc:a30b77856181f7ac6ea6036bc5b8c6c9a inherit pub_methods_classPlantState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> class. <br /></td></tr>
 <tr class="separator:a30b77856181f7ac6ea6036bc5b8c6c9a inherit pub_methods_classPlantState"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_classPlantState"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classPlantState')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classPlantState.html">PlantState</a></td></tr>
+<tr class="memitem:a3f7b284451cd7142750be59239183e5e inherit pub_attribs_classPlantState"><td class="memItemLeft" align="right" valign="top"><a id="a3f7b284451cd7142750be59239183e5e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:a3f7b284451cd7142750be59239183e5e inherit pub_attribs_classPlantState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing the dying state of a plant, derived from the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> base class. </p>
@@ -144,8 +157,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
-<a id="a3725e28dffcc40c3f4690eff7b122652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3725e28dffcc40c3f4690eff7b122652">&#9670;&nbsp;</a></span>next()</h2>
+<a id="a47ca84a13ba36b7ae597f25df5dec936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ca84a13ba36b7ae597f25df5dec936">&#9670;&nbsp;</a></span>next()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +176,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

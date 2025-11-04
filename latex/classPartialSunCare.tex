@@ -2,34 +2,71 @@
 \label{classPartialSunCare}\index{PartialSunCare@{PartialSunCare}}
 
 
+A concrete care strategy for plants that prefer partial sun conditions.  
+
+
+
+
+{\ttfamily \#include $<$Partial\+Sun\+Care.\+h$>$}
+
+
+
 Inheritance diagram for Partial\+Sun\+Care\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=168pt]{classPartialSunCare__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Partial\+Sun\+Care\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=168pt]{classPartialSunCare__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPartialSunCare_a72cb794c0bc03237238f5aefb495f5fb}\label{classPartialSunCare_a72cb794c0bc03237238f5aefb495f5fb}} 
-void {\bfseries apply\+Care} () override
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classPartialSunCare_a8169bea53318b7e9a0995584f56b9fee}{Partial\+Sun\+Care}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classPartialSunCare}{Partial\+Sun\+Care}} class. Sets the strategy name to \char`\"{}\+Partial\+Sun\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPartialSunCare_a72cb794c0bc03237238f5aefb495f5fb}{apply\+Care}} () override
+\begin{DoxyCompactList}\small\item\em Applies the care routine for partial sun conditions. Overrides the pure virtual function in \mbox{\hyperlink{classCareStrategy}{Care\+Strategy}} to define the specific care logic, which involves printing a message to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A concrete care strategy for plants that prefer partial sun conditions. 
+
+This class inherits from \mbox{\hyperlink{classCareStrategy}{Care\+Strategy}} and implements the {\ttfamily apply\+Care} method to provide a specific care routine suitable for plants needing a mix of sun and shade. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPartialSunCare_a8169bea53318b7e9a0995584f56b9fee}\label{classPartialSunCare_a8169bea53318b7e9a0995584f56b9fee}} 
+\index{PartialSunCare@{PartialSunCare}!PartialSunCare@{PartialSunCare}}
+\index{PartialSunCare@{PartialSunCare}!PartialSunCare@{PartialSunCare}}
+\doxysubsubsection{\texorpdfstring{PartialSunCare()}{PartialSunCare()}}
+{\footnotesize\ttfamily Partial\+Sun\+Care\+::\+Partial\+Sun\+Care (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \mbox{\hyperlink{classPartialSunCare}{Partial\+Sun\+Care}} class. Sets the strategy name to \char`\"{}\+Partial\+Sun\char`\"{}. 
+
+Constructor for the \mbox{\hyperlink{classPartialSunCare}{Partial\+Sun\+Care}} class.
+
+Initializes the care strategy and sets its name to \char`\"{}\+Partial\+Sun\char`\"{}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPartialSunCare_a72cb794c0bc03237238f5aefb495f5fb}\label{classPartialSunCare_a72cb794c0bc03237238f5aefb495f5fb}} 
+\index{PartialSunCare@{PartialSunCare}!applyCare@{applyCare}}
+\index{applyCare@{applyCare}!PartialSunCare@{PartialSunCare}}
+\doxysubsubsection{\texorpdfstring{applyCare()}{applyCare()}}
+{\footnotesize\ttfamily void Partial\+Sun\+Care\+::apply\+Care (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies the care routine for partial sun conditions. Overrides the pure virtual function in \mbox{\hyperlink{classCareStrategy}{Care\+Strategy}} to define the specific care logic, which involves printing a message to the console. 
+
+Applies the care routine for partial sun conditions.
+
+This method implements the specific care logic for plants that prefer a mix of sun and shade, which involves printing a descriptive message to the console. 
+
+Implements \mbox{\hyperlink{classCareStrategy}{Care\+Strategy}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Partial\+Sun\+Care.\+h\item 
-Partial\+Sun\+Care.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{PartialSunCare_8h}{Partial\+Sun\+Care.\+h}}\item 
+\mbox{\hyperlink{PartialSunCare_8cpp}{Partial\+Sun\+Care.\+cpp}}\end{DoxyCompactItemize}

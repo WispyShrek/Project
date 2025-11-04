@@ -67,23 +67,33 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DYING_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DYING_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;PlantState.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classDying.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDying.html">Dying</a> : <span class="keyword">public</span> <a class="code" href="classPlantState.html">PlantState</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDying.html#a3725e28dffcc40c3f4690eff7b122652">next</a>(<a class="code" href="classPlant.html">Plant</a> *context);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDying.html#aaccdcd2ce1b874611f82720471f09f07">print</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classPlantState.html">PlantState</a>* <a class="code" href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">clone</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassDying_html"><div class="ttname"><a href="classDying.html">Dying</a></div><div class="ttdoc">A class representing the dying state of a plant, derived from the PlantState base class.</div><div class="ttdef"><b>Definition:</b> Dying.h:13</div></div>
-<div class="ttc" id="aclassDying_html_a3725e28dffcc40c3f4690eff7b122652"><div class="ttname"><a href="classDying.html#a3725e28dffcc40c3f4690eff7b122652">Dying::next</a></div><div class="ttdeci">void next(Plant *context)</div><div class="ttdoc">Transitions the plant to the next state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:3</div></div>
-<div class="ttc" id="aclassDying_html_aaccdcd2ce1b874611f82720471f09f07"><div class="ttname"><a href="classDying.html#aaccdcd2ce1b874611f82720471f09f07">Dying::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Prints the details of the dying state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:12</div></div>
-<div class="ttc" id="aclassDying_html_acc010b7cb5535e92420f50e66ebe0bf0"><div class="ttname"><a href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">Dying::clone</a></div><div class="ttdeci">PlantState * clone() const override</div><div class="ttdoc">Creates a clone of the Dying state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:8</div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Caretaker.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Dead.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;PlantState.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classDying.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDying.html">Dying</a> : <span class="keyword">public</span> <a class="code" href="classPlantState.html">PlantState</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classCaretaker.html">Caretaker</a> *prevStateCarer;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classDying.html">Dying</a>(<a class="code" href="classCaretaker.html">Caretaker</a> *prevStateCarer);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="classDying.html">Dying</a>() { this-&gt;name = <span class="stringliteral">&quot;Dying&quot;</span>; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> prev(<a class="code" href="classPlant.html">Plant</a> *context);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDying.html#a47ca84a13ba36b7ae597f25df5dec936">next</a>(<a class="code" href="classPlant.html">Plant</a> *context) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classDying.html#aa796b8f3cb4f21ad19e155c78f2ce07a">print</a>(std::string &amp;sprite) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="classPlantState.html">PlantState</a> *<a class="code" href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">clone</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassCaretaker_html"><div class="ttname"><a href="classCaretaker.html">Caretaker</a></div><div class="ttdef"><b>Definition:</b> Caretaker.h:5</div></div>
+<div class="ttc" id="aclassDying_html"><div class="ttname"><a href="classDying.html">Dying</a></div><div class="ttdoc">A class representing the dying state of a plant, derived from the PlantState base class.</div><div class="ttdef"><b>Definition:</b> Dying.h:17</div></div>
+<div class="ttc" id="aclassDying_html_a47ca84a13ba36b7ae597f25df5dec936"><div class="ttname"><a href="classDying.html#a47ca84a13ba36b7ae597f25df5dec936">Dying::next</a></div><div class="ttdeci">void next(Plant *context) override</div><div class="ttdoc">Transitions the plant to the next state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:7</div></div>
+<div class="ttc" id="aclassDying_html_aa796b8f3cb4f21ad19e155c78f2ce07a"><div class="ttname"><a href="classDying.html#aa796b8f3cb4f21ad19e155c78f2ce07a">Dying::print</a></div><div class="ttdeci">void print(std::string &amp;sprite) override</div><div class="ttdoc">Prints the details of the dying state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:16</div></div>
+<div class="ttc" id="aclassDying_html_acc010b7cb5535e92420f50e66ebe0bf0"><div class="ttname"><a href="classDying.html#acc010b7cb5535e92420f50e66ebe0bf0">Dying::clone</a></div><div class="ttdeci">PlantState * clone() const override</div><div class="ttdoc">Creates a clone of the Dying state.</div><div class="ttdef"><b>Definition:</b> Dying.cpp:14</div></div>
 <div class="ttc" id="aclassPlantState_html"><div class="ttname"><a href="classPlantState.html">PlantState</a></div><div class="ttdoc">An abstract base class representing the state of a plant.</div><div class="ttdef"><b>Definition:</b> PlantState.h:15</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

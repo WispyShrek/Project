@@ -12,23 +12,11 @@ An abstract base class representing a plant in the nursery.
 
 
 Inheritance diagram for Plant\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classPlant__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Plant\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classPlant__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,7 +26,7 @@ Collaboration diagram for Plant\+:
 \mbox{\Hypertarget{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}\label{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}} 
 virtual \mbox{\hyperlink{classPlant_ab0effb2b143e6da7b65ebd13a3b1fc29}{$\sim$\+Plant}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classPlant}{Plant}} class. \end{DoxyCompactList}\item 
-const bool \& \mbox{\hyperlink{classPlant_a2cf6312af169a7b0bcbf7ddaf8a1d54d}{operator==}} (const \mbox{\hyperlink{classPlant}{Plant}} \&other)
+bool \mbox{\hyperlink{classPlant_a2cf6312af169a7b0bcbf7ddaf8a1d54d}{operator==}} (const \mbox{\hyperlink{classPlant}{Plant}} \&other)
 \begin{DoxyCompactList}\small\item\em Equality operator to compare two \mbox{\hyperlink{classPlant}{Plant}} objects. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlant_ab38bd02b47ca4634a2ad4dc2f6d30467}{increase\+Price}} (double amount)
 \begin{DoxyCompactList}\small\item\em Increases the price of the plant by a specified amount. \end{DoxyCompactList}\item 
@@ -49,6 +37,8 @@ void \mbox{\hyperlink{classPlant_abe31f5c708a3d551b01cf22bbd8d221f}{set\+State}}
 \mbox{\Hypertarget{classPlant_af70cc9d659b85ca4ff15df8a1f11e49f}\label{classPlant_af70cc9d659b85ca4ff15df8a1f11e49f}} 
 std\+::string {\bfseries get\+Strategy} ()
 \item 
+std\+::string \mbox{\hyperlink{classPlant_ad16db157ef105c3826f2d9aac93caaf3}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Returns a description of the plant. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlant_ad5f3adb6728f8969a01f8c312ef5fe7f}\label{classPlant_ad5f3adb6728f8969a01f8c312ef5fe7f}} 
 virtual std\+::string {\bfseries get\+Name} ()=0
 \item 
@@ -58,7 +48,7 @@ std\+::string \mbox{\hyperlink{classPlant_a66a7ad4d6335e8a9c7d8a174521c8139}{get
 \begin{DoxyCompactList}\small\item\em Retrieves the colour of the plant. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classPlant_a82378d30996cd854c01d0cfc13c461ba}{get\+Scent}} ()
 \begin{DoxyCompactList}\small\item\em Retrieves the scent of the plant. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classPlant_af20474317abb9743a6ce0039b56f5eda}{get\+Price}} ()
+virtual double \mbox{\hyperlink{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}{get\+Price}} ()
 \begin{DoxyCompactList}\small\item\em Retrieves the price of the plant. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPlant_a4343b6b6b899ba3ec35904c60236bf7b}\label{classPlant_a4343b6b6b899ba3ec35904c60236bf7b}} 
 void \mbox{\hyperlink{classPlant_a4343b6b6b899ba3ec35904c60236bf7b}{next\+State}} ()
@@ -71,9 +61,8 @@ void \mbox{\hyperlink{classPlant_ae9b0168ca327affecf800cd88ba62cab}{set\+Care\+S
 \mbox{\Hypertarget{classPlant_ac98a2280b1909e9b110411e228be031e}\label{classPlant_ac98a2280b1909e9b110411e228be031e}} 
 void \mbox{\hyperlink{classPlant_ac98a2280b1909e9b110411e228be031e}{apply\+Care}} ()
 \begin{DoxyCompactList}\small\item\em Applies the care strategy to the plant. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classPlant_a15449e765dc467a110d3d85729ac19db}\label{classPlant_a15449e765dc467a110d3d85729ac19db}} 
-virtual void \mbox{\hyperlink{classPlant_a15449e765dc467a110d3d85729ac19db}{print}} ()
-\begin{DoxyCompactList}\small\item\em Prints the details of the plant. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{print}} ()
+\begin{DoxyCompactList}\small\item\em Returns the details of the plant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlant_ab05e1add03b01c51b4625bbe7a536733}{add\+Cust}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
 \begin{DoxyCompactList}\small\item\em Associates a customer with the plant. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlantMemento}{Plant\+Memento}} $\ast$ \mbox{\hyperlink{classPlant_a7bbe2e2d0049ebb19b63c17f9bc12772}{create\+Plant\+Memento}} ()
@@ -179,19 +168,36 @@ Retrieves the colour of the plant.
 \begin{DoxyReturn}{Returns}
 A string representing the colour of the plant. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classPlant_af20474317abb9743a6ce0039b56f5eda}\label{classPlant_af20474317abb9743a6ce0039b56f5eda}} 
+\mbox{\Hypertarget{classPlant_ad16db157ef105c3826f2d9aac93caaf3}\label{classPlant_ad16db157ef105c3826f2d9aac93caaf3}} 
+\index{Plant@{Plant}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Plant\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a description of the plant. 
+
+\begin{DoxyReturn}{Returns}
+A string description of plant attributes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}\label{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}} 
 \index{Plant@{Plant}!getPrice@{getPrice}}
 \index{getPrice@{getPrice}!Plant@{Plant}}
 \doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
-{\footnotesize\ttfamily std\+::string Plant\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Plant\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
 Retrieves the price of the plant. 
 
 \begin{DoxyReturn}{Returns}
-A string representing the price of the plant. 
+A double representing the price of the plant. 
 \end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classTulip_a93f0ca65d92e85268eacb78cce3a2a7e}{Tulip}}, \mbox{\hyperlink{classRose_a0afd4c51aa0f060db57beea5aeab4035}{Rose}}, \mbox{\hyperlink{classLily_ac568755c4599a86a56beceddbe2c03ff}{Lily}}, \mbox{\hyperlink{classLavender_a5345e89b02fa9f99735a173c06c6e8e5}{Lavender}}, and \mbox{\hyperlink{classCactus_aacd334734980c58741bdf2a40b81dfd8}{Cactus}}.
+
 \mbox{\Hypertarget{classPlant_a82378d30996cd854c01d0cfc13c461ba}\label{classPlant_a82378d30996cd854c01d0cfc13c461ba}} 
 \index{Plant@{Plant}!getScent@{getScent}}
 \index{getScent@{getScent}!Plant@{Plant}}
@@ -251,6 +257,23 @@ Equality operator to compare two \mbox{\hyperlink{classPlant}{Plant}} objects.
 \begin{DoxyReturn}{Returns}
 A boolean indicating whether the two \mbox{\hyperlink{classPlant}{Plant}} objects are equal. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}\label{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}} 
+\index{Plant@{Plant}!print@{print}}
+\index{print@{print}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Plant\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the details of the plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the plant 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classTulip_a712883067343e175d2edc0bc33883788}{Tulip}}, \mbox{\hyperlink{classRose_a307fad10b8518d91fa8e236d9457e88e}{Rose}}, \mbox{\hyperlink{classLily_a23f92ca759b2e7a4a3dd339a6ac59767}{Lily}}, \mbox{\hyperlink{classLavender_a8058caf1b318ef5378109c1546746159}{Lavender}}, \mbox{\hyperlink{classGiftwrapping_ac3e9c57bc56da60ef173ea2c87399ccf}{Giftwrapping}}, \mbox{\hyperlink{classDecorativePot_ad4d238a4e32010b6df080fde144e924e}{Decorative\+Pot}}, \mbox{\hyperlink{classCactus_aad23702d78abf496c0683827345b46ae}{Cactus}}, and \mbox{\hyperlink{classArrangement_aebdfa00d8ca950aa6e99d6e924174da6}{Arrangement}}.
+
 \mbox{\Hypertarget{classPlant_ae9b0168ca327affecf800cd88ba62cab}\label{classPlant_ae9b0168ca327affecf800cd88ba62cab}} 
 \index{Plant@{Plant}!setCareStrategy@{setCareStrategy}}
 \index{setCareStrategy@{setCareStrategy}!Plant@{Plant}}

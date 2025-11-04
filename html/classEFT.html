@@ -68,6 +68,11 @@ $(function() {
 <div class="title">EFT Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A concrete payment strategy for Electronic Funds Transfer (<a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>).  
+ <a href="classEFT.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EFT_8h_source.html">EFT.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EFT:</div>
 <div class="dyncontent">
@@ -89,13 +94,52 @@ Collaboration diagram for EFT:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3896653800e15f95e9c73ca5c093f360"><td class="memItemLeft" align="right" valign="top"><a id="a3896653800e15f95e9c73ca5c093f360"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pay</b> ()</td></tr>
-<tr class="separator:a3896653800e15f95e9c73ca5c093f360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade93e56991458636488fdf6ec269a106"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEFT.html#ade93e56991458636488fdf6ec269a106">pay</a> ()</td></tr>
+<tr class="memdesc:ade93e56991458636488fdf6ec269a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the payment process for <a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>.  <a href="classEFT.html#ade93e56991458636488fdf6ec269a106">More...</a><br /></td></tr>
+<tr class="separator:ade93e56991458636488fdf6ec269a106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classPaymentStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPaymentStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPaymentStrategy.html">PaymentStrategy</a></td></tr>
+<tr class="memitem:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="memItemLeft" align="right" valign="top"><a id="a0f6a8da392c448a016e69f9cf5511052"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaymentStrategy.html#a0f6a8da392c448a016e69f9cf5511052">~PaymentStrategy</a> ()=default</td></tr>
+<tr class="memdesc:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. Ensures that destructors of derived classes are called correctly. <br /></td></tr>
+<tr class="separator:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A concrete payment strategy for Electronic Funds Transfer (<a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>). </p>
+<p>This class inherits from <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> and implements the <code>pay</code> method to handle payments made via <a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ade93e56991458636488fdf6ec269a106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade93e56991458636488fdf6ec269a106">&#9670;&nbsp;</a></span>pay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string EFT::pay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes the payment process for <a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>. </p>
+<p>This method implements the payment logic for an Electronic Funds Transfer. It prints a message to the standard output to signify that the payment is being processed via <a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>. </p>
+
+<p>Implements <a class="el" href="classPaymentStrategy.html#a17e9d78398f57cfabdeaaaccc6962981">PaymentStrategy</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="EFT_8h_source.html">EFT.h</a></li>
-<li>EFT.cpp</li>
+<li><a class="el" href="EFT_8cpp.html">EFT.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

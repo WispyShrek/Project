@@ -2,42 +2,235 @@
 \label{classCustomer}\index{Customer@{Customer}}
 
 
+Represents a customer interacting with the sales floor and managing a cart of plants. This is an abstract base class with virtual methods for customization.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+
+
 Inheritance diagram for Customer\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=226pt]{classCustomer__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCustomer_ad96be5d3982c784a35aed85140cca299}\label{classCustomer_ad96be5d3982c784a35aed85140cca299}} 
-{\bfseries Customer} (std\+::string name, \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor)
+\mbox{\Hypertarget{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}\label{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}} 
+\mbox{\hyperlink{classCustomer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classCustomer}{Customer}}. Initializes name to empty string and sales\+Floor to NULL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCustomer_a039915ac7cf2aabff650178d015b2391}{Customer}} (std\+::string name, \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor, double time\+Available)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classCustomer_ab93fb14683b0393b9c900109f77c2629}{$\sim$\+Customer}} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{classCustomer_a1bd2b4acaf9a0d25eeecbf0439ec9a73}{voice\+Line}} ()=0
+\begin{DoxyCompactList}\small\item\em Abstract method for customer-\/specific voice line. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_aaa282058f6c45ae529e1bfc876021c38}{get\+Time\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Gets a string representing the customer\textquotesingle{}s time availability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a7afb8352f10e277b2b178e8e26c028b2}{add\+Decoration}} (\mbox{\hyperlink{classCustomisation}{Customisation}} $\ast$decorator, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Adds a decoration to a plant in the cart. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_ad10783e7df0f1ea75679d697c253b844}{add\+To\+Cart}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the customer\textquotesingle{}s cart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCustomer_a9e1ed6573e08d3047607293e5bdac580}{remove\+From\+Cart}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\begin{DoxyCompactList}\small\item\em Removes a plant from the customer\textquotesingle{}s cart. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classCustomer_a0d756ecc1e055b13acabb6e68867e6c2}{cart\+To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Returns a string representation of the cart contents. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{classCustomer_a9ae7cc4763ead810ecb0107eeadceee8}{enquire\+Plants}} (\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor)=0
+\begin{DoxyCompactList}\small\item\em Abstract method for customer to enquire about plants. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCustomer_a362ed2a14a838049e2bedf71cf42a3fd}\label{classCustomer_a362ed2a14a838049e2bedf71cf42a3fd}} 
+double {\bfseries buy\+Items} ()
 \item 
-\mbox{\Hypertarget{classCustomer_a8adce2f32043c1fa5f0ede2de0d6c173}\label{classCustomer_a8adce2f32043c1fa5f0ede2de0d6c173}} 
-void {\bfseries add\+Decoration} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\mbox{\Hypertarget{classCustomer_a1d0befd0c11001f648c5ec02ca3682ab}\label{classCustomer_a1d0befd0c11001f648c5ec02ca3682ab}} 
+std\+::string {\bfseries dec\+Time} ()
 \item 
-\mbox{\Hypertarget{classCustomer_a9f50dcd04ce829e290da1bae29ed1e79}\label{classCustomer_a9f50dcd04ce829e290da1bae29ed1e79}} 
-void {\bfseries add\+To\+Cart} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
+\mbox{\Hypertarget{classCustomer_a2f662480a5bcc5f28455838c8a217dca}\label{classCustomer_a2f662480a5bcc5f28455838c8a217dca}} 
+int {\bfseries get\+Cart\+Size} ()
 \item 
-\mbox{\Hypertarget{classCustomer_a9e1ed6573e08d3047607293e5bdac580}\label{classCustomer_a9e1ed6573e08d3047607293e5bdac580}} 
-void {\bfseries remove\+From\+Cart} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)
-\item 
-\mbox{\Hypertarget{classCustomer_a0d756ecc1e055b13acabb6e68867e6c2}\label{classCustomer_a0d756ecc1e055b13acabb6e68867e6c2}} 
-string {\bfseries cart\+To\+String} ()
-\item 
-\mbox{\Hypertarget{classCustomer_a4fb2e13cc7a8006b42b21c97d16f2ae9}\label{classCustomer_a4fb2e13cc7a8006b42b21c97d16f2ae9}} 
-void {\bfseries changed} ()
-\item 
-\mbox{\Hypertarget{classCustomer_ac448d9d4eb8b0803850eb59556a84561}\label{classCustomer_ac448d9d4eb8b0803850eb59556a84561}} 
-virtual void {\bfseries get} ()=0
-\item 
-\mbox{\Hypertarget{classCustomer_a7037acb246263049332eea5dc1143f4b}\label{classCustomer_a7037acb246263049332eea5dc1143f4b}} 
-virtual void {\bfseries set} ()=0
+\mbox{\Hypertarget{classCustomer_aa45c77e71b1e48a12445d11add18d807}\label{classCustomer_aa45c77e71b1e48a12445d11add18d807}} 
+\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$ {\bfseries get\+Sales\+Floor} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomer_aadd58f56d9333e88d58c1b32f191aaa7}{preferred\+Plants}}
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Represents a customer interacting with the sales floor and managing a cart of plants. This is an abstract base class with virtual methods for customization. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCustomer_a039915ac7cf2aabff650178d015b2391}\label{classCustomer_a039915ac7cf2aabff650178d015b2391}} 
+\index{Customer@{Customer}!Customer@{Customer}}
+\index{Customer@{Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{Customer()}{Customer()}}
+{\footnotesize\ttfamily Customer\+::\+Customer (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor,  }\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor. 
+
+Parameterized constructor for \mbox{\hyperlink{classCustomer}{Customer}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em time\+Available} & Time available for shopping in minutes.\\
+\hline
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em time} & Time available for the customer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_ab93fb14683b0393b9c900109f77c2629}\label{classCustomer_ab93fb14683b0393b9c900109f77c2629}} 
+\index{Customer@{Customer}!````~Customer@{$\sim$Customer}}
+\index{````~Customer@{$\sim$Customer}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Customer()}{~Customer()}}
+{\footnotesize\ttfamily Customer\+::$\sim$\+Customer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor. 
+
+Destructor for \mbox{\hyperlink{classCustomer}{Customer}}. Deletes all dynamically allocated \mbox{\hyperlink{classPlant}{Plant}} objects in the cart. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCustomer_a7afb8352f10e277b2b178e8e26c028b2}\label{classCustomer_a7afb8352f10e277b2b178e8e26c028b2}} 
+\index{Customer@{Customer}!addDecoration@{addDecoration}}
+\index{addDecoration@{addDecoration}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{addDecoration()}{addDecoration()}}
+{\footnotesize\ttfamily void Customer\+::add\+Decoration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomisation}{Customisation}} $\ast$}]{decorator,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Adds a decoration to a plant in the cart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customisation} & pointer for the plant. \\
+\hline
+{\em plant} & Pointer to the plant to decorate.\\
+\hline
+{\em decoration\+Type} & Type of decoration (\char`\"{}arrangement\char`\"{}, \char`\"{}giftwrapping\char`\"{}, \char`\"{}decorativepot\char`\"{}). \\
+\hline
+{\em plant} & Pointer to the plant to decorate. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_ad10783e7df0f1ea75679d697c253b844}\label{classCustomer_ad10783e7df0f1ea75679d697c253b844}} 
+\index{Customer@{Customer}!addToCart@{addToCart}}
+\index{addToCart@{addToCart}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{addToCart()}{addToCart()}}
+{\footnotesize\ttfamily string Customer\+::add\+To\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Adds a plant to the customer\textquotesingle{}s cart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object.\\
+\hline
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a0d756ecc1e055b13acabb6e68867e6c2}\label{classCustomer_a0d756ecc1e055b13acabb6e68867e6c2}} 
+\index{Customer@{Customer}!cartToString@{cartToString}}
+\index{cartToString@{cartToString}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{cartToString()}{cartToString()}}
+{\footnotesize\ttfamily string Customer\+::cart\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a string representation of the cart contents. 
+
+Returns a string representation of the cart contents. Includes plant name, colour, scent, and price.
+
+\begin{DoxyReturn}{Returns}
+Formatted string listing all plants in the cart. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a9ae7cc4763ead810ecb0107eeadceee8}\label{classCustomer_a9ae7cc4763ead810ecb0107eeadceee8}} 
+\index{Customer@{Customer}!enquirePlants@{enquirePlants}}
+\index{enquirePlants@{enquirePlants}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{enquirePlants()}{enquirePlants()}}
+{\footnotesize\ttfamily virtual string Customer\+::enquire\+Plants (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Abstract method for customer to enquire about plants. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} to enquire from. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classFussyCust_a6de7967e246ae51a930db762de11dea0}{Fussy\+Cust}}, and \mbox{\hyperlink{classEasyCust_aa1ec72422f9be46ac8852765a43222d0}{Easy\+Cust}}.
+
+\mbox{\Hypertarget{classCustomer_aaa282058f6c45ae529e1bfc876021c38}\label{classCustomer_aaa282058f6c45ae529e1bfc876021c38}} 
+\index{Customer@{Customer}!getTimeLine@{getTimeLine}}
+\index{getTimeLine@{getTimeLine}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{getTimeLine()}{getTimeLine()}}
+{\footnotesize\ttfamily string Customer\+::get\+Time\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a string representing the customer\textquotesingle{}s time availability. 
+
+\begin{DoxyReturn}{Returns}
+A formatted string of available time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCustomer_a9e1ed6573e08d3047607293e5bdac580}\label{classCustomer_a9e1ed6573e08d3047607293e5bdac580}} 
+\index{Customer@{Customer}!removeFromCart@{removeFromCart}}
+\index{removeFromCart@{removeFromCart}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{removeFromCart()}{removeFromCart()}}
+{\footnotesize\ttfamily void Customer\+::remove\+From\+Cart (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})}
+
+
+
+Removes a plant from the customer\textquotesingle{}s cart. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCustomer_a1bd2b4acaf9a0d25eeecbf0439ec9a73}\label{classCustomer_a1bd2b4acaf9a0d25eeecbf0439ec9a73}} 
+\index{Customer@{Customer}!voiceLine@{voiceLine}}
+\index{voiceLine@{voiceLine}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{voiceLine()}{voiceLine()}}
+{\footnotesize\ttfamily virtual string Customer\+::voice\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Abstract method for customer-\/specific voice line. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the customer\textquotesingle{}s voice line. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classFussyCust_a3f30a8237bcd947b219eccc0f475b7f2}{Fussy\+Cust}}, and \mbox{\hyperlink{classEasyCust_ab89d3579e4e681ff892b518a74241297}{Easy\+Cust}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCustomer_aadd58f56d9333e88d58c1b32f191aaa7}\label{classCustomer_aadd58f56d9333e88d58c1b32f191aaa7}} 
+\index{Customer@{Customer}!preferredPlants@{preferredPlants}}
+\index{preferredPlants@{preferredPlants}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{preferredPlants}{preferredPlants}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classPlant}{Plant}} $\ast$$>$ Customer\+::preferred\+Plants}
+
+
+
+Default constructor. 
+
+Vector holding the customer\textquotesingle{}s preferred plants. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab0effb2b143e6da7b65ebd13a3b1fc29">~Plant</a> ()</td></tr>
 <tr class="memdesc:ab0effb2b143e6da7b65ebd13a3b1fc29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> class. <br /></td></tr>
 <tr class="separator:ab0effb2b143e6da7b65ebd13a3b1fc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cf6312af169a7b0bcbf7ddaf8a1d54d"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">operator==</a> (const <a class="el" href="classPlant.html">Plant</a> &amp;other)</td></tr>
+<tr class="memitem:a2cf6312af169a7b0bcbf7ddaf8a1d54d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">operator==</a> (const <a class="el" href="classPlant.html">Plant</a> &amp;other)</td></tr>
 <tr class="memdesc:a2cf6312af169a7b0bcbf7ddaf8a1d54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator to compare two <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> objects.  <a href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">More...</a><br /></td></tr>
 <tr class="separator:a2cf6312af169a7b0bcbf7ddaf8a1d54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab38bd02b47ca4634a2ad4dc2f6d30467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab38bd02b47ca4634a2ad4dc2f6d30467">increasePrice</a> (double amount)</td></tr>
@@ -128,6 +128,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:af70cc9d659b85ca4ff15df8a1f11e49f"><td class="memItemLeft" align="right" valign="top"><a id="af70cc9d659b85ca4ff15df8a1f11e49f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getStrategy</b> ()</td></tr>
 <tr class="separator:af70cc9d659b85ca4ff15df8a1f11e49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16db157ef105c3826f2d9aac93caaf3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ad16db157ef105c3826f2d9aac93caaf3">getDescription</a> ()</td></tr>
+<tr class="memdesc:ad16db157ef105c3826f2d9aac93caaf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a description of the plant.  <a href="classPlant.html#ad16db157ef105c3826f2d9aac93caaf3">More...</a><br /></td></tr>
+<tr class="separator:ad16db157ef105c3826f2d9aac93caaf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5f3adb6728f8969a01f8c312ef5fe7f"><td class="memItemLeft" align="right" valign="top"><a id="ad5f3adb6728f8969a01f8c312ef5fe7f"></a>
 virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()=0</td></tr>
 <tr class="separator:ad5f3adb6728f8969a01f8c312ef5fe7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,9 +143,9 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getNam
 <tr class="memitem:a82378d30996cd854c01d0cfc13c461ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a82378d30996cd854c01d0cfc13c461ba">getScent</a> ()</td></tr>
 <tr class="memdesc:a82378d30996cd854c01d0cfc13c461ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the scent of the plant.  <a href="classPlant.html#a82378d30996cd854c01d0cfc13c461ba">More...</a><br /></td></tr>
 <tr class="separator:a82378d30996cd854c01d0cfc13c461ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20474317abb9743a6ce0039b56f5eda"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#af20474317abb9743a6ce0039b56f5eda">getPrice</a> ()</td></tr>
-<tr class="memdesc:af20474317abb9743a6ce0039b56f5eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the price of the plant.  <a href="classPlant.html#af20474317abb9743a6ce0039b56f5eda">More...</a><br /></td></tr>
-<tr class="separator:af20474317abb9743a6ce0039b56f5eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46a0b4c2ba70d1ad0fe04adb4d86c99"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#af46a0b4c2ba70d1ad0fe04adb4d86c99">getPrice</a> ()</td></tr>
+<tr class="memdesc:af46a0b4c2ba70d1ad0fe04adb4d86c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the price of the plant.  <a href="classPlant.html#af46a0b4c2ba70d1ad0fe04adb4d86c99">More...</a><br /></td></tr>
+<tr class="separator:af46a0b4c2ba70d1ad0fe04adb4d86c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4343b6b6b899ba3ec35904c60236bf7b"><td class="memItemLeft" align="right" valign="top"><a id="a4343b6b6b899ba3ec35904c60236bf7b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a4343b6b6b899ba3ec35904c60236bf7b">nextState</a> ()</td></tr>
 <tr class="memdesc:a4343b6b6b899ba3ec35904c60236bf7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state. <br /></td></tr>
@@ -158,10 +161,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ac98a2280b1909e9b110411e228be031e">applyCare</a> ()</td></tr>
 <tr class="memdesc:ac98a2280b1909e9b110411e228be031e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the care strategy to the plant. <br /></td></tr>
 <tr class="separator:ac98a2280b1909e9b110411e228be031e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15449e765dc467a110d3d85729ac19db"><td class="memItemLeft" align="right" valign="top"><a id="a15449e765dc467a110d3d85729ac19db"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a15449e765dc467a110d3d85729ac19db">print</a> ()</td></tr>
-<tr class="memdesc:a15449e765dc467a110d3d85729ac19db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the plant. <br /></td></tr>
-<tr class="separator:a15449e765dc467a110d3d85729ac19db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88c7018f40ea6af5e72418a88d36dfb"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ac88c7018f40ea6af5e72418a88d36dfb">print</a> ()</td></tr>
+<tr class="memdesc:ac88c7018f40ea6af5e72418a88d36dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the details of the plant.  <a href="classPlant.html#ac88c7018f40ea6af5e72418a88d36dfb">More...</a><br /></td></tr>
+<tr class="separator:ac88c7018f40ea6af5e72418a88d36dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab05e1add03b01c51b4625bbe7a536733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab05e1add03b01c51b4625bbe7a536733">addCust</a> (<a class="el" href="classCustomer.html">Customer</a> *customer)</td></tr>
 <tr class="memdesc:ab05e1add03b01c51b4625bbe7a536733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates a customer with the plant.  <a href="classPlant.html#ab05e1add03b01c51b4625bbe7a536733">More...</a><br /></td></tr>
 <tr class="separator:ab05e1add03b01c51b4625bbe7a536733"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,7 +265,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 <p>Associates a customer with the plant. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">customer</td><td>A pointer to the <a class="el" href="classCustomer.html">Customer</a> to associate with the plant. </td></tr>
+    <tr><td class="paramname">customer</td><td>A pointer to the <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> to associate with the plant. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,7 +288,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a memento of the plant's current state. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created <a class="el" href="classPlantMemento.html">PlantMemento</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created <a class="el" href="classPlantMemento.html" title="Stores the internal state of a Plant object.">PlantMemento</a>. </dd></dl>
 
 </div>
 </div>
@@ -310,14 +312,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 
 </div>
 </div>
-<a id="af20474317abb9743a6ce0039b56f5eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af20474317abb9743a6ce0039b56f5eda">&#9670;&nbsp;</a></span>getPrice()</h2>
+<a id="ad16db157ef105c3826f2d9aac93caaf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16db157ef105c3826f2d9aac93caaf3">&#9670;&nbsp;</a></span>getDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Plant::getPrice </td>
+          <td class="memname">std::string Plant::getDescription </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -325,8 +327,38 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a description of the plant. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string description of plant attributes </dd></dl>
+
+</div>
+</div>
+<a id="af46a0b4c2ba70d1ad0fe04adb4d86c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46a0b4c2ba70d1ad0fe04adb4d86c99">&#9670;&nbsp;</a></span>getPrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Plant::getPrice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p>Retrieves the price of the plant. </p>
-<dl class="section return"><dt>Returns</dt><dd>A string representing the price of the plant. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A double representing the price of the plant. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classTulip.html#a93f0ca65d92e85268eacb78cce3a2a7e">Tulip</a>, <a class="el" href="classRose.html#a0afd4c51aa0f060db57beea5aeab4035">Rose</a>, <a class="el" href="classLily.html#ac568755c4599a86a56beceddbe2c03ff">Lily</a>, <a class="el" href="classLavender.html#a5345e89b02fa9f99735a173c06c6e8e5">Lavender</a>, and <a class="el" href="classCactus.html#aacd334734980c58741bdf2a40b81dfd8">Cactus</a>.</p>
 
 </div>
 </div>
@@ -423,6 +455,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 
 </div>
 </div>
+<a id="ac88c7018f40ea6af5e72418a88d36dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88c7018f40ea6af5e72418a88d36dfb">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Plant::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the details of the plant. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the plant </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classTulip.html#a712883067343e175d2edc0bc33883788">Tulip</a>, <a class="el" href="classRose.html#a307fad10b8518d91fa8e236d9457e88e">Rose</a>, <a class="el" href="classLily.html#a23f92ca759b2e7a4a3dd339a6ac59767">Lily</a>, <a class="el" href="classLavender.html#a8058caf1b318ef5378109c1546746159">Lavender</a>, <a class="el" href="classGiftwrapping.html#ac3e9c57bc56da60ef173ea2c87399ccf">Giftwrapping</a>, <a class="el" href="classDecorativePot.html#ad4d238a4e32010b6df080fde144e924e">DecorativePot</a>, <a class="el" href="classCactus.html#aad23702d78abf496c0683827345b46ae">Cactus</a>, and <a class="el" href="classArrangement.html#aebdfa00d8ca950aa6e99d6e924174da6">Arrangement</a>.</p>
+
+</div>
+</div>
 <a id="ae9b0168ca327affecf800cd88ba62cab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9b0168ca327affecf800cd88ba62cab">&#9670;&nbsp;</a></span>setCareStrategy()</h2>
 
@@ -468,7 +530,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 <p>Restores the plant's state from a memento. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">memento</td><td>A pointer to the <a class="el" href="classPlantMemento.html">PlantMemento</a> to restore from. </td></tr>
+    <tr><td class="paramname">memento</td><td>A pointer to the <a class="el" href="classPlantMemento.html" title="Stores the internal state of a Plant object.">PlantMemento</a> to restore from. </td></tr>
   </table>
   </dd>
 </dl>

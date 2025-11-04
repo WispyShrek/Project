@@ -3,34 +3,68 @@
 
 
 Inheritance diagram for Plant\+Caretaker\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=169pt]{classPlantCaretaker__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Plant\+Caretaker\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=169pt]{classPlantCaretaker__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}\label{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}} 
+\mbox{\Hypertarget{classPlantCaretaker_ae487981acf1782c7c15d53a1aa127e2f}\label{classPlantCaretaker_ae487981acf1782c7c15d53a1aa127e2f}} 
+\mbox{\hyperlink{classPlantCaretaker_ae487981acf1782c7c15d53a1aa127e2f}{Plant\+Caretaker}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}}. Initializes the care queue and customer list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}{care}} () override
-\begin{DoxyCompactList}\small\item\em Applies care to gardens. The care function dequeues a garden pointer the from the front of the care\+Queue member variable and calls apply\+Care() on the dequeued object. Only one object gets dequeued per function call. When the care\+Queue is empty the function will have no effect. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Applies care to the next garden in the queue. Pops the front garden from the queue and calls its apply\+Care method. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}{update}} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$subject\+Of\+Care)
-\begin{DoxyCompactList}\small\item\em Adds new garden to care\+Queue. The update function takes a the input parameter and pushes it to the back of the care\+Queue member variable without calling any functions on the parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adds a garden to the care queue. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantCaretaker_ad098c948d3d9c865026f07fda0042c7a}\label{classPlantCaretaker_ad098c948d3d9c865026f07fda0042c7a}} 
+\mbox{\hyperlink{classPlantCaretaker_ad098c948d3d9c865026f07fda0042c7a}{$\sim$\+Plant\+Caretaker}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}}. Clears the care queue and deletes all customers in the list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPlantCaretaker_a72872eff15c79f5f4759198f659be2ab}{notify}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant) override
+\begin{DoxyCompactList}\small\item\em Pure virtual method to handle customer notifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}\label{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}} 
+\index{PlantCaretaker@{PlantCaretaker}!care@{care}}
+\index{care@{care}!PlantCaretaker@{PlantCaretaker}}
+\doxysubsubsection{\texorpdfstring{care()}{care()}}
+{\footnotesize\ttfamily void Plant\+Caretaker\+::care (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Applies care to the next garden in the queue. Pops the front garden from the queue and calls its apply\+Care method. 
+
+Applies care to gardens. The care function dequeues a garden pointer the from the front of the care\+Queue member variable and calls apply\+Care() on the dequeued object. Only one object gets dequeued per function call. When the care\+Queue is empty the function will have no effect. 
+
+Implements \mbox{\hyperlink{classStaff_a5801a0cdc9365b943b8c8603eb397d39}{Staff}}.
+
+\mbox{\Hypertarget{classPlantCaretaker_a72872eff15c79f5f4759198f659be2ab}\label{classPlantCaretaker_a72872eff15c79f5f4759198f659be2ab}} 
+\index{PlantCaretaker@{PlantCaretaker}!notify@{notify}}
+\index{notify@{notify}!PlantCaretaker@{PlantCaretaker}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily bool Plant\+Caretaker\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pure virtual method to handle customer notifications. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the notification was successfully handled. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classStaff_ab4568017d7f5073089ace25caeea2c04}{Staff}}.
+
 \mbox{\Hypertarget{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}\label{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}} 
 \index{PlantCaretaker@{PlantCaretaker}!update@{update}}
 \index{update@{update}!PlantCaretaker@{PlantCaretaker}}
@@ -39,10 +73,14 @@ void \mbox{\hyperlink{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}{upd
 
 
 
-Adds new garden to care\+Queue. The update function takes a the input parameter and pushes it to the back of the care\+Queue member variable without calling any functions on the parameter. 
+Adds a garden to the care queue. 
+
+Adds new garden to care\+Queue. The update function takes a the input parameter and pushes it to the back of the care\+Queue member variable without calling any functions on the parameter.
 
 
 \begin{DoxyParams}{Parameters}
+{\em subject\+Of\+Care} & Pointer to the \mbox{\hyperlink{classGarden}{Garden}} object needing care.\\
+\hline
 {\em A} & pointer to a \mbox{\hyperlink{classGarden}{Garden}} object. \\
 \hline
 \end{DoxyParams}

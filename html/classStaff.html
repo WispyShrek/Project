@@ -96,24 +96,173 @@ Collaboration diagram for Staff:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c2f98aad2fbd5ddf72e9ff92304cbfd"><td class="memItemLeft" align="right" valign="top"><a id="a1c2f98aad2fbd5ddf72e9ff92304cbfd"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStaff.html#a1c2f98aad2fbd5ddf72e9ff92304cbfd">~Staff</a> ()</td></tr>
-<tr class="memdesc:a1c2f98aad2fbd5ddf72e9ff92304cbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> class. <br /></td></tr>
-<tr class="separator:a1c2f98aad2fbd5ddf72e9ff92304cbfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5801a0cdc9365b943b8c8603eb397d39"><td class="memItemLeft" align="right" valign="top"><a id="a5801a0cdc9365b943b8c8603eb397d39"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>care</b> ()=0</td></tr>
+<tr class="memitem:ab7ae31008728fc1c384d749b2927bc66"><td class="memItemLeft" align="right" valign="top"><a id="ab7ae31008728fc1c384d749b2927bc66"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStaff.html#ab7ae31008728fc1c384d749b2927bc66">~Staff</a> ()</td></tr>
+<tr class="memdesc:ab7ae31008728fc1c384d749b2927bc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> class. <br /></td></tr>
+<tr class="separator:ab7ae31008728fc1c384d749b2927bc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5801a0cdc9365b943b8c8603eb397d39"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStaff.html#a5801a0cdc9365b943b8c8603eb397d39">care</a> ()=0</td></tr>
+<tr class="memdesc:a5801a0cdc9365b943b8c8603eb397d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to perform care-related tasks.  <a href="classStaff.html#a5801a0cdc9365b943b8c8603eb397d39">More...</a><br /></td></tr>
 <tr class="separator:a5801a0cdc9365b943b8c8603eb397d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78ee4a0f1636c72c86ca3f43b6a6f74d"><td class="memItemLeft" align="right" valign="top"><a id="a78ee4a0f1636c72c86ca3f43b6a6f74d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notify</b> (<a class="el" href="classCustomer.html">Customer</a> *customer)</td></tr>
-<tr class="separator:a78ee4a0f1636c72c86ca3f43b6a6f74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af367b9e3b12854de32be524165d49704"><td class="memItemLeft" align="right" valign="top"><a id="af367b9e3b12854de32be524165d49704"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memitem:ab4568017d7f5073089ace25caeea2c04"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStaff.html#ab4568017d7f5073089ace25caeea2c04">notify</a> (<a class="el" href="classCustomer.html">Customer</a> *customer, <a class="el" href="classPlant.html">Plant</a> *plant)=0</td></tr>
+<tr class="memdesc:ab4568017d7f5073089ace25caeea2c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual method to handle customer notifications.  <a href="classStaff.html#ab4568017d7f5073089ace25caeea2c04">More...</a><br /></td></tr>
+<tr class="separator:ab4568017d7f5073089ace25caeea2c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af367b9e3b12854de32be524165d49704"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStaff.html#af367b9e3b12854de32be524165d49704">update</a> ()</td></tr>
+<tr class="memdesc:af367b9e3b12854de32be524165d49704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional method to receive updates from observable subjects.  <a href="classStaff.html#af367b9e3b12854de32be524165d49704">More...</a><br /></td></tr>
 <tr class="separator:af367b9e3b12854de32be524165d49704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6eb931f55c44a1cd21994f51807c54"><td class="memItemLeft" align="right" valign="top"><a id="a6c6eb931f55c44a1cd21994f51807c54"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (std::string name)</td></tr>
+<tr class="separator:a6c6eb931f55c44a1cd21994f51807c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a323aa207c81900d721146699424409"><td class="memItemLeft" align="right" valign="top"><a id="a8a323aa207c81900d721146699424409"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDescription</b> (std::string description)</td></tr>
+<tr class="separator:a8a323aa207c81900d721146699424409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31d6569724aca585b74e4e551584a086"><td class="memItemLeft" align="right" valign="top"><a id="a31d6569724aca585b74e4e551584a086"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()</td></tr>
+<tr class="separator:a31d6569724aca585b74e4e551584a086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e9195d0b72b1d1efc0bff9070083565"><td class="memItemLeft" align="right" valign="top"><a id="a8e9195d0b72b1d1efc0bff9070083565"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getCost</b> ()</td></tr>
+<tr class="separator:a8e9195d0b72b1d1efc0bff9070083565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca63c7b586753cf6e4c4c22da20c1b5d"><td class="memItemLeft" align="right" valign="top"><a id="aca63c7b586753cf6e4c4c22da20c1b5d"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> ()</td></tr>
+<tr class="separator:aca63c7b586753cf6e4c4c22da20c1b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classSalesFloor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classSalesFloor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classSalesFloor.html">SalesFloor</a></td></tr>
+<tr class="memitem:aaa630ba1a639bff6b93dc580a04cdb91 inherit pub_methods_classSalesFloor"><td class="memItemLeft" align="right" valign="top"><a id="aaa630ba1a639bff6b93dc580a04cdb91"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#aaa630ba1a639bff6b93dc580a04cdb91">SalesFloor</a> ()</td></tr>
+<tr class="memdesc:aaa630ba1a639bff6b93dc580a04cdb91 inherit pub_methods_classSalesFloor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:aaa630ba1a639bff6b93dc580a04cdb91 inherit pub_methods_classSalesFloor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b9cd4cff7a9cd2c14ae8737d7c2fd5 inherit pub_methods_classSalesFloor"><td class="memItemLeft" align="right" valign="top"><a id="a00b9cd4cff7a9cd2c14ae8737d7c2fd5"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a00b9cd4cff7a9cd2c14ae8737d7c2fd5">~SalesFloor</a> ()=default</td></tr>
+<tr class="memdesc:a00b9cd4cff7a9cd2c14ae8737d7c2fd5 inherit pub_methods_classSalesFloor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br /></td></tr>
+<tr class="separator:a00b9cd4cff7a9cd2c14ae8737d7c2fd5 inherit pub_methods_classSalesFloor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea1df67eaff1ef614df240b74be2043 inherit pub_methods_classSalesFloor"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#afea1df67eaff1ef614df240b74be2043">getInventory</a> ()</td></tr>
+<tr class="memdesc:afea1df67eaff1ef614df240b74be2043 inherit pub_methods_classSalesFloor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the inventory managed by the sales floor.  <a href="classSalesFloor.html#afea1df67eaff1ef614df240b74be2043">More...</a><br /></td></tr>
+<tr class="separator:afea1df67eaff1ef614df240b74be2043 inherit pub_methods_classSalesFloor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfdf40209963995ee89043fc62a8d00 inherit pub_methods_classSalesFloor"><td class="memItemLeft" align="right" valign="top"><a id="a9dfdf40209963995ee89043fc62a8d00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addToPlantInventory</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="separator:a9dfdf40209963995ee89043fc62a8d00 inherit pub_methods_classSalesFloor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classSalesFloor"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classSalesFloor')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classSalesFloor.html">SalesFloor</a></td></tr>
+<tr class="memitem:ac8791c518192fcc42ad57d6d71d359c2 inherit pro_attribs_classSalesFloor"><td class="memItemLeft" align="right" valign="top"><a id="ac8791c518192fcc42ad57d6d71d359c2"></a>
+<a class="el" href="classInventory.html">Inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ac8791c518192fcc42ad57d6d71d359c2">inventory</a></td></tr>
+<tr class="memdesc:ac8791c518192fcc42ad57d6d71d359c2 inherit pro_attribs_classSalesFloor"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classInventory.html" title="Manages a collection of inventory items as strings.">Inventory</a> of plants available on the sales floor. <br /></td></tr>
+<tr class="separator:ac8791c518192fcc42ad57d6d71d359c2 inherit pro_attribs_classSalesFloor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract base class representing staff members in the nursery. </p>
-<p>The <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> class defines common behaviors for all staff types, including care services and notification handling. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<p>The <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> class defines common behaviors for all staff types, including care services and notification handling. It inherits from <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a>. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5801a0cdc9365b943b8c8603eb397d39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5801a0cdc9365b943b8c8603eb397d39">&#9670;&nbsp;</a></span>care()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Staff::care </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to perform care-related tasks. </p>
+<p>Implemented by derived classes to define specific care behavior. </p>
+
+<p>Implemented in <a class="el" href="classPlantCaretaker.html#af90b3485a918b76f57cec33f109d2d2f">PlantCaretaker</a>, and <a class="el" href="classCustomerAssistant.html#a8b2903ae03ccbaf9f1127bd34e433edf">CustomerAssistant</a>.</p>
+
+</div>
+</div>
+<a id="ab4568017d7f5073089ace25caeea2c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4568017d7f5073089ace25caeea2c04">&#9670;&nbsp;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Staff::notify </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td>
+          <td class="paramname"><em>customer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual method to handle customer notifications. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">customer</td><td>Pointer to the <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> object. </td></tr>
+    <tr><td class="paramname">plant</td><td>Pointer to the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the notification was successfully handled. </dd></dl>
+
+<p>Implements <a class="el" href="classSalesFloor.html#ab8d0f1e40012b12cafc123152bfab35b">SalesFloor</a>.</p>
+
+<p>Implemented in <a class="el" href="classPlantCaretaker.html#a72872eff15c79f5f4759198f659be2ab">PlantCaretaker</a>, and <a class="el" href="classCustomerAssistant.html#a49ff37eb535da68283d62fdf884ecbae">CustomerAssistant</a>.</p>
+
+</div>
+</div>
+<a id="af367b9e3b12854de32be524165d49704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af367b9e3b12854de32be524165d49704">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Staff::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional method to receive updates from observable subjects. </p>
+<p>Can be overridden by derived classes to respond to changes in state. </p>
+
+<p>Reimplemented in <a class="el" href="classCustomerAssistant.html#a289735ed804efd0eae0405d4c67dedc4">CustomerAssistant</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="Staff_8h_source.html">Staff.h</a></li>
 </ul>
 </div><!-- contents -->

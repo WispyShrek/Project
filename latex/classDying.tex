@@ -11,8 +11,7 @@ A class representing the dying state of a plant, derived from the \mbox{\hyperli
 
 
 
-Inheritance diagram for Dying\+:
-\nopagebreak
+Inheritance diagram for Dying\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Dying\+:
 \end{figure}
 
 
-Collaboration diagram for Dying\+:
-\nopagebreak
+Collaboration diagram for Dying\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,13 +30,20 @@ Collaboration diagram for Dying\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classDying_a3725e28dffcc40c3f4690eff7b122652}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+\mbox{\Hypertarget{classDying_ab3c761bf7bca193d0fdfb9f1ce217022}\label{classDying_ab3c761bf7bca193d0fdfb9f1ce217022}} 
+{\bfseries Dying} (\mbox{\hyperlink{classCaretaker}{Caretaker}} $\ast$prev\+State\+Carer)
+\item 
+\mbox{\Hypertarget{classDying_a3bb7d8a0f0bc0d16ba33415a32c39d06}\label{classDying_a3bb7d8a0f0bc0d16ba33415a32c39d06}} 
+void {\bfseries prev} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+\item 
+void \mbox{\hyperlink{classDying_a47ca84a13ba36b7ae597f25df5dec936}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context) override
 \begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classDying_aaccdcd2ce1b874611f82720471f09f07}\label{classDying_aaccdcd2ce1b874611f82720471f09f07}} 
-void \mbox{\hyperlink{classDying_aaccdcd2ce1b874611f82720471f09f07}{print}} ()
+\mbox{\Hypertarget{classDying_aa796b8f3cb4f21ad19e155c78f2ce07a}\label{classDying_aa796b8f3cb4f21ad19e155c78f2ce07a}} 
+void \mbox{\hyperlink{classDying_aa796b8f3cb4f21ad19e155c78f2ce07a}{print}} (std\+::string \&sprite) override
 \begin{DoxyCompactList}\small\item\em Prints the details of the dying state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classDying_acc010b7cb5535e92420f50e66ebe0bf0}{clone}} () const override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classDying}{Dying}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -64,11 +69,11 @@ A pointer to the newly created \mbox{\hyperlink{classDying}{Dying}} state.
 
 Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
 
-\mbox{\Hypertarget{classDying_a3725e28dffcc40c3f4690eff7b122652}\label{classDying_a3725e28dffcc40c3f4690eff7b122652}} 
+\mbox{\Hypertarget{classDying_a47ca84a13ba36b7ae597f25df5dec936}\label{classDying_a47ca84a13ba36b7ae597f25df5dec936}} 
 \index{Dying@{Dying}!next@{next}}
 \index{next@{next}!Dying@{Dying}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
-{\footnotesize\ttfamily void Dying\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Dying\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

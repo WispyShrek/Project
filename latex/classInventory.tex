@@ -11,8 +11,7 @@ Manages a collection of inventory items as strings.
 
 
 
-Inheritance diagram for Inventory\+:
-\nopagebreak
+Inheritance diagram for Inventory\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Inventory\+:
 \end{figure}
 
 
-Collaboration diagram for Inventory\+:
-\nopagebreak
+Collaboration diagram for Inventory\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,12 +30,18 @@ Collaboration diagram for Inventory\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classInventory_ab7467a8181695e078bfb7a418b502c1f}{add\+Item}} (std\+::string item) override
+bool \mbox{\hyperlink{classInventory_a7f9514e7d9276fe1348ebb497a59834e}{try\+Add\+Item}} (std\+::string item) override
 \begin{DoxyCompactList}\small\item\em Adds an item to the inventory. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classIterator}{Iterator}}$<$ std\+::string $>$ $\ast$ \mbox{\hyperlink{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}{Create\+Iterator}} () override
 \begin{DoxyCompactList}\small\item\em Creates an iterator for the inventory collection. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classInventory_acf4e42c4c6df2eefe270fef9262889b2}{remove\+Item}} (std\+::string item) override
+bool \mbox{\hyperlink{classInventory_acf4e42c4c6df2eefe270fef9262889b2}{remove\+Item}} (std\+::string item) override
 \begin{DoxyCompactList}\small\item\em Removes the first occurrence of an item from the inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInventory_a225d71f7a53f8fb353b53be14e454e75}\label{classInventory_a225d71f7a53f8fb353b53be14e454e75}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries inventory\+Items}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -46,27 +50,6 @@ Manages a collection of inventory items as strings.
 The \mbox{\hyperlink{classInventory}{Inventory}} class implements the \mbox{\hyperlink{classCollection}{Collection}} interface for string items, providing functionality to add, remove, and iterate over inventory items. Items are stored in order of addition with no capacity limit. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classInventory_ab7467a8181695e078bfb7a418b502c1f}\label{classInventory_ab7467a8181695e078bfb7a418b502c1f}} 
-\index{Inventory@{Inventory}!addItem@{addItem}}
-\index{addItem@{addItem}!Inventory@{Inventory}}
-\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
-{\footnotesize\ttfamily void Inventory\+::add\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Adds an item to the inventory. 
-
-Appends the given string to the end of the inventory collection. Duplicate items are allowed and will be stored separately.
-
-
-\begin{DoxyParams}{Parameters}
-{\em item} & The name of the item to add to the inventory. \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.
-
 \mbox{\Hypertarget{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}\label{classInventory_a6900d6b0c487db2cdcf4c46a5252c9d9}} 
 \index{Inventory@{Inventory}!CreateIterator@{CreateIterator}}
 \index{CreateIterator@{CreateIterator}!Inventory@{Inventory}}
@@ -103,6 +86,33 @@ Searches for the given item name in the inventory and removes the first matching
 {\em item} & The name of the item to remove from the inventory. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean indicating whether an item was removed; 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.
+
+\mbox{\Hypertarget{classInventory_a7f9514e7d9276fe1348ebb497a59834e}\label{classInventory_a7f9514e7d9276fe1348ebb497a59834e}} 
+\index{Inventory@{Inventory}!tryAddItem@{tryAddItem}}
+\index{tryAddItem@{tryAddItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{tryAddItem()}{tryAddItem()}}
+{\footnotesize\ttfamily bool Inventory\+::try\+Add\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds an item to the inventory. 
+
+Appends the given string to the end of the inventory collection. Duplicate items are allowed and will be stored separately.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The name of the item to add to the inventory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean representing successful addition. 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classCollection}{Collection$<$ std\+::string $>$}}.

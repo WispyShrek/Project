@@ -1,0 +1,15 @@
+digraph "Customisation"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Customisation",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Abstract base class for plant customisations (decorators). Inherits from Plant and wraps another Plan..."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Plant",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPlant.html",tooltip="An abstract base class representing a plant in the nursery."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Arrangement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classArrangement.html",tooltip="Represents an arrangement decoration for a plant. Inherits from Customisation and adds arrangement-sp..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DecorativePot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDecorativePot.html",tooltip="Represents a decorative pot customisation for a plant. Inherits from Customisation and adds decorativ..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Giftwrapping",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGiftwrapping.html",tooltip="Represents a giftwrapping decoration for a plant. Inherits from Customisation and adds giftwrapping-s..."];
+}

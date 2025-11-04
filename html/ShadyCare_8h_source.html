@@ -65,21 +65,24 @@ $(function() {
 <div class="title">ShadyCare.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SHADYCARE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SHADYCARE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;CareStrategy.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classShadyCare.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classShadyCare.html">ShadyCare</a> : <span class="keyword">public</span> <a class="code" href="classCareStrategy.html">CareStrategy</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="classShadyCare.html">ShadyCare</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">void</span> applyCare() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="ShadyCare_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef SHADYCARE_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define SHADYCARE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;CareStrategy.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classShadyCare.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classShadyCare.html">ShadyCare</a> : <span class="keyword">public</span> <a class="code" href="classCareStrategy.html">CareStrategy</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="classShadyCare.html#ac550795d1bfb90f24dd0d489532d34a6">ShadyCare</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classShadyCare.html#a7ad4094d68389aedd8872e1665b70d83">applyCare</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassCareStrategy_html"><div class="ttname"><a href="classCareStrategy.html">CareStrategy</a></div><div class="ttdef"><b>Definition:</b> CareStrategy.h:5</div></div>
-<div class="ttc" id="aclassShadyCare_html"><div class="ttname"><a href="classShadyCare.html">ShadyCare</a></div><div class="ttdef"><b>Definition:</b> ShadyCare.h:7</div></div>
+<div class="ttc" id="aclassShadyCare_html"><div class="ttname"><a href="classShadyCare.html">ShadyCare</a></div><div class="ttdoc">A concrete care strategy for plants that prefer shady conditions.</div><div class="ttdef"><b>Definition:</b> ShadyCare.h:18</div></div>
+<div class="ttc" id="aclassShadyCare_html_a7ad4094d68389aedd8872e1665b70d83"><div class="ttname"><a href="classShadyCare.html#a7ad4094d68389aedd8872e1665b70d83">ShadyCare::applyCare</a></div><div class="ttdeci">void applyCare() override</div><div class="ttdoc">Applies the care routine for shady conditions. Overrides the pure virtual function in CareStrategy to...</div><div class="ttdef"><b>Definition:</b> ShadyCare.cpp:20</div></div>
+<div class="ttc" id="aclassShadyCare_html_ac550795d1bfb90f24dd0d489532d34a6"><div class="ttname"><a href="classShadyCare.html#ac550795d1bfb90f24dd0d489532d34a6">ShadyCare::ShadyCare</a></div><div class="ttdeci">ShadyCare()</div><div class="ttdoc">Constructor for the ShadyCare class. Sets the strategy name to &quot;Shady&quot;.</div><div class="ttdef"><b>Definition:</b> ShadyCare.cpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

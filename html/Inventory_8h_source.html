@@ -75,23 +75,23 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classInventory.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInventory.html">Inventory</a> : <span class="keyword">public</span> <a class="code" href="classCollection.html">Collection</a>&lt;std::string&gt; {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInventory.html#ab7467a8181695e078bfb7a418b502c1f">addItem</a>(std::string item) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classIterator.html">Iterator&lt;std::string&gt;</a> *<a class="code" href="classInventory.html#a6900d6b0c487db2cdcf4c46a5252c9d9">CreateIterator</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classInventory.html#acf4e42c4c6df2eefe270fef9262889b2">removeItem</a>(std::string item) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;std::string&gt; inventoryItems;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classInventory.html#a7f9514e7d9276fe1348ebb497a59834e">tryAddItem</a>(std::string item) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classIterator.html">Iterator&lt;std::string&gt;</a> *<a class="code" href="classInventory.html#a6900d6b0c487db2cdcf4c46a5252c9d9">CreateIterator</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classInventory.html#acf4e42c4c6df2eefe270fef9262889b2">removeItem</a>(std::string item) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  std::vector&lt;std::string&gt; inventoryItems;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassCollection_html"><div class="ttname"><a href="classCollection.html">Collection</a></div><div class="ttdef"><b>Definition:</b> Collection.h:6</div></div>
 <div class="ttc" id="aclassInventory_html"><div class="ttname"><a href="classInventory.html">Inventory</a></div><div class="ttdoc">Manages a collection of inventory items as strings.</div><div class="ttdef"><b>Definition:</b> Inventory.h:18</div></div>
-<div class="ttc" id="aclassInventory_html_a6900d6b0c487db2cdcf4c46a5252c9d9"><div class="ttname"><a href="classInventory.html#a6900d6b0c487db2cdcf4c46a5252c9d9">Inventory::CreateIterator</a></div><div class="ttdeci">Iterator&lt; std::string &gt; * CreateIterator() override</div><div class="ttdoc">Creates an iterator for the inventory collection.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:7</div></div>
-<div class="ttc" id="aclassInventory_html_ab7467a8181695e078bfb7a418b502c1f"><div class="ttname"><a href="classInventory.html#ab7467a8181695e078bfb7a418b502c1f">Inventory::addItem</a></div><div class="ttdeci">void addItem(std::string item) override</div><div class="ttdoc">Adds an item to the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:3</div></div>
-<div class="ttc" id="aclassInventory_html_acf4e42c4c6df2eefe270fef9262889b2"><div class="ttname"><a href="classInventory.html#acf4e42c4c6df2eefe270fef9262889b2">Inventory::removeItem</a></div><div class="ttdeci">void removeItem(std::string item) override</div><div class="ttdoc">Removes the first occurrence of an item from the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:11</div></div>
+<div class="ttc" id="aclassInventory_html_a6900d6b0c487db2cdcf4c46a5252c9d9"><div class="ttname"><a href="classInventory.html#a6900d6b0c487db2cdcf4c46a5252c9d9">Inventory::CreateIterator</a></div><div class="ttdeci">Iterator&lt; std::string &gt; * CreateIterator() override</div><div class="ttdoc">Creates an iterator for the inventory collection.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:8</div></div>
+<div class="ttc" id="aclassInventory_html_a7f9514e7d9276fe1348ebb497a59834e"><div class="ttname"><a href="classInventory.html#a7f9514e7d9276fe1348ebb497a59834e">Inventory::tryAddItem</a></div><div class="ttdeci">bool tryAddItem(std::string item) override</div><div class="ttdoc">Adds an item to the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:3</div></div>
+<div class="ttc" id="aclassInventory_html_acf4e42c4c6df2eefe270fef9262889b2"><div class="ttname"><a href="classInventory.html#acf4e42c4c6df2eefe270fef9262889b2">Inventory::removeItem</a></div><div class="ttdeci">bool removeItem(std::string item) override</div><div class="ttdoc">Removes the first occurrence of an item from the inventory.</div><div class="ttdef"><b>Definition:</b> Inventory.cpp:12</div></div>
 <div class="ttc" id="aclassIterator_html"><div class="ttname"><a href="classIterator.html">Iterator&lt; std::string &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

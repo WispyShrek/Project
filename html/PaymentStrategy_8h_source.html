@@ -65,18 +65,21 @@ $(function() {
 <div class="title">PaymentStrategy.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PAYMENTSTARTEGY_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PAYMENTSTARTEGY_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PAYMENTSTRATEGY_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PAYMENTSTRATEGY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="classPaymentStrategy.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPaymentStrategy.html">PaymentStrategy</a> {</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> pay() = 0;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;};</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassPaymentStrategy_html"><div class="ttname"><a href="classPaymentStrategy.html">PaymentStrategy</a></div><div class="ttdef"><b>Definition:</b> PaymentStrategy.h:4</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classPaymentStrategy.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPaymentStrategy.html">PaymentStrategy</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classPaymentStrategy.html#a0f6a8da392c448a016e69f9cf5511052">   20</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classPaymentStrategy.html#a0f6a8da392c448a016e69f9cf5511052">~PaymentStrategy</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classPaymentStrategy.html#a17e9d78398f57cfabdeaaaccc6962981">   28</a></span>&#160;  <span class="keyword">virtual</span> std::string <a class="code" href="classPaymentStrategy.html#a17e9d78398f57cfabdeaaaccc6962981">pay</a>() = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PAYMENTSTRATEGY_H</span></div>
+<div class="ttc" id="aclassPaymentStrategy_html"><div class="ttname"><a href="classPaymentStrategy.html">PaymentStrategy</a></div><div class="ttdoc">An abstract base class for different payment strategies.</div><div class="ttdef"><b>Definition:</b> PaymentStrategy.h:13</div></div>
+<div class="ttc" id="aclassPaymentStrategy_html_a0f6a8da392c448a016e69f9cf5511052"><div class="ttname"><a href="classPaymentStrategy.html#a0f6a8da392c448a016e69f9cf5511052">PaymentStrategy::~PaymentStrategy</a></div><div class="ttdeci">virtual ~PaymentStrategy()=default</div><div class="ttdoc">Virtual destructor. Ensures that destructors of derived classes are called correctly.</div></div>
+<div class="ttc" id="aclassPaymentStrategy_html_a17e9d78398f57cfabdeaaaccc6962981"><div class="ttname"><a href="classPaymentStrategy.html#a17e9d78398f57cfabdeaaaccc6962981">PaymentStrategy::pay</a></div><div class="ttdeci">virtual std::string pay()=0</div><div class="ttdoc">Executes the payment process for a specific strategy.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classGarden-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Garden Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -92,21 +93,27 @@ Collaboration diagram for Garden:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2a0df3abf119a1c70b1dde5fcc02523"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#ae2a0df3abf119a1c70b1dde5fcc02523">addItem</a> (<a class="el" href="classPlant.html">Plant</a> *item)</td></tr>
-<tr class="memdesc:ae2a0df3abf119a1c70b1dde5fcc02523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-major). If the grid is full (7+ capacity policy preserved via plantCount), the plant is not added and a message is printed.  <a href="classGarden.html#ae2a0df3abf119a1c70b1dde5fcc02523">More...</a><br /></td></tr>
-<tr class="separator:ae2a0df3abf119a1c70b1dde5fcc02523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560aafce016a7bcfabdf8fe3a5eb1842"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a560aafce016a7bcfabdf8fe3a5eb1842">print</a> ()</td></tr>
+<tr class="memdesc:a560aafce016a7bcfabdf8fe3a5eb1842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a visual representation of a garden.  <a href="classGarden.html#a560aafce016a7bcfabdf8fe3a5eb1842">More...</a><br /></td></tr>
+<tr class="separator:a560aafce016a7bcfabdf8fe3a5eb1842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bc061e5e1f3334576e738cb772fbcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a74bc061e5e1f3334576e738cb772fbcb">tryAddItem</a> (<a class="el" href="classPlant.html">Plant</a> *item)</td></tr>
+<tr class="memdesc:a74bc061e5e1f3334576e738cb772fbcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-major) and returns true. If the grid is full (7+ capacity policy preserved via plantCount), the plant is not added and false is returned.  <a href="classGarden.html#a74bc061e5e1f3334576e738cb772fbcb">More...</a><br /></td></tr>
+<tr class="separator:a74bc061e5e1f3334576e738cb772fbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62014886ff873a7f033d78edae8c7a3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a62014886ff873a7f033d78edae8c7a3b">addItem</a> (<a class="el" href="classPlant.html">Plant</a> *item, int row, int col)</td></tr>
 <tr class="memdesc:a62014886ff873a7f033d78edae8c7a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant at a specific grid position. Places the plant at [row][col] if within bounds [0..2] and the cell is empty. If the position is invalid or occupied, the plant is not added.  <a href="classGarden.html#a62014886ff873a7f033d78edae8c7a3b">More...</a><br /></td></tr>
 <tr class="separator:a62014886ff873a7f033d78edae8c7a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8412ccc6d72ff49bc705517dc48851ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIterator.html">Iterator</a>&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a8412ccc6d72ff49bc705517dc48851ca">CreateIterator</a> ()</td></tr>
 <tr class="memdesc:a8412ccc6d72ff49bc705517dc48851ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an iterator for the garden's plant collection. Returns a <a class="el" href="classPlantIterator.html">PlantIterator</a> that iterates all non-null plants in row-major order. Caller must delete the returned iterator when done.  <a href="classGarden.html#a8412ccc6d72ff49bc705517dc48851ca">More...</a><br /></td></tr>
 <tr class="separator:a8412ccc6d72ff49bc705517dc48851ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2f5d13c88bbd59f1ab48c5e8371dcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a2e2f5d13c88bbd59f1ab48c5e8371dcf">removeItem</a> (<a class="el" href="classPlant.html">Plant</a> *item)</td></tr>
+<tr class="memitem:a2e2f5d13c88bbd59f1ab48c5e8371dcf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a2e2f5d13c88bbd59f1ab48c5e8371dcf">removeItem</a> (<a class="el" href="classPlant.html">Plant</a> *item)</td></tr>
 <tr class="memdesc:a2e2f5d13c88bbd59f1ab48c5e8371dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a plant from the garden. Searches the 3x3 grid for the given <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> pointer and nulls that cell if found. Decrements plantCount on success. Does not delete the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object.  <a href="classGarden.html#a2e2f5d13c88bbd59f1ab48c5e8371dcf">More...</a><br /></td></tr>
 <tr class="separator:a2e2f5d13c88bbd59f1ab48c5e8371dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7620b0dd92ecdf4654ece9a2c78df468"><td class="memItemLeft" align="right" valign="top"><a id="a7620b0dd92ecdf4654ece9a2c78df468"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>TemplateMethod</b> ()</td></tr>
-<tr class="separator:a7620b0dd92ecdf4654ece9a2c78df468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2781e5ee7d76304312bc3f6865ce745"><td class="memItemLeft" align="right" valign="top"><a id="ad2781e5ee7d76304312bc3f6865ce745"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> ()</td></tr>
+<tr class="separator:ad2781e5ee7d76304312bc3f6865ce745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942bbfc73c25d692d045b68b420ecc11"><td class="memItemLeft" align="right" valign="top"><a id="a942bbfc73c25d692d045b68b420ecc11"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> ()</td></tr>
+<tr class="separator:a942bbfc73c25d692d045b68b420ecc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e2165edad91df2f711fecdb7ebf1de"><td class="memItemLeft" align="right" valign="top"><a id="a53e2165edad91df2f711fecdb7ebf1de"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>applyRays</b> ()=0</td></tr>
 <tr class="separator:a53e2165edad91df2f711fecdb7ebf1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,46 +129,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>applyCare</b> ()</td>
 <tr class="memitem:a1fe39ee342be692de6f5390266a71a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a1fe39ee342be692de6f5390266a71a00">notify</a> ()</td></tr>
 <tr class="memdesc:a1fe39ee342be692de6f5390266a71a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies plantCaretakers of an event. The detach function iterates through the staffList member variable and calls update on each of the <a class="el" href="classPlantCaretaker.html">PlantCaretaker</a> objects within, using the <a class="el" href="classGarden.html">Garden</a> object calling the function as input parameter.  <a href="classGarden.html#a1fe39ee342be692de6f5390266a71a00">More...</a><br /></td></tr>
 <tr class="separator:a1fe39ee342be692de6f5390266a71a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74ebc0a712b02a5627aae1506631362"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#aa74ebc0a712b02a5627aae1506631362">removeMature</a> ()</td></tr>
+<tr class="memdesc:aa74ebc0a712b02a5627aae1506631362"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes one mature plant from garden if there are any  <a href="classGarden.html#aa74ebc0a712b02a5627aae1506631362">More...</a><br /></td></tr>
+<tr class="separator:aa74ebc0a712b02a5627aae1506631362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ba373bae30975a0a399336e160f5fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGarden.html#a90ba373bae30975a0a399336e160f5fd">removeDying</a> ()</td></tr>
+<tr class="memdesc:a90ba373bae30975a0a399336e160f5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes one dying plant from garden if there are any  <a href="classGarden.html#a90ba373bae30975a0a399336e160f5fd">More...</a><br /></td></tr>
+<tr class="separator:a90ba373bae30975a0a399336e160f5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a56aad30ce77865deaf4f68eab211c0f6"><td class="memItemLeft" align="right" valign="top"><a id="a56aad30ce77865deaf4f68eab211c0f6"></a>
+std::vector&lt; std::vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>plants</b></td></tr>
+<tr class="separator:a56aad30ce77865deaf4f68eab211c0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d23c453bd122cf305f2899c2cb68a6"><td class="memItemLeft" align="right" valign="top"><a id="a91d23c453bd122cf305f2899c2cb68a6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>plantCount</b> = 0</td></tr>
+<tr class="separator:a91d23c453bd122cf305f2899c2cb68a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab788200c8b4d8ba31e528b5c2d0f5fc0"><td class="memItemLeft" align="right" valign="top"><a id="ab788200c8b4d8ba31e528b5c2d0f5fc0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b></td></tr>
+<tr class="separator:ab788200c8b4d8ba31e528b5c2d0f5fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae2a0df3abf119a1c70b1dde5fcc02523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2a0df3abf119a1c70b1dde5fcc02523">&#9670;&nbsp;</a></span>addItem() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Garden::addItem </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-major). If the grid is full (7+ capacity policy preserved via plantCount), the plant is not added and a message is printed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A pointer to a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to be added to the garden. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="classCollection.html">Collection&lt; Plant * &gt;</a>.</p>
-
-</div>
-</div>
 <a id="a62014886ff873a7f033d78edae8c7a3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62014886ff873a7f033d78edae8c7a3b">&#9670;&nbsp;</a></span>addItem() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a62014886ff873a7f033d78edae8c7a3b">&#9670;&nbsp;</a></span>addItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,7 +291,47 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>applyCare</b> ()</td>
 </div><div class="memdoc">
 
 <p>Notifies plantCaretakers of an event. The detach function iterates through the staffList member variable and calls update on each of the <a class="el" href="classPlantCaretaker.html">PlantCaretaker</a> objects within, using the <a class="el" href="classGarden.html">Garden</a> object calling the function as input parameter. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPlantCaretaker.html#a2f622e80ca022683ffa4393a2cea2453" title="Adds new garden to careQueue. The update function takes a the input parameter and pushes it to the ba...">PlantCaretaker::update(Garden * subjectOfCare)</a> for details of the update function invoked </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPlantCaretaker.html#a2f622e80ca022683ffa4393a2cea2453" title="Adds a garden to the care queue.">PlantCaretaker::update(Garden * subjectOfCare)</a> for details of the update function invoked </dd></dl>
+
+</div>
+</div>
+<a id="a560aafce016a7bcfabdf8fe3a5eb1842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a560aafce016a7bcfabdf8fe3a5eb1842">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Garden::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a visual representation of a garden. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the garden. </dd></dl>
+
+</div>
+</div>
+<a id="a90ba373bae30975a0a399336e160f5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ba373bae30975a0a399336e160f5fd">&#9670;&nbsp;</a></span>removeDying()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a> * Garden::removeDying </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>removes one dying plant from garden if there are any </p>
+<dl class="section return"><dt>Returns</dt><dd>A plant pointer of a dying plant in the garden </dd></dl>
 
 </div>
 </div>
@@ -342,9 +371,65 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>applyCare</b> ()</td>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="aa74ebc0a712b02a5627aae1506631362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74ebc0a712b02a5627aae1506631362">&#9670;&nbsp;</a></span>removeMature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a> * Garden::removeMature </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>removes one mature plant from garden if there are any </p>
+<dl class="section return"><dt>Returns</dt><dd>A plant pointer of a mature plant in the garden </dd></dl>
+
+</div>
+</div>
+<a id="a74bc061e5e1f3334576e738cb772fbcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74bc061e5e1f3334576e738cb772fbcb">&#9670;&nbsp;</a></span>tryAddItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Garden::tryAddItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-major) and returns true. If the grid is full (7+ capacity policy preserved via plantCount), the plant is not added and false is returned. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A pointer to a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to be added to the garden. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean indicator for success </dd></dl>
+
+<p>Implements <a class="el" href="classCollection.html">Collection&lt; Plant * &gt;</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="Garden_8h_source.html">Garden.h</a></li>
-<li>Garden.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

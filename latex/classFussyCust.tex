@@ -2,33 +2,170 @@
 \label{classFussyCust}\index{FussyCust@{FussyCust}}
 
 
+Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstract \mbox{\hyperlink{classCustomer}{Customer}} class.  
+
+
+
+
+{\ttfamily \#include $<$Fussy\+Cust.\+h$>$}
+
+
+
 Inheritance diagram for Fussy\+Cust\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=146pt]{classFussyCust__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Fussy\+Cust\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=146pt]{classFussyCust__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFussyCust_a56ee017bd4213a7ebe2158ca654b0b58}\label{classFussyCust_a56ee017bd4213a7ebe2158ca654b0b58}} 
-void {\bfseries get} ()
-\item 
-\mbox{\Hypertarget{classFussyCust_add709be95368df8de48c0e616f3295ec}\label{classFussyCust_add709be95368df8de48c0e616f3295ec}} 
-void {\bfseries set} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classFussyCust_a5fb1e168b07873b1995e304719b14407}{Fussy\+Cust}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFussyCust_a5af71330020a033675f29224050d1863}{Fussy\+Cust}} (std\+::string name, \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor, double time\+Available, \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$payment\+Strategy, vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ \mbox{\hyperlink{classCustomer_aadd58f56d9333e88d58c1b32f191aaa7}{preferred\+Plants}})
+\begin{DoxyCompactList}\small\item\em Parameterized constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFussyCust_ac9000db1b5dc153ceec9df462b6b6191}{$\sim$\+Fussy\+Cust}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Cleans up resources used by the customer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFussyCust_a0a174088950b0856605d4b139834af57}\label{classFussyCust_a0a174088950b0856605d4b139834af57}} 
+void \mbox{\hyperlink{classFussyCust_a0a174088950b0856605d4b139834af57}{pay}} ()
+\begin{DoxyCompactList}\small\item\em Executes the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classFussyCust_a3f30a8237bcd947b219eccc0f475b7f2}{voice\+Line}} () override
+\begin{DoxyCompactList}\small\item\em Returns a voice line specific to \mbox{\hyperlink{classFussyCust}{Fussy\+Cust}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$ \mbox{\hyperlink{classFussyCust_aaaa576c47fcadfd2179b144cc17c2f4b}{get\+Payment\+Strategy}} () const
+\begin{DoxyCompactList}\small\item\em Gets the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFussyCust_a0eb4a21629d3c8b5efdcbabed541fcaa}{set\+Payment\+Strategy}} (\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$strategy)
+\begin{DoxyCompactList}\small\item\em Sets the customer\textquotesingle{}s payment strategy. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classFussyCust_a6de7967e246ae51a930db762de11dea0}{enquire\+Plants}} (\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$sales\+Floor) override
+\begin{DoxyCompactList}\small\item\em Enquires about preferred plants from the sales floor. If a preferred plant is available, adds it to the cart and removes it from preferences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a fussy customer with specific preferences and a payment strategy. Inherits from the abstract \mbox{\hyperlink{classCustomer}{Customer}} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFussyCust_a5fb1e168b07873b1995e304719b14407}\label{classFussyCust_a5fb1e168b07873b1995e304719b14407}} 
+\index{FussyCust@{FussyCust}!FussyCust@{FussyCust}}
+\index{FussyCust@{FussyCust}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{FussyCust()}{FussyCust()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Fussy\+Cust\+::\+Fussy\+Cust (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+Default constructor for \mbox{\hyperlink{classFussyCust}{Fussy\+Cust}}. \mbox{\Hypertarget{classFussyCust_a5af71330020a033675f29224050d1863}\label{classFussyCust_a5af71330020a033675f29224050d1863}} 
+\index{FussyCust@{FussyCust}!FussyCust@{FussyCust}}
+\index{FussyCust@{FussyCust}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{FussyCust()}{FussyCust()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Fussy\+Cust\+::\+Fussy\+Cust (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor,  }\item[{double}]{time\+Available,  }\item[{\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$}]{payment\+Strategy,  }\item[{vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$}]{preferred\+Plants }\end{DoxyParamCaption})}
+
+
+
+Parameterized constructor. 
+
+Parameterized constructor for \mbox{\hyperlink{classFussyCust}{Fussy\+Cust}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em time\+Available} & Time available for shopping. \\
+\hline
+{\em payment\+Strategy} & Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. \\
+\hline
+{\em preferred\+Plants} & Vector of preferred \mbox{\hyperlink{classPlant}{Plant}} pointers.\\
+\hline
+{\em name} & Name of the customer. \\
+\hline
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+{\em time\+Available} & Time available for shopping. \\
+\hline
+{\em payment\+Strategy} & Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} used by the customer. \\
+\hline
+{\em preferred\+Plants} & Vector of preferred \mbox{\hyperlink{classPlant}{Plant}} pointers. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFussyCust_ac9000db1b5dc153ceec9df462b6b6191}\label{classFussyCust_ac9000db1b5dc153ceec9df462b6b6191}} 
+\index{FussyCust@{FussyCust}!````~FussyCust@{$\sim$FussyCust}}
+\index{````~FussyCust@{$\sim$FussyCust}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{$\sim$FussyCust()}{~FussyCust()}}
+{\footnotesize\ttfamily Fussy\+Cust\+::$\sim$\+Fussy\+Cust (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. Cleans up resources used by the customer. 
+
+Destructor for \mbox{\hyperlink{classFussyCust}{Fussy\+Cust}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFussyCust_a6de7967e246ae51a930db762de11dea0}\label{classFussyCust_a6de7967e246ae51a930db762de11dea0}} 
+\index{FussyCust@{FussyCust}!enquirePlants@{enquirePlants}}
+\index{enquirePlants@{enquirePlants}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{enquirePlants()}{enquirePlants()}}
+{\footnotesize\ttfamily string Fussy\+Cust\+::enquire\+Plants (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} $\ast$}]{sales\+Floor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Enquires about preferred plants from the sales floor. If a preferred plant is available, adds it to the cart and removes it from preferences. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sales\+Floor} & Pointer to the \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCustomer_a9ae7cc4763ead810ecb0107eeadceee8}{Customer}}.
+
+\mbox{\Hypertarget{classFussyCust_aaaa576c47fcadfd2179b144cc17c2f4b}\label{classFussyCust_aaaa576c47fcadfd2179b144cc17c2f4b}} 
+\index{FussyCust@{FussyCust}!getPaymentStrategy@{getPaymentStrategy}}
+\index{getPaymentStrategy@{getPaymentStrategy}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{getPaymentStrategy()}{getPaymentStrategy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}}$\ast$ Fussy\+Cust\+::get\+Payment\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the customer\textquotesingle{}s payment strategy. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFussyCust_a0eb4a21629d3c8b5efdcbabed541fcaa}\label{classFussyCust_a0eb4a21629d3c8b5efdcbabed541fcaa}} 
+\index{FussyCust@{FussyCust}!setPaymentStrategy@{setPaymentStrategy}}
+\index{setPaymentStrategy@{setPaymentStrategy}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{setPaymentStrategy()}{setPaymentStrategy()}}
+{\footnotesize\ttfamily void Fussy\+Cust\+::set\+Payment\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} $\ast$}]{strategy }\end{DoxyParamCaption})}
+
+
+
+Sets the customer\textquotesingle{}s payment strategy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strategy} & Pointer to the new \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFussyCust_a3f30a8237bcd947b219eccc0f475b7f2}\label{classFussyCust_a3f30a8237bcd947b219eccc0f475b7f2}} 
+\index{FussyCust@{FussyCust}!voiceLine@{voiceLine}}
+\index{voiceLine@{voiceLine}!FussyCust@{FussyCust}}
+\doxysubsubsection{\texorpdfstring{voiceLine()}{voiceLine()}}
+{\footnotesize\ttfamily string Fussy\+Cust\+::voice\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a voice line specific to \mbox{\hyperlink{classFussyCust}{Fussy\+Cust}}. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the customer\textquotesingle{}s voice line. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCustomer_a1bd2b4acaf9a0d25eeecbf0439ec9a73}{Customer}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

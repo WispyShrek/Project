@@ -2,33 +2,51 @@
 \label{classEFT}\index{EFT@{EFT}}
 
 
+A concrete payment strategy for Electronic Funds Transfer (\mbox{\hyperlink{classEFT}{EFT}}).  
+
+
+
+
+{\ttfamily \#include $<$EFT.\+h$>$}
+
+
+
 Inheritance diagram for EFT\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classEFT__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for EFT\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classEFT__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEFT_a3896653800e15f95e9c73ca5c093f360}\label{classEFT_a3896653800e15f95e9c73ca5c093f360}} 
-void {\bfseries pay} ()
-\end{DoxyCompactItemize}
+std\+::string \mbox{\hyperlink{classEFT_ade93e56991458636488fdf6ec269a106}{pay}} ()
+\begin{DoxyCompactList}\small\item\em Executes the payment process for \mbox{\hyperlink{classEFT}{EFT}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete payment strategy for Electronic Funds Transfer (\mbox{\hyperlink{classEFT}{EFT}}). 
+
+This class inherits from \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} and implements the {\ttfamily pay} method to handle payments made via \mbox{\hyperlink{classEFT}{EFT}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEFT_ade93e56991458636488fdf6ec269a106}\label{classEFT_ade93e56991458636488fdf6ec269a106}} 
+\index{EFT@{EFT}!pay@{pay}}
+\index{pay@{pay}!EFT@{EFT}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily std\+::string EFT\+::pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the payment process for \mbox{\hyperlink{classEFT}{EFT}}. 
+
+This method implements the payment logic for an Electronic Funds Transfer. It prints a message to the standard output to signify that the payment is being processed via \mbox{\hyperlink{classEFT}{EFT}}. 
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}{Payment\+Strategy}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 EFT.\+h\item 
-EFT.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{EFT_8cpp}{EFT.\+cpp}}\end{DoxyCompactItemize}

@@ -11,8 +11,7 @@ A class representing the dead state of a plant, derived from the \mbox{\hyperlin
 
 
 
-Inheritance diagram for Dead\+:
-\nopagebreak
+Inheritance diagram for Dead\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Dead\+:
 \end{figure}
 
 
-Collaboration diagram for Dead\+:
-\nopagebreak
+Collaboration diagram for Dead\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,13 +30,14 @@ Collaboration diagram for Dead\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classDead_a6452812a0feb82f1592cdaa42a76d736}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+void \mbox{\hyperlink{classDead_a58e3685a4ea1247202be6ec2bbb0fa18}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context) override
 \begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classDead_a34e278a5d5e856179bf562c8550fb504}\label{classDead_a34e278a5d5e856179bf562c8550fb504}} 
-void \mbox{\hyperlink{classDead_a34e278a5d5e856179bf562c8550fb504}{print}} ()
+\mbox{\Hypertarget{classDead_aa70e3573bc9525f19b166c49c8bafd3d}\label{classDead_aa70e3573bc9525f19b166c49c8bafd3d}} 
+void \mbox{\hyperlink{classDead_aa70e3573bc9525f19b166c49c8bafd3d}{print}} (std\+::string \&sprite) override
 \begin{DoxyCompactList}\small\item\em Prints the details of the dead state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classDead_aa45da2d6e10538788c2f7a0a2f9f4fc2}{clone}} () const override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classDead}{Dead}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -64,11 +63,11 @@ A pointer to the newly created \mbox{\hyperlink{classDead}{Dead}} state.
 
 Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
 
-\mbox{\Hypertarget{classDead_a6452812a0feb82f1592cdaa42a76d736}\label{classDead_a6452812a0feb82f1592cdaa42a76d736}} 
+\mbox{\Hypertarget{classDead_a58e3685a4ea1247202be6ec2bbb0fa18}\label{classDead_a58e3685a4ea1247202be6ec2bbb0fa18}} 
 \index{Dead@{Dead}!next@{next}}
 \index{next@{next}!Dead@{Dead}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
-{\footnotesize\ttfamily void Dead\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Dead\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

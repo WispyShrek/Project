@@ -1,38 +1,278 @@
 \hypertarget{classNursery}{}\doxysection{Nursery Class Reference}
 \label{classNursery}\index{Nursery@{Nursery}}
+
+
+Manages the entire nursery, including gardens, greenhouses, and staff.  
+
+
+
+
+{\ttfamily \#include $<$Nursery.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNursery_a497295754b206afac621ad451cc2812c}\label{classNursery_a497295754b206afac621ad451cc2812c}} 
-void {\bfseries add\+Garden} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$newgarden)
+\mbox{\Hypertarget{classNursery_a2c137b50439ddadd6d4c53e1a2b9508e}\label{classNursery_a2c137b50439ddadd6d4c53e1a2b9508e}} 
+const std\+::vector$<$ \mbox{\hyperlink{classStaff}{Staff}} $\ast$ $>$ \& {\bfseries get\+Staff} ()
 \item 
-\mbox{\Hypertarget{classNursery_a68d9c669a6e0a894e0a39e27ce404d8c}\label{classNursery_a68d9c669a6e0a894e0a39e27ce404d8c}} 
-void {\bfseries add\+Staff} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$new\+Staff)
+\mbox{\Hypertarget{classNursery_a026a584bf27da7a98fe639cc81769b11}\label{classNursery_a026a584bf27da7a98fe639cc81769b11}} 
+const std\+::vector$<$ \mbox{\hyperlink{classGarden}{Garden}} $\ast$ $>$ \& {\bfseries get\+Gardens} ()
 \item 
-\mbox{\Hypertarget{classNursery_ad629d16c990b8a3dcc28ae08e505c12b}\label{classNursery_ad629d16c990b8a3dcc28ae08e505c12b}} 
-void {\bfseries remove\+Staff} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$staff\+To\+Remove)
+\mbox{\Hypertarget{classNursery_a5340a47d189a8492cca7f7db9009201f}\label{classNursery_a5340a47d189a8492cca7f7db9009201f}} 
+const std\+::vector$<$ \mbox{\hyperlink{classgreenHouse}{green\+House}} $\ast$ $>$ \& {\bfseries get\+Greenhouses} ()
 \item 
-\mbox{\Hypertarget{classNursery_ac2eec7542728ff8b0412700c6178c308}\label{classNursery_ac2eec7542728ff8b0412700c6178c308}} 
-void {\bfseries remove\+Garden} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$garden\+To\+Remove)
+void \mbox{\hyperlink{classNursery_a9629790e42830efecbe7bae9458a1df7}{add\+Greenhouse}} (\mbox{\hyperlink{classgreenHouse}{green\+House}} $\ast$greenhouse)
+\begin{DoxyCompactList}\small\item\em Adds a new greenhouse to the nursery. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNursery_a6ae69a308e48be1a206118f1b184d01a}\label{classNursery_a6ae69a308e48be1a206118f1b184d01a}} 
+void {\bfseries remove\+Cust} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
 \item 
-\mbox{\Hypertarget{classNursery_ad198dd2cb942f56db5b87cf132956be3}\label{classNursery_ad198dd2cb942f56db5b87cf132956be3}} 
-void {\bfseries customer\+Spawner} ()
+void \mbox{\hyperlink{classNursery_a497295754b206afac621ad451cc2812c}{add\+Garden}} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$newgarden)
+\begin{DoxyCompactList}\small\item\em Adds a new garden to the nursery\textquotesingle{}s collection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNursery_af527ba858824d16dd07576a69427cd83}\label{classNursery_af527ba858824d16dd07576a69427cd83}} 
+void {\bfseries add\+To\+Balance} (double to\+Add)
 \item 
-\mbox{\Hypertarget{classNursery_a191b06eb8bbbf9ad31e12dad7bf24b63}\label{classNursery_a191b06eb8bbbf9ad31e12dad7bf24b63}} 
-size\+\_\+t {\bfseries get\+Garden\+Count} () const
+\mbox{\Hypertarget{classNursery_a45dbf1e5f0b657f51ce221334ba66180}\label{classNursery_a45dbf1e5f0b657f51ce221334ba66180}} 
+bool {\bfseries remove\+From\+Balance} (double to\+Remove)
 \item 
-\mbox{\Hypertarget{classNursery_a87c1eb879c900148114e3bab227b5ebb}\label{classNursery_a87c1eb879c900148114e3bab227b5ebb}} 
-size\+\_\+t {\bfseries get\+Staff\+Count} () const
+\mbox{\Hypertarget{classNursery_acb2e00f9fd4b9b3d409625940985f3d9}\label{classNursery_acb2e00f9fd4b9b3d409625940985f3d9}} 
+double {\bfseries get\+Balance} ()
+\item 
+\mbox{\Hypertarget{classNursery_a308fe88d15cf381a2b7542ebf97687dd}\label{classNursery_a308fe88d15cf381a2b7542ebf97687dd}} 
+std\+::vector$<$ \mbox{\hyperlink{classCustomer}{Customer}} $\ast$ $>$ \& {\bfseries get\+Customers} ()
+\item 
+void \mbox{\hyperlink{classNursery_a68d9c669a6e0a894e0a39e27ce404d8c}{add\+Staff}} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$new\+Staff)
+\begin{DoxyCompactList}\small\item\em Adds a new staff member to the nursery. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNursery_ad629d16c990b8a3dcc28ae08e505c12b}{remove\+Staff}} (\mbox{\hyperlink{classStaff}{Staff}} $\ast$staff\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a staff member from the nursery. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNursery_af16db1f305133874dd3097369695301c}{add\+To\+Plant\+Inventory}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$inventory)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the nursery inventory If the plant is mature, automatically transfers the item to the salesfloor to be sold. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNursery_af17107bce306ea6a39ceb59813e5b393}\label{classNursery_af17107bce306ea6a39ceb59813e5b393}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries remove\+From\+Plant\+Inventory} ()
+\item 
+\mbox{\Hypertarget{classNursery_ac97f2a8e79a3eb5e3f58f3ce80534867}\label{classNursery_ac97f2a8e79a3eb5e3f58f3ce80534867}} 
+std\+::string {\bfseries get\+Latest\+Customer\+Voice} ()
+\item 
+\mbox{\Hypertarget{classNursery_aa52ab37889e880f1ef6083589b4024ce}\label{classNursery_aa52ab37889e880f1ef6083589b4024ce}} 
+std\+::vector$<$ \mbox{\hyperlink{classCustomer}{Customer}} $\ast$ $>$ {\bfseries get\+Custs} ()
+\item 
+void \mbox{\hyperlink{classNursery_ac2eec7542728ff8b0412700c6178c308}{remove\+Garden}} (\mbox{\hyperlink{classGarden}{Garden}} $\ast$garden\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a garden from the nursery. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classNursery_a9828d5962ba3cd297c09908283767dae}{customer\+Spawner}} ()
+\begin{DoxyCompactList}\small\item\em Spawns a customer with randomized preferences and payment strategy. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classNursery_a191b06eb8bbbf9ad31e12dad7bf24b63}{get\+Garden\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current number of gardens in the nursery. This function is primarily for debugging purposes. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classNursery_a87c1eb879c900148114e3bab227b5ebb}{get\+Staff\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current number of staff members in the nursery. This function is primarily for debugging purposes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNursery_ab6cf65a956f05d6c71f723153dc63372}\label{classNursery_ab6cf65a956f05d6c71f723153dc63372}} 
+void {\bfseries log\+Purchase} (const std\+::string \&message)
+\item 
+\mbox{\Hypertarget{classNursery_a28042c2970d530b063dedd19ae768d6a}\label{classNursery_a28042c2970d530b063dedd19ae768d6a}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+Purchase\+Messages} ()
+\item 
+\mbox{\Hypertarget{classNursery_afd2b2bbe1a1c8e74ddf12acadc9b85f4}\label{classNursery_afd2b2bbe1a1c8e74ddf12acadc9b85f4}} 
+void {\bfseries clear\+Purchase\+Messages} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNursery_a75ea5fcb9063e9c57f773fb6deeb2097}\label{classNursery_a75ea5fcb9063e9c57f773fb6deeb2097}} 
-static \mbox{\hyperlink{classNursery}{Nursery}} \& {\bfseries instance} ()
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classNursery}{Nursery}} \& \mbox{\hyperlink{classNursery_a0ff347a8c688e79c24f1f531184d465f}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Provides access to the single instance of the \mbox{\hyperlink{classNursery}{Nursery}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNursery_a1da8ca13373fe8f9b01a500e784ef063}{Nursery}} ()
+\begin{DoxyCompactList}\small\item\em Protected constructor to enforce the Singleton pattern. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNursery_a14147229d47eb7fefc609f4105a97b40}{$\sim$\+Nursery}} ()
+\begin{DoxyCompactList}\small\item\em Protected destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the entire nursery, including gardens, greenhouses, and staff. 
+
+This class is implemented as a Singleton, ensuring that only one instance of the nursery exists throughout the application. It provides a central point of access for managing all major components of the nursery. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNursery_a1da8ca13373fe8f9b01a500e784ef063}\label{classNursery_a1da8ca13373fe8f9b01a500e784ef063}} 
+\index{Nursery@{Nursery}!Nursery@{Nursery}}
+\index{Nursery@{Nursery}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{Nursery()}{Nursery()}}
+{\footnotesize\ttfamily Nursery\+::\+Nursery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Protected constructor to enforce the Singleton pattern. 
+
+The constructor is protected to prevent direct instantiation of the \mbox{\hyperlink{classNursery}{Nursery}} class. The single instance should be accessed via the static {\ttfamily \mbox{\hyperlink{classNursery_a0ff347a8c688e79c24f1f531184d465f}{instance()}}} method. \mbox{\Hypertarget{classNursery_a14147229d47eb7fefc609f4105a97b40}\label{classNursery_a14147229d47eb7fefc609f4105a97b40}} 
+\index{Nursery@{Nursery}!````~Nursery@{$\sim$Nursery}}
+\index{````~Nursery@{$\sim$Nursery}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{$\sim$Nursery()}{~Nursery()}}
+{\footnotesize\ttfamily Nursery\+::$\sim$\+Nursery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Protected destructor. 
+
+The destructor does not deallocate the pointers in its vectors. Ownership of \mbox{\hyperlink{classGarden}{Garden}} and \mbox{\hyperlink{classStaff}{Staff}} objects is managed externally. The \mbox{\hyperlink{classNursery}{Nursery}} only manages the collections of pointers. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNursery_a497295754b206afac621ad451cc2812c}\label{classNursery_a497295754b206afac621ad451cc2812c}} 
+\index{Nursery@{Nursery}!addGarden@{addGarden}}
+\index{addGarden@{addGarden}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{addGarden()}{addGarden()}}
+{\footnotesize\ttfamily void Nursery\+::add\+Garden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGarden}{Garden}} $\ast$}]{newgarden }\end{DoxyParamCaption})}
+
+
+
+Adds a new garden to the nursery\textquotesingle{}s collection. 
+
+Adds a new garden to the nursery.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Garden} & A pointer to the \mbox{\hyperlink{classGarden}{Garden}} object to be added. Does nothing if the pointer is null.\\
+\hline
+{\em newgarden} & A pointer to the \mbox{\hyperlink{classGarden}{Garden}} object to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNursery_a9629790e42830efecbe7bae9458a1df7}\label{classNursery_a9629790e42830efecbe7bae9458a1df7}} 
+\index{Nursery@{Nursery}!addGreenhouse@{addGreenhouse}}
+\index{addGreenhouse@{addGreenhouse}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{addGreenhouse()}{addGreenhouse()}}
+{\footnotesize\ttfamily void Nursery\+::add\+Greenhouse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgreenHouse}{green\+House}} $\ast$}]{greenhouse }\end{DoxyParamCaption})}
+
+
+
+Adds a new greenhouse to the nursery. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em newgarden} & A pointer to the \mbox{\hyperlink{classgreenHouse}{green\+House}} object to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNursery_a68d9c669a6e0a894e0a39e27ce404d8c}\label{classNursery_a68d9c669a6e0a894e0a39e27ce404d8c}} 
+\index{Nursery@{Nursery}!addStaff@{addStaff}}
+\index{addStaff@{addStaff}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{addStaff()}{addStaff()}}
+{\footnotesize\ttfamily void Nursery\+::add\+Staff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} $\ast$}]{new\+Staff }\end{DoxyParamCaption})}
+
+
+
+Adds a new staff member to the nursery. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Staff} & A pointer to the \mbox{\hyperlink{classStaff}{Staff}} object to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNursery_af16db1f305133874dd3097369695301c}\label{classNursery_af16db1f305133874dd3097369695301c}} 
+\index{Nursery@{Nursery}!addToPlantInventory@{addToPlantInventory}}
+\index{addToPlantInventory@{addToPlantInventory}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{addToPlantInventory()}{addToPlantInventory()}}
+{\footnotesize\ttfamily void Nursery\+::add\+To\+Plant\+Inventory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{inventory }\end{DoxyParamCaption})}
+
+
+
+Adds a plant to the nursery inventory If the plant is mature, automatically transfers the item to the salesfloor to be sold. 
+
+Removes a plant to the nursery inventory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classPlant}{Plant}}} & pointer to be added to plant\+Inventory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classPlant}{Plant}} pointer to the removed plant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNursery_a9828d5962ba3cd297c09908283767dae}\label{classNursery_a9828d5962ba3cd297c09908283767dae}} 
+\index{Nursery@{Nursery}!customerSpawner@{customerSpawner}}
+\index{customerSpawner@{customerSpawner}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{customerSpawner()}{customerSpawner()}}
+{\footnotesize\ttfamily std\+::string Nursery\+::customer\+Spawner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Spawns a customer with randomized preferences and payment strategy. 
+
+This function simulates customer creation at random intervals. It randomly selects a payment strategy (\mbox{\hyperlink{classEFT}{EFT}}, \mbox{\hyperlink{classCard}{Card}}, or \mbox{\hyperlink{classCash}{Cash}}), plant preferences (including optional decorations), and customer type (Easy or Fussy). The created customer is added to the nursery\textquotesingle{}s internal list and deleted after use. Intended for dynamic simulation of customer behavior.
+
+This method simulates customer creation at random intervals. It randomly selects a payment strategy, plant preferences, and customer type (Easy or Fussy). The created customer is added to the nursery\textquotesingle{}s internal list and deleted after use. \mbox{\Hypertarget{classNursery_a191b06eb8bbbf9ad31e12dad7bf24b63}\label{classNursery_a191b06eb8bbbf9ad31e12dad7bf24b63}} 
+\index{Nursery@{Nursery}!getGardenCount@{getGardenCount}}
+\index{getGardenCount@{getGardenCount}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{getGardenCount()}{getGardenCount()}}
+{\footnotesize\ttfamily size\+\_\+t Nursery\+::get\+Garden\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current number of gardens in the nursery. This function is primarily for debugging purposes. 
+
+\begin{DoxyReturn}{Returns}
+The number of gardens. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNursery_a87c1eb879c900148114e3bab227b5ebb}\label{classNursery_a87c1eb879c900148114e3bab227b5ebb}} 
+\index{Nursery@{Nursery}!getStaffCount@{getStaffCount}}
+\index{getStaffCount@{getStaffCount}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{getStaffCount()}{getStaffCount()}}
+{\footnotesize\ttfamily size\+\_\+t Nursery\+::get\+Staff\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current number of staff members in the nursery. This function is primarily for debugging purposes. 
+
+\begin{DoxyReturn}{Returns}
+The number of staff members. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNursery_a0ff347a8c688e79c24f1f531184d465f}\label{classNursery_a0ff347a8c688e79c24f1f531184d465f}} 
+\index{Nursery@{Nursery}!instance@{instance}}
+\index{instance@{instance}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classNursery}{Nursery}} \& Nursery\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Provides access to the single instance of the \mbox{\hyperlink{classNursery}{Nursery}}. 
+
+This static method implements the Meyers\textquotesingle{} Singleton pattern. It ensures that only one instance of the \mbox{\hyperlink{classNursery}{Nursery}} is created. On the first call, it initializes the static {\ttfamily unique\+Instance}; on subsequent calls, it returns the existing one.
+
+\begin{DoxyReturn}{Returns}
+A reference to the unique \mbox{\hyperlink{classNursery}{Nursery}} instance.
+\end{DoxyReturn}
+This static method ensures that only one instance of the \mbox{\hyperlink{classNursery}{Nursery}} is created. On the first call, it creates the instance; on subsequent calls, it returns the existing instance. \begin{DoxyReturn}{Returns}
+A reference to the unique \mbox{\hyperlink{classNursery}{Nursery}} instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNursery_ac2eec7542728ff8b0412700c6178c308}\label{classNursery_ac2eec7542728ff8b0412700c6178c308}} 
+\index{Nursery@{Nursery}!removeGarden@{removeGarden}}
+\index{removeGarden@{removeGarden}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{removeGarden()}{removeGarden()}}
+{\footnotesize\ttfamily void Nursery\+::remove\+Garden (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGarden}{Garden}} $\ast$}]{garden\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+Removes a garden from the nursery. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em garden\+To\+Remove} & A pointer to the \mbox{\hyperlink{classGarden}{Garden}} object to be removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNursery_ad629d16c990b8a3dcc28ae08e505c12b}\label{classNursery_ad629d16c990b8a3dcc28ae08e505c12b}} 
+\index{Nursery@{Nursery}!removeStaff@{removeStaff}}
+\index{removeStaff@{removeStaff}!Nursery@{Nursery}}
+\doxysubsubsection{\texorpdfstring{removeStaff()}{removeStaff()}}
+{\footnotesize\ttfamily void Nursery\+::remove\+Staff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStaff}{Staff}} $\ast$}]{staff\+To\+Remove }\end{DoxyParamCaption})}
+
+
+
+Removes a staff member from the nursery. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em staff\+To\+Remove} & A pointer to the \mbox{\hyperlink{classStaff}{Staff}} object to be removed. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 Nursery.\+h\item 
-Nursery.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Nursery_8cpp}{Nursery.\+cpp}}\end{DoxyCompactItemize}

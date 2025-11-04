@@ -68,19 +68,109 @@ $(function() {
 <div class="title">PlantMemento Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Stores the internal state of a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object.  
+ <a href="classPlantMemento.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PlantMemento_8h_source.html">PlantMemento.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa3eddca8ce20e01ab183e274bd467ac0"><td class="memItemLeft" align="right" valign="top"><a id="aa3eddca8ce20e01ab183e274bd467ac0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PlantMemento</b> (<a class="el" href="classPlantState.html">PlantState</a> *state)</td></tr>
+<tr class="memitem:a63177e472aae4051d2a7066a6e209797"><td class="memItemLeft" align="right" valign="top"><a id="a63177e472aae4051d2a7066a6e209797"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantMemento.html#a63177e472aae4051d2a7066a6e209797">PlantMemento</a> ()</td></tr>
+<tr class="memdesc:a63177e472aae4051d2a7066a6e209797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Initializes the memento with a null state. <br /></td></tr>
+<tr class="separator:a63177e472aae4051d2a7066a6e209797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3eddca8ce20e01ab183e274bd467ac0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantMemento.html#aa3eddca8ce20e01ab183e274bd467ac0">PlantMemento</a> (<a class="el" href="classPlantState.html">PlantState</a> *state)</td></tr>
+<tr class="memdesc:aa3eddca8ce20e01ab183e274bd467ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that captures a plant's state.  <a href="classPlantMemento.html#aa3eddca8ce20e01ab183e274bd467ac0">More...</a><br /></td></tr>
 <tr class="separator:aa3eddca8ce20e01ab183e274bd467ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44671dc44ed45a614f52368178be42f3"><td class="memItemLeft" align="right" valign="top"><a id="a44671dc44ed45a614f52368178be42f3"></a>
-<a class="el" href="classPlantState.html">PlantState</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> () const</td></tr>
+<tr class="memitem:a9322db58bae45e495e16878c5fde16a1"><td class="memItemLeft" align="right" valign="top"><a id="a9322db58bae45e495e16878c5fde16a1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantMemento.html#a9322db58bae45e495e16878c5fde16a1">~PlantMemento</a> ()</td></tr>
+<tr class="memdesc:a9322db58bae45e495e16878c5fde16a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Cleans up the stored <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> clone. <br /></td></tr>
+<tr class="separator:a9322db58bae45e495e16878c5fde16a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44671dc44ed45a614f52368178be42f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlantState.html">PlantState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantMemento.html#a44671dc44ed45a614f52368178be42f3">getState</a> () const</td></tr>
+<tr class="memdesc:a44671dc44ed45a614f52368178be42f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the saved state.  <a href="classPlantMemento.html#a44671dc44ed45a614f52368178be42f3">More...</a><br /></td></tr>
 <tr class="separator:a44671dc44ed45a614f52368178be42f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30666e1b584675f01b39dd03889f1c2b"><td class="memItemLeft" align="right" valign="top"><a id="a30666e1b584675f01b39dd03889f1c2b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (<a class="el" href="classPlantState.html">PlantState</a> *state)</td></tr>
+<tr class="memitem:a30666e1b584675f01b39dd03889f1c2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantMemento.html#a30666e1b584675f01b39dd03889f1c2b">setState</a> (<a class="el" href="classPlantState.html">PlantState</a> *state)</td></tr>
+<tr class="memdesc:a30666e1b584675f01b39dd03889f1c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the state to be stored in the memento.  <a href="classPlantMemento.html#a30666e1b584675f01b39dd03889f1c2b">More...</a><br /></td></tr>
 <tr class="separator:a30666e1b584675f01b39dd03889f1c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Stores the internal state of a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object. </p>
+<p>The <a class="el" href="classPlantMemento.html" title="Stores the internal state of a Plant object.">PlantMemento</a> is part of the Memento design pattern. It is created by a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> (the Originator) to save its current state (a <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> object). The <a class="el" href="classCaretaker.html">Caretaker</a> can hold this memento and use it to restore the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a>'s state later, without having access to the state's implementation details. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa3eddca8ce20e01ab183e274bd467ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3eddca8ce20e01ab183e274bd467ac0">&#9670;&nbsp;</a></span>PlantMemento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlantMemento::PlantMemento </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlantState.html">PlantState</a> *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor that captures a plant's state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>A pointer to the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> to be saved. The memento creates a clone of this state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a44671dc44ed45a614f52368178be42f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44671dc44ed45a614f52368178be42f3">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlantState.html">PlantState</a> * PlantMemento::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves the saved state. </p>
+<dl class="section return"><dt>Returns</dt><dd>A clone of the saved <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a>. The caller (the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a>) is responsible for managing this new object's memory. </dd></dl>
+
+</div>
+</div>
+<a id="a30666e1b584675f01b39dd03889f1c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30666e1b584675f01b39dd03889f1c2b">&#9670;&nbsp;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlantMemento::setState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlantState.html">PlantState</a> *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the state to be stored in the memento. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>A pointer to the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> to be saved. The memento creates a clone of this state. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="PlantMemento_8h_source.html">PlantMemento.h</a></li>
 <li>PlantMemento.cpp</li>

@@ -68,32 +68,30 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LILY_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LILY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;PartialSunCare.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PartialSunCare_8h.html">PartialSunCare.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classLily.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLily.html">Lily</a> : <span class="keyword">public</span> <a class="code" href="classPlant.html">Plant</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">double</span> price;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classLily.html#ac83bdf0ac208dacd9cfbd61cd886f58b">Lily</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::string <a class="code" href="classLily.html#a01340c5363d7f0596e63a843c0e307f7">getName</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="classLily.html">Lily</a> *<a class="code" href="classLily.html#a880c72a39b64113349cbc6bcedb92554">clone</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classLily.html#ae4e27e50c2a864e028f253a8347b7050">print</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classLily.html#ae8abda731f593a0da381f42cfcfc51ee">getPrice</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="classLily.html#ac83bdf0ac208dacd9cfbd61cd886f58b">Lily</a>(<a class="code" href="classLily.html">Lily</a> &amp;toCopy);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classLily.html#ac83bdf0ac208dacd9cfbd61cd886f58b">Lily</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::string <a class="code" href="classLily.html#a70d1f3638ff9d4fe3600fd3db2f38feb">getName</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classLily.html">Lily</a> *<a class="code" href="classLily.html#a71121f157c0cdcc7a0d6948773ad642b">clone</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::string <a class="code" href="classLily.html#a23f92ca759b2e7a4a3dd339a6ac59767">print</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classLily.html#ac568755c4599a86a56beceddbe2c03ff">getPrice</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classLily.html#ac83bdf0ac208dacd9cfbd61cd886f58b">Lily</a>(<a class="code" href="classLily.html">Lily</a> &amp;toCopy);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aPartialSunCare_8h_html"><div class="ttname"><a href="PartialSunCare_8h.html">PartialSunCare.h</a></div><div class="ttdoc">Definition of the PartialSunCare class, a concrete care strategy.</div></div>
 <div class="ttc" id="aclassLily_html"><div class="ttname"><a href="classLily.html">Lily</a></div><div class="ttdoc">A class representing a Lily plant, derived from the Plant base class.</div><div class="ttdef"><b>Definition:</b> Lily.h:14</div></div>
-<div class="ttc" id="aclassLily_html_a01340c5363d7f0596e63a843c0e307f7"><div class="ttname"><a href="classLily.html#a01340c5363d7f0596e63a843c0e307f7">Lily::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Returns the name of the plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:8</div></div>
-<div class="ttc" id="aclassLily_html_a880c72a39b64113349cbc6bcedb92554"><div class="ttname"><a href="classLily.html#a880c72a39b64113349cbc6bcedb92554">Lily::clone</a></div><div class="ttdeci">Lily * clone()</div><div class="ttdoc">Creates a clone of the Lily object.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:12</div></div>
+<div class="ttc" id="aclassLily_html_a23f92ca759b2e7a4a3dd339a6ac59767"><div class="ttname"><a href="classLily.html#a23f92ca759b2e7a4a3dd339a6ac59767">Lily::print</a></div><div class="ttdeci">std::string print() override</div><div class="ttdoc">Returns the details of the Lily plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:12</div></div>
+<div class="ttc" id="aclassLily_html_a70d1f3638ff9d4fe3600fd3db2f38feb"><div class="ttname"><a href="classLily.html#a70d1f3638ff9d4fe3600fd3db2f38feb">Lily::getName</a></div><div class="ttdeci">std::string getName() override</div><div class="ttdoc">Returns the name of the plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:8</div></div>
+<div class="ttc" id="aclassLily_html_a71121f157c0cdcc7a0d6948773ad642b"><div class="ttname"><a href="classLily.html#a71121f157c0cdcc7a0d6948773ad642b">Lily::clone</a></div><div class="ttdeci">Lily * clone() override</div><div class="ttdoc">Creates a clone of the Lily object.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:10</div></div>
+<div class="ttc" id="aclassLily_html_ac568755c4599a86a56beceddbe2c03ff"><div class="ttname"><a href="classLily.html#ac568755c4599a86a56beceddbe2c03ff">Lily::getPrice</a></div><div class="ttdeci">double getPrice() override</div><div class="ttdoc">Returns the price of the Lily plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:21</div></div>
 <div class="ttc" id="aclassLily_html_ac83bdf0ac208dacd9cfbd61cd886f58b"><div class="ttname"><a href="classLily.html#ac83bdf0ac208dacd9cfbd61cd886f58b">Lily::Lily</a></div><div class="ttdeci">Lily()</div><div class="ttdoc">Constructor for the Lily class.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:3</div></div>
-<div class="ttc" id="aclassLily_html_ae4e27e50c2a864e028f253a8347b7050"><div class="ttname"><a href="classLily.html#ae4e27e50c2a864e028f253a8347b7050">Lily::print</a></div><div class="ttdeci">void print() override</div><div class="ttdoc">Prints the details of the Lily plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:16</div></div>
-<div class="ttc" id="aclassLily_html_ae8abda731f593a0da381f42cfcfc51ee"><div class="ttname"><a href="classLily.html#ae8abda731f593a0da381f42cfcfc51ee">Lily::getPrice</a></div><div class="ttdeci">double getPrice()</div><div class="ttdoc">Returns the price of the Lily plant.</div><div class="ttdef"><b>Definition:</b> Lily.cpp:20</div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

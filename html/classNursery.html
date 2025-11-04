@@ -64,45 +64,436 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classNursery-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Nursery Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the entire nursery, including gardens, greenhouses, and staff.  
+ <a href="classNursery.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Nursery_8h_source.html">Nursery.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a497295754b206afac621ad451cc2812c"><td class="memItemLeft" align="right" valign="top"><a id="a497295754b206afac621ad451cc2812c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addGarden</b> (<a class="el" href="classGarden.html">Garden</a> *newgarden)</td></tr>
+<tr class="memitem:a2c137b50439ddadd6d4c53e1a2b9508e"><td class="memItemLeft" align="right" valign="top"><a id="a2c137b50439ddadd6d4c53e1a2b9508e"></a>
+const std::vector&lt; <a class="el" href="classStaff.html">Staff</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getStaff</b> ()</td></tr>
+<tr class="separator:a2c137b50439ddadd6d4c53e1a2b9508e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026a584bf27da7a98fe639cc81769b11"><td class="memItemLeft" align="right" valign="top"><a id="a026a584bf27da7a98fe639cc81769b11"></a>
+const std::vector&lt; <a class="el" href="classGarden.html">Garden</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGardens</b> ()</td></tr>
+<tr class="separator:a026a584bf27da7a98fe639cc81769b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5340a47d189a8492cca7f7db9009201f"><td class="memItemLeft" align="right" valign="top"><a id="a5340a47d189a8492cca7f7db9009201f"></a>
+const std::vector&lt; <a class="el" href="classgreenHouse.html">greenHouse</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getGreenhouses</b> ()</td></tr>
+<tr class="separator:a5340a47d189a8492cca7f7db9009201f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9629790e42830efecbe7bae9458a1df7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a9629790e42830efecbe7bae9458a1df7">addGreenhouse</a> (<a class="el" href="classgreenHouse.html">greenHouse</a> *greenhouse)</td></tr>
+<tr class="memdesc:a9629790e42830efecbe7bae9458a1df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new greenhouse to the nursery.  <a href="classNursery.html#a9629790e42830efecbe7bae9458a1df7">More...</a><br /></td></tr>
+<tr class="separator:a9629790e42830efecbe7bae9458a1df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ae69a308e48be1a206118f1b184d01a"><td class="memItemLeft" align="right" valign="top"><a id="a6ae69a308e48be1a206118f1b184d01a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCust</b> (<a class="el" href="classCustomer.html">Customer</a> *customer)</td></tr>
+<tr class="separator:a6ae69a308e48be1a206118f1b184d01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497295754b206afac621ad451cc2812c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a497295754b206afac621ad451cc2812c">addGarden</a> (<a class="el" href="classGarden.html">Garden</a> *newgarden)</td></tr>
+<tr class="memdesc:a497295754b206afac621ad451cc2812c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new garden to the nursery's collection.  <a href="classNursery.html#a497295754b206afac621ad451cc2812c">More...</a><br /></td></tr>
 <tr class="separator:a497295754b206afac621ad451cc2812c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68d9c669a6e0a894e0a39e27ce404d8c"><td class="memItemLeft" align="right" valign="top"><a id="a68d9c669a6e0a894e0a39e27ce404d8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addStaff</b> (<a class="el" href="classStaff.html">Staff</a> *newStaff)</td></tr>
+<tr class="memitem:af527ba858824d16dd07576a69427cd83"><td class="memItemLeft" align="right" valign="top"><a id="af527ba858824d16dd07576a69427cd83"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addToBalance</b> (double toAdd)</td></tr>
+<tr class="separator:af527ba858824d16dd07576a69427cd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45dbf1e5f0b657f51ce221334ba66180"><td class="memItemLeft" align="right" valign="top"><a id="a45dbf1e5f0b657f51ce221334ba66180"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeFromBalance</b> (double toRemove)</td></tr>
+<tr class="separator:a45dbf1e5f0b657f51ce221334ba66180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb2e00f9fd4b9b3d409625940985f3d9"><td class="memItemLeft" align="right" valign="top"><a id="acb2e00f9fd4b9b3d409625940985f3d9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>getBalance</b> ()</td></tr>
+<tr class="separator:acb2e00f9fd4b9b3d409625940985f3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308fe88d15cf381a2b7542ebf97687dd"><td class="memItemLeft" align="right" valign="top"><a id="a308fe88d15cf381a2b7542ebf97687dd"></a>
+std::vector&lt; <a class="el" href="classCustomer.html">Customer</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCustomers</b> ()</td></tr>
+<tr class="separator:a308fe88d15cf381a2b7542ebf97687dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d9c669a6e0a894e0a39e27ce404d8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a68d9c669a6e0a894e0a39e27ce404d8c">addStaff</a> (<a class="el" href="classStaff.html">Staff</a> *newStaff)</td></tr>
+<tr class="memdesc:a68d9c669a6e0a894e0a39e27ce404d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new staff member to the nursery.  <a href="classNursery.html#a68d9c669a6e0a894e0a39e27ce404d8c">More...</a><br /></td></tr>
 <tr class="separator:a68d9c669a6e0a894e0a39e27ce404d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad629d16c990b8a3dcc28ae08e505c12b"><td class="memItemLeft" align="right" valign="top"><a id="ad629d16c990b8a3dcc28ae08e505c12b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeStaff</b> (<a class="el" href="classStaff.html">Staff</a> *staffToRemove)</td></tr>
+<tr class="memitem:ad629d16c990b8a3dcc28ae08e505c12b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#ad629d16c990b8a3dcc28ae08e505c12b">removeStaff</a> (<a class="el" href="classStaff.html">Staff</a> *staffToRemove)</td></tr>
+<tr class="memdesc:ad629d16c990b8a3dcc28ae08e505c12b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a staff member from the nursery.  <a href="classNursery.html#ad629d16c990b8a3dcc28ae08e505c12b">More...</a><br /></td></tr>
 <tr class="separator:ad629d16c990b8a3dcc28ae08e505c12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2eec7542728ff8b0412700c6178c308"><td class="memItemLeft" align="right" valign="top"><a id="ac2eec7542728ff8b0412700c6178c308"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeGarden</b> (<a class="el" href="classGarden.html">Garden</a> *gardenToRemove)</td></tr>
+<tr class="memitem:af16db1f305133874dd3097369695301c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#af16db1f305133874dd3097369695301c">addToPlantInventory</a> (<a class="el" href="classPlant.html">Plant</a> *inventory)</td></tr>
+<tr class="memdesc:af16db1f305133874dd3097369695301c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the nursery inventory If the plant is mature, automatically transfers the item to the salesfloor to be sold.  <a href="classNursery.html#af16db1f305133874dd3097369695301c">More...</a><br /></td></tr>
+<tr class="separator:af16db1f305133874dd3097369695301c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af17107bce306ea6a39ceb59813e5b393"><td class="memItemLeft" align="right" valign="top"><a id="af17107bce306ea6a39ceb59813e5b393"></a>
+<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>removeFromPlantInventory</b> ()</td></tr>
+<tr class="separator:af17107bce306ea6a39ceb59813e5b393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac97f2a8e79a3eb5e3f58f3ce80534867"><td class="memItemLeft" align="right" valign="top"><a id="ac97f2a8e79a3eb5e3f58f3ce80534867"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getLatestCustomerVoice</b> ()</td></tr>
+<tr class="separator:ac97f2a8e79a3eb5e3f58f3ce80534867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52ab37889e880f1ef6083589b4024ce"><td class="memItemLeft" align="right" valign="top"><a id="aa52ab37889e880f1ef6083589b4024ce"></a>
+std::vector&lt; <a class="el" href="classCustomer.html">Customer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCusts</b> ()</td></tr>
+<tr class="separator:aa52ab37889e880f1ef6083589b4024ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2eec7542728ff8b0412700c6178c308"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#ac2eec7542728ff8b0412700c6178c308">removeGarden</a> (<a class="el" href="classGarden.html">Garden</a> *gardenToRemove)</td></tr>
+<tr class="memdesc:ac2eec7542728ff8b0412700c6178c308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a garden from the nursery.  <a href="classNursery.html#ac2eec7542728ff8b0412700c6178c308">More...</a><br /></td></tr>
 <tr class="separator:ac2eec7542728ff8b0412700c6178c308"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad198dd2cb942f56db5b87cf132956be3"><td class="memItemLeft" align="right" valign="top"><a id="ad198dd2cb942f56db5b87cf132956be3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>customerSpawner</b> ()</td></tr>
-<tr class="separator:ad198dd2cb942f56db5b87cf132956be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a191b06eb8bbbf9ad31e12dad7bf24b63"><td class="memItemLeft" align="right" valign="top"><a id="a191b06eb8bbbf9ad31e12dad7bf24b63"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getGardenCount</b> () const</td></tr>
+<tr class="memitem:a9828d5962ba3cd297c09908283767dae"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a9828d5962ba3cd297c09908283767dae">customerSpawner</a> ()</td></tr>
+<tr class="memdesc:a9828d5962ba3cd297c09908283767dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns a customer with randomized preferences and payment strategy.  <a href="classNursery.html#a9828d5962ba3cd297c09908283767dae">More...</a><br /></td></tr>
+<tr class="separator:a9828d5962ba3cd297c09908283767dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191b06eb8bbbf9ad31e12dad7bf24b63"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a191b06eb8bbbf9ad31e12dad7bf24b63">getGardenCount</a> () const</td></tr>
+<tr class="memdesc:a191b06eb8bbbf9ad31e12dad7bf24b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of gardens in the nursery. This function is primarily for debugging purposes.  <a href="classNursery.html#a191b06eb8bbbf9ad31e12dad7bf24b63">More...</a><br /></td></tr>
 <tr class="separator:a191b06eb8bbbf9ad31e12dad7bf24b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87c1eb879c900148114e3bab227b5ebb"><td class="memItemLeft" align="right" valign="top"><a id="a87c1eb879c900148114e3bab227b5ebb"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getStaffCount</b> () const</td></tr>
+<tr class="memitem:a87c1eb879c900148114e3bab227b5ebb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a87c1eb879c900148114e3bab227b5ebb">getStaffCount</a> () const</td></tr>
+<tr class="memdesc:a87c1eb879c900148114e3bab227b5ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of staff members in the nursery. This function is primarily for debugging purposes.  <a href="classNursery.html#a87c1eb879c900148114e3bab227b5ebb">More...</a><br /></td></tr>
 <tr class="separator:a87c1eb879c900148114e3bab227b5ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6cf65a956f05d6c71f723153dc63372"><td class="memItemLeft" align="right" valign="top"><a id="ab6cf65a956f05d6c71f723153dc63372"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>logPurchase</b> (const std::string &amp;message)</td></tr>
+<tr class="separator:ab6cf65a956f05d6c71f723153dc63372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28042c2970d530b063dedd19ae768d6a"><td class="memItemLeft" align="right" valign="top"><a id="a28042c2970d530b063dedd19ae768d6a"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPurchaseMessages</b> ()</td></tr>
+<tr class="separator:a28042c2970d530b063dedd19ae768d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2b2bbe1a1c8e74ddf12acadc9b85f4"><td class="memItemLeft" align="right" valign="top"><a id="afd2b2bbe1a1c8e74ddf12acadc9b85f4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clearPurchaseMessages</b> ()</td></tr>
+<tr class="separator:afd2b2bbe1a1c8e74ddf12acadc9b85f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a75ea5fcb9063e9c57f773fb6deeb2097"><td class="memItemLeft" align="right" valign="top"><a id="a75ea5fcb9063e9c57f773fb6deeb2097"></a>
-static <a class="el" href="classNursery.html">Nursery</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> ()</td></tr>
-<tr class="separator:a75ea5fcb9063e9c57f773fb6deeb2097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ff347a8c688e79c24f1f531184d465f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classNursery.html">Nursery</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a0ff347a8c688e79c24f1f531184d465f">instance</a> ()</td></tr>
+<tr class="memdesc:a0ff347a8c688e79c24f1f531184d465f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the single instance of the <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a>.  <a href="classNursery.html#a0ff347a8c688e79c24f1f531184d465f">More...</a><br /></td></tr>
+<tr class="separator:a0ff347a8c688e79c24f1f531184d465f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1da8ca13373fe8f9b01a500e784ef063"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a1da8ca13373fe8f9b01a500e784ef063">Nursery</a> ()</td></tr>
+<tr class="memdesc:a1da8ca13373fe8f9b01a500e784ef063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected constructor to enforce the Singleton pattern.  <a href="classNursery.html#a1da8ca13373fe8f9b01a500e784ef063">More...</a><br /></td></tr>
+<tr class="separator:a1da8ca13373fe8f9b01a500e784ef063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14147229d47eb7fefc609f4105a97b40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNursery.html#a14147229d47eb7fefc609f4105a97b40">~Nursery</a> ()</td></tr>
+<tr class="memdesc:a14147229d47eb7fefc609f4105a97b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected destructor.  <a href="classNursery.html#a14147229d47eb7fefc609f4105a97b40">More...</a><br /></td></tr>
+<tr class="separator:a14147229d47eb7fefc609f4105a97b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the entire nursery, including gardens, greenhouses, and staff. </p>
+<p>This class is implemented as a Singleton, ensuring that only one instance of the nursery exists throughout the application. It provides a central point of access for managing all major components of the nursery. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1da8ca13373fe8f9b01a500e784ef063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da8ca13373fe8f9b01a500e784ef063">&#9670;&nbsp;</a></span>Nursery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Nursery::Nursery </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Protected constructor to enforce the Singleton pattern. </p>
+<p>The constructor is protected to prevent direct instantiation of the <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> class. The single instance should be accessed via the static <code><a class="el" href="classNursery.html#a0ff347a8c688e79c24f1f531184d465f" title="Provides access to the single instance of the Nursery.">instance()</a></code> method. </p>
+
+</div>
+</div>
+<a id="a14147229d47eb7fefc609f4105a97b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14147229d47eb7fefc609f4105a97b40">&#9670;&nbsp;</a></span>~Nursery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Nursery::~Nursery </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Protected destructor. </p>
+<p>The destructor does not deallocate the pointers in its vectors. Ownership of <a class="el" href="classGarden.html">Garden</a> and <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> objects is managed externally. The <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> only manages the collections of pointers. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a497295754b206afac621ad451cc2812c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497295754b206afac621ad451cc2812c">&#9670;&nbsp;</a></span>addGarden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::addGarden </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGarden.html">Garden</a> *&#160;</td>
+          <td class="paramname"><em>newgarden</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new garden to the nursery's collection. </p>
+<p>Adds a new garden to the nursery.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newGarden</td><td>A pointer to the <a class="el" href="classGarden.html">Garden</a> object to be added. Does nothing if the pointer is null.</td></tr>
+    <tr><td class="paramname">newgarden</td><td>A pointer to the <a class="el" href="classGarden.html">Garden</a> object to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9629790e42830efecbe7bae9458a1df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9629790e42830efecbe7bae9458a1df7">&#9670;&nbsp;</a></span>addGreenhouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::addGreenhouse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgreenHouse.html">greenHouse</a> *&#160;</td>
+          <td class="paramname"><em>greenhouse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new greenhouse to the nursery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newgarden</td><td>A pointer to the <a class="el" href="classgreenHouse.html" title="A class representing a greenhouse that holds a 3x3 grid of plants.">greenHouse</a> object to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68d9c669a6e0a894e0a39e27ce404d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d9c669a6e0a894e0a39e27ce404d8c">&#9670;&nbsp;</a></span>addStaff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::addStaff </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStaff.html">Staff</a> *&#160;</td>
+          <td class="paramname"><em>newStaff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a new staff member to the nursery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newStaff</td><td>A pointer to the <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> object to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af16db1f305133874dd3097369695301c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16db1f305133874dd3097369695301c">&#9670;&nbsp;</a></span>addToPlantInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::addToPlantInventory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>inventory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a plant to the nursery inventory If the plant is mature, automatically transfers the item to the salesfloor to be sold. </p>
+<p>Removes a plant to the nursery inventory.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a></td><td>pointer to be added to plantInventory</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> pointer to the removed plant </dd></dl>
+
+</div>
+</div>
+<a id="a9828d5962ba3cd297c09908283767dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9828d5962ba3cd297c09908283767dae">&#9670;&nbsp;</a></span>customerSpawner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Nursery::customerSpawner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Spawns a customer with randomized preferences and payment strategy. </p>
+<p>This function simulates customer creation at random intervals. It randomly selects a payment strategy (<a class="el" href="classEFT.html" title="A concrete payment strategy for Electronic Funds Transfer (EFT).">EFT</a>, <a class="el" href="classCard.html" title="A concrete payment strategy for card payments.">Card</a>, or <a class="el" href="classCash.html" title="A concrete payment strategy for cash payments.">Cash</a>), plant preferences (including optional decorations), and customer type (Easy or Fussy). The created customer is added to the nursery's internal list and deleted after use. Intended for dynamic simulation of customer behavior.</p>
+<p>This method simulates customer creation at random intervals. It randomly selects a payment strategy, plant preferences, and customer type (Easy or Fussy). The created customer is added to the nursery's internal list and deleted after use. </p>
+
+</div>
+</div>
+<a id="a191b06eb8bbbf9ad31e12dad7bf24b63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a191b06eb8bbbf9ad31e12dad7bf24b63">&#9670;&nbsp;</a></span>getGardenCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Nursery::getGardenCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current number of gardens in the nursery. This function is primarily for debugging purposes. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of gardens. </dd></dl>
+
+</div>
+</div>
+<a id="a87c1eb879c900148114e3bab227b5ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c1eb879c900148114e3bab227b5ebb">&#9670;&nbsp;</a></span>getStaffCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Nursery::getStaffCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current number of staff members in the nursery. This function is primarily for debugging purposes. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of staff members. </dd></dl>
+
+</div>
+</div>
+<a id="a0ff347a8c688e79c24f1f531184d465f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ff347a8c688e79c24f1f531184d465f">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classNursery.html">Nursery</a> &amp; Nursery::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides access to the single instance of the <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a>. </p>
+<p>This static method implements the Meyers' Singleton pattern. It ensures that only one instance of the <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> is created. On the first call, it initializes the static <code>uniqueInstance</code>; on subsequent calls, it returns the existing one.</p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the unique <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> instance.</dd></dl>
+<p>This static method ensures that only one instance of the <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> is created. On the first call, it creates the instance; on subsequent calls, it returns the existing instance. </p><dl class="section return"><dt>Returns</dt><dd>A reference to the unique <a class="el" href="classNursery.html" title="Manages the entire nursery, including gardens, greenhouses, and staff.">Nursery</a> instance. </dd></dl>
+
+</div>
+</div>
+<a id="ac2eec7542728ff8b0412700c6178c308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2eec7542728ff8b0412700c6178c308">&#9670;&nbsp;</a></span>removeGarden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::removeGarden </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGarden.html">Garden</a> *&#160;</td>
+          <td class="paramname"><em>gardenToRemove</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a garden from the nursery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gardenToRemove</td><td>A pointer to the <a class="el" href="classGarden.html">Garden</a> object to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad629d16c990b8a3dcc28ae08e505c12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad629d16c990b8a3dcc28ae08e505c12b">&#9670;&nbsp;</a></span>removeStaff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Nursery::removeStaff </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStaff.html">Staff</a> *&#160;</td>
+          <td class="paramname"><em>staffToRemove</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a staff member from the nursery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">staffToRemove</td><td>A pointer to the <a class="el" href="classStaff.html" title="An abstract base class representing staff members in the nursery.">Staff</a> object to be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Nursery_8h_source.html">Nursery.h</a></li>
-<li>Nursery.cpp</li>
+<li><a class="el" href="Nursery_8cpp.html">Nursery.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

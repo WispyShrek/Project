@@ -2,8 +2,7 @@
 \label{classGarden}\index{Garden@{Garden}}
 
 
-Inheritance diagram for Garden\+:
-\nopagebreak
+Inheritance diagram for Garden\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for Garden\+:
 \end{figure}
 
 
-Collaboration diagram for Garden\+:
-\nopagebreak
+Collaboration diagram for Garden\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,16 +21,21 @@ Collaboration diagram for Garden\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
-\begin{DoxyCompactList}\small\item\em Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major). If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and a message is printed. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classGarden_a560aafce016a7bcfabdf8fe3a5eb1842}{print}} ()
+\begin{DoxyCompactList}\small\item\em Returns a visual representation of a garden. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGarden_a74bc061e5e1f3334576e738cb772fbcb}{try\+Add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major) and returns true. If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and false is returned. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGarden_a62014886ff873a7f033d78edae8c7a3b}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item, int row, int col)
 \begin{DoxyCompactList}\small\item\em Adds a plant at a specific grid position. Places the plant at \mbox{[}row\mbox{]}\mbox{[}col\mbox{]} if within bounds \mbox{[}0..2\mbox{]} and the cell is empty. If the position is invalid or occupied, the plant is not added. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classIterator}{Iterator}}$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classGarden_a8412ccc6d72ff49bc705517dc48851ca}{Create\+Iterator}} ()
 \begin{DoxyCompactList}\small\item\em Creates an iterator for the garden\textquotesingle{}s plant collection. Returns a \mbox{\hyperlink{classPlantIterator}{Plant\+Iterator}} that iterates all non-\/null plants in row-\/major order. Caller must delete the returned iterator when done. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}{remove\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
+bool \mbox{\hyperlink{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}{remove\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
 \begin{DoxyCompactList}\small\item\em Removes a plant from the garden. Searches the 3x3 grid for the given \mbox{\hyperlink{classPlant}{Plant}} pointer and nulls that cell if found. Decrements plant\+Count on success. Does not delete the \mbox{\hyperlink{classPlant}{Plant}} object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classGarden_a7620b0dd92ecdf4654ece9a2c78df468}\label{classGarden_a7620b0dd92ecdf4654ece9a2c78df468}} 
-void {\bfseries Template\+Method} ()
+\mbox{\Hypertarget{classGarden_ad2781e5ee7d76304312bc3f6865ce745}\label{classGarden_ad2781e5ee7d76304312bc3f6865ce745}} 
+void {\bfseries tick} ()
+\item 
+\mbox{\Hypertarget{classGarden_a942bbfc73c25d692d045b68b420ecc11}\label{classGarden_a942bbfc73c25d692d045b68b420ecc11}} 
+std\+::string {\bfseries get\+Description} ()
 \item 
 \mbox{\Hypertarget{classGarden_a53e2165edad91df2f711fecdb7ebf1de}\label{classGarden_a53e2165edad91df2f711fecdb7ebf1de}} 
 virtual void {\bfseries apply\+Rays} ()=0
@@ -45,33 +48,30 @@ void \mbox{\hyperlink{classGarden_a110af7875243ac3a24eea6842a4ea91a}{attach}} (\
 void \mbox{\hyperlink{classGarden_acfdb54c623f57f436a6bc671a2e04b3a}{detach}} (\mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} $\ast$staff)
 \begin{DoxyCompactList}\small\item\em detaches a plantcaretaker from a garden object. The detach function finds and removes the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} from the list of Plant\+Caretakers stored in the staff\+List member variable to be notified of changes to a \mbox{\hyperlink{classGarden}{Garden}} object. The given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} will no longer be notified of changes to the \mbox{\hyperlink{classGarden}{Garden}} object. When the function is called on an empty staff\+List or the given \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} object does not exist within the list, the function will have no effect. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGarden_a1fe39ee342be692de6f5390266a71a00}{notify}} ()
-\begin{DoxyCompactList}\small\item\em Notifies plant\+Caretakers of an event. The detach function iterates through the staff\+List member variable and calls update on each of the \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} objects within, using the \mbox{\hyperlink{classGarden}{Garden}} object calling the function as input parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Notifies plant\+Caretakers of an event. The detach function iterates through the staff\+List member variable and calls update on each of the \mbox{\hyperlink{classPlantCaretaker}{Plant\+Caretaker}} objects within, using the \mbox{\hyperlink{classGarden}{Garden}} object calling the function as input parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classGarden_aa74ebc0a712b02a5627aae1506631362}{remove\+Mature}} ()
+\begin{DoxyCompactList}\small\item\em removes one mature plant from garden if there are any \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classGarden_a90ba373bae30975a0a399336e160f5fd}{remove\+Dying}} ()
+\begin{DoxyCompactList}\small\item\em removes one dying plant from garden if there are any \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGarden_a56aad30ce77865deaf4f68eab211c0f6}\label{classGarden_a56aad30ce77865deaf4f68eab211c0f6}} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ $>$ {\bfseries plants}
+\item 
+\mbox{\Hypertarget{classGarden_a91d23c453bd122cf305f2899c2cb68a6}\label{classGarden_a91d23c453bd122cf305f2899c2cb68a6}} 
+int {\bfseries plant\+Count} = 0
+\item 
+\mbox{\Hypertarget{classGarden_ab788200c8b4d8ba31e528b5c2d0f5fc0}\label{classGarden_ab788200c8b4d8ba31e528b5c2d0f5fc0}} 
+bool {\bfseries changed}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}\label{classGarden_ae2a0df3abf119a1c70b1dde5fcc02523}} 
-\index{Garden@{Garden}!addItem@{addItem}}
-\index{addItem@{addItem}!Garden@{Garden}}
-\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Garden\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major). If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and a message is printed. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em item} & A pointer to a \mbox{\hyperlink{classPlant}{Plant}} object to be added to the garden. \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
-
 \mbox{\Hypertarget{classGarden_a62014886ff873a7f033d78edae8c7a3b}\label{classGarden_a62014886ff873a7f033d78edae8c7a3b}} 
 \index{Garden@{Garden}!addItem@{addItem}}
 \index{addItem@{addItem}!Garden@{Garden}}
-\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
 {\footnotesize\ttfamily void Garden\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
 
 
@@ -147,6 +147,32 @@ Notifies plant\+Caretakers of an event. The detach function iterates through the
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{classPlantCaretaker_a2f622e80ca022683ffa4393a2cea2453}{Plant\+Caretaker\+::update(\+Garden $\ast$ subject\+Of\+Care)}} for details of the update function invoked 
 \end{DoxySeeAlso}
+\mbox{\Hypertarget{classGarden_a560aafce016a7bcfabdf8fe3a5eb1842}\label{classGarden_a560aafce016a7bcfabdf8fe3a5eb1842}} 
+\index{Garden@{Garden}!print@{print}}
+\index{print@{print}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Garden\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a visual representation of a garden. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the garden. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarden_a90ba373bae30975a0a399336e160f5fd}\label{classGarden_a90ba373bae30975a0a399336e160f5fd}} 
+\index{Garden@{Garden}!removeDying@{removeDying}}
+\index{removeDying@{removeDying}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{removeDying()}{removeDying()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Garden\+::remove\+Dying (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+removes one dying plant from garden if there are any 
+
+\begin{DoxyReturn}{Returns}
+A plant pointer of a dying plant in the garden 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}\label{classGarden_a2e2f5d13c88bbd59f1ab48c5e8371dcf}} 
 \index{Garden@{Garden}!removeItem@{removeItem}}
 \index{removeItem@{removeItem}!Garden@{Garden}}
@@ -166,9 +192,43 @@ Removes a plant from the garden. Searches the 3x3 grid for the given \mbox{\hype
 
 Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
 
+\mbox{\Hypertarget{classGarden_aa74ebc0a712b02a5627aae1506631362}\label{classGarden_aa74ebc0a712b02a5627aae1506631362}} 
+\index{Garden@{Garden}!removeMature@{removeMature}}
+\index{removeMature@{removeMature}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{removeMature()}{removeMature()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}} $\ast$ Garden\+::remove\+Mature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+
+removes one mature plant from garden if there are any 
+
+\begin{DoxyReturn}{Returns}
+A plant pointer of a mature plant in the garden 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGarden_a74bc061e5e1f3334576e738cb772fbcb}\label{classGarden_a74bc061e5e1f3334576e738cb772fbcb}} 
+\index{Garden@{Garden}!tryAddItem@{tryAddItem}}
+\index{tryAddItem@{tryAddItem}!Garden@{Garden}}
+\doxysubsubsection{\texorpdfstring{tryAddItem()}{tryAddItem()}}
+{\footnotesize\ttfamily void Garden\+::try\+Add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a plant to the garden. Adds the plant into the first available slot in the 3x3 grid (row-\/major) and returns true. If the grid is full (7+ capacity policy preserved via plant\+Count), the plant is not added and false is returned. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & A pointer to a \mbox{\hyperlink{classPlant}{Plant}} object to be added to the garden. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean indicator for success 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Garden.\+h\item 
-Garden.\+cpp\end{DoxyCompactItemize}
+Garden.\+h\end{DoxyCompactItemize}

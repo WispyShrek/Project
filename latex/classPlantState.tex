@@ -11,8 +11,7 @@ An abstract base class representing the state of a plant.
 
 
 
-Inheritance diagram for Plant\+State\+:
-\nopagebreak
+Inheritance diagram for Plant\+State\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,11 +27,17 @@ virtual \mbox{\hyperlink{classPlantState_a30b77856181f7ac6ea6036bc5b8c6c9a}{$\si
 \mbox{\Hypertarget{classPlantState_aa3418bbb94330692185ecb15c8e42c6b}\label{classPlantState_aa3418bbb94330692185ecb15c8e42c6b}} 
 virtual void {\bfseries next} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)=0
 \item 
-\mbox{\Hypertarget{classPlantState_a5507e96684917be6a25798fc273644d3}\label{classPlantState_a5507e96684917be6a25798fc273644d3}} 
-virtual void {\bfseries print} ()=0
+\mbox{\Hypertarget{classPlantState_aefe0be48067c03796620e2e982ef5438}\label{classPlantState_aefe0be48067c03796620e2e982ef5438}} 
+virtual void {\bfseries print} (std\+::string \&sprite)=0
 \item 
 \mbox{\Hypertarget{classPlantState_af517f7e4a0524a4f4e98461e22451c81}\label{classPlantState_af517f7e4a0524a4f4e98461e22451c81}} 
 virtual \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries clone} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlantState_a3f7b284451cd7142750be59239183e5e}\label{classPlantState_a3f7b284451cd7142750be59239183e5e}} 
+std\+::string {\bfseries name}
 \end{DoxyCompactItemize}
 
 

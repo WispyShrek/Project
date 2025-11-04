@@ -69,30 +69,29 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ROSE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;SunnyCare.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SunnyCare_8h.html">SunnyCare.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classRose.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRose.html">Rose</a> : <span class="keyword">public</span> <a class="code" href="classPlant.html">Plant</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">double</span> price;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classRose.html#a1f6cc909ea44fbcd7a18b0d917412659">Rose</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::string <a class="code" href="classRose.html#a6cdf04916f233d3edc9f626a0055ca75">getName</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="classRose.html">Rose</a> *<a class="code" href="classRose.html#afd0c5eb03c5480a2456f817eb08f6cbc">clone</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classRose.html#a555177982491891bfee938870149d6d9">print</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classRose.html#a2c1db9a9743086f4805802828b160612">getPrice</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="classRose.html#a1f6cc909ea44fbcd7a18b0d917412659">Rose</a>(<a class="code" href="classRose.html">Rose</a> &amp;toCopy);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classRose.html#a1f6cc909ea44fbcd7a18b0d917412659">Rose</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::string <a class="code" href="classRose.html#a35dfd5ac6f6ec237172781f7dffdae57">getName</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classRose.html">Rose</a> *<a class="code" href="classRose.html#ad42d0a1819d13ccacfae44a525d1fc8a">clone</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::string <a class="code" href="classRose.html#a307fad10b8518d91fa8e236d9457e88e">print</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">double</span> <a class="code" href="classRose.html#a0afd4c51aa0f060db57beea5aeab4035">getPrice</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classRose.html#a1f6cc909ea44fbcd7a18b0d917412659">Rose</a>(<a class="code" href="classRose.html">Rose</a> &amp;toCopy);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aSunnyCare_8h_html"><div class="ttname"><a href="SunnyCare_8h.html">SunnyCare.h</a></div><div class="ttdoc">Definition of the SunnyCare class, a concrete care strategy.</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
 <div class="ttc" id="aclassRose_html"><div class="ttname"><a href="classRose.html">Rose</a></div><div class="ttdoc">A class representing a Rose plant, derived from the Plant base class.</div><div class="ttdef"><b>Definition:</b> Rose.h:14</div></div>
+<div class="ttc" id="aclassRose_html_a0afd4c51aa0f060db57beea5aeab4035"><div class="ttname"><a href="classRose.html#a0afd4c51aa0f060db57beea5aeab4035">Rose::getPrice</a></div><div class="ttdeci">double getPrice() override</div><div class="ttdoc">Returns the price of the Rose plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:20</div></div>
 <div class="ttc" id="aclassRose_html_a1f6cc909ea44fbcd7a18b0d917412659"><div class="ttname"><a href="classRose.html#a1f6cc909ea44fbcd7a18b0d917412659">Rose::Rose</a></div><div class="ttdeci">Rose()</div><div class="ttdoc">Constructor for the Rose class.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:3</div></div>
-<div class="ttc" id="aclassRose_html_a2c1db9a9743086f4805802828b160612"><div class="ttname"><a href="classRose.html#a2c1db9a9743086f4805802828b160612">Rose::getPrice</a></div><div class="ttdeci">double getPrice()</div><div class="ttdoc">Returns the price of the Rose plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:20</div></div>
-<div class="ttc" id="aclassRose_html_a555177982491891bfee938870149d6d9"><div class="ttname"><a href="classRose.html#a555177982491891bfee938870149d6d9">Rose::print</a></div><div class="ttdeci">void print() override</div><div class="ttdoc">Prints the details of the Rose plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:16</div></div>
-<div class="ttc" id="aclassRose_html_a6cdf04916f233d3edc9f626a0055ca75"><div class="ttname"><a href="classRose.html#a6cdf04916f233d3edc9f626a0055ca75">Rose::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Returns the name of the plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:8</div></div>
-<div class="ttc" id="aclassRose_html_afd0c5eb03c5480a2456f817eb08f6cbc"><div class="ttname"><a href="classRose.html#afd0c5eb03c5480a2456f817eb08f6cbc">Rose::clone</a></div><div class="ttdeci">Rose * clone()</div><div class="ttdoc">Creates a clone of the Rose object.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:12</div></div>
+<div class="ttc" id="aclassRose_html_a307fad10b8518d91fa8e236d9457e88e"><div class="ttname"><a href="classRose.html#a307fad10b8518d91fa8e236d9457e88e">Rose::print</a></div><div class="ttdeci">std::string print() override</div><div class="ttdoc">Returns the details of the Rose plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:12</div></div>
+<div class="ttc" id="aclassRose_html_a35dfd5ac6f6ec237172781f7dffdae57"><div class="ttname"><a href="classRose.html#a35dfd5ac6f6ec237172781f7dffdae57">Rose::getName</a></div><div class="ttdeci">std::string getName() override</div><div class="ttdoc">Returns the name of the plant.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:8</div></div>
+<div class="ttc" id="aclassRose_html_ad42d0a1819d13ccacfae44a525d1fc8a"><div class="ttname"><a href="classRose.html#ad42d0a1819d13ccacfae44a525d1fc8a">Rose::clone</a></div><div class="ttdeci">Rose * clone() override</div><div class="ttdoc">Creates a clone of the Rose object.</div><div class="ttdef"><b>Definition:</b> Rose.cpp:10</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
