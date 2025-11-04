@@ -2,26 +2,22 @@
 
 #include <iostream>
 
-void Sprinkler::turnOn() {
-	std::cout << "Sprinkler: ON" << std::endl;
-}
+Sprinkler::Sprinkler(greenHouse *greenhouse) { this->greenhouse = greenhouse; }
 
-void Sprinkler::turnOff() {
-	std::cout << "Sprinkler: OFF" << std::endl;
-}
+void Sprinkler::turnOn() { std::cout << "Sprinkler: ON" << std::endl; }
 
-
+void Sprinkler::turnOff() { std::cout << "Sprinkler: OFF" << std::endl; }
 
 #ifdef ENABLE_DOCTESTS
 #include "doctest.h"
 
 TEST_CASE("Sprinkler: Test Sprinkler class methods") {
-	Sprinkler sprinkler;
+  Sprinkler sprinkler;
 
-	// Test turnOn method
-	sprinkler.turnOn(); // Should print "Sprinkler: ON"
+  // Test turnOn method
+  sprinkler.turnOn(); // Should print "Sprinkler: ON"
 
-	// Test turnOff method
-	sprinkler.turnOff(); // Should print "Sprinkler: OFF"
+  // Test turnOff method
+  sprinkler.turnOff(); // Should print "Sprinkler: OFF"
 }
 #endif

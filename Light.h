@@ -16,6 +16,7 @@ public:
   /** @fn Light::Light()
    * @brief Constructor for the Light class.
    */
+  Light(greenHouse *greenHouse);
   void turnOn();
   /** @fn Light::turnOff()
    * @brief Turns off the light.
@@ -24,4 +25,3 @@ public:
 };
 
 #endif
-

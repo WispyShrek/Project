@@ -1,8 +1,12 @@
 #include "greenHouse.h"
 #include "GreenhouseController.h"
+#include "Light.h"
+#include "LightsOff.h"
+#include "LightsOn.h"
 #include "PartialSun.h"
 #include "Rose.h"
 #include "Shady.h"
+#include "Sprinkler.h"
 #include "Sunny.h"
 
 greenHouse::~greenHouse() {
@@ -15,16 +19,49 @@ greenHouse::~greenHouse() {
 
 void greenHouse::tick() {}
 
-void greenHouse::powerSystem() {
-  GreenhouseController controller;
-  controller.flipUpSprinklers();
-  controller.flipUpLights();
-  controller.flipDownSprinklers();
-  controller.flipDownLights();
+GreenhouseController *greenHouse::powerSystem() {
+  Sprinkler *sprinklers = new Sprinkler(this);
+  Light *lights = new Light(this);
+  GreenhouseController *controller = new GreenhouseController();
+  controller->setLightCommands(new LightsOn(lights), new LightsOff(lights));
+  controller->setSprinklerCommands(new SprinklersOn(sprinklers),
+                                   new SprinklersOff(sprinklers));
+  return controller;
 }
 
 Iterator<Plant *> *greenHouse::CreateIterator() {
   return new PlantIterator(plants);
+}
+Plant *greenHouse::removeDying() {
+  for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+      if (plants[r][c] != nullptr) {
+        if (plants[r][c]->getState() == "Dying") {
+          Plant *toHarvest = plants[r][c];
+          plantCount--;
+          plants[r][c] = nullptr;
+          return toHarvest;
+        }
+      }
+    }
+  }
+  return nullptr;
+}
+
+Plant *greenHouse::removeMature() {
+  for (int r = 0; r < 3; r++) {
+    for (int c = 0; c < 3; c++) {
+      if (plants[r][c] != nullptr) {
+        if (plants[r][c]->getState() == "Mature") {
+          Plant *toHarvest = plants[r][c];
+          plantCount--;
+          plants[r][c] = nullptr;
+          return toHarvest;
+        }
+      }
+    }
+  }
+  return nullptr;
 }
 
 bool greenHouse::addItem(Plant *item, int row, int col) {
