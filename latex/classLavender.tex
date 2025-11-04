@@ -11,8 +11,7 @@ A class representing a \mbox{\hyperlink{classLavender}{Lavender}} plant, derived
 
 
 
-Inheritance diagram for Lavender\+:
-\nopagebreak
+Inheritance diagram for Lavender\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,28 +21,21 @@ Inheritance diagram for Lavender\+:
 
 
 Collaboration diagram for Lavender\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classLavender__coll__graph}
-\end{center}
-\end{figure}
+% FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classLavender_a9659cf180ade86cd09b833a44544f76a}\label{classLavender_a9659cf180ade86cd09b833a44544f76a}} 
 \mbox{\hyperlink{classLavender_a9659cf180ade86cd09b833a44544f76a}{Lavender}} ()
 \begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classLavender}{Lavender}} class. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classLavender_a6bb4899a7186f0ebbab8a07f8dce4571}{get\+Name}} ()
+std\+::string \mbox{\hyperlink{classLavender_a8db774495dd36c670dcbee7b359a5d8a}{get\+Name}} () override
 \begin{DoxyCompactList}\small\item\em Returns the name of the plant. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLavender_a76cd906c2b925bf06800a32994eb3389}\label{classLavender_a76cd906c2b925bf06800a32994eb3389}} 
-\mbox{\hyperlink{classLavender}{Lavender}} $\ast$ \mbox{\hyperlink{classLavender_a76cd906c2b925bf06800a32994eb3389}{clone}} ()
+\mbox{\Hypertarget{classLavender_aa9f26ea8f1483210f5963122c70f41c4}\label{classLavender_aa9f26ea8f1483210f5963122c70f41c4}} 
+\mbox{\hyperlink{classLavender}{Lavender}} $\ast$ \mbox{\hyperlink{classLavender_aa9f26ea8f1483210f5963122c70f41c4}{clone}} () override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classLavender}{Lavender}} object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLavender_a800f22317c5f5560c1f891152299ae22}\label{classLavender_a800f22317c5f5560c1f891152299ae22}} 
-void \mbox{\hyperlink{classLavender_a800f22317c5f5560c1f891152299ae22}{print}} () override
-\begin{DoxyCompactList}\small\item\em Prints the details of the \mbox{\hyperlink{classLavender}{Lavender}} plant. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classLavender_ad95f452fb4ee30f234cf21b79f7981be}{get\+Price}} ()
+std\+::string \mbox{\hyperlink{classLavender_a8058caf1b318ef5378109c1546746159}{print}} () override
+\begin{DoxyCompactList}\small\item\em Returns the details of the \mbox{\hyperlink{classLavender}{Lavender}} plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLavender_a5345e89b02fa9f99735a173c06c6e8e5}{get\+Price}} () override
 \begin{DoxyCompactList}\small\item\em Returns the price of the \mbox{\hyperlink{classLavender}{Lavender}} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -77,11 +69,11 @@ Copy constructor for the \mbox{\hyperlink{classLavender}{Lavender}} class.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classLavender_a6bb4899a7186f0ebbab8a07f8dce4571}\label{classLavender_a6bb4899a7186f0ebbab8a07f8dce4571}} 
+\mbox{\Hypertarget{classLavender_a8db774495dd36c670dcbee7b359a5d8a}\label{classLavender_a8db774495dd36c670dcbee7b359a5d8a}} 
 \index{Lavender@{Lavender}!getName@{getName}}
 \index{getName@{getName}!Lavender@{Lavender}}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily std\+::string Lavender\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::string Lavender\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -94,11 +86,11 @@ A string representing the name of the plant.
 
 Implements \mbox{\hyperlink{classPlant}{Plant}}.
 
-\mbox{\Hypertarget{classLavender_ad95f452fb4ee30f234cf21b79f7981be}\label{classLavender_ad95f452fb4ee30f234cf21b79f7981be}} 
+\mbox{\Hypertarget{classLavender_a5345e89b02fa9f99735a173c06c6e8e5}\label{classLavender_a5345e89b02fa9f99735a173c06c6e8e5}} 
 \index{Lavender@{Lavender}!getPrice@{getPrice}}
 \index{getPrice@{getPrice}!Lavender@{Lavender}}
 \doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
-{\footnotesize\ttfamily double Lavender\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Lavender\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -107,6 +99,27 @@ Returns the price of the \mbox{\hyperlink{classLavender}{Lavender}} plant.
 \begin{DoxyReturn}{Returns}
 A double representing the price of the plant. 
 \end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}{Plant}}.
+
+\mbox{\Hypertarget{classLavender_a8058caf1b318ef5378109c1546746159}\label{classLavender_a8058caf1b318ef5378109c1546746159}} 
+\index{Lavender@{Lavender}!print@{print}}
+\index{print@{print}!Lavender@{Lavender}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Lavender\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the details of the \mbox{\hyperlink{classLavender}{Lavender}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representation of the plant. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

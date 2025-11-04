@@ -2,33 +2,51 @@
 \label{classCash}\index{Cash@{Cash}}
 
 
+A concrete payment strategy for cash payments.  
+
+
+
+
+{\ttfamily \#include $<$Cash.\+h$>$}
+
+
+
 Inheritance diagram for Cash\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classCash__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Cash\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classCash__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCash_afb861780c6983574709aad0da4651821}\label{classCash_afb861780c6983574709aad0da4651821}} 
-void {\bfseries pay} ()
-\end{DoxyCompactItemize}
+std\+::string \mbox{\hyperlink{classCash_a9384d2fa9b932e4a69c924364c5fdff8}{pay}} ()
+\begin{DoxyCompactList}\small\item\em Executes the payment process for cash. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete payment strategy for cash payments. 
+
+This class inherits from \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} and implements the {\ttfamily pay} method to handle payments made with cash. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCash_a9384d2fa9b932e4a69c924364c5fdff8}\label{classCash_a9384d2fa9b932e4a69c924364c5fdff8}} 
+\index{Cash@{Cash}!pay@{pay}}
+\index{pay@{pay}!Cash@{Cash}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily std\+::string Cash\+::pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the payment process for cash. 
+
+This method implements the payment logic for a cash transaction. It prints a message to the standard output to signify that the payment is being processed via cash. 
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}{Payment\+Strategy}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Cash.\+h\item 
-Cash.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Cash_8h}{Cash.\+h}}\item 
+\mbox{\hyperlink{Cash_8cpp}{Cash.\+cpp}}\end{DoxyCompactItemize}

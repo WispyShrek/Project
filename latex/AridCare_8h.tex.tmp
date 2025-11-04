@@ -1,0 +1,23 @@
+\hypertarget{AridCare_8h}{}\doxysection{Arid\+Care.\+h File Reference}
+\label{AridCare_8h}\index{AridCare.h@{AridCare.h}}
+
+
+Definition of the \mbox{\hyperlink{classAridCare}{Arid\+Care}} class, a concrete care strategy.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Care\+Strategy.\+h\char`\"{}}\newline
+Include dependency graph for Arid\+Care.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAridCare}{Arid\+Care}}
+\begin{DoxyCompactList}\small\item\em A concrete care strategy for plants that prefer arid conditions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definition of the \mbox{\hyperlink{classAridCare}{Arid\+Care}} class, a concrete care strategy. 
+

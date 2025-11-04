@@ -65,21 +65,24 @@ $(function() {
 <div class="title">SunnyCare.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SUNNYCARE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SUNNYCARE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;CareStrategy.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classSunnyCare.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSunnyCare.html">SunnyCare</a> : <span class="keyword">public</span> <a class="code" href="classCareStrategy.html">CareStrategy</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="classSunnyCare.html">SunnyCare</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">void</span> applyCare() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="SunnyCare_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef SUNNYCARE_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define SUNNYCARE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;CareStrategy.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classSunnyCare.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSunnyCare.html">SunnyCare</a> : <span class="keyword">public</span> <a class="code" href="classCareStrategy.html">CareStrategy</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="classSunnyCare.html#a3bef3f2f16bdf44a2c79f9036cfa6a2a">SunnyCare</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classSunnyCare.html#a47da1d95eae84cec086ca7157d15dd2c">applyCare</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span></div>
 <div class="ttc" id="aclassCareStrategy_html"><div class="ttname"><a href="classCareStrategy.html">CareStrategy</a></div><div class="ttdef"><b>Definition:</b> CareStrategy.h:5</div></div>
-<div class="ttc" id="aclassSunnyCare_html"><div class="ttname"><a href="classSunnyCare.html">SunnyCare</a></div><div class="ttdef"><b>Definition:</b> SunnyCare.h:7</div></div>
+<div class="ttc" id="aclassSunnyCare_html"><div class="ttname"><a href="classSunnyCare.html">SunnyCare</a></div><div class="ttdoc">A concrete care strategy for plants that prefer sunny conditions.</div><div class="ttdef"><b>Definition:</b> SunnyCare.h:18</div></div>
+<div class="ttc" id="aclassSunnyCare_html_a3bef3f2f16bdf44a2c79f9036cfa6a2a"><div class="ttname"><a href="classSunnyCare.html#a3bef3f2f16bdf44a2c79f9036cfa6a2a">SunnyCare::SunnyCare</a></div><div class="ttdeci">SunnyCare()</div><div class="ttdoc">Constructor for the SunnyCare class. Sets the strategy name to &quot;Sunny&quot;.</div><div class="ttdef"><b>Definition:</b> SunnyCare.cpp:13</div></div>
+<div class="ttc" id="aclassSunnyCare_html_a47da1d95eae84cec086ca7157d15dd2c"><div class="ttname"><a href="classSunnyCare.html#a47da1d95eae84cec086ca7157d15dd2c">SunnyCare::applyCare</a></div><div class="ttdeci">void applyCare() override</div><div class="ttdoc">Applies the care routine for sunny conditions. Overrides the pure virtual function in CareStrategy to...</div><div class="ttdef"><b>Definition:</b> SunnyCare.cpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

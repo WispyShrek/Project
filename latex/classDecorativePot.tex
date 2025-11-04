@@ -2,40 +2,156 @@
 \label{classDecorativePot}\index{DecorativePot@{DecorativePot}}
 
 
+Represents a decorative pot customisation for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds decorative pot-\/specific behavior.  
+
+
+
+
+{\ttfamily \#include $<$Decorative\+Pot.\+h$>$}
+
+
+
 Inheritance diagram for Decorative\+Pot\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=167pt]{classDecorativePot__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Decorative\+Pot\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classDecorativePot__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDecorativePot_aee2c9380b25b9f8e1ae5ab067318c65c}\label{classDecorativePot_aee2c9380b25b9f8e1ae5ab067318c65c}} 
-void {\bfseries set\+Added\+Pot} (bool added\+Pot)
-\item 
-\mbox{\Hypertarget{classDecorativePot_a96ff88aefbee6b849d267faa6f42f14c}\label{classDecorativePot_a96ff88aefbee6b849d267faa6f42f14c}} 
-bool {\bfseries get\+Added\+Pot} () const
-\item 
-\mbox{\Hypertarget{classDecorativePot_a6913ca749a09eba45527418767b04152}\label{classDecorativePot_a6913ca749a09eba45527418767b04152}} 
-void {\bfseries increase\+Price} ()
-\item 
-\mbox{\Hypertarget{classDecorativePot_a416689cb1eeee113e839427dd8f5f091}\label{classDecorativePot_a416689cb1eeee113e839427dd8f5f091}} 
-void {\bfseries add\+Cust} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classDecorativePot_aee2c9380b25b9f8e1ae5ab067318c65c}{set\+Added\+Pot}} (bool added\+Pot)
+\begin{DoxyCompactList}\small\item\em Sets the decorative pot flag. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDecorativePot_a96ff88aefbee6b849d267faa6f42f14c}{get\+Added\+Pot}} () const
+\begin{DoxyCompactList}\small\item\em Gets the decorative pot flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDecorativePot_a31124af453afc9aa9b6cffb359e2e1d8}{increase\+Price}} () override
+\begin{DoxyCompactList}\small\item\em Increases the price of the plant by the cost of the decorative pot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDecorativePot_ab8c0c9fbac81630a1307fef355379ca9}{add\+Cust}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer) override
+\begin{DoxyCompactList}\small\item\em Associates a customer with the decorated plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDecorativePot_ad4d238a4e32010b6df080fde144e924e}{print}} () override
+\begin{DoxyCompactList}\small\item\em Prints the plant details along with decorative pot info. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDecorativePot_afe5dd06b4707bdadf5c24b73750570ca}{get\+Name}} () override
+\begin{DoxyCompactList}\small\item\em Returns the name of the decoration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classDecorativePot_a8005c08e49a088d253b958c0257fa122}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a copy of the \mbox{\hyperlink{classDecorativePot}{Decorative\+Pot}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents a decorative pot customisation for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds decorative pot-\/specific behavior. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDecorativePot_ab8c0c9fbac81630a1307fef355379ca9}\label{classDecorativePot_ab8c0c9fbac81630a1307fef355379ca9}} 
+\index{DecorativePot@{DecorativePot}!addCust@{addCust}}
+\index{addCust@{addCust}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{addCust()}{addCust()}}
+{\footnotesize\ttfamily void Decorative\+Pot\+::add\+Cust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Associates a customer with the decorated plant. 
+
+Associates a customer with the decorated plant. Delegates the customer assignment to the underlying plant.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}{Customisation}}.
+
+\mbox{\Hypertarget{classDecorativePot_a8005c08e49a088d253b958c0257fa122}\label{classDecorativePot_a8005c08e49a088d253b958c0257fa122}} 
+\index{DecorativePot@{DecorativePot}!clone@{clone}}
+\index{clone@{clone}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Decorative\+Pot\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a copy of the \mbox{\hyperlink{classDecorativePot}{Decorative\+Pot}} object. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \mbox{\hyperlink{classDecorativePot}{Decorative\+Pot}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classDecorativePot_a96ff88aefbee6b849d267faa6f42f14c}\label{classDecorativePot_a96ff88aefbee6b849d267faa6f42f14c}} 
+\index{DecorativePot@{DecorativePot}!getAddedPot@{getAddedPot}}
+\index{getAddedPot@{getAddedPot}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{getAddedPot()}{getAddedPot()}}
+{\footnotesize\ttfamily bool Decorative\+Pot\+::get\+Added\+Pot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the decorative pot flag. 
+
+\begin{DoxyReturn}{Returns}
+True if the pot was added, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDecorativePot_afe5dd06b4707bdadf5c24b73750570ca}\label{classDecorativePot_afe5dd06b4707bdadf5c24b73750570ca}} 
+\index{DecorativePot@{DecorativePot}!getName@{getName}}
+\index{getName@{getName}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Decorative\+Pot\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the name of the decoration. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Decorative\+Pot\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classDecorativePot_a31124af453afc9aa9b6cffb359e2e1d8}\label{classDecorativePot_a31124af453afc9aa9b6cffb359e2e1d8}} 
+\index{DecorativePot@{DecorativePot}!increasePrice@{increasePrice}}
+\index{increasePrice@{increasePrice}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{increasePrice()}{increasePrice()}}
+{\footnotesize\ttfamily void Decorative\+Pot\+::increase\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Increases the price of the plant by the cost of the decorative pot. 
+
+Increases the price of the plant by 200 units. This method applies the cost of the decorative pot decoration. 
+
+Implements \mbox{\hyperlink{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}{Customisation}}.
+
+\mbox{\Hypertarget{classDecorativePot_ad4d238a4e32010b6df080fde144e924e}\label{classDecorativePot_ad4d238a4e32010b6df080fde144e924e}} 
+\index{DecorativePot@{DecorativePot}!print@{print}}
+\index{print@{print}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Decorative\+Pot\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints the plant details along with decorative pot info. 
+
+Prints the details of the plant with decorative pot decoration. Outputs the base plant details followed by decorative pot info. 
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
+\mbox{\Hypertarget{classDecorativePot_aee2c9380b25b9f8e1ae5ab067318c65c}\label{classDecorativePot_aee2c9380b25b9f8e1ae5ab067318c65c}} 
+\index{DecorativePot@{DecorativePot}!setAddedPot@{setAddedPot}}
+\index{setAddedPot@{setAddedPot}!DecorativePot@{DecorativePot}}
+\doxysubsubsection{\texorpdfstring{setAddedPot()}{setAddedPot()}}
+{\footnotesize\ttfamily void Decorative\+Pot\+::set\+Added\+Pot (\begin{DoxyParamCaption}\item[{bool}]{added\+Pot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the decorative pot flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em added\+Pot} & Boolean indicating if the pot was added. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

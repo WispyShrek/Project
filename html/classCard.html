@@ -68,6 +68,11 @@ $(function() {
 <div class="title">Card Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A concrete payment strategy for card payments.  
+ <a href="classCard.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Card_8h_source.html">Card.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Card:</div>
 <div class="dyncontent">
@@ -89,13 +94,52 @@ Collaboration diagram for Card:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afc64c5f07765f59cde8a4b08d2d535f4"><td class="memItemLeft" align="right" valign="top"><a id="afc64c5f07765f59cde8a4b08d2d535f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pay</b> ()</td></tr>
-<tr class="separator:afc64c5f07765f59cde8a4b08d2d535f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73ab7e6a08a553f7dcebef7fc1be302"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCard.html#ae73ab7e6a08a553f7dcebef7fc1be302">pay</a> ()</td></tr>
+<tr class="memdesc:ae73ab7e6a08a553f7dcebef7fc1be302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the payment process for a card.  <a href="classCard.html#ae73ab7e6a08a553f7dcebef7fc1be302">More...</a><br /></td></tr>
+<tr class="separator:ae73ab7e6a08a553f7dcebef7fc1be302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classPaymentStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPaymentStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPaymentStrategy.html">PaymentStrategy</a></td></tr>
+<tr class="memitem:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="memItemLeft" align="right" valign="top"><a id="a0f6a8da392c448a016e69f9cf5511052"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaymentStrategy.html#a0f6a8da392c448a016e69f9cf5511052">~PaymentStrategy</a> ()=default</td></tr>
+<tr class="memdesc:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. Ensures that destructors of derived classes are called correctly. <br /></td></tr>
+<tr class="separator:a0f6a8da392c448a016e69f9cf5511052 inherit pub_methods_classPaymentStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A concrete payment strategy for card payments. </p>
+<p>This class inherits from <a class="el" href="classPaymentStrategy.html" title="An abstract base class for different payment strategies.">PaymentStrategy</a> and implements the <code>pay</code> method to handle payments made by credit or debit card. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae73ab7e6a08a553f7dcebef7fc1be302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73ab7e6a08a553f7dcebef7fc1be302">&#9670;&nbsp;</a></span>pay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Card::pay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes the payment process for a card. </p>
+<p>This method implements the payment logic for a card transaction. It prints a message to the standard output to signify that the payment is being processed via card. </p>
+
+<p>Implements <a class="el" href="classPaymentStrategy.html#a17e9d78398f57cfabdeaaaccc6962981">PaymentStrategy</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Card_8h_source.html">Card.h</a></li>
-<li>Card.cpp</li>
+<li><a class="el" href="Card_8cpp.html">Card.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

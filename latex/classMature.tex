@@ -11,8 +11,7 @@ A class representing the mature state of a plant, derived from the \mbox{\hyperl
 
 
 
-Inheritance diagram for Mature\+:
-\nopagebreak
+Inheritance diagram for Mature\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Mature\+:
 \end{figure}
 
 
-Collaboration diagram for Mature\+:
-\nopagebreak
+Collaboration diagram for Mature\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,13 +30,14 @@ Collaboration diagram for Mature\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+void \mbox{\hyperlink{classMature_af5fd785f02a3e5edcb55228a2c7ba6c5}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context) override
 \begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classMature_ae767a1942c1ac64c3091cd10115c99af}\label{classMature_ae767a1942c1ac64c3091cd10115c99af}} 
-void \mbox{\hyperlink{classMature_ae767a1942c1ac64c3091cd10115c99af}{print}} ()
+\mbox{\Hypertarget{classMature_a0d68fbddd6c07e510ca25930048a5968}\label{classMature_a0d68fbddd6c07e510ca25930048a5968}} 
+void \mbox{\hyperlink{classMature_a0d68fbddd6c07e510ca25930048a5968}{print}} (std\+::string \&sprite) override
 \begin{DoxyCompactList}\small\item\em Prints the details of the mature state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classMature_a4bdddd89c17a5002962e1ece04892c31}{clone}} () const override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classMature}{Mature}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -64,11 +63,11 @@ A pointer to the newly created \mbox{\hyperlink{classMature}{Mature}} state.
 
 Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
 
-\mbox{\Hypertarget{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}\label{classMature_afb2df37f9300bb6188ddf2a8b9b5c9f9}} 
+\mbox{\Hypertarget{classMature_af5fd785f02a3e5edcb55228a2c7ba6c5}\label{classMature_af5fd785f02a3e5edcb55228a2c7ba6c5}} 
 \index{Mature@{Mature}!next@{next}}
 \index{next@{next}!Mature@{Mature}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
-{\footnotesize\ttfamily void Mature\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Mature\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

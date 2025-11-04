@@ -2,20 +2,47 @@
 \label{classPaymentStrategy}\index{PaymentStrategy@{PaymentStrategy}}
 
 
+An abstract base class for different payment strategies.  
+
+
+
+
+{\ttfamily \#include $<$Payment\+Strategy.\+h$>$}
+
+
+
 Inheritance diagram for Payment\+Strategy\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=231pt]{classPaymentStrategy__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPaymentStrategy_ad8a7d560870381b3f378db6cf99a7fe2}\label{classPaymentStrategy_ad8a7d560870381b3f378db6cf99a7fe2}} 
-virtual void {\bfseries pay} ()=0
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classPaymentStrategy_a0f6a8da392c448a016e69f9cf5511052}\label{classPaymentStrategy_a0f6a8da392c448a016e69f9cf5511052}} 
+virtual \mbox{\hyperlink{classPaymentStrategy_a0f6a8da392c448a016e69f9cf5511052}{$\sim$\+Payment\+Strategy}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. Ensures that destructors of derived classes are called correctly. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}{pay}} ()=0
+\begin{DoxyCompactList}\small\item\em Executes the payment process for a specific strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An abstract base class for different payment strategies. 
+
+This class defines the interface for various payment methods as part of the Strategy design pattern. Concrete payment strategies must inherit from this class and implement the {\ttfamily pay} method. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}\label{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}} 
+\index{PaymentStrategy@{PaymentStrategy}!pay@{pay}}
+\index{pay@{pay}!PaymentStrategy@{PaymentStrategy}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily void Payment\+Strategy\+::pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Executes the payment process for a specific strategy. 
+
+This is a pure virtual function that must be implemented by concrete subclasses to define the specific payment logic (e.\+g., cash, \mbox{\hyperlink{classEFT}{EFT}}). 
+
+Implemented in \mbox{\hyperlink{classEFT_ade93e56991458636488fdf6ec269a106}{EFT}}, \mbox{\hyperlink{classCash_a9384d2fa9b932e4a69c924364c5fdff8}{Cash}}, and \mbox{\hyperlink{classCard_ae73ab7e6a08a553f7dcebef7fc1be302}{Card}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -1,0 +1,123 @@
+\hypertarget{classCactus}{}\doxysection{Cactus Class Reference}
+\label{classCactus}\index{Cactus@{Cactus}}
+
+
+A class representing a \mbox{\hyperlink{classCactus}{Cactus}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class.  
+
+
+
+
+{\ttfamily \#include $<$Cactus.\+h$>$}
+
+
+
+Inheritance diagram for Cactus\+:
+% FIG 0
+
+
+Collaboration diagram for Cactus\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCactus_a7af2b09f8e3efd82ee3d5dc1b5ad24d7}\label{classCactus_a7af2b09f8e3efd82ee3d5dc1b5ad24d7}} 
+\mbox{\hyperlink{classCactus_a7af2b09f8e3efd82ee3d5dc1b5ad24d7}{Cactus}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classCactus}{Cactus}} class. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCactus_aacf74221f5919befcc4c97f66cd9320e}{get\+Name}} () override
+\begin{DoxyCompactList}\small\item\em Returns the name of the plant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCactus_a154c94682cf2714b443e247a385dcc7f}\label{classCactus_a154c94682cf2714b443e247a385dcc7f}} 
+\mbox{\hyperlink{classCactus}{Cactus}} $\ast$ \mbox{\hyperlink{classCactus_a154c94682cf2714b443e247a385dcc7f}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classCactus}{Cactus}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCactus_aad23702d78abf496c0683827345b46ae}{print}} () override
+\begin{DoxyCompactList}\small\item\em Returns the details of the \mbox{\hyperlink{classCactus}{Cactus}} plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCactus_aacd334734980c58741bdf2a40b81dfd8}{get\+Price}} () override
+\begin{DoxyCompactList}\small\item\em Returns the price of the \mbox{\hyperlink{classCactus}{Cactus}} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCactus_a6aba7cbb528ef07d13113b4f4d67d03b}{Cactus}} (\mbox{\hyperlink{classCactus}{Cactus}} \&to\+Copy)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \mbox{\hyperlink{classCactus}{Cactus}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A class representing a \mbox{\hyperlink{classCactus}{Cactus}} plant, derived from the \mbox{\hyperlink{classPlant}{Plant}} base class. 
+
+The \mbox{\hyperlink{classCactus}{Cactus}} class implements specific attributes and behaviors for \mbox{\hyperlink{classCactus}{Cactus}} plants, including cloning functionality and printing details. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCactus_a6aba7cbb528ef07d13113b4f4d67d03b}\label{classCactus_a6aba7cbb528ef07d13113b4f4d67d03b}} 
+\index{Cactus@{Cactus}!Cactus@{Cactus}}
+\index{Cactus@{Cactus}!Cactus@{Cactus}}
+\doxysubsubsection{\texorpdfstring{Cactus()}{Cactus()}}
+{\footnotesize\ttfamily Cactus\+::\+Cactus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCactus}{Cactus}} \&}]{to\+Copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Copy constructor for the \mbox{\hyperlink{classCactus}{Cactus}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Copy} & A reference to the \mbox{\hyperlink{classCactus}{Cactus}} object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCactus_aacf74221f5919befcc4c97f66cd9320e}\label{classCactus_aacf74221f5919befcc4c97f66cd9320e}} 
+\index{Cactus@{Cactus}!getName@{getName}}
+\index{getName@{getName}!Cactus@{Cactus}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Cactus\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the name of the plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the name of the plant. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classCactus_aacd334734980c58741bdf2a40b81dfd8}\label{classCactus_aacd334734980c58741bdf2a40b81dfd8}} 
+\index{Cactus@{Cactus}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Cactus@{Cactus}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily double Cactus\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the price of the \mbox{\hyperlink{classCactus}{Cactus}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A double representing the price of the plant. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}{Plant}}.
+
+\mbox{\Hypertarget{classCactus_aad23702d78abf496c0683827345b46ae}\label{classCactus_aad23702d78abf496c0683827345b46ae}} 
+\index{Cactus@{Cactus}!print@{print}}
+\index{print@{print}!Cactus@{Cactus}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Cactus\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the details of the \mbox{\hyperlink{classCactus}{Cactus}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representation of the plant. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cactus.\+h\item 
+Cactus.\+cpp\end{DoxyCompactItemize}

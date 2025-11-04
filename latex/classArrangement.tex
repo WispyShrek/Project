@@ -2,40 +2,174 @@
 \label{classArrangement}\index{Arrangement@{Arrangement}}
 
 
+Represents an arrangement decoration for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds arrangement-\/specific behavior.  
+
+
+
+
+{\ttfamily \#include $<$Arrangement.\+h$>$}
+
+
+
 Inheritance diagram for Arrangement\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=167pt]{classArrangement__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Arrangement\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classArrangement__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classArrangement_a6ec13e512ab7674e379b2f217fcdaf1e}\label{classArrangement_a6ec13e512ab7674e379b2f217fcdaf1e}} 
-void {\bfseries set\+Added\+Arrangement} (bool added\+Arrangement)
-\item 
-\mbox{\Hypertarget{classArrangement_a20a6ff328d52ee8c7d0fe45b59909ab1}\label{classArrangement_a20a6ff328d52ee8c7d0fe45b59909ab1}} 
-bool {\bfseries get\+Added\+Arrangement} () const
-\item 
-\mbox{\Hypertarget{classArrangement_a3f6868ee699160014ef63b32250e0d23}\label{classArrangement_a3f6868ee699160014ef63b32250e0d23}} 
-void {\bfseries increase\+Price} ()
-\item 
-\mbox{\Hypertarget{classArrangement_a970a7923e190015d25f7cf9e34b48c4a}\label{classArrangement_a970a7923e190015d25f7cf9e34b48c4a}} 
-void {\bfseries add\+Cust} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classArrangement_ab225e314e8581e7751217167563a7c53}\label{classArrangement_ab225e314e8581e7751217167563a7c53}} 
+\mbox{\hyperlink{classArrangement_ab225e314e8581e7751217167563a7c53}{Arrangement}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. Initializes the arrangement flag to false. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArrangement_a106db298594689cab6efa5d291e6ee48}{$\sim$\+Arrangement}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArrangement_a6ec13e512ab7674e379b2f217fcdaf1e}{set\+Added\+Arrangement}} (bool added\+Arrangement)
+\begin{DoxyCompactList}\small\item\em Sets the arrangement flag. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classArrangement_a20a6ff328d52ee8c7d0fe45b59909ab1}{get\+Added\+Arrangement}} () const
+\begin{DoxyCompactList}\small\item\em Gets the arrangement flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArrangement_ab49d2cd767c9340f557524449bd09252}{increase\+Price}} () override
+\begin{DoxyCompactList}\small\item\em Increases the price of the plant by the arrangement cost. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArrangement_a5b4d32094b6b5932ace6f37806fc807d}{add\+Cust}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer) override
+\begin{DoxyCompactList}\small\item\em Associates a customer with the decorated plant. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArrangement_aebdfa00d8ca950aa6e99d6e924174da6}{print}} () override
+\begin{DoxyCompactList}\small\item\em Prints the plant details along with arrangement info. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classArrangement_a5b9510a9a8ec10756f5723ff1aab138b}{get\+Name}} () override
+\begin{DoxyCompactList}\small\item\em Returns the name of the decoration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ \mbox{\hyperlink{classArrangement_a6022fc002a1b7fd0ea56165e11b172a3}{clone}} () override
+\begin{DoxyCompactList}\small\item\em Creates a copy of the \mbox{\hyperlink{classArrangement}{Arrangement}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Represents an arrangement decoration for a plant. Inherits from \mbox{\hyperlink{classCustomisation}{Customisation}} and adds arrangement-\/specific behavior. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArrangement_a106db298594689cab6efa5d291e6ee48}\label{classArrangement_a106db298594689cab6efa5d291e6ee48}} 
+\index{Arrangement@{Arrangement}!````~Arrangement@{$\sim$Arrangement}}
+\index{````~Arrangement@{$\sim$Arrangement}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{$\sim$Arrangement()}{~Arrangement()}}
+{\footnotesize\ttfamily Arrangement\+::$\sim$\+Arrangement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Destructor for \mbox{\hyperlink{classArrangement}{Arrangement}}. Cleans up any resources if needed (currently empty). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrangement_a5b4d32094b6b5932ace6f37806fc807d}\label{classArrangement_a5b4d32094b6b5932ace6f37806fc807d}} 
+\index{Arrangement@{Arrangement}!addCust@{addCust}}
+\index{addCust@{addCust}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{addCust()}{addCust()}}
+{\footnotesize\ttfamily void Arrangement\+::add\+Cust (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Associates a customer with the decorated plant. 
+
+Associates a customer with the decorated plant. Delegates the customer assignment to the underlying plant.
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classCustomisation_a2757ac43f484ee68a173406674c5cbf0}{Customisation}}.
+
+\mbox{\Hypertarget{classArrangement_a6022fc002a1b7fd0ea56165e11b172a3}\label{classArrangement_a6022fc002a1b7fd0ea56165e11b172a3}} 
+\index{Arrangement@{Arrangement}!clone@{clone}}
+\index{clone@{clone}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlant}{Plant}}$\ast$ Arrangement\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a copy of the \mbox{\hyperlink{classArrangement}{Arrangement}} object. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to a new \mbox{\hyperlink{classArrangement}{Arrangement}} object. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classArrangement_a20a6ff328d52ee8c7d0fe45b59909ab1}\label{classArrangement_a20a6ff328d52ee8c7d0fe45b59909ab1}} 
+\index{Arrangement@{Arrangement}!getAddedArrangement@{getAddedArrangement}}
+\index{getAddedArrangement@{getAddedArrangement}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{getAddedArrangement()}{getAddedArrangement()}}
+{\footnotesize\ttfamily bool Arrangement\+::get\+Added\+Arrangement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the arrangement flag. 
+
+\begin{DoxyReturn}{Returns}
+True if arrangement was added, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classArrangement_a5b9510a9a8ec10756f5723ff1aab138b}\label{classArrangement_a5b9510a9a8ec10756f5723ff1aab138b}} 
+\index{Arrangement@{Arrangement}!getName@{getName}}
+\index{getName@{getName}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Arrangement\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the name of the decoration. 
+
+\begin{DoxyReturn}{Returns}
+String \char`\"{}\+Arrangement\char`\"{}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classPlant}{Plant}}.
+
+\mbox{\Hypertarget{classArrangement_ab49d2cd767c9340f557524449bd09252}\label{classArrangement_ab49d2cd767c9340f557524449bd09252}} 
+\index{Arrangement@{Arrangement}!increasePrice@{increasePrice}}
+\index{increasePrice@{increasePrice}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{increasePrice()}{increasePrice()}}
+{\footnotesize\ttfamily void Arrangement\+::increase\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Increases the price of the plant by the arrangement cost. 
+
+Increases the price of the plant by 150 units. This method applies the cost of the arrangement decoration. 
+
+Implements \mbox{\hyperlink{classCustomisation_a4b040eb98fdf6434e33cc011d9327e92}{Customisation}}.
+
+\mbox{\Hypertarget{classArrangement_aebdfa00d8ca950aa6e99d6e924174da6}\label{classArrangement_aebdfa00d8ca950aa6e99d6e924174da6}} 
+\index{Arrangement@{Arrangement}!print@{print}}
+\index{print@{print}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Arrangement\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Prints the plant details along with arrangement info. 
+
+Prints the details of the plant with arrangement decoration. Outputs the base plant details followed by arrangement info. 
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
+\mbox{\Hypertarget{classArrangement_a6ec13e512ab7674e379b2f217fcdaf1e}\label{classArrangement_a6ec13e512ab7674e379b2f217fcdaf1e}} 
+\index{Arrangement@{Arrangement}!setAddedArrangement@{setAddedArrangement}}
+\index{setAddedArrangement@{setAddedArrangement}!Arrangement@{Arrangement}}
+\doxysubsubsection{\texorpdfstring{setAddedArrangement()}{setAddedArrangement()}}
+{\footnotesize\ttfamily void Arrangement\+::set\+Added\+Arrangement (\begin{DoxyParamCaption}\item[{bool}]{added\+Arrangement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the arrangement flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em added\+Arrangement} & Boolean indicating if arrangement was added. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

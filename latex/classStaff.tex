@@ -12,44 +12,104 @@ An abstract base class representing staff members in the nursery.
 
 
 Inheritance diagram for Staff\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=296pt]{classStaff__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Staff\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=148pt]{classStaff__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}\label{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}} 
-virtual \mbox{\hyperlink{classStaff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}{$\sim$\+Staff}} ()
+\mbox{\Hypertarget{classStaff_ab7ae31008728fc1c384d749b2927bc66}\label{classStaff_ab7ae31008728fc1c384d749b2927bc66}} 
+virtual \mbox{\hyperlink{classStaff_ab7ae31008728fc1c384d749b2927bc66}{$\sim$\+Staff}} ()
 \begin{DoxyCompactList}\small\item\em Virtual destructor for the \mbox{\hyperlink{classStaff}{Staff}} class. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classStaff_a5801a0cdc9365b943b8c8603eb397d39}\label{classStaff_a5801a0cdc9365b943b8c8603eb397d39}} 
-virtual void {\bfseries care} ()=0
+virtual void \mbox{\hyperlink{classStaff_a5801a0cdc9365b943b8c8603eb397d39}{care}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to perform care-\/related tasks. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classStaff_ab4568017d7f5073089ace25caeea2c04}{notify}} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer, \mbox{\hyperlink{classPlant}{Plant}} $\ast$plant)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method to handle customer notifications. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classStaff_af367b9e3b12854de32be524165d49704}{update}} ()
+\begin{DoxyCompactList}\small\item\em Optional method to receive updates from observable subjects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStaff_a6c6eb931f55c44a1cd21994f51807c54}\label{classStaff_a6c6eb931f55c44a1cd21994f51807c54}} 
+void {\bfseries set\+Name} (std\+::string name)
 \item 
-\mbox{\Hypertarget{classStaff_a78ee4a0f1636c72c86ca3f43b6a6f74d}\label{classStaff_a78ee4a0f1636c72c86ca3f43b6a6f74d}} 
-virtual void {\bfseries notify} (\mbox{\hyperlink{classCustomer}{Customer}} $\ast$customer)
+\mbox{\Hypertarget{classStaff_a8a323aa207c81900d721146699424409}\label{classStaff_a8a323aa207c81900d721146699424409}} 
+void {\bfseries set\+Description} (std\+::string description)
 \item 
-\mbox{\Hypertarget{classStaff_af367b9e3b12854de32be524165d49704}\label{classStaff_af367b9e3b12854de32be524165d49704}} 
-virtual void {\bfseries update} ()
+\mbox{\Hypertarget{classStaff_a31d6569724aca585b74e4e551584a086}\label{classStaff_a31d6569724aca585b74e4e551584a086}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{classStaff_a8e9195d0b72b1d1efc0bff9070083565}\label{classStaff_a8e9195d0b72b1d1efc0bff9070083565}} 
+int {\bfseries get\+Cost} ()
+\item 
+\mbox{\Hypertarget{classStaff_aca63c7b586753cf6e4c4c22da20c1b5d}\label{classStaff_aca63c7b586753cf6e4c4c22da20c1b5d}} 
+std\+::string {\bfseries get\+Description} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 An abstract base class representing staff members in the nursery. 
 
-The \mbox{\hyperlink{classStaff}{Staff}} class defines common behaviors for all staff types, including care services and notification handling. 
+The \mbox{\hyperlink{classStaff}{Staff}} class defines common behaviors for all staff types, including care services and notification handling. It inherits from \mbox{\hyperlink{classSalesFloor}{Sales\+Floor}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStaff_a5801a0cdc9365b943b8c8603eb397d39}\label{classStaff_a5801a0cdc9365b943b8c8603eb397d39}} 
+\index{Staff@{Staff}!care@{care}}
+\index{care@{care}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{care()}{care()}}
+{\footnotesize\ttfamily virtual void Staff\+::care (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to perform care-\/related tasks. 
+
+Implemented by derived classes to define specific care behavior. 
+
+Implemented in \mbox{\hyperlink{classPlantCaretaker_af90b3485a918b76f57cec33f109d2d2f}{Plant\+Caretaker}}, and \mbox{\hyperlink{classCustomerAssistant_a8b2903ae03ccbaf9f1127bd34e433edf}{Customer\+Assistant}}.
+
+\mbox{\Hypertarget{classStaff_ab4568017d7f5073089ace25caeea2c04}\label{classStaff_ab4568017d7f5073089ace25caeea2c04}} 
+\index{Staff@{Staff}!notify@{notify}}
+\index{notify@{notify}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily virtual bool Staff\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCustomer}{Customer}} $\ast$}]{customer,  }\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{plant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method to handle customer notifications. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & Pointer to the \mbox{\hyperlink{classCustomer}{Customer}} object. \\
+\hline
+{\em plant} & Pointer to the \mbox{\hyperlink{classPlant}{Plant}} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the notification was successfully handled. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSalesFloor_ab8d0f1e40012b12cafc123152bfab35b}{Sales\+Floor}}.
+
+
+
+Implemented in \mbox{\hyperlink{classPlantCaretaker_a72872eff15c79f5f4759198f659be2ab}{Plant\+Caretaker}}, and \mbox{\hyperlink{classCustomerAssistant_a49ff37eb535da68283d62fdf884ecbae}{Customer\+Assistant}}.
+
+\mbox{\Hypertarget{classStaff_af367b9e3b12854de32be524165d49704}\label{classStaff_af367b9e3b12854de32be524165d49704}} 
+\index{Staff@{Staff}!update@{update}}
+\index{update@{update}!Staff@{Staff}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Staff\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Optional method to receive updates from observable subjects. 
+
+Can be overridden by derived classes to respond to changes in state. 
+
+Reimplemented in \mbox{\hyperlink{classCustomerAssistant_a289735ed804efd0eae0405d4c67dedc4}{Customer\+Assistant}}.
+
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

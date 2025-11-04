@@ -68,15 +68,22 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SPRINKLER_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SPRINKLER_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSprinkler.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSprinkler.html">Sprinkler</a>{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> turnOn();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSprinkler.html#a0f2a94d03ea610b94bf7b38199f33514">turnOff</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassSprinkler_html"><div class="ttname"><a href="classSprinkler.html">Sprinkler</a></div><div class="ttdoc">A class representing a sprinkler system in the greenhouse.</div><div class="ttdef"><b>Definition:</b> Sprinkler.h:10</div></div>
-<div class="ttc" id="aclassSprinkler_html_a0f2a94d03ea610b94bf7b38199f33514"><div class="ttname"><a href="classSprinkler.html#a0f2a94d03ea610b94bf7b38199f33514">Sprinkler::turnOff</a></div><div class="ttdeci">void turnOff()</div><div class="ttdoc">Turns off the sprinkler.</div><div class="ttdef"><b>Definition:</b> Sprinkler.cpp:9</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">class </span><a class="code" href="classgreenHouse.html">greenHouse</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSprinkler.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSprinkler.html">Sprinkler</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="classgreenHouse.html">greenHouse</a> *greenhouse;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classSprinkler.html#a18c03dc3964c4d2fb63fd3674e87b7c2">Sprinkler</a>(<a class="code" href="classgreenHouse.html">greenHouse</a> *greenhouse);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> turnOn();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classSprinkler.html#a0f2a94d03ea610b94bf7b38199f33514">turnOff</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassSprinkler_html"><div class="ttname"><a href="classSprinkler.html">Sprinkler</a></div><div class="ttdoc">A class representing a sprinkler system in the greenhouse.</div><div class="ttdef"><b>Definition:</b> Sprinkler.h:11</div></div>
+<div class="ttc" id="aclassSprinkler_html_a0f2a94d03ea610b94bf7b38199f33514"><div class="ttname"><a href="classSprinkler.html#a0f2a94d03ea610b94bf7b38199f33514">Sprinkler::turnOff</a></div><div class="ttdeci">void turnOff()</div><div class="ttdoc">Turns off the sprinkler.</div><div class="ttdef"><b>Definition:</b> Sprinkler.cpp:10</div></div>
+<div class="ttc" id="aclassSprinkler_html_a18c03dc3964c4d2fb63fd3674e87b7c2"><div class="ttname"><a href="classSprinkler.html#a18c03dc3964c4d2fb63fd3674e87b7c2">Sprinkler::Sprinkler</a></div><div class="ttdeci">Sprinkler(greenHouse *greenhouse)</div><div class="ttdoc">Constructor for the Sprinkler class.</div><div class="ttdef"><b>Definition:</b> Sprinkler.cpp:6</div></div>
+<div class="ttc" id="aclassgreenHouse_html"><div class="ttname"><a href="classgreenHouse.html">greenHouse</a></div><div class="ttdoc">A class representing a greenhouse that holds a 3x3 grid of plants.</div><div class="ttdef"><b>Definition:</b> greenHouse.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

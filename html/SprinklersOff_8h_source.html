@@ -74,17 +74,18 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classSprinklersOff.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSprinklersOff.html">SprinklersOff</a> : <span class="keyword">public</span> <a class="code" href="classCommand.html">Command</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="classSprinkler.html">Sprinkler</a> *sprinklers;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classSprinklersOff.html#a7fb3b556dc7e5d00f388ef81ff89f5ab">SprinklersOff</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classSprinklersOff.html#ad715d57734a064d579d0cc9cbe9a0519">execute</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classSprinklersOff.html#aa1a07485084b1e630fab970daf0ef430">SprinklersOff</a>(<a class="code" href="classSprinkler.html">Sprinkler</a> *sprinklers);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classSprinklersOff.html#ad715d57734a064d579d0cc9cbe9a0519">execute</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassCommand_html"><div class="ttname"><a href="classCommand.html">Command</a></div><div class="ttdoc">Abstract base class for commands in the Command Pattern.</div><div class="ttdef"><b>Definition:</b> Command.h:12</div></div>
-<div class="ttc" id="aclassSprinkler_html"><div class="ttname"><a href="classSprinkler.html">Sprinkler</a></div><div class="ttdoc">A class representing a sprinkler system in the greenhouse.</div><div class="ttdef"><b>Definition:</b> Sprinkler.h:10</div></div>
+<div class="ttc" id="aclassSprinkler_html"><div class="ttname"><a href="classSprinkler.html">Sprinkler</a></div><div class="ttdoc">A class representing a sprinkler system in the greenhouse.</div><div class="ttdef"><b>Definition:</b> Sprinkler.h:11</div></div>
 <div class="ttc" id="aclassSprinklersOff_html"><div class="ttname"><a href="classSprinklersOff.html">SprinklersOff</a></div><div class="ttdoc">A command class to turn off the sprinkler system.</div><div class="ttdef"><b>Definition:</b> SprinklersOff.h:14</div></div>
-<div class="ttc" id="aclassSprinklersOff_html_a7fb3b556dc7e5d00f388ef81ff89f5ab"><div class="ttname"><a href="classSprinklersOff.html#a7fb3b556dc7e5d00f388ef81ff89f5ab">SprinklersOff::SprinklersOff</a></div><div class="ttdeci">SprinklersOff()</div><div class="ttdoc">Constructor for the SprinklersOff class.</div><div class="ttdef"><b>Definition:</b> SprinklersOff.cpp:3</div></div>
-<div class="ttc" id="aclassSprinklersOff_html_ad715d57734a064d579d0cc9cbe9a0519"><div class="ttname"><a href="classSprinklersOff.html#ad715d57734a064d579d0cc9cbe9a0519">SprinklersOff::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdoc">Executes the command to turn off the sprinklers.</div><div class="ttdef"><b>Definition:</b> SprinklersOff.cpp:5</div></div>
+<div class="ttc" id="aclassSprinklersOff_html_aa1a07485084b1e630fab970daf0ef430"><div class="ttname"><a href="classSprinklersOff.html#aa1a07485084b1e630fab970daf0ef430">SprinklersOff::SprinklersOff</a></div><div class="ttdeci">SprinklersOff(Sprinkler *sprinklers)</div><div class="ttdoc">Constructor for the SprinklersOff class.</div><div class="ttdef"><b>Definition:</b> SprinklersOff.cpp:3</div></div>
+<div class="ttc" id="aclassSprinklersOff_html_ad715d57734a064d579d0cc9cbe9a0519"><div class="ttname"><a href="classSprinklersOff.html#ad715d57734a064d579d0cc9cbe9a0519">SprinklersOff::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdoc">Executes the command to turn off the sprinklers.</div><div class="ttdef"><b>Definition:</b> SprinklersOff.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

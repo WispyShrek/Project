@@ -1,0 +1,11 @@
+digraph "PlantCaretaker"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="PlantCaretaker",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Staff",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classStaff.html",tooltip="An abstract base class representing staff members in the nursery."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="SalesFloor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSalesFloor.html",tooltip="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer..."];
+}

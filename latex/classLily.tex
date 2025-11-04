@@ -11,8 +11,7 @@ A class representing a \mbox{\hyperlink{classLily}{Lily}} plant, derived from th
 
 
 
-Inheritance diagram for Lily\+:
-\nopagebreak
+Inheritance diagram for Lily\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,28 +21,21 @@ Inheritance diagram for Lily\+:
 
 
 Collaboration diagram for Lily\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=328pt]{classLily__coll__graph}
-\end{center}
-\end{figure}
+% FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classLily_ac83bdf0ac208dacd9cfbd61cd886f58b}\label{classLily_ac83bdf0ac208dacd9cfbd61cd886f58b}} 
 \mbox{\hyperlink{classLily_ac83bdf0ac208dacd9cfbd61cd886f58b}{Lily}} ()
 \begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classLily}{Lily}} class. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classLily_a01340c5363d7f0596e63a843c0e307f7}{get\+Name}} ()
+std\+::string \mbox{\hyperlink{classLily_a70d1f3638ff9d4fe3600fd3db2f38feb}{get\+Name}} () override
 \begin{DoxyCompactList}\small\item\em Returns the name of the plant. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLily_a880c72a39b64113349cbc6bcedb92554}\label{classLily_a880c72a39b64113349cbc6bcedb92554}} 
-\mbox{\hyperlink{classLily}{Lily}} $\ast$ \mbox{\hyperlink{classLily_a880c72a39b64113349cbc6bcedb92554}{clone}} ()
+\mbox{\Hypertarget{classLily_a71121f157c0cdcc7a0d6948773ad642b}\label{classLily_a71121f157c0cdcc7a0d6948773ad642b}} 
+\mbox{\hyperlink{classLily}{Lily}} $\ast$ \mbox{\hyperlink{classLily_a71121f157c0cdcc7a0d6948773ad642b}{clone}} () override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classLily}{Lily}} object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLily_ae4e27e50c2a864e028f253a8347b7050}\label{classLily_ae4e27e50c2a864e028f253a8347b7050}} 
-void \mbox{\hyperlink{classLily_ae4e27e50c2a864e028f253a8347b7050}{print}} () override
-\begin{DoxyCompactList}\small\item\em Prints the details of the \mbox{\hyperlink{classLily}{Lily}} plant. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classLily_ae8abda731f593a0da381f42cfcfc51ee}{get\+Price}} ()
+std\+::string \mbox{\hyperlink{classLily_a23f92ca759b2e7a4a3dd339a6ac59767}{print}} () override
+\begin{DoxyCompactList}\small\item\em Returns the details of the \mbox{\hyperlink{classLily}{Lily}} plant. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLily_ac568755c4599a86a56beceddbe2c03ff}{get\+Price}} () override
 \begin{DoxyCompactList}\small\item\em Returns the price of the \mbox{\hyperlink{classLily}{Lily}} plant. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -77,11 +69,11 @@ Copy constructor for the \mbox{\hyperlink{classLily}{Lily}} class.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classLily_a01340c5363d7f0596e63a843c0e307f7}\label{classLily_a01340c5363d7f0596e63a843c0e307f7}} 
+\mbox{\Hypertarget{classLily_a70d1f3638ff9d4fe3600fd3db2f38feb}\label{classLily_a70d1f3638ff9d4fe3600fd3db2f38feb}} 
 \index{Lily@{Lily}!getName@{getName}}
 \index{getName@{getName}!Lily@{Lily}}
 \doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily std\+::string Lily\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily std\+::string Lily\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -94,11 +86,11 @@ A string representing the name of the plant.
 
 Implements \mbox{\hyperlink{classPlant}{Plant}}.
 
-\mbox{\Hypertarget{classLily_ae8abda731f593a0da381f42cfcfc51ee}\label{classLily_ae8abda731f593a0da381f42cfcfc51ee}} 
+\mbox{\Hypertarget{classLily_ac568755c4599a86a56beceddbe2c03ff}\label{classLily_ac568755c4599a86a56beceddbe2c03ff}} 
 \index{Lily@{Lily}!getPrice@{getPrice}}
 \index{getPrice@{getPrice}!Lily@{Lily}}
 \doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
-{\footnotesize\ttfamily void Lily\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Lily\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -107,6 +99,27 @@ Returns the price of the \mbox{\hyperlink{classLily}{Lily}} plant.
 \begin{DoxyReturn}{Returns}
 A double representing the price of the plant. 
 \end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_af46a0b4c2ba70d1ad0fe04adb4d86c99}{Plant}}.
+
+\mbox{\Hypertarget{classLily_a23f92ca759b2e7a4a3dd339a6ac59767}\label{classLily_a23f92ca759b2e7a4a3dd339a6ac59767}} 
+\index{Lily@{Lily}!print@{print}}
+\index{print@{print}!Lily@{Lily}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::string Lily\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the details of the \mbox{\hyperlink{classLily}{Lily}} plant. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the \mbox{\hyperlink{classLily}{Lily}} plant. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPlant_ac88c7018f40ea6af5e72418a88d36dfb}{Plant}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

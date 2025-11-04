@@ -2,33 +2,51 @@
 \label{classCard}\index{Card@{Card}}
 
 
+A concrete payment strategy for card payments.  
+
+
+
+
+{\ttfamily \#include $<$Card.\+h$>$}
+
+
+
 Inheritance diagram for Card\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classCard__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for Card\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=181pt]{classCard__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCard_afc64c5f07765f59cde8a4b08d2d535f4}\label{classCard_afc64c5f07765f59cde8a4b08d2d535f4}} 
-void {\bfseries pay} ()
-\end{DoxyCompactItemize}
+std\+::string \mbox{\hyperlink{classCard_ae73ab7e6a08a553f7dcebef7fc1be302}{pay}} ()
+\begin{DoxyCompactList}\small\item\em Executes the payment process for a card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A concrete payment strategy for card payments. 
+
+This class inherits from \mbox{\hyperlink{classPaymentStrategy}{Payment\+Strategy}} and implements the {\ttfamily pay} method to handle payments made by credit or debit card. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCard_ae73ab7e6a08a553f7dcebef7fc1be302}\label{classCard_ae73ab7e6a08a553f7dcebef7fc1be302}} 
+\index{Card@{Card}!pay@{pay}}
+\index{pay@{pay}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily std\+::string Card\+::pay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the payment process for a card. 
+
+This method implements the payment logic for a card transaction. It prints a message to the standard output to signify that the payment is being processed via card. 
+
+Implements \mbox{\hyperlink{classPaymentStrategy_a17e9d78398f57cfabdeaaaccc6962981}{Payment\+Strategy}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Card.\+h\item 
-Card.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Card_8h}{Card.\+h}}\item 
+\mbox{\hyperlink{Card_8cpp}{Card.\+cpp}}\end{DoxyCompactItemize}

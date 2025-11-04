@@ -63,11 +63,17 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classSalesFloor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SalesFloor Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer notifications.  
+ <a href="classSalesFloor.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SalesFloor_8h_source.html">SalesFloor.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SalesFloor:</div>
 <div class="dyncontent">
@@ -79,13 +85,118 @@ Inheritance diagram for SalesFloor:</div>
 <area shape="rect" href="classPlantCaretaker.html" title=" " alt="" coords="175,155,293,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for SalesFloor:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSalesFloor__coll__graph.png" border="0" usemap="#aSalesFloor_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93daa0141987464cfa481c6bc634621e"><td class="memItemLeft" align="right" valign="top"><a id="a93daa0141987464cfa481c6bc634621e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notify</b> (<a class="el" href="classCustomer.html">Customer</a> *customer)=0</td></tr>
-<tr class="separator:a93daa0141987464cfa481c6bc634621e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d0f1e40012b12cafc123152bfab35b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ab8d0f1e40012b12cafc123152bfab35b">notify</a> (<a class="el" href="classCustomer.html">Customer</a> *customer, <a class="el" href="classPlant.html">Plant</a> *plant)=0</td></tr>
+<tr class="memdesc:ab8d0f1e40012b12cafc123152bfab35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the sales floor about a customer's interest in a plant.  <a href="classSalesFloor.html#ab8d0f1e40012b12cafc123152bfab35b">More...</a><br /></td></tr>
+<tr class="separator:ab8d0f1e40012b12cafc123152bfab35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa630ba1a639bff6b93dc580a04cdb91"><td class="memItemLeft" align="right" valign="top"><a id="aaa630ba1a639bff6b93dc580a04cdb91"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#aaa630ba1a639bff6b93dc580a04cdb91">SalesFloor</a> ()</td></tr>
+<tr class="memdesc:aaa630ba1a639bff6b93dc580a04cdb91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:aaa630ba1a639bff6b93dc580a04cdb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b9cd4cff7a9cd2c14ae8737d7c2fd5"><td class="memItemLeft" align="right" valign="top"><a id="a00b9cd4cff7a9cd2c14ae8737d7c2fd5"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#a00b9cd4cff7a9cd2c14ae8737d7c2fd5">~SalesFloor</a> ()=default</td></tr>
+<tr class="memdesc:a00b9cd4cff7a9cd2c14ae8737d7c2fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br /></td></tr>
+<tr class="separator:a00b9cd4cff7a9cd2c14ae8737d7c2fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea1df67eaff1ef614df240b74be2043"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInventory.html">Inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#afea1df67eaff1ef614df240b74be2043">getInventory</a> ()</td></tr>
+<tr class="memdesc:afea1df67eaff1ef614df240b74be2043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the inventory managed by the sales floor.  <a href="classSalesFloor.html#afea1df67eaff1ef614df240b74be2043">More...</a><br /></td></tr>
+<tr class="separator:afea1df67eaff1ef614df240b74be2043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfdf40209963995ee89043fc62a8d00"><td class="memItemLeft" align="right" valign="top"><a id="a9dfdf40209963995ee89043fc62a8d00"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addToPlantInventory</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="separator:a9dfdf40209963995ee89043fc62a8d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ac8791c518192fcc42ad57d6d71d359c2"><td class="memItemLeft" align="right" valign="top"><a id="ac8791c518192fcc42ad57d6d71d359c2"></a>
+<a class="el" href="classInventory.html">Inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSalesFloor.html#ac8791c518192fcc42ad57d6d71d359c2">inventory</a></td></tr>
+<tr class="memdesc:ac8791c518192fcc42ad57d6d71d359c2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classInventory.html" title="Manages a collection of inventory items as strings.">Inventory</a> of plants available on the sales floor. <br /></td></tr>
+<tr class="separator:ac8791c518192fcc42ad57d6d71d359c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer notifications. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afea1df67eaff1ef614df240b74be2043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea1df67eaff1ef614df240b74be2043">&#9670;&nbsp;</a></span>getInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classInventory.html">Inventory</a>* SalesFloor::getInventory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides access to the inventory managed by the sales floor. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="classInventory.html" title="Manages a collection of inventory items as strings.">Inventory</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="ab8d0f1e40012b12cafc123152bfab35b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d0f1e40012b12cafc123152bfab35b">&#9670;&nbsp;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool SalesFloor::notify </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td>
+          <td class="paramname"><em>customer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies the sales floor about a customer's interest in a plant. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">customer</td><td>Pointer to the <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> object. </td></tr>
+    <tr><td class="paramname">plant</td><td>Pointer to the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the plant is available and processed; false otherwise. </dd></dl>
+
+<p>Implemented in <a class="el" href="classStaff.html#ab4568017d7f5073089ace25caeea2c04">Staff</a>, <a class="el" href="classPlantCaretaker.html#a72872eff15c79f5f4759198f659be2ab">PlantCaretaker</a>, and <a class="el" href="classCustomerAssistant.html#a49ff37eb535da68283d62fdf884ecbae">CustomerAssistant</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="SalesFloor_8h_source.html">SalesFloor.h</a></li>
 </ul>

@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classgreenHouse-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">greenHouse Class Reference</div>  </div>
@@ -94,65 +95,56 @@ Collaboration diagram for greenHouse:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a38f4ae4393fe6ab8d51705ae2bac4bd0"><td class="memItemLeft" align="right" valign="top"><a id="a38f4ae4393fe6ab8d51705ae2bac4bd0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">powerSystem</a> ()</td></tr>
-<tr class="memdesc:a38f4ae4393fe6ab8d51705ae2bac4bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers the greenhouse system, toggling sprinklers and lights on or off. <br /></td></tr>
+<tr class="memitem:a1f540a767e0300fcfb5b605a76f3f792"><td class="memItemLeft" align="right" valign="top"><a id="a1f540a767e0300fcfb5b605a76f3f792"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a1f540a767e0300fcfb5b605a76f3f792">greenHouse</a> ()</td></tr>
+<tr class="memdesc:a1f540a767e0300fcfb5b605a76f3f792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classgreenHouse.html" title="A class representing a greenhouse that holds a 3x3 grid of plants.">greenHouse</a> class. <br /></td></tr>
+<tr class="separator:a1f540a767e0300fcfb5b605a76f3f792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f4ae4393fe6ab8d51705ae2bac4bd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGreenhouseController.html">GreenhouseController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">powerSystem</a> ()</td></tr>
+<tr class="memdesc:a38f4ae4393fe6ab8d51705ae2bac4bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the greenhouse power and water systems for toggling sprinklers and lights on or off.  <a href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">More...</a><br /></td></tr>
 <tr class="separator:a38f4ae4393fe6ab8d51705ae2bac4bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1befc366481d88f8a9e3476015260b34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIterator.html">Iterator</a>&lt; <a class="el" href="classPlant.html">Plant</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">CreateIterator</a> () override</td></tr>
 <tr class="memdesc:a1befc366481d88f8a9e3476015260b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an iterator over the 3x3 plant grid (row-major, skips nulls).  <a href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">More...</a><br /></td></tr>
 <tr class="separator:a1befc366481d88f8a9e3476015260b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf6f957e47300e02428a82a43af86b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#abf6f957e47300e02428a82a43af86b5b">addItem</a> (<a class="el" href="classPlant.html">Plant</a> *item) override</td></tr>
-<tr class="memdesc:abf6f957e47300e02428a82a43af86b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the first available slot in the 3x3 grid. If 7 plants already exist, the plant is not added and a message is printed.  <a href="classgreenHouse.html#abf6f957e47300e02428a82a43af86b5b">More...</a><br /></td></tr>
-<tr class="separator:abf6f957e47300e02428a82a43af86b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7314ddd5757cf3058cb88eb99635f55c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">addItem</a> (<a class="el" href="classPlant.html">Plant</a> *item, int row, int col)</td></tr>
+<tr class="memitem:ae2237458cb1438e6e523974aed8413f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#ae2237458cb1438e6e523974aed8413f4">tryAddItem</a> (<a class="el" href="classPlant.html">Plant</a> *item) override</td></tr>
+<tr class="memdesc:ae2237458cb1438e6e523974aed8413f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the first available slot in the 3x3 grid and returns true upon success. If 9 plants already exist, the plant is not added and returns false.  <a href="classgreenHouse.html#ae2237458cb1438e6e523974aed8413f4">More...</a><br /></td></tr>
+<tr class="separator:ae2237458cb1438e6e523974aed8413f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7314ddd5757cf3058cb88eb99635f55c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">addItem</a> (<a class="el" href="classPlant.html">Plant</a> *item, int row, int col)</td></tr>
 <tr class="memdesc:a7314ddd5757cf3058cb88eb99635f55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant at a specific grid position (if empty and within bounds). Enforces the same 7-plant capacity as <a class="el" href="classGarden.html">Garden</a>.  <a href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">More...</a><br /></td></tr>
 <tr class="separator:a7314ddd5757cf3058cb88eb99635f55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6d562484b6eef85b03fee594f77f022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#aa6d562484b6eef85b03fee594f77f022">removeItem</a> (<a class="el" href="classPlant.html">Plant</a> *item)</td></tr>
-<tr class="memdesc:aa6d562484b6eef85b03fee594f77f022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plantCount on success. Does not delete the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object.  <a href="classgreenHouse.html#aa6d562484b6eef85b03fee594f77f022">More...</a><br /></td></tr>
-<tr class="separator:aa6d562484b6eef85b03fee594f77f022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224abba3d21efc3447a0eb6af6d409fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgreenHouse.html#a224abba3d21efc3447a0eb6af6d409fe">removeItem</a> (<a class="el" href="classPlant.html">Plant</a> *item) override</td></tr>
+<tr class="memdesc:a224abba3d21efc3447a0eb6af6d409fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plantCount on success. Does not delete the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object.  <a href="classgreenHouse.html#a224abba3d21efc3447a0eb6af6d409fe">More...</a><br /></td></tr>
+<tr class="separator:a224abba3d21efc3447a0eb6af6d409fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b82e9f1f06305f4afa2f2476c41541"><td class="memItemLeft" align="right" valign="top"><a id="ae9b82e9f1f06305f4afa2f2476c41541"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> ()</td></tr>
+<tr class="separator:ae9b82e9f1f06305f4afa2f2476c41541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7722770da40ce0586cd6b15eca607d9f"><td class="memItemLeft" align="right" valign="top"><a id="a7722770da40ce0586cd6b15eca607d9f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> ()</td></tr>
+<tr class="separator:a7722770da40ce0586cd6b15eca607d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba6334bb3a07f54cf815711b174d8bec"><td class="memItemLeft" align="right" valign="top"><a id="aba6334bb3a07f54cf815711b174d8bec"></a>
+<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>removeDying</b> ()</td></tr>
+<tr class="separator:aba6334bb3a07f54cf815711b174d8bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b68c55e2583a1f7f25ba0bf018c5cc"><td class="memItemLeft" align="right" valign="top"><a id="a50b68c55e2583a1f7f25ba0bf018c5cc"></a>
+<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>removeMature</b> ()</td></tr>
+<tr class="separator:a50b68c55e2583a1f7f25ba0bf018c5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a243b830198467d46abb93383c3b93c77"><td class="memItemLeft" align="right" valign="top"><a id="a243b830198467d46abb93383c3b93c77"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="separator:a243b830198467d46abb93383c3b93c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aec0cf7ea777bd5bc865ce50f4a1854e9"><td class="memItemLeft" align="right" valign="top"><a id="aec0cf7ea777bd5bc865ce50f4a1854e9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>wet</b> = false</td></tr>
+<tr class="separator:aec0cf7ea777bd5bc865ce50f4a1854e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad02134027941d5255d4785a920844cac"><td class="memItemLeft" align="right" valign="top"><a id="ad02134027941d5255d4785a920844cac"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>bright</b> = false</td></tr>
+<tr class="separator:ad02134027941d5255d4785a920844cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing a greenhouse that holds a 3x3 grid of plants. </p>
 <p>The <a class="el" href="classgreenHouse.html" title="A class representing a greenhouse that holds a 3x3 grid of plants.">greenHouse</a> class inherits from the <a class="el" href="classCollection.html">Collection&lt;Plant*&gt;</a> class and implements methods to manage a 3x3 grid of <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> pointers, including adding, removing, and iterating over the plants in the greenhouse. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf6f957e47300e02428a82a43af86b5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf6f957e47300e02428a82a43af86b5b">&#9670;&nbsp;</a></span>addItem() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void greenHouse::addItem </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds a plant to the first available slot in the 3x3 grid. If 7 plants already exist, the plant is not added and a message is printed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A pointer to a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to be added to the greenhouse. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="classCollection.html">Collection&lt; Plant * &gt;</a>.</p>
-
-</div>
-</div>
 <a id="a7314ddd5757cf3058cb88eb99635f55c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7314ddd5757cf3058cb88eb99635f55c">&#9670;&nbsp;</a></span>addItem() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7314ddd5757cf3058cb88eb99635f55c">&#9670;&nbsp;</a></span>addItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,6 +184,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a boolean representing successful addition </dd></dl>
 
 </div>
 </div>
@@ -225,8 +218,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="aa6d562484b6eef85b03fee594f77f022"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6d562484b6eef85b03fee594f77f022">&#9670;&nbsp;</a></span>removeItem()</h2>
+<a id="a38f4ae4393fe6ab8d51705ae2bac4bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f4ae4393fe6ab8d51705ae2bac4bd0">&#9670;&nbsp;</a></span>powerSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void greenHouse::powerSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialises the greenhouse power and water systems for toggling sprinklers and lights on or off. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classGreenhouseController.html" title="A controller class for managing greenhouse systems like sprinklers and lights.">GreenhouseController</a> pointer for the controller that can be used on the greenhouse; </dd></dl>
+
+</div>
+</div>
+<a id="a224abba3d21efc3447a0eb6af6d409fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a224abba3d21efc3447a0eb6af6d409fe">&#9670;&nbsp;</a></span>removeItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +248,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void greenHouse::removeItem </td>
+          <td class="memname">bool greenHouse::removeItem </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
@@ -244,7 +257,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -261,9 +274,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="ae2237458cb1438e6e523974aed8413f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2237458cb1438e6e523974aed8413f4">&#9670;&nbsp;</a></span>tryAddItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool greenHouse::tryAddItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a plant to the first available slot in the 3x3 grid and returns true upon success. If 9 plants already exist, the plant is not added and returns false. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">item</td><td>A pointer to a <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to be added to the greenhouse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a boolean representing successful addition. </dd></dl>
+
+<p>Implements <a class="el" href="classCollection.html">Collection&lt; Plant * &gt;</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="greenHouse_8h_source.html">greenHouse.h</a></li>
-<li>greenHouse.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

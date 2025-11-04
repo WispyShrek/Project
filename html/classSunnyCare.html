@@ -68,6 +68,11 @@ $(function() {
 <div class="title">SunnyCare Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A concrete care strategy for plants that prefer sunny conditions.  
+ <a href="classSunnyCare.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SunnyCare_8h_source.html">SunnyCare.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SunnyCare:</div>
 <div class="dyncontent">
@@ -89,8 +94,11 @@ Collaboration diagram for SunnyCare:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a47da1d95eae84cec086ca7157d15dd2c"><td class="memItemLeft" align="right" valign="top"><a id="a47da1d95eae84cec086ca7157d15dd2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyCare</b> () override</td></tr>
+<tr class="memitem:a3bef3f2f16bdf44a2c79f9036cfa6a2a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSunnyCare.html#a3bef3f2f16bdf44a2c79f9036cfa6a2a">SunnyCare</a> ()</td></tr>
+<tr class="memdesc:a3bef3f2f16bdf44a2c79f9036cfa6a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classSunnyCare.html" title="A concrete care strategy for plants that prefer sunny conditions.">SunnyCare</a> class. Sets the strategy name to "Sunny".  <a href="classSunnyCare.html#a3bef3f2f16bdf44a2c79f9036cfa6a2a">More...</a><br /></td></tr>
+<tr class="separator:a3bef3f2f16bdf44a2c79f9036cfa6a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47da1d95eae84cec086ca7157d15dd2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSunnyCare.html#a47da1d95eae84cec086ca7157d15dd2c">applyCare</a> () override</td></tr>
+<tr class="memdesc:a47da1d95eae84cec086ca7157d15dd2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the care routine for sunny conditions. Overrides the pure virtual function in <a class="el" href="classCareStrategy.html">CareStrategy</a> to define the specific care logic, which involves printing a message to the console.  <a href="classSunnyCare.html#a47da1d95eae84cec086ca7157d15dd2c">More...</a><br /></td></tr>
 <tr class="separator:a47da1d95eae84cec086ca7157d15dd2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCareStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCareStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCareStrategy.html">CareStrategy</a></td></tr>
 <tr class="memitem:ade6220c719716254d9fd92655baa1a27 inherit pub_methods_classCareStrategy"><td class="memItemLeft" align="right" valign="top"><a id="ade6220c719716254d9fd92655baa1a27"></a>
@@ -104,9 +112,66 @@ Additional Inherited Members</h2></td></tr>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>strategyName</b></td></tr>
 <tr class="separator:a6ff530f52c2bf0db2d211cb9cf5c7543 inherit pro_attribs_classCareStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A concrete care strategy for plants that prefer sunny conditions. </p>
+<p>This class inherits from <a class="el" href="classCareStrategy.html">CareStrategy</a> and implements the <code>applyCare</code> method to provide a specific care routine suitable for sun-loving plants. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3bef3f2f16bdf44a2c79f9036cfa6a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bef3f2f16bdf44a2c79f9036cfa6a2a">&#9670;&nbsp;</a></span>SunnyCare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SunnyCare::SunnyCare </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the <a class="el" href="classSunnyCare.html" title="A concrete care strategy for plants that prefer sunny conditions.">SunnyCare</a> class. Sets the strategy name to "Sunny". </p>
+<p>Constructor for the <a class="el" href="classSunnyCare.html" title="A concrete care strategy for plants that prefer sunny conditions.">SunnyCare</a> class.</p>
+<p>Initializes the care strategy and sets its name to "Sunny". </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a47da1d95eae84cec086ca7157d15dd2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47da1d95eae84cec086ca7157d15dd2c">&#9670;&nbsp;</a></span>applyCare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SunnyCare::applyCare </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies the care routine for sunny conditions. Overrides the pure virtual function in <a class="el" href="classCareStrategy.html">CareStrategy</a> to define the specific care logic, which involves printing a message to the console. </p>
+<p>Applies the care routine for sunny conditions.</p>
+<p>This method implements the specific care logic for plants that prefer full sun, which involves printing a descriptive message to the console. </p>
+
+<p>Implements <a class="el" href="classCareStrategy.html">CareStrategy</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="SunnyCare_8h_source.html">SunnyCare.h</a></li>
-<li>SunnyCare.cpp</li>
+<li><a class="el" href="SunnyCare_8cpp.html">SunnyCare.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

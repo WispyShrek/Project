@@ -1,20 +1,86 @@
 \hypertarget{classPlantMemento}{}\doxysection{Plant\+Memento Class Reference}
 \label{classPlantMemento}\index{PlantMemento@{PlantMemento}}
+
+
+Stores the internal state of a \mbox{\hyperlink{classPlant}{Plant}} object.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Memento.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classPlantMemento_a63177e472aae4051d2a7066a6e209797}\label{classPlantMemento_a63177e472aae4051d2a7066a6e209797}} 
+\mbox{\hyperlink{classPlantMemento_a63177e472aae4051d2a7066a6e209797}{Plant\+Memento}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. Initializes the memento with a null state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantMemento_aa3eddca8ce20e01ab183e274bd467ac0}{Plant\+Memento}} (\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$state)
+\begin{DoxyCompactList}\small\item\em Constructor that captures a plant\textquotesingle{}s state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlantMemento_a9322db58bae45e495e16878c5fde16a1}\label{classPlantMemento_a9322db58bae45e495e16878c5fde16a1}} 
+\mbox{\hyperlink{classPlantMemento_a9322db58bae45e495e16878c5fde16a1}{$\sim$\+Plant\+Memento}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Cleans up the stored \mbox{\hyperlink{classPlantState}{Plant\+State}} clone. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classPlantMemento_a44671dc44ed45a614f52368178be42f3}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the saved state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlantMemento_a30666e1b584675f01b39dd03889f1c2b}{set\+State}} (\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$state)
+\begin{DoxyCompactList}\small\item\em Sets the state to be stored in the memento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores the internal state of a \mbox{\hyperlink{classPlant}{Plant}} object. 
+
+The \mbox{\hyperlink{classPlantMemento}{Plant\+Memento}} is part of the Memento design pattern. It is created by a \mbox{\hyperlink{classPlant}{Plant}} (the Originator) to save its current state (a \mbox{\hyperlink{classPlantState}{Plant\+State}} object). The \mbox{\hyperlink{classCaretaker}{Caretaker}} can hold this memento and use it to restore the \mbox{\hyperlink{classPlant}{Plant}}\textquotesingle{}s state later, without having access to the state\textquotesingle{}s implementation details. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classPlantMemento_aa3eddca8ce20e01ab183e274bd467ac0}\label{classPlantMemento_aa3eddca8ce20e01ab183e274bd467ac0}} 
-{\bfseries Plant\+Memento} (\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$state)
-\item 
+\index{PlantMemento@{PlantMemento}!PlantMemento@{PlantMemento}}
+\index{PlantMemento@{PlantMemento}!PlantMemento@{PlantMemento}}
+\doxysubsubsection{\texorpdfstring{PlantMemento()}{PlantMemento()}}
+{\footnotesize\ttfamily Plant\+Memento\+::\+Plant\+Memento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Constructor that captures a plant\textquotesingle{}s state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & A pointer to the \mbox{\hyperlink{classPlantState}{Plant\+State}} to be saved. The memento creates a clone of this state. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classPlantMemento_a44671dc44ed45a614f52368178be42f3}\label{classPlantMemento_a44671dc44ed45a614f52368178be42f3}} 
-\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ {\bfseries get\+State} () const
-\item 
+\index{PlantMemento@{PlantMemento}!getState@{getState}}
+\index{getState@{getState}!PlantMemento@{PlantMemento}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ Plant\+Memento\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the saved state. 
+
+\begin{DoxyReturn}{Returns}
+A clone of the saved \mbox{\hyperlink{classPlantState}{Plant\+State}}. The caller (the \mbox{\hyperlink{classPlant}{Plant}}) is responsible for managing this new object\textquotesingle{}s memory. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classPlantMemento_a30666e1b584675f01b39dd03889f1c2b}\label{classPlantMemento_a30666e1b584675f01b39dd03889f1c2b}} 
-void {\bfseries set\+State} (\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$state)
-\end{DoxyCompactItemize}
+\index{PlantMemento@{PlantMemento}!setState@{setState}}
+\index{setState@{setState}!PlantMemento@{PlantMemento}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Plant\+Memento\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the state to be stored in the memento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & A pointer to the \mbox{\hyperlink{classPlantState}{Plant\+State}} to be saved. The memento creates a clone of this state. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Plant\+Memento.\+h\item 
+\mbox{\hyperlink{PlantMemento_8h}{Plant\+Memento.\+h}}\item 
 Plant\+Memento.\+cpp\end{DoxyCompactItemize}

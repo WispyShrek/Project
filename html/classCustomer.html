@@ -63,11 +63,17 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classCustomer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Customer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a customer interacting with the sales floor and managing a cart of plants. This is an abstract base class with virtual methods for customization.  
+ <a href="classCustomer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Customer_8h_source.html">Customer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Customer:</div>
 <div class="dyncontent">
@@ -81,31 +87,353 @@ Inheritance diagram for Customer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad96be5d3982c784a35aed85140cca299"><td class="memItemLeft" align="right" valign="top"><a id="ad96be5d3982c784a35aed85140cca299"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Customer</b> (std::string name, <a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor)</td></tr>
-<tr class="separator:ad96be5d3982c784a35aed85140cca299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8adce2f32043c1fa5f0ede2de0d6c173"><td class="memItemLeft" align="right" valign="top"><a id="a8adce2f32043c1fa5f0ede2de0d6c173"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addDecoration</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="separator:a8adce2f32043c1fa5f0ede2de0d6c173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f50dcd04ce829e290da1bae29ed1e79"><td class="memItemLeft" align="right" valign="top"><a id="a9f50dcd04ce829e290da1bae29ed1e79"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addToCart</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
-<tr class="separator:a9f50dcd04ce829e290da1bae29ed1e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1ed6573e08d3047607293e5bdac580"><td class="memItemLeft" align="right" valign="top"><a id="a9e1ed6573e08d3047607293e5bdac580"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeFromCart</b> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memitem:abcc8fae9701e5ba9d7d6fe44498b34e3"><td class="memItemLeft" align="right" valign="top"><a id="abcc8fae9701e5ba9d7d6fe44498b34e3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#abcc8fae9701e5ba9d7d6fe44498b34e3">Customer</a> ()</td></tr>
+<tr class="memdesc:abcc8fae9701e5ba9d7d6fe44498b34e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a>. Initializes name to empty string and salesFloor to NULL. <br /></td></tr>
+<tr class="separator:abcc8fae9701e5ba9d7d6fe44498b34e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a039915ac7cf2aabff650178d015b2391"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a039915ac7cf2aabff650178d015b2391">Customer</a> (std::string name, <a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor, double timeAvailable)</td></tr>
+<tr class="memdesc:a039915ac7cf2aabff650178d015b2391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterized constructor.  <a href="classCustomer.html#a039915ac7cf2aabff650178d015b2391">More...</a><br /></td></tr>
+<tr class="separator:a039915ac7cf2aabff650178d015b2391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab93fb14683b0393b9c900109f77c2629"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#ab93fb14683b0393b9c900109f77c2629">~Customer</a> ()</td></tr>
+<tr class="memdesc:ab93fb14683b0393b9c900109f77c2629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCustomer.html#ab93fb14683b0393b9c900109f77c2629">More...</a><br /></td></tr>
+<tr class="separator:ab93fb14683b0393b9c900109f77c2629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd2b4acaf9a0d25eeecbf0439ec9a73"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">voiceLine</a> ()=0</td></tr>
+<tr class="memdesc:a1bd2b4acaf9a0d25eeecbf0439ec9a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract method for customer-specific voice line.  <a href="classCustomer.html#a1bd2b4acaf9a0d25eeecbf0439ec9a73">More...</a><br /></td></tr>
+<tr class="separator:a1bd2b4acaf9a0d25eeecbf0439ec9a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa282058f6c45ae529e1bfc876021c38"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">getTimeLine</a> ()</td></tr>
+<tr class="memdesc:aaa282058f6c45ae529e1bfc876021c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a string representing the customer's time availability.  <a href="classCustomer.html#aaa282058f6c45ae529e1bfc876021c38">More...</a><br /></td></tr>
+<tr class="separator:aaa282058f6c45ae529e1bfc876021c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7afb8352f10e277b2b178e8e26c028b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a7afb8352f10e277b2b178e8e26c028b2">addDecoration</a> (<a class="el" href="classCustomisation.html">Customisation</a> *decorator, <a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:a7afb8352f10e277b2b178e8e26c028b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a decoration to a plant in the cart.  <a href="classCustomer.html#a7afb8352f10e277b2b178e8e26c028b2">More...</a><br /></td></tr>
+<tr class="separator:a7afb8352f10e277b2b178e8e26c028b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10783e7df0f1ea75679d697c253b844"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#ad10783e7df0f1ea75679d697c253b844">addToCart</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:ad10783e7df0f1ea75679d697c253b844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a plant to the customer's cart.  <a href="classCustomer.html#ad10783e7df0f1ea75679d697c253b844">More...</a><br /></td></tr>
+<tr class="separator:ad10783e7df0f1ea75679d697c253b844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e1ed6573e08d3047607293e5bdac580"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">removeFromCart</a> (<a class="el" href="classPlant.html">Plant</a> *plant)</td></tr>
+<tr class="memdesc:a9e1ed6573e08d3047607293e5bdac580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a plant from the customer's cart.  <a href="classCustomer.html#a9e1ed6573e08d3047607293e5bdac580">More...</a><br /></td></tr>
 <tr class="separator:a9e1ed6573e08d3047607293e5bdac580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d756ecc1e055b13acabb6e68867e6c2"><td class="memItemLeft" align="right" valign="top"><a id="a0d756ecc1e055b13acabb6e68867e6c2"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>cartToString</b> ()</td></tr>
+<tr class="memitem:a0d756ecc1e055b13acabb6e68867e6c2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a0d756ecc1e055b13acabb6e68867e6c2">cartToString</a> ()</td></tr>
+<tr class="memdesc:a0d756ecc1e055b13acabb6e68867e6c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the cart contents.  <a href="classCustomer.html#a0d756ecc1e055b13acabb6e68867e6c2">More...</a><br /></td></tr>
 <tr class="separator:a0d756ecc1e055b13acabb6e68867e6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb2e13cc7a8006b42b21c97d16f2ae9"><td class="memItemLeft" align="right" valign="top"><a id="a4fb2e13cc7a8006b42b21c97d16f2ae9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changed</b> ()</td></tr>
-<tr class="separator:a4fb2e13cc7a8006b42b21c97d16f2ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac448d9d4eb8b0803850eb59556a84561"><td class="memItemLeft" align="right" valign="top"><a id="ac448d9d4eb8b0803850eb59556a84561"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> ()=0</td></tr>
-<tr class="separator:ac448d9d4eb8b0803850eb59556a84561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7037acb246263049332eea5dc1143f4b"><td class="memItemLeft" align="right" valign="top"><a id="a7037acb246263049332eea5dc1143f4b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> ()=0</td></tr>
-<tr class="separator:a7037acb246263049332eea5dc1143f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae7cc4763ead810ecb0107eeadceee8"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">enquirePlants</a> (<a class="el" href="classSalesFloor.html">SalesFloor</a> *salesFloor)=0</td></tr>
+<tr class="memdesc:a9ae7cc4763ead810ecb0107eeadceee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract method for customer to enquire about plants.  <a href="classCustomer.html#a9ae7cc4763ead810ecb0107eeadceee8">More...</a><br /></td></tr>
+<tr class="separator:a9ae7cc4763ead810ecb0107eeadceee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362ed2a14a838049e2bedf71cf42a3fd"><td class="memItemLeft" align="right" valign="top"><a id="a362ed2a14a838049e2bedf71cf42a3fd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>buyItems</b> ()</td></tr>
+<tr class="separator:a362ed2a14a838049e2bedf71cf42a3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d0befd0c11001f648c5ec02ca3682ab"><td class="memItemLeft" align="right" valign="top"><a id="a1d0befd0c11001f648c5ec02ca3682ab"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>decTime</b> ()</td></tr>
+<tr class="separator:a1d0befd0c11001f648c5ec02ca3682ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f662480a5bcc5f28455838c8a217dca"><td class="memItemLeft" align="right" valign="top"><a id="a2f662480a5bcc5f28455838c8a217dca"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getCartSize</b> ()</td></tr>
+<tr class="separator:a2f662480a5bcc5f28455838c8a217dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45c77e71b1e48a12445d11add18d807"><td class="memItemLeft" align="right" valign="top"><a id="aa45c77e71b1e48a12445d11add18d807"></a>
+<a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSalesFloor</b> ()</td></tr>
+<tr class="separator:aa45c77e71b1e48a12445d11add18d807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aadd58f56d9333e88d58c1b32f191aaa7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classPlant.html">Plant</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">preferredPlants</a></td></tr>
+<tr class="memdesc:aadd58f56d9333e88d58c1b32f191aaa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="classCustomer.html#aadd58f56d9333e88d58c1b32f191aaa7">More...</a><br /></td></tr>
+<tr class="separator:aadd58f56d9333e88d58c1b32f191aaa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a customer interacting with the sales floor and managing a cart of plants. This is an abstract base class with virtual methods for customization. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a039915ac7cf2aabff650178d015b2391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a039915ac7cf2aabff650178d015b2391">&#9670;&nbsp;</a></span>Customer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Customer::Customer </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td>
+          <td class="paramname"><em>salesFloor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parameterized constructor. </p>
+<p>Parameterized constructor for <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the customer. </td></tr>
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> object. </td></tr>
+    <tr><td class="paramname">timeAvailable</td><td>Time available for shopping in minutes.</td></tr>
+    <tr><td class="paramname">name</td><td>Name of the customer. </td></tr>
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> object. </td></tr>
+    <tr><td class="paramname">time</td><td>Time available for the customer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab93fb14683b0393b9c900109f77c2629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab93fb14683b0393b9c900109f77c2629">&#9670;&nbsp;</a></span>~Customer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Customer::~Customer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor. </p>
+<p>Destructor for <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a>. Deletes all dynamically allocated <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> objects in the cart. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7afb8352f10e277b2b178e8e26c028b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7afb8352f10e277b2b178e8e26c028b2">&#9670;&nbsp;</a></span>addDecoration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Customer::addDecoration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCustomisation.html">Customisation</a> *&#160;</td>
+          <td class="paramname"><em>decorator</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a decoration to a plant in the cart. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">customisation</td><td>pointer for the plant. </td></tr>
+    <tr><td class="paramname">plant</td><td>Pointer to the plant to decorate.</td></tr>
+    <tr><td class="paramname">decorationType</td><td>Type of decoration ("arrangement", "giftwrapping", "decorativepot"). </td></tr>
+    <tr><td class="paramname">plant</td><td>Pointer to the plant to decorate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad10783e7df0f1ea75679d697c253b844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad10783e7df0f1ea75679d697c253b844">&#9670;&nbsp;</a></span>addToCart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Customer::addToCart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a plant to the customer's cart. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plant</td><td>Pointer to the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object.</td></tr>
+    <tr><td class="paramname">plant</td><td>Pointer to the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d756ecc1e055b13acabb6e68867e6c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d756ecc1e055b13acabb6e68867e6c2">&#9670;&nbsp;</a></span>cartToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Customer::cartToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string representation of the cart contents. </p>
+<p>Returns a string representation of the cart contents. Includes plant name, colour, scent, and price.</p>
+<dl class="section return"><dt>Returns</dt><dd>Formatted string listing all plants in the cart. </dd></dl>
+
+</div>
+</div>
+<a id="a9ae7cc4763ead810ecb0107eeadceee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae7cc4763ead810ecb0107eeadceee8">&#9670;&nbsp;</a></span>enquirePlants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string Customer::enquirePlants </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSalesFloor.html">SalesFloor</a> *&#160;</td>
+          <td class="paramname"><em>salesFloor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Abstract method for customer to enquire about plants. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salesFloor</td><td>Pointer to the <a class="el" href="classSalesFloor.html" title="Abstract base class representing a sales floor in the nursery. Manages inventory and handles customer...">SalesFloor</a> to enquire from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classFussyCust.html#a6de7967e246ae51a930db762de11dea0">FussyCust</a>, and <a class="el" href="classEasyCust.html#aa1ec72422f9be46ac8852765a43222d0">EasyCust</a>.</p>
+
+</div>
+</div>
+<a id="aaa282058f6c45ae529e1bfc876021c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa282058f6c45ae529e1bfc876021c38">&#9670;&nbsp;</a></span>getTimeLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Customer::getTimeLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a string representing the customer's time availability. </p>
+<dl class="section return"><dt>Returns</dt><dd>A formatted string of available time. </dd></dl>
+
+</div>
+</div>
+<a id="a9e1ed6573e08d3047607293e5bdac580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1ed6573e08d3047607293e5bdac580">&#9670;&nbsp;</a></span>removeFromCart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Customer::removeFromCart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlant.html">Plant</a> *&#160;</td>
+          <td class="paramname"><em>plant</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a plant from the customer's cart. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plant</td><td>Pointer to the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> object to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1bd2b4acaf9a0d25eeecbf0439ec9a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd2b4acaf9a0d25eeecbf0439ec9a73">&#9670;&nbsp;</a></span>voiceLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string Customer::voiceLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Abstract method for customer-specific voice line. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the customer's voice line. </dd></dl>
+
+<p>Implemented in <a class="el" href="classFussyCust.html#a3f30a8237bcd947b219eccc0f475b7f2">FussyCust</a>, and <a class="el" href="classEasyCust.html#ab89d3579e4e681ff892b518a74241297">EasyCust</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aadd58f56d9333e88d58c1b32f191aaa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadd58f56d9333e88d58c1b32f191aaa7">&#9670;&nbsp;</a></span>preferredPlants</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="classPlant.html">Plant</a> *&gt; Customer::preferredPlants</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Vector holding the customer's preferred plants. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Customer_8h_source.html">Customer.h</a></li>
 <li>Customer.cpp</li>

@@ -68,6 +68,11 @@ $(function() {
 <div class="title">ShadyCare Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A concrete care strategy for plants that prefer shady conditions.  
+ <a href="classShadyCare.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ShadyCare_8h_source.html">ShadyCare.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ShadyCare:</div>
 <div class="dyncontent">
@@ -89,8 +94,11 @@ Collaboration diagram for ShadyCare:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ad4094d68389aedd8872e1665b70d83"><td class="memItemLeft" align="right" valign="top"><a id="a7ad4094d68389aedd8872e1665b70d83"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyCare</b> () override</td></tr>
+<tr class="memitem:ac550795d1bfb90f24dd0d489532d34a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShadyCare.html#ac550795d1bfb90f24dd0d489532d34a6">ShadyCare</a> ()</td></tr>
+<tr class="memdesc:ac550795d1bfb90f24dd0d489532d34a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classShadyCare.html" title="A concrete care strategy for plants that prefer shady conditions.">ShadyCare</a> class. Sets the strategy name to "Shady".  <a href="classShadyCare.html#ac550795d1bfb90f24dd0d489532d34a6">More...</a><br /></td></tr>
+<tr class="separator:ac550795d1bfb90f24dd0d489532d34a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad4094d68389aedd8872e1665b70d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShadyCare.html#a7ad4094d68389aedd8872e1665b70d83">applyCare</a> () override</td></tr>
+<tr class="memdesc:a7ad4094d68389aedd8872e1665b70d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the care routine for shady conditions. Overrides the pure virtual function in <a class="el" href="classCareStrategy.html">CareStrategy</a> to define the specific care logic, which involves printing a message to the console.  <a href="classShadyCare.html#a7ad4094d68389aedd8872e1665b70d83">More...</a><br /></td></tr>
 <tr class="separator:a7ad4094d68389aedd8872e1665b70d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCareStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCareStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCareStrategy.html">CareStrategy</a></td></tr>
 <tr class="memitem:ade6220c719716254d9fd92655baa1a27 inherit pub_methods_classCareStrategy"><td class="memItemLeft" align="right" valign="top"><a id="ade6220c719716254d9fd92655baa1a27"></a>
@@ -104,9 +112,66 @@ Additional Inherited Members</h2></td></tr>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>strategyName</b></td></tr>
 <tr class="separator:a6ff530f52c2bf0db2d211cb9cf5c7543 inherit pro_attribs_classCareStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A concrete care strategy for plants that prefer shady conditions. </p>
+<p>This class inherits from <a class="el" href="classCareStrategy.html">CareStrategy</a> and implements the <code>applyCare</code> method to provide a specific care routine suitable for shade-loving plants. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac550795d1bfb90f24dd0d489532d34a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac550795d1bfb90f24dd0d489532d34a6">&#9670;&nbsp;</a></span>ShadyCare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ShadyCare::ShadyCare </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the <a class="el" href="classShadyCare.html" title="A concrete care strategy for plants that prefer shady conditions.">ShadyCare</a> class. Sets the strategy name to "Shady". </p>
+<p>Constructor for the <a class="el" href="classShadyCare.html" title="A concrete care strategy for plants that prefer shady conditions.">ShadyCare</a> class.</p>
+<p>Initializes the care strategy and sets its name to "Shady". </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7ad4094d68389aedd8872e1665b70d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad4094d68389aedd8872e1665b70d83">&#9670;&nbsp;</a></span>applyCare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ShadyCare::applyCare </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies the care routine for shady conditions. Overrides the pure virtual function in <a class="el" href="classCareStrategy.html">CareStrategy</a> to define the specific care logic, which involves printing a message to the console. </p>
+<p>Applies the care routine for shady conditions.</p>
+<p>This method implements the specific care logic for plants that prefer shade, which involves printing a descriptive message to the console. </p>
+
+<p>Implements <a class="el" href="classCareStrategy.html">CareStrategy</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="ShadyCare_8h_source.html">ShadyCare.h</a></li>
-<li>ShadyCare.cpp</li>
+<li><a class="el" href="ShadyCare_8cpp.html">ShadyCare.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

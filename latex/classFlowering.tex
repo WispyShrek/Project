@@ -11,8 +11,7 @@ A class representing the flowering state of a plant, derived from the \mbox{\hyp
 
 
 
-Inheritance diagram for Flowering\+:
-\nopagebreak
+Inheritance diagram for Flowering\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Flowering\+:
 \end{figure}
 
 
-Collaboration diagram for Flowering\+:
-\nopagebreak
+Collaboration diagram for Flowering\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,13 +30,14 @@ Collaboration diagram for Flowering\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context)
+void \mbox{\hyperlink{classFlowering_ae607a8ccf10bb79eb11e01526509ef66}{next}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$context) override
 \begin{DoxyCompactList}\small\item\em Transitions the plant to the next state. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classFlowering_afafd84a080bde733e978d442c2866fc5}\label{classFlowering_afafd84a080bde733e978d442c2866fc5}} 
-void \mbox{\hyperlink{classFlowering_afafd84a080bde733e978d442c2866fc5}{print}} ()
+\mbox{\Hypertarget{classFlowering_ac82f426b18e763ddc27c0f3b03845548}\label{classFlowering_ac82f426b18e763ddc27c0f3b03845548}} 
+void \mbox{\hyperlink{classFlowering_ac82f426b18e763ddc27c0f3b03845548}{print}} (std\+::string \&sprite) override
 \begin{DoxyCompactList}\small\item\em Prints the details of the flowering state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPlantState}{Plant\+State}} $\ast$ \mbox{\hyperlink{classFlowering_a41297f14a055aa2b19505cbe1f156de8}{clone}} () const override
 \begin{DoxyCompactList}\small\item\em Creates a clone of the \mbox{\hyperlink{classFlowering}{Flowering}} state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -64,11 +63,11 @@ A pointer to the newly created \mbox{\hyperlink{classFlowering}{Flowering}} stat
 
 Implements \mbox{\hyperlink{classPlantState}{Plant\+State}}.
 
-\mbox{\Hypertarget{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}\label{classFlowering_a951785b8e4aa8565e4f43b0c5e4f26f7}} 
+\mbox{\Hypertarget{classFlowering_ae607a8ccf10bb79eb11e01526509ef66}\label{classFlowering_ae607a8ccf10bb79eb11e01526509ef66}} 
 \index{Flowering@{Flowering}!next@{next}}
 \index{next@{next}!Flowering@{Flowering}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
-{\footnotesize\ttfamily void Flowering\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Flowering\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

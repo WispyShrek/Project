@@ -68,6 +68,11 @@ $(function() {
 <div class="title">Giftwrapping Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a giftwrapping decoration for a plant. Inherits from <a class="el" href="classCustomisation.html" title="Abstract base class for plant customisations (decorators). Inherits from Plant and wraps another Plan...">Customisation</a> and adds giftwrapping-specific behavior.  
+ <a href="classGiftwrapping.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Giftwrapping_8h_source.html">Giftwrapping.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Giftwrapping:</div>
 <div class="dyncontent">
@@ -94,18 +99,27 @@ Collaboration diagram for Giftwrapping:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3484b648ba9480a48e998de6c8768419"><td class="memItemLeft" align="right" valign="top"><a id="a3484b648ba9480a48e998de6c8768419"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAddedWrapping</b> (bool addedWrapping)</td></tr>
+<tr class="memitem:a3484b648ba9480a48e998de6c8768419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#a3484b648ba9480a48e998de6c8768419">setAddedWrapping</a> (bool addedWrapping)</td></tr>
+<tr class="memdesc:a3484b648ba9480a48e998de6c8768419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the giftwrapping flag.  <a href="classGiftwrapping.html#a3484b648ba9480a48e998de6c8768419">More...</a><br /></td></tr>
 <tr class="separator:a3484b648ba9480a48e998de6c8768419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b5ea9a7ec0317dc6b2733d38e7ddfb"><td class="memItemLeft" align="right" valign="top"><a id="a34b5ea9a7ec0317dc6b2733d38e7ddfb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getAddedWrapping</b> () const</td></tr>
+<tr class="memitem:a34b5ea9a7ec0317dc6b2733d38e7ddfb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#a34b5ea9a7ec0317dc6b2733d38e7ddfb">getAddedWrapping</a> () const</td></tr>
+<tr class="memdesc:a34b5ea9a7ec0317dc6b2733d38e7ddfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the giftwrapping flag.  <a href="classGiftwrapping.html#a34b5ea9a7ec0317dc6b2733d38e7ddfb">More...</a><br /></td></tr>
 <tr class="separator:a34b5ea9a7ec0317dc6b2733d38e7ddfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae279f2644e8e64f27028c30e2ab87074"><td class="memItemLeft" align="right" valign="top"><a id="ae279f2644e8e64f27028c30e2ab87074"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>increasePrice</b> ()</td></tr>
-<tr class="separator:ae279f2644e8e64f27028c30e2ab87074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c03dff69a2cdfc3e2c034df170cf102"><td class="memItemLeft" align="right" valign="top"><a id="a6c03dff69a2cdfc3e2c034df170cf102"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addCust</b> (<a class="el" href="classCustomer.html">Customer</a> *customer)</td></tr>
-<tr class="separator:a6c03dff69a2cdfc3e2c034df170cf102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b82854e92c275f56a4d0c4480fdc9e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#a4b82854e92c275f56a4d0c4480fdc9e0">increasePrice</a> () override</td></tr>
+<tr class="memdesc:a4b82854e92c275f56a4d0c4480fdc9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the price of the plant by the cost of giftwrapping.  <a href="classGiftwrapping.html#a4b82854e92c275f56a4d0c4480fdc9e0">More...</a><br /></td></tr>
+<tr class="separator:a4b82854e92c275f56a4d0c4480fdc9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eaf6dfcef9bd3fd074d94ba6cde359f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#a5eaf6dfcef9bd3fd074d94ba6cde359f">addCust</a> (<a class="el" href="classCustomer.html">Customer</a> *customer) override</td></tr>
+<tr class="memdesc:a5eaf6dfcef9bd3fd074d94ba6cde359f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates a customer with the decorated plant.  <a href="classGiftwrapping.html#a5eaf6dfcef9bd3fd074d94ba6cde359f">More...</a><br /></td></tr>
+<tr class="separator:a5eaf6dfcef9bd3fd074d94ba6cde359f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e9c57bc56da60ef173ea2c87399ccf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#ac3e9c57bc56da60ef173ea2c87399ccf">print</a> () override</td></tr>
+<tr class="memdesc:ac3e9c57bc56da60ef173ea2c87399ccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the plant details along with giftwrapping info.  <a href="classGiftwrapping.html#ac3e9c57bc56da60ef173ea2c87399ccf">More...</a><br /></td></tr>
+<tr class="separator:ac3e9c57bc56da60ef173ea2c87399ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a030aad363db06f58b63189f41d3de830"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#a030aad363db06f58b63189f41d3de830">getName</a> () override</td></tr>
+<tr class="memdesc:a030aad363db06f58b63189f41d3de830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the decoration.  <a href="classGiftwrapping.html#a030aad363db06f58b63189f41d3de830">More...</a><br /></td></tr>
+<tr class="separator:a030aad363db06f58b63189f41d3de830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55ef2a776cf909700fc555e379483ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGiftwrapping.html#af55ef2a776cf909700fc555e379483ec">clone</a> () override</td></tr>
+<tr class="memdesc:af55ef2a776cf909700fc555e379483ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of the <a class="el" href="classGiftwrapping.html" title="Represents a giftwrapping decoration for a plant. Inherits from Customisation and adds giftwrapping-s...">Giftwrapping</a> object.  <a href="classGiftwrapping.html#af55ef2a776cf909700fc555e379483ec">More...</a><br /></td></tr>
+<tr class="separator:af55ef2a776cf909700fc555e379483ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classPlant"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPlant')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPlant.html">Plant</a></td></tr>
 <tr class="memitem:aeebba67fbf33e3087e9035f41289a83a inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="aeebba67fbf33e3087e9035f41289a83a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#aeebba67fbf33e3087e9035f41289a83a">Plant</a> ()</td></tr>
@@ -115,7 +129,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addCust</b> (<a class
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab0effb2b143e6da7b65ebd13a3b1fc29">~Plant</a> ()</td></tr>
 <tr class="memdesc:ab0effb2b143e6da7b65ebd13a3b1fc29 inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> class. <br /></td></tr>
 <tr class="separator:ab0effb2b143e6da7b65ebd13a3b1fc29 inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cf6312af169a7b0bcbf7ddaf8a1d54d inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">const bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">operator==</a> (const <a class="el" href="classPlant.html">Plant</a> &amp;other)</td></tr>
+<tr class="memitem:a2cf6312af169a7b0bcbf7ddaf8a1d54d inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">operator==</a> (const <a class="el" href="classPlant.html">Plant</a> &amp;other)</td></tr>
 <tr class="memdesc:a2cf6312af169a7b0bcbf7ddaf8a1d54d inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator to compare two <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> objects.  <a href="classPlant.html#a2cf6312af169a7b0bcbf7ddaf8a1d54d">More...</a><br /></td></tr>
 <tr class="separator:a2cf6312af169a7b0bcbf7ddaf8a1d54d inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab38bd02b47ca4634a2ad4dc2f6d30467 inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab38bd02b47ca4634a2ad4dc2f6d30467">increasePrice</a> (double amount)</td></tr>
@@ -130,9 +144,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:af70cc9d659b85ca4ff15df8a1f11e49f inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="af70cc9d659b85ca4ff15df8a1f11e49f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getStrategy</b> ()</td></tr>
 <tr class="separator:af70cc9d659b85ca4ff15df8a1f11e49f inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5f3adb6728f8969a01f8c312ef5fe7f inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="ad5f3adb6728f8969a01f8c312ef5fe7f"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()=0</td></tr>
-<tr class="separator:ad5f3adb6728f8969a01f8c312ef5fe7f inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad16db157ef105c3826f2d9aac93caaf3 inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ad16db157ef105c3826f2d9aac93caaf3">getDescription</a> ()</td></tr>
+<tr class="memdesc:ad16db157ef105c3826f2d9aac93caaf3 inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a description of the plant.  <a href="classPlant.html#ad16db157ef105c3826f2d9aac93caaf3">More...</a><br /></td></tr>
+<tr class="separator:ad16db157ef105c3826f2d9aac93caaf3 inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac98497cb78d9929bf63f02a1ff6ab8ff inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ac98497cb78d9929bf63f02a1ff6ab8ff">setStrategy</a> (<a class="el" href="classCareStrategy.html">CareStrategy</a> *strategy)</td></tr>
 <tr class="memdesc:ac98497cb78d9929bf63f02a1ff6ab8ff inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the care strategy for the plant.  <a href="classPlant.html#ac98497cb78d9929bf63f02a1ff6ab8ff">More...</a><br /></td></tr>
 <tr class="separator:ac98497cb78d9929bf63f02a1ff6ab8ff inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,9 +156,9 @@ virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getNam
 <tr class="memitem:a82378d30996cd854c01d0cfc13c461ba inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a82378d30996cd854c01d0cfc13c461ba">getScent</a> ()</td></tr>
 <tr class="memdesc:a82378d30996cd854c01d0cfc13c461ba inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the scent of the plant.  <a href="classPlant.html#a82378d30996cd854c01d0cfc13c461ba">More...</a><br /></td></tr>
 <tr class="separator:a82378d30996cd854c01d0cfc13c461ba inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20474317abb9743a6ce0039b56f5eda inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#af20474317abb9743a6ce0039b56f5eda">getPrice</a> ()</td></tr>
-<tr class="memdesc:af20474317abb9743a6ce0039b56f5eda inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the price of the plant.  <a href="classPlant.html#af20474317abb9743a6ce0039b56f5eda">More...</a><br /></td></tr>
-<tr class="separator:af20474317abb9743a6ce0039b56f5eda inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46a0b4c2ba70d1ad0fe04adb4d86c99 inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#af46a0b4c2ba70d1ad0fe04adb4d86c99">getPrice</a> ()</td></tr>
+<tr class="memdesc:af46a0b4c2ba70d1ad0fe04adb4d86c99 inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the price of the plant.  <a href="classPlant.html#af46a0b4c2ba70d1ad0fe04adb4d86c99">More...</a><br /></td></tr>
+<tr class="separator:af46a0b4c2ba70d1ad0fe04adb4d86c99 inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4343b6b6b899ba3ec35904c60236bf7b inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="a4343b6b6b899ba3ec35904c60236bf7b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a4343b6b6b899ba3ec35904c60236bf7b">nextState</a> ()</td></tr>
 <tr class="memdesc:a4343b6b6b899ba3ec35904c60236bf7b inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state. <br /></td></tr>
@@ -160,10 +174,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ac98a2280b1909e9b110411e228be031e">applyCare</a> ()</td></tr>
 <tr class="memdesc:ac98a2280b1909e9b110411e228be031e inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the care strategy to the plant. <br /></td></tr>
 <tr class="separator:ac98a2280b1909e9b110411e228be031e inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15449e765dc467a110d3d85729ac19db inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="a15449e765dc467a110d3d85729ac19db"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a15449e765dc467a110d3d85729ac19db">print</a> ()</td></tr>
-<tr class="memdesc:a15449e765dc467a110d3d85729ac19db inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the plant. <br /></td></tr>
-<tr class="separator:a15449e765dc467a110d3d85729ac19db inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab05e1add03b01c51b4625bbe7a536733 inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#ab05e1add03b01c51b4625bbe7a536733">addCust</a> (<a class="el" href="classCustomer.html">Customer</a> *customer)</td></tr>
 <tr class="memdesc:ab05e1add03b01c51b4625bbe7a536733 inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates a customer with the plant.  <a href="classPlant.html#ab05e1add03b01c51b4625bbe7a536733">More...</a><br /></td></tr>
 <tr class="separator:ab05e1add03b01c51b4625bbe7a536733 inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,15 +183,13 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a20c887d3423927cc97633fdde732990c inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a20c887d3423927cc97633fdde732990c">setPlantMemento</a> (<a class="el" href="classPlantMemento.html">PlantMemento</a> *memento)</td></tr>
 <tr class="memdesc:a20c887d3423927cc97633fdde732990c inherit pub_methods_classPlant"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the plant's state from a memento.  <a href="classPlant.html#a20c887d3423927cc97633fdde732990c">More...</a><br /></td></tr>
 <tr class="separator:a20c887d3423927cc97633fdde732990c inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aad1743d1921023773c939e8713c84a inherit pub_methods_classPlant"><td class="memItemLeft" align="right" valign="top"><a id="a1aad1743d1921023773c939e8713c84a"></a>
-virtual <a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> ()=0</td></tr>
-<tr class="separator:a1aad1743d1921023773c939e8713c84a inherit pub_methods_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classCustomisation"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classCustomisation')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classCustomisation.html">Customisation</a></td></tr>
 <tr class="memitem:a3f346f139a00d9285419ca43a9eb2307 inherit pub_attribs_classCustomisation"><td class="memItemLeft" align="right" valign="top"><a id="a3f346f139a00d9285419ca43a9eb2307"></a>
-<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>plant</b></td></tr>
+<a class="el" href="classPlant.html">Plant</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCustomisation.html#a3f346f139a00d9285419ca43a9eb2307">plant</a></td></tr>
+<tr class="memdesc:a3f346f139a00d9285419ca43a9eb2307 inherit pub_attribs_classCustomisation"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the underlying <a class="el" href="classPlant.html" title="An abstract base class representing a plant in the nursery.">Plant</a> being decorated. <br /></td></tr>
 <tr class="separator:a3f346f139a00d9285419ca43a9eb2307 inherit pub_attribs_classCustomisation"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classPlant"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classPlant')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classPlant.html">Plant</a></td></tr>
 <tr class="memitem:a9e5172542210b48438c4498fdd926b31 inherit pro_methods_classPlant"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlant.html#a9e5172542210b48438c4498fdd926b31">Plant</a> (<a class="el" href="classPlant.html">Plant</a> &amp;toCopy)</td></tr>
@@ -210,6 +218,229 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>length</b></td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>price</b></td></tr>
 <tr class="separator:ab761ff9eeb8f9c68fbe8d22ec2fbb09e inherit pro_attribs_classPlant"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a giftwrapping decoration for a plant. Inherits from <a class="el" href="classCustomisation.html" title="Abstract base class for plant customisations (decorators). Inherits from Plant and wraps another Plan...">Customisation</a> and adds giftwrapping-specific behavior. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5eaf6dfcef9bd3fd074d94ba6cde359f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eaf6dfcef9bd3fd074d94ba6cde359f">&#9670;&nbsp;</a></span>addCust()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Giftwrapping::addCust </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCustomer.html">Customer</a> *&#160;</td>
+          <td class="paramname"><em>customer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Associates a customer with the decorated plant. </p>
+<p>Associates a customer with the decorated plant. Delegates the customer assignment to the underlying plant.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">customer</td><td>Pointer to the <a class="el" href="classCustomer.html" title="Represents a customer interacting with the sales floor and managing a cart of plants....">Customer</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCustomisation.html#a2757ac43f484ee68a173406674c5cbf0">Customisation</a>.</p>
+
+</div>
+</div>
+<a id="af55ef2a776cf909700fc555e379483ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af55ef2a776cf909700fc555e379483ec">&#9670;&nbsp;</a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlant.html">Plant</a>* Giftwrapping::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a copy of the <a class="el" href="classGiftwrapping.html" title="Represents a giftwrapping decoration for a plant. Inherits from Customisation and adds giftwrapping-s...">Giftwrapping</a> object. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new <a class="el" href="classGiftwrapping.html" title="Represents a giftwrapping decoration for a plant. Inherits from Customisation and adds giftwrapping-s...">Giftwrapping</a> object. </dd></dl>
+
+<p>Implements <a class="el" href="classPlant.html">Plant</a>.</p>
+
+</div>
+</div>
+<a id="a34b5ea9a7ec0317dc6b2733d38e7ddfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b5ea9a7ec0317dc6b2733d38e7ddfb">&#9670;&nbsp;</a></span>getAddedWrapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Giftwrapping::getAddedWrapping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the giftwrapping flag. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if giftwrapping was added, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a030aad363db06f58b63189f41d3de830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030aad363db06f58b63189f41d3de830">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Giftwrapping::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of the decoration. </p>
+<dl class="section return"><dt>Returns</dt><dd>String "Giftwrapping". </dd></dl>
+
+<p>Implements <a class="el" href="classPlant.html">Plant</a>.</p>
+
+</div>
+</div>
+<a id="a4b82854e92c275f56a4d0c4480fdc9e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b82854e92c275f56a4d0c4480fdc9e0">&#9670;&nbsp;</a></span>increasePrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Giftwrapping::increasePrice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Increases the price of the plant by the cost of giftwrapping. </p>
+<p>Increases the price of the plant by 100 units. This method applies the cost of the giftwrapping decoration. </p>
+
+<p>Implements <a class="el" href="classCustomisation.html#a4b040eb98fdf6434e33cc011d9327e92">Customisation</a>.</p>
+
+</div>
+</div>
+<a id="ac3e9c57bc56da60ef173ea2c87399ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e9c57bc56da60ef173ea2c87399ccf">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Giftwrapping::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints the plant details along with giftwrapping info. </p>
+<p>Prints the details of the plant with giftwrapping decoration.</p>
+<dl class="section return"><dt>Returns</dt><dd>A string with the plant details and giftwrapping information. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classPlant.html#ac88c7018f40ea6af5e72418a88d36dfb">Plant</a>.</p>
+
+</div>
+</div>
+<a id="a3484b648ba9480a48e998de6c8768419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3484b648ba9480a48e998de6c8768419">&#9670;&nbsp;</a></span>setAddedWrapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Giftwrapping::setAddedWrapping </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>addedWrapping</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the giftwrapping flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addedWrapping</td><td>Boolean indicating if giftwrapping was added. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Giftwrapping_8h_source.html">Giftwrapping.h</a></li>
 <li>Giftwrapping.cpp</li>

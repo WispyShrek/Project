@@ -68,36 +68,65 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GREENHOUSE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GREENHOUSE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Collection.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;PlantIterator.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;GreenhouseController.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Plant.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classgreenHouse.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgreenHouse.html">greenHouse</a> : <span class="keyword">public</span> <a class="code" href="classCollection.html">Collection</a>&lt;Plant*&gt; {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;std::vector&lt;Plant *&gt;&gt; plants = std::vector&lt;std::vector&lt;Plant *&gt;&gt;(3, std::vector&lt;Plant *&gt;(3, <span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> plantCount = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="classgreenHouse.html">greenHouse</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">powerSystem</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classIterator.html">Iterator&lt;Plant*&gt;</a> *<a class="code" href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">CreateIterator</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgreenHouse.html#abf6f957e47300e02428a82a43af86b5b">addItem</a>(<a class="code" href="classPlant.html">Plant</a>* item) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgreenHouse.html#abf6f957e47300e02428a82a43af86b5b">addItem</a>(<a class="code" href="classPlant.html">Plant</a>* item, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgreenHouse.html#aa6d562484b6eef85b03fee594f77f022">removeItem</a>(<a class="code" href="classPlant.html">Plant</a>* item);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;PlantIterator.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classgreenHouse.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgreenHouse.html">greenHouse</a> : <span class="keyword">public</span> <a class="code" href="classCollection.html">Collection</a>&lt;Plant *&gt; {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::vector&lt;std::vector&lt;Plant *&gt;&gt; plants =</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      std::vector&lt;std::vector&lt;Plant *&gt;&gt;(3, std::vector&lt;Plant *&gt;(3, <span class="keyword">nullptr</span>));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classCareStrategy.html">CareStrategy</a> *carestrategy;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">int</span> plantCount = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">bool</span> wet = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">bool</span> bright = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classgreenHouse.html#a1f540a767e0300fcfb5b605a76f3f792">   31</a></span>&#160;  <a class="code" href="classgreenHouse.html#a1f540a767e0300fcfb5b605a76f3f792">greenHouse</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  ~<a class="code" href="classgreenHouse.html">greenHouse</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">   39</a></span>&#160;  <a class="code" href="classGreenhouseController.html">GreenhouseController</a> *<a class="code" href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">powerSystem</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">   46</a></span>&#160;  <a class="code" href="classIterator.html">Iterator&lt;Plant *&gt;</a> *<a class="code" href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">CreateIterator</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classgreenHouse.html#ae2237458cb1438e6e523974aed8413f4">   55</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgreenHouse.html#ae2237458cb1438e6e523974aed8413f4">tryAddItem</a>(<a class="code" href="classPlant.html">Plant</a> *item) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">   65</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">addItem</a>(<a class="code" href="classPlant.html">Plant</a> *item, <span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classgreenHouse.html#a224abba3d21efc3447a0eb6af6d409fe">   73</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classgreenHouse.html#a224abba3d21efc3447a0eb6af6d409fe">removeItem</a>(<a class="code" href="classPlant.html">Plant</a> *item) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">/*@brief returns a description of the greenhouse</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">   * @return A string description of the greenshouse and its contents</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  std::string getDescription();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">/*@brief applies singular time unit to the greenhouse</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">   * Plants may grow or die in this time unit</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> tick();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">/*@brief removes one dying plant from greenhouse</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">   * @return A plant pointer of a dying plant or null</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classPlant.html">Plant</a> *removeDying();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">/*@brief removes one mature plant from greenhouse</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">   * @return A plant pointer of a mature plant or null</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="classPlant.html">Plant</a> *removeMature();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  std::string print();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassCareStrategy_html"><div class="ttname"><a href="classCareStrategy.html">CareStrategy</a></div><div class="ttdef"><b>Definition:</b> CareStrategy.h:5</div></div>
 <div class="ttc" id="aclassCollection_html"><div class="ttname"><a href="classCollection.html">Collection</a></div><div class="ttdef"><b>Definition:</b> Collection.h:6</div></div>
+<div class="ttc" id="aclassGreenhouseController_html"><div class="ttname"><a href="classGreenhouseController.html">GreenhouseController</a></div><div class="ttdoc">A controller class for managing greenhouse systems like sprinklers and lights.</div><div class="ttdef"><b>Definition:</b> GreenhouseController.h:14</div></div>
 <div class="ttc" id="aclassIterator_html"><div class="ttname"><a href="classIterator.html">Iterator&lt; Plant * &gt;</a></div></div>
-<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:23</div></div>
-<div class="ttc" id="aclassgreenHouse_html"><div class="ttname"><a href="classgreenHouse.html">greenHouse</a></div><div class="ttdoc">A class representing a greenhouse that holds a 3x3 grid of plants.</div><div class="ttdef"><b>Definition:</b> greenHouse.h:16</div></div>
-<div class="ttc" id="aclassgreenHouse_html_a1befc366481d88f8a9e3476015260b34"><div class="ttname"><a href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">greenHouse::CreateIterator</a></div><div class="ttdeci">Iterator&lt; Plant * &gt; * CreateIterator() override</div><div class="ttdoc">Creates an iterator over the 3x3 plant grid (row-major, skips nulls).</div><div class="ttdef"><b>Definition:</b> greenHouse.cpp:27</div></div>
-<div class="ttc" id="aclassgreenHouse_html_a38f4ae4393fe6ab8d51705ae2bac4bd0"><div class="ttname"><a href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">greenHouse::powerSystem</a></div><div class="ttdeci">void powerSystem()</div><div class="ttdoc">Powers the greenhouse system, toggling sprinklers and lights on or off.</div><div class="ttdef"><b>Definition:</b> greenHouse.cpp:18</div></div>
-<div class="ttc" id="aclassgreenHouse_html_aa6d562484b6eef85b03fee594f77f022"><div class="ttname"><a href="classgreenHouse.html#aa6d562484b6eef85b03fee594f77f022">greenHouse::removeItem</a></div><div class="ttdeci">void removeItem(Plant *item)</div><div class="ttdoc">Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plantCount ...</div><div class="ttdef"><b>Definition:</b> greenHouse.cpp:67</div></div>
-<div class="ttc" id="aclassgreenHouse_html_abf6f957e47300e02428a82a43af86b5b"><div class="ttname"><a href="classgreenHouse.html#abf6f957e47300e02428a82a43af86b5b">greenHouse::addItem</a></div><div class="ttdeci">void addItem(Plant *item) override</div><div class="ttdoc">Adds a plant to the first available slot in the 3x3 grid. If 7 plants already exist,...</div><div class="ttdef"><b>Definition:</b> greenHouse.cpp:31</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
+<div class="ttc" id="aclassgreenHouse_html"><div class="ttname"><a href="classgreenHouse.html">greenHouse</a></div><div class="ttdoc">A class representing a greenhouse that holds a 3x3 grid of plants.</div><div class="ttdef"><b>Definition:</b> greenHouse.h:17</div></div>
+<div class="ttc" id="aclassgreenHouse_html_a1befc366481d88f8a9e3476015260b34"><div class="ttname"><a href="classgreenHouse.html#a1befc366481d88f8a9e3476015260b34">greenHouse::CreateIterator</a></div><div class="ttdeci">Iterator&lt; Plant * &gt; * CreateIterator() override</div><div class="ttdoc">Creates an iterator over the 3x3 plant grid (row-major, skips nulls).</div></div>
+<div class="ttc" id="aclassgreenHouse_html_a1f540a767e0300fcfb5b605a76f3f792"><div class="ttname"><a href="classgreenHouse.html#a1f540a767e0300fcfb5b605a76f3f792">greenHouse::greenHouse</a></div><div class="ttdeci">greenHouse()</div><div class="ttdoc">Constructor for greenHouse class.</div></div>
+<div class="ttc" id="aclassgreenHouse_html_a224abba3d21efc3447a0eb6af6d409fe"><div class="ttname"><a href="classgreenHouse.html#a224abba3d21efc3447a0eb6af6d409fe">greenHouse::removeItem</a></div><div class="ttdeci">bool removeItem(Plant *item) override</div><div class="ttdoc">Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plantCount ...</div></div>
+<div class="ttc" id="aclassgreenHouse_html_a38f4ae4393fe6ab8d51705ae2bac4bd0"><div class="ttname"><a href="classgreenHouse.html#a38f4ae4393fe6ab8d51705ae2bac4bd0">greenHouse::powerSystem</a></div><div class="ttdeci">GreenhouseController * powerSystem()</div><div class="ttdoc">Initialises the greenhouse power and water systems for toggling sprinklers and lights on or off.</div></div>
+<div class="ttc" id="aclassgreenHouse_html_a7314ddd5757cf3058cb88eb99635f55c"><div class="ttname"><a href="classgreenHouse.html#a7314ddd5757cf3058cb88eb99635f55c">greenHouse::addItem</a></div><div class="ttdeci">bool addItem(Plant *item, int row, int col)</div><div class="ttdoc">Adds a plant at a specific grid position (if empty and within bounds). Enforces the same 7-plant capa...</div></div>
+<div class="ttc" id="aclassgreenHouse_html_ae2237458cb1438e6e523974aed8413f4"><div class="ttname"><a href="classgreenHouse.html#ae2237458cb1438e6e523974aed8413f4">greenHouse::tryAddItem</a></div><div class="ttdeci">bool tryAddItem(Plant *item) override</div><div class="ttdoc">Adds a plant to the first available slot in the 3x3 grid and returns true upon success....</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

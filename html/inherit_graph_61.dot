@@ -1,0 +1,18 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="PlantCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPlantCreator.html",tooltip="An abstract factory class for creating Plant objects."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="CactusCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCactusCreator.html",tooltip="A factory class for creating Cactus plant objects."];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="LavenderCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLavenderCreator.html",tooltip="A factory class for creating Lavender plant objects."];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="LilyCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLilyCreator.html",tooltip="A factory class for creating Lily plant objects."];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="RoseCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRoseCreator.html",tooltip="A factory class for creating Rose plant objects."];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="TulipCreator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTulipCreator.html",tooltip="A factory class for creating Tulip plant objects."];
+}

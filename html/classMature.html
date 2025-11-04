@@ -94,13 +94,13 @@ Collaboration diagram for Mature:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afb2df37f9300bb6188ddf2a8b9b5c9f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMature.html#afb2df37f9300bb6188ddf2a8b9b5c9f9">next</a> (<a class="el" href="classPlant.html">Plant</a> *context)</td></tr>
-<tr class="memdesc:afb2df37f9300bb6188ddf2a8b9b5c9f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state.  <a href="classMature.html#afb2df37f9300bb6188ddf2a8b9b5c9f9">More...</a><br /></td></tr>
-<tr class="separator:afb2df37f9300bb6188ddf2a8b9b5c9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae767a1942c1ac64c3091cd10115c99af"><td class="memItemLeft" align="right" valign="top"><a id="ae767a1942c1ac64c3091cd10115c99af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMature.html#ae767a1942c1ac64c3091cd10115c99af">print</a> ()</td></tr>
-<tr class="memdesc:ae767a1942c1ac64c3091cd10115c99af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the mature state. <br /></td></tr>
-<tr class="separator:ae767a1942c1ac64c3091cd10115c99af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5fd785f02a3e5edcb55228a2c7ba6c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMature.html#af5fd785f02a3e5edcb55228a2c7ba6c5">next</a> (<a class="el" href="classPlant.html">Plant</a> *context) override</td></tr>
+<tr class="memdesc:af5fd785f02a3e5edcb55228a2c7ba6c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transitions the plant to the next state.  <a href="classMature.html#af5fd785f02a3e5edcb55228a2c7ba6c5">More...</a><br /></td></tr>
+<tr class="separator:af5fd785f02a3e5edcb55228a2c7ba6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d68fbddd6c07e510ca25930048a5968"><td class="memItemLeft" align="right" valign="top"><a id="a0d68fbddd6c07e510ca25930048a5968"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMature.html#a0d68fbddd6c07e510ca25930048a5968">print</a> (std::string &amp;sprite) override</td></tr>
+<tr class="memdesc:a0d68fbddd6c07e510ca25930048a5968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of the mature state. <br /></td></tr>
+<tr class="separator:a0d68fbddd6c07e510ca25930048a5968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4bdddd89c17a5002962e1ece04892c31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlantState.html">PlantState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMature.html#a4bdddd89c17a5002962e1ece04892c31">clone</a> () const override</td></tr>
 <tr class="memdesc:a4bdddd89c17a5002962e1ece04892c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a clone of the <a class="el" href="classMature.html" title="A class representing the mature state of a plant, derived from the PlantState base class.">Mature</a> state.  <a href="classMature.html#a4bdddd89c17a5002962e1ece04892c31">More...</a><br /></td></tr>
 <tr class="separator:a4bdddd89c17a5002962e1ece04892c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,6 +109,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlantState.html#a30b77856181f7ac6ea6036bc5b8c6c9a">~PlantState</a> ()</td></tr>
 <tr class="memdesc:a30b77856181f7ac6ea6036bc5b8c6c9a inherit pub_methods_classPlantState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> class. <br /></td></tr>
 <tr class="separator:a30b77856181f7ac6ea6036bc5b8c6c9a inherit pub_methods_classPlantState"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_classPlantState"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classPlantState')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classPlantState.html">PlantState</a></td></tr>
+<tr class="memitem:a3f7b284451cd7142750be59239183e5e inherit pub_attribs_classPlantState"><td class="memItemLeft" align="right" valign="top"><a id="a3f7b284451cd7142750be59239183e5e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="separator:a3f7b284451cd7142750be59239183e5e inherit pub_attribs_classPlantState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing the mature state of a plant, derived from the <a class="el" href="classPlantState.html" title="An abstract base class representing the state of a plant.">PlantState</a> base class. </p>
@@ -144,8 +151,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
-<a id="afb2df37f9300bb6188ddf2a8b9b5c9f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb2df37f9300bb6188ddf2a8b9b5c9f9">&#9670;&nbsp;</a></span>next()</h2>
+<a id="af5fd785f02a3e5edcb55228a2c7ba6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5fd785f02a3e5edcb55228a2c7ba6c5">&#9670;&nbsp;</a></span>next()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +170,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

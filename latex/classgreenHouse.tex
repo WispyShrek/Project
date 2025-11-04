@@ -11,8 +11,7 @@ A class representing a greenhouse that holds a 3x3 grid of plants.
 
 
 
-Inheritance diagram for green\+House\+:
-\nopagebreak
+Inheritance diagram for green\+House\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for green\+House\+:
 \end{figure}
 
 
-Collaboration diagram for green\+House\+:
-\nopagebreak
+Collaboration diagram for green\+House\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,17 +30,43 @@ Collaboration diagram for green\+House\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}\label{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}} 
-void \mbox{\hyperlink{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}{power\+System}} ()
-\begin{DoxyCompactList}\small\item\em Powers the greenhouse system, toggling sprinklers and lights on or off. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgreenHouse_a1f540a767e0300fcfb5b605a76f3f792}\label{classgreenHouse_a1f540a767e0300fcfb5b605a76f3f792}} 
+\mbox{\hyperlink{classgreenHouse_a1f540a767e0300fcfb5b605a76f3f792}{green\+House}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classgreenHouse}{green\+House}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGreenhouseController}{Greenhouse\+Controller}} $\ast$ \mbox{\hyperlink{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}{power\+System}} ()
+\begin{DoxyCompactList}\small\item\em Initialises the greenhouse power and water systems for toggling sprinklers and lights on or off. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classIterator}{Iterator}}$<$ \mbox{\hyperlink{classPlant}{Plant}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{classgreenHouse_a1befc366481d88f8a9e3476015260b34}{Create\+Iterator}} () override
 \begin{DoxyCompactList}\small\item\em Creates an iterator over the 3x3 plant grid (row-\/major, skips nulls). \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classgreenHouse_abf6f957e47300e02428a82a43af86b5b}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item) override
-\begin{DoxyCompactList}\small\item\em Adds a plant to the first available slot in the 3x3 grid. If 7 plants already exist, the plant is not added and a message is printed. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classgreenHouse_a7314ddd5757cf3058cb88eb99635f55c}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item, int row, int col)
+bool \mbox{\hyperlink{classgreenHouse_ae2237458cb1438e6e523974aed8413f4}{try\+Add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item) override
+\begin{DoxyCompactList}\small\item\em Adds a plant to the first available slot in the 3x3 grid and returns true upon success. If 9 plants already exist, the plant is not added and returns false. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgreenHouse_a7314ddd5757cf3058cb88eb99635f55c}{add\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item, int row, int col)
 \begin{DoxyCompactList}\small\item\em Adds a plant at a specific grid position (if empty and within bounds). Enforces the same 7-\/plant capacity as \mbox{\hyperlink{classGarden}{Garden}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classgreenHouse_aa6d562484b6eef85b03fee594f77f022}{remove\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item)
-\begin{DoxyCompactList}\small\item\em Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plant\+Count on success. Does not delete the \mbox{\hyperlink{classPlant}{Plant}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classgreenHouse_a224abba3d21efc3447a0eb6af6d409fe}{remove\+Item}} (\mbox{\hyperlink{classPlant}{Plant}} $\ast$item) override
+\begin{DoxyCompactList}\small\item\em Removes the first matching plant pointer from the grid (sets cell to nullptr). Decrements plant\+Count on success. Does not delete the \mbox{\hyperlink{classPlant}{Plant}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classgreenHouse_ae9b82e9f1f06305f4afa2f2476c41541}\label{classgreenHouse_ae9b82e9f1f06305f4afa2f2476c41541}} 
+std\+::string {\bfseries get\+Description} ()
+\item 
+\mbox{\Hypertarget{classgreenHouse_a7722770da40ce0586cd6b15eca607d9f}\label{classgreenHouse_a7722770da40ce0586cd6b15eca607d9f}} 
+void {\bfseries tick} ()
+\item 
+\mbox{\Hypertarget{classgreenHouse_aba6334bb3a07f54cf815711b174d8bec}\label{classgreenHouse_aba6334bb3a07f54cf815711b174d8bec}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries remove\+Dying} ()
+\item 
+\mbox{\Hypertarget{classgreenHouse_a50b68c55e2583a1f7f25ba0bf018c5cc}\label{classgreenHouse_a50b68c55e2583a1f7f25ba0bf018c5cc}} 
+\mbox{\hyperlink{classPlant}{Plant}} $\ast$ {\bfseries remove\+Mature} ()
+\item 
+\mbox{\Hypertarget{classgreenHouse_a243b830198467d46abb93383c3b93c77}\label{classgreenHouse_a243b830198467d46abb93383c3b93c77}} 
+std\+::string {\bfseries print} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classgreenHouse_aec0cf7ea777bd5bc865ce50f4a1854e9}\label{classgreenHouse_aec0cf7ea777bd5bc865ce50f4a1854e9}} 
+bool {\bfseries wet} = false
+\item 
+\mbox{\Hypertarget{classgreenHouse_ad02134027941d5255d4785a920844cac}\label{classgreenHouse_ad02134027941d5255d4785a920844cac}} 
+bool {\bfseries bright} = false
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -51,29 +75,10 @@ A class representing a greenhouse that holds a 3x3 grid of plants.
 The \mbox{\hyperlink{classgreenHouse}{green\+House}} class inherits from the \mbox{\hyperlink{classCollection}{Collection$<$\+Plant$\ast$$>$}} class and implements methods to manage a 3x3 grid of \mbox{\hyperlink{classPlant}{Plant}} pointers, including adding, removing, and iterating over the plants in the greenhouse. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classgreenHouse_abf6f957e47300e02428a82a43af86b5b}\label{classgreenHouse_abf6f957e47300e02428a82a43af86b5b}} 
-\index{greenHouse@{greenHouse}!addItem@{addItem}}
-\index{addItem@{addItem}!greenHouse@{greenHouse}}
-\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void green\+House\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Adds a plant to the first available slot in the 3x3 grid. If 7 plants already exist, the plant is not added and a message is printed. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em item} & A pointer to a \mbox{\hyperlink{classPlant}{Plant}} object to be added to the greenhouse. \\
-\hline
-\end{DoxyParams}
-
-
-Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
-
 \mbox{\Hypertarget{classgreenHouse_a7314ddd5757cf3058cb88eb99635f55c}\label{classgreenHouse_a7314ddd5757cf3058cb88eb99635f55c}} 
 \index{greenHouse@{greenHouse}!addItem@{addItem}}
 \index{addItem@{addItem}!greenHouse@{greenHouse}}
-\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
 {\footnotesize\ttfamily void green\+House\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
 
 
@@ -89,6 +94,9 @@ Adds a plant at a specific grid position (if empty and within bounds). Enforces 
 \mbox{\texttt{ in}}  & {\em col} & Column index in \mbox{[}0..2\mbox{]} \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a boolean representing successful addition 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classgreenHouse_a1befc366481d88f8a9e3476015260b34}\label{classgreenHouse_a1befc366481d88f8a9e3476015260b34}} 
 \index{greenHouse@{greenHouse}!CreateIterator@{CreateIterator}}
 \index{CreateIterator@{CreateIterator}!greenHouse@{greenHouse}}
@@ -106,11 +114,24 @@ A pointer to a newly created \mbox{\hyperlink{classIterator}{Iterator$<$\+Plant$
 
 Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
 
-\mbox{\Hypertarget{classgreenHouse_aa6d562484b6eef85b03fee594f77f022}\label{classgreenHouse_aa6d562484b6eef85b03fee594f77f022}} 
+\mbox{\Hypertarget{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}\label{classgreenHouse_a38f4ae4393fe6ab8d51705ae2bac4bd0}} 
+\index{greenHouse@{greenHouse}!powerSystem@{powerSystem}}
+\index{powerSystem@{powerSystem}!greenHouse@{greenHouse}}
+\doxysubsubsection{\texorpdfstring{powerSystem()}{powerSystem()}}
+{\footnotesize\ttfamily void green\+House\+::power\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the greenhouse power and water systems for toggling sprinklers and lights on or off. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classGreenhouseController}{Greenhouse\+Controller}} pointer for the controller that can be used on the greenhouse; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classgreenHouse_a224abba3d21efc3447a0eb6af6d409fe}\label{classgreenHouse_a224abba3d21efc3447a0eb6af6d409fe}} 
 \index{greenHouse@{greenHouse}!removeItem@{removeItem}}
 \index{removeItem@{removeItem}!greenHouse@{greenHouse}}
 \doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
-{\footnotesize\ttfamily void green\+House\+::remove\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool green\+House\+::remove\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -125,9 +146,30 @@ Removes the first matching plant pointer from the grid (sets cell to nullptr). D
 
 Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
 
+\mbox{\Hypertarget{classgreenHouse_ae2237458cb1438e6e523974aed8413f4}\label{classgreenHouse_ae2237458cb1438e6e523974aed8413f4}} 
+\index{greenHouse@{greenHouse}!tryAddItem@{tryAddItem}}
+\index{tryAddItem@{tryAddItem}!greenHouse@{greenHouse}}
+\doxysubsubsection{\texorpdfstring{tryAddItem()}{tryAddItem()}}
+{\footnotesize\ttfamily bool green\+House\+::try\+Add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlant}{Plant}} $\ast$}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+
+Adds a plant to the first available slot in the 3x3 grid and returns true upon success. If 9 plants already exist, the plant is not added and returns false. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em item} & A pointer to a \mbox{\hyperlink{classPlant}{Plant}} object to be added to the greenhouse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a boolean representing successful addition. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classCollection}{Collection$<$ Plant $\ast$ $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-green\+House.\+h\item 
-green\+House.\+cpp\end{DoxyCompactItemize}
+green\+House.\+h\end{DoxyCompactItemize}

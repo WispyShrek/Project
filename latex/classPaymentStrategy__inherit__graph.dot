@@ -1,0 +1,13 @@
+digraph "PaymentStrategy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="PaymentStrategy",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="An abstract base class for different payment strategies."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Card",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCard.html",tooltip="A concrete payment strategy for card payments."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Cash",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCash.html",tooltip="A concrete payment strategy for cash payments."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="EFT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEFT.html",tooltip="A concrete payment strategy for Electronic Funds Transfer (EFT)."];
+}

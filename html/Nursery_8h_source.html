@@ -67,43 +67,124 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NURSERY_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NURSERY_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Garden.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Staff.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;greenHouse.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classNursery.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNursery.html">Nursery</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keyword">static</span> <a class="code" href="classNursery.html">Nursery</a> *uniqueInstance;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  vector&lt;Garden*&gt; gardens;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  vector&lt;greenHouse*&gt; greenHouses;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  vector&lt;Staff*&gt; staff;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">static</span> <a class="code" href="classNursery.html">Nursery</a>&amp; instance();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> addGarden(<a class="code" href="classGarden.html">Garden</a>* newgarden); </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> addStaff(<a class="code" href="classStaff.html">Staff</a>* newStaff);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> removeStaff(<a class="code" href="classStaff.html">Staff</a>* staffToRemove);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> removeGarden(<a class="code" href="classGarden.html">Garden</a>* gardenToRemove); </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> customerSpawner();</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Arrangement.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Card_8h.html">Card.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Cash_8h.html">Cash.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Customer.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;DecorativePot.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;EFT.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;EasyCust.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;FussyCust.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Garden.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Giftwrapping.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;Lavender.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Lily.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;Rose.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;SalesFloor.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;Staff.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;Tulip.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;greenHouse.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">//helps for debugging</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">size_t</span> getGardenCount()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> gardens.size(); } </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">size_t</span> getStaffCount()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> staff.size(); }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="classNursery.html">Nursery</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  ~<a class="code" href="classNursery.html">Nursery</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="comment">// Nursery(Nursery &amp;in);</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classNursery.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNursery.html">Nursery</a> {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> <a class="code" href="classNursery.html">Nursery</a> *uniqueInstance;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  std::vector&lt;Garden *&gt; gardens;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::vector&lt;Plant *&gt; plantInventory;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">double</span> balance = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  std::vector&lt;greenHouse *&gt; greenHouses;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::vector&lt;Staff *&gt; staff;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  std::vector&lt;Customer *&gt; customers;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  std::vector&lt;std::string&gt; purchaseMessages;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">static</span> <a class="code" href="classNursery.html">Nursery</a> &amp;<a class="code" href="classNursery.html#a0ff347a8c688e79c24f1f531184d465f">instance</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">/* @brief Returns a reference to the nursery&#39;s stafflist</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">   * @return A reference to a vector of staff pointers</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">const</span> std::vector&lt;Staff *&gt; &amp;getStaff();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">/* @brief Returns a reference to the nursery&#39;s garden list</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">   * @return A reference to a vector of garden pointers</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">const</span> std::vector&lt;Garden *&gt; &amp;getGardens();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">/* @brief Returns a reference to the nursery&#39;s greenhouse list</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">   * @return A reference to a vector of greenhouse pointers</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">const</span> std::vector&lt;greenHouse *&gt; &amp;getGreenhouses();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#a9629790e42830efecbe7bae9458a1df7">addGreenhouse</a>(<a class="code" href="classgreenHouse.html">greenHouse</a> *greenhouse);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> removeCust(<a class="code" href="classCustomer.html">Customer</a> *customer);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#a497295754b206afac621ad451cc2812c">addGarden</a>(<a class="code" href="classGarden.html">Garden</a> *newgarden);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">/* @brief adds an amount from the nursery&#39;s balance</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">   * @param (double) amount to add</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> addToBalance(<span class="keywordtype">double</span> toAdd);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">/* @brief removes an amount from the nursery&#39;s balance</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">   * If the amount exceeds the balance nothing happens</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">   * @param (double) amount to remove</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">   * @return boolean representing that the value could be removed;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">bool</span> removeFromBalance(<span class="keywordtype">double</span> toRemove);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">/* @brief returns the balance of the nursery</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">   * @return A double representing the balance of the nursery</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">double</span> getBalance();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  std::vector&lt;Customer *&gt; &amp;getCustomers() { <span class="keywordflow">return</span> this-&gt;customers; };</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#a68d9c669a6e0a894e0a39e27ce404d8c">addStaff</a>(<a class="code" href="classStaff.html">Staff</a> *newStaff);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#ad629d16c990b8a3dcc28ae08e505c12b">removeStaff</a>(<a class="code" href="classStaff.html">Staff</a> *staffToRemove);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#af16db1f305133874dd3097369695301c">addToPlantInventory</a>(<a class="code" href="classPlant.html">Plant</a> *inventory);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <a class="code" href="classPlant.html">Plant</a> *removeFromPlantInventory();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  std::string getLatestCustomerVoice() {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (customers.empty() || customers.back() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> customers.back()-&gt;voiceLine();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  std::vector&lt;Customer *&gt; getCusts() { <span class="keywordflow">return</span> customers; }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classNursery.html#ac2eec7542728ff8b0412700c6178c308">removeGarden</a>(<a class="code" href="classGarden.html">Garden</a> *gardenToRemove);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  std::string <a class="code" href="classNursery.html#a9828d5962ba3cd297c09908283767dae">customerSpawner</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classNursery.html#a191b06eb8bbbf9ad31e12dad7bf24b63">  162</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classNursery.html#a191b06eb8bbbf9ad31e12dad7bf24b63">getGardenCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> gardens.size(); }</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classNursery.html#a87c1eb879c900148114e3bab227b5ebb">  169</a></span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classNursery.html#a87c1eb879c900148114e3bab227b5ebb">getStaffCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> staff.size(); }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordtype">void</span> logPurchase(<span class="keyword">const</span> std::string &amp;message);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  std::vector&lt;std::string&gt; getPurchaseMessages();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordtype">void</span> clearPurchaseMessages();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <a class="code" href="classNursery.html#a1da8ca13373fe8f9b01a500e784ef063">Nursery</a>();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="classNursery.html#a14147229d47eb7fefc609f4105a97b40">~Nursery</a>();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">// Nursery(Nursery &amp;in);</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;};</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aCard_8h_html"><div class="ttname"><a href="Card_8h.html">Card.h</a></div><div class="ttdoc">Definition of the Card class for card payments.</div></div>
+<div class="ttc" id="aCash_8h_html"><div class="ttname"><a href="Cash_8h.html">Cash.h</a></div><div class="ttdoc">Definition of the Cash class for cash payments.</div></div>
+<div class="ttc" id="aclassCustomer_html"><div class="ttname"><a href="classCustomer.html">Customer</a></div><div class="ttdoc">Represents a customer interacting with the sales floor and managing a cart of plants....</div><div class="ttdef"><b>Definition:</b> Customer.h:17</div></div>
 <div class="ttc" id="aclassGarden_html"><div class="ttname"><a href="classGarden.html">Garden</a></div><div class="ttdef"><b>Definition:</b> Garden.h:10</div></div>
-<div class="ttc" id="aclassNursery_html"><div class="ttname"><a href="classNursery.html">Nursery</a></div><div class="ttdef"><b>Definition:</b> Nursery.h:9</div></div>
-<div class="ttc" id="aclassStaff_html"><div class="ttname"><a href="classStaff.html">Staff</a></div><div class="ttdoc">An abstract base class representing staff members in the nursery.</div><div class="ttdef"><b>Definition:</b> Staff.h:15</div></div>
+<div class="ttc" id="aclassNursery_html"><div class="ttname"><a href="classNursery.html">Nursery</a></div><div class="ttdoc">Manages the entire nursery, including gardens, greenhouses, and staff.</div><div class="ttdef"><b>Definition:</b> Nursery.h:34</div></div>
+<div class="ttc" id="aclassNursery_html_a0ff347a8c688e79c24f1f531184d465f"><div class="ttname"><a href="classNursery.html#a0ff347a8c688e79c24f1f531184d465f">Nursery::instance</a></div><div class="ttdeci">static Nursery &amp; instance()</div><div class="ttdoc">Provides access to the single instance of the Nursery.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:43</div></div>
+<div class="ttc" id="aclassNursery_html_a14147229d47eb7fefc609f4105a97b40"><div class="ttname"><a href="classNursery.html#a14147229d47eb7fefc609f4105a97b40">Nursery::~Nursery</a></div><div class="ttdeci">~Nursery()</div><div class="ttdoc">Protected destructor.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:27</div></div>
+<div class="ttc" id="aclassNursery_html_a191b06eb8bbbf9ad31e12dad7bf24b63"><div class="ttname"><a href="classNursery.html#a191b06eb8bbbf9ad31e12dad7bf24b63">Nursery::getGardenCount</a></div><div class="ttdeci">size_t getGardenCount() const</div><div class="ttdoc">Gets the current number of gardens in the nursery. This function is primarily for debugging purposes.</div><div class="ttdef"><b>Definition:</b> Nursery.h:162</div></div>
+<div class="ttc" id="aclassNursery_html_a1da8ca13373fe8f9b01a500e784ef063"><div class="ttname"><a href="classNursery.html#a1da8ca13373fe8f9b01a500e784ef063">Nursery::Nursery</a></div><div class="ttdeci">Nursery()</div><div class="ttdoc">Protected constructor to enforce the Singleton pattern.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:16</div></div>
+<div class="ttc" id="aclassNursery_html_a497295754b206afac621ad451cc2812c"><div class="ttname"><a href="classNursery.html#a497295754b206afac621ad451cc2812c">Nursery::addGarden</a></div><div class="ttdeci">void addGarden(Garden *newgarden)</div><div class="ttdoc">Adds a new garden to the nursery's collection.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:81</div></div>
+<div class="ttc" id="aclassNursery_html_a68d9c669a6e0a894e0a39e27ce404d8c"><div class="ttname"><a href="classNursery.html#a68d9c669a6e0a894e0a39e27ce404d8c">Nursery::addStaff</a></div><div class="ttdeci">void addStaff(Staff *newStaff)</div><div class="ttdoc">Adds a new staff member to the nursery.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:87</div></div>
+<div class="ttc" id="aclassNursery_html_a87c1eb879c900148114e3bab227b5ebb"><div class="ttname"><a href="classNursery.html#a87c1eb879c900148114e3bab227b5ebb">Nursery::getStaffCount</a></div><div class="ttdeci">size_t getStaffCount() const</div><div class="ttdoc">Gets the current number of staff members in the nursery. This function is primarily for debugging pur...</div><div class="ttdef"><b>Definition:</b> Nursery.h:169</div></div>
+<div class="ttc" id="aclassNursery_html_a9629790e42830efecbe7bae9458a1df7"><div class="ttname"><a href="classNursery.html#a9629790e42830efecbe7bae9458a1df7">Nursery::addGreenhouse</a></div><div class="ttdeci">void addGreenhouse(greenHouse *greenhouse)</div><div class="ttdoc">Adds a new greenhouse to the nursery.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:246</div></div>
+<div class="ttc" id="aclassNursery_html_a9828d5962ba3cd297c09908283767dae"><div class="ttname"><a href="classNursery.html#a9828d5962ba3cd297c09908283767dae">Nursery::customerSpawner</a></div><div class="ttdeci">std::string customerSpawner()</div><div class="ttdoc">Spawns a customer with randomized preferences and payment strategy.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:144</div></div>
+<div class="ttc" id="aclassNursery_html_ac2eec7542728ff8b0412700c6178c308"><div class="ttname"><a href="classNursery.html#ac2eec7542728ff8b0412700c6178c308">Nursery::removeGarden</a></div><div class="ttdeci">void removeGarden(Garden *gardenToRemove)</div><div class="ttdoc">Removes a garden from the nursery.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:93</div></div>
+<div class="ttc" id="aclassNursery_html_ad629d16c990b8a3dcc28ae08e505c12b"><div class="ttname"><a href="classNursery.html#ad629d16c990b8a3dcc28ae08e505c12b">Nursery::removeStaff</a></div><div class="ttdeci">void removeStaff(Staff *staffToRemove)</div><div class="ttdoc">Removes a staff member from the nursery.</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:127</div></div>
+<div class="ttc" id="aclassNursery_html_af16db1f305133874dd3097369695301c"><div class="ttname"><a href="classNursery.html#af16db1f305133874dd3097369695301c">Nursery::addToPlantInventory</a></div><div class="ttdeci">void addToPlantInventory(Plant *inventory)</div><div class="ttdoc">Adds a plant to the nursery inventory If the plant is mature, automatically transfers the item to the...</div><div class="ttdef"><b>Definition:</b> Nursery.cpp:101</div></div>
+<div class="ttc" id="aclassPlant_html"><div class="ttname"><a href="classPlant.html">Plant</a></div><div class="ttdoc">An abstract base class representing a plant in the nursery.</div><div class="ttdef"><b>Definition:</b> Plant.h:22</div></div>
+<div class="ttc" id="aclassStaff_html"><div class="ttname"><a href="classStaff.html">Staff</a></div><div class="ttdoc">An abstract base class representing staff members in the nursery.</div><div class="ttdef"><b>Definition:</b> Staff.h:17</div></div>
+<div class="ttc" id="aclassgreenHouse_html"><div class="ttname"><a href="classgreenHouse.html">greenHouse</a></div><div class="ttdoc">A class representing a greenhouse that holds a 3x3 grid of plants.</div><div class="ttdef"><b>Definition:</b> greenHouse.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
